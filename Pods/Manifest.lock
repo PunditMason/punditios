@@ -1,0 +1,88 @@
+PODS:
+  - AFNetworking (3.1.0):
+    - AFNetworking/NSURLSession (= 3.1.0)
+    - AFNetworking/Reachability (= 3.1.0)
+    - AFNetworking/Security (= 3.1.0)
+    - AFNetworking/Serialization (= 3.1.0)
+    - AFNetworking/UIKit (= 3.1.0)
+  - AFNetworking/NSURLSession (3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.1.0)
+  - AFNetworking/Security (3.1.0)
+  - AFNetworking/Serialization (3.1.0)
+  - AFNetworking/UIKit (3.1.0):
+    - AFNetworking/NSURLSession
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - CCBottomRefreshControl (0.5.2)
+  - Crashlytics (3.8.5):
+    - Fabric (~> 1.6.3)
+  - Fabric (1.6.12)
+  - FBSDKCoreKit (4.24.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.24.0):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.24.0):
+    - FBSDKCoreKit
+  - IQKeyboardManager (4.0.10)
+  - ISMessages (1.2)
+  - JSONModel (1.7.0)
+  - JTCalendar (2.1.9)
+  - NJKScrollFullScreen (0.2.6)
+  - SCFacebook (4.0):
+    - Bolts
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FBSDKShareKit
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
+  - STTwitter (0.2.6)
+  - SVProgressHUD (2.1.2)
+
+DEPENDENCIES:
+  - AFNetworking
+  - CCBottomRefreshControl
+  - Crashlytics
+  - Fabric
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
+  - IQKeyboardManager
+  - ISMessages
+  - JSONModel
+  - JTCalendar (~> 2.0)
+  - NJKScrollFullScreen
+  - SCFacebook
+  - SDWebImage
+  - STTwitter
+  - SVProgressHUD
+
+SPEC CHECKSUMS:
+  AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  CCBottomRefreshControl: 389780b4488321c91d18f66a6da5ef9606df6de5
+  Crashlytics: dfbae35ef22ca189240d230ad501feea4ee85d2d
+  Fabric: f050464eac45a2ce5a8e6e6a07e977c0df32fe28
+  FBSDKCoreKit: f8c9eb0dd34a9cd277c7b60da4b32226d142502d
+  FBSDKLoginKit: 1214c6d5a1c4995b694d8db8a9ba6910c6028acf
+  FBSDKShareKit: a2ed9d7781a4eda9ac20d7404305e795b10251ac
+  IQKeyboardManager: 593ee99b88381f4b9ccb22bd680f22606351bd41
+  ISMessages: d39098b48672813d69d30f44da06260b9920fed4
+  JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
+  JTCalendar: beb2f4c1b639bf6880f680b4858227acf83a049c
+  NJKScrollFullScreen: 13e370f935da7385b92779644b31df8d83a91447
+  SCFacebook: 4555a9ffd6b18bd0044d888dab735306cdaec513
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  STTwitter: 30ee2f79eff78c3d633a1edc869e97db9c9ead59
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
+
+PODFILE CHECKSUM: 2cf1f2832fd99d54b19ecb162cfb606d16c93fd8
+
+COCOAPODS: 1.2.1
