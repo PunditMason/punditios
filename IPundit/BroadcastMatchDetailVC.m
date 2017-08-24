@@ -32,9 +32,13 @@
     NSString * teams;
     NSString * channelId;
     NSString * streamName ;
+    NSString * allowScoreEdit ;
     
     NSMutableDictionary *followInfo ;
     NSMutableDictionary *dictData;
+    NSArray * myArray1;
+    NSArray * myArray2;
+    
     
     NSMutableArray *referenceArray;
 
@@ -45,19 +49,21 @@
     
     
     NSString * sharingString;
+    NSString * notificationString;
+
 
 }
 
 @end
 
 @implementation BroadcastMatchDetailVC
-@synthesize mTableView,matchlist,MatchLiveFeedArray,currentUser;
+@synthesize mTableView,matchlist,MatchLiveFeedArray,currentUser,pickerView1,pickerView2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     matchStatusCheck = YES ;
-    
+    self.mEditScoreButton.hidden = YES ;
     self.backgroundImageView.image = DM.backgroundImage ;
     
     if (IS_IPHONE4) {
@@ -88,7 +94,8 @@
     
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
     [center addObserver:self selector:@selector(appDidEnterForeground) name:@"appDidEnterForeground" object:nil];
-    
+    myArray1 = @[@"0",@"1", @"2", @"3",@"4", @"5", @"6",@"7", @"8", @"9",@"10", @"11", @"12",@"13", @"14", @"15",@"16", @"17", @"18",@"19", @"20",];
+    myArray2 = @[@"0",@"1", @"2", @"3",@"4", @"5", @"6",@"7", @"8", @"9",@"10", @"11", @"12",@"13", @"14", @"15",@"16", @"17", @"18",@"19", @"20",];
 }
 
 -(void)appDidEnterForeground{
@@ -99,6 +106,13 @@
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
+    [self.pickerView1 reloadAllComponents];
+    [self.pickerView2 reloadAllComponents];
+    
+    self.mOverlayView.hidden = YES;
+    self.mScoreUpdateView.frame = CGRectMake(self.mScoreUpdateView.frame.origin.x,self.view.frame.size.height,self.mScoreUpdateView.frame.size.width,self.mScoreUpdateView.frame.size.height);
+    
+    
     NSIndexPath *tableSelection = [self.mTableView indexPathForSelectedRow];
     [self.mTableView deselectRowAtIndexPath:tableSelection animated:NO];
     self.mTableView.separatorColor = [UIColor clearColor];
@@ -106,9 +120,34 @@
     
 }
 
+
+- (IBAction)ScoreUpdateTap:(id)sender {
+    self.mOverlayView.hidden = NO;
+    
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.mScoreUpdateView.frame = CGRectMake(self.mScoreUpdateView.frame.origin.x,self.view.frame.size.height-self.mScoreUpdateView.frame.size.height,self.mScoreUpdateView.frame.size.width,self.mScoreUpdateView.frame.size.height);
+        
+    }];
+
+}
+
+
+- (IBAction)OverlaybackgroundTap:(id)sender {
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        self.mOverlayView.hidden = YES;
+    });
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.mScoreUpdateView.frame = CGRectMake(self.mScoreUpdateView.frame.origin.x,self.view.frame.size.height,self.mScoreUpdateView.frame.size.width,self.mScoreUpdateView.frame.size.height);
+    }];
+    
+}
+
 -(void)teamBroadcasting {
     
-    
+    self.mEditScoreButton.hidden = YES ;
     self.teamAScoreLabel.hidden = YES ;
     self.teamBscoreLabel.hidden = YES ;
     self.timeCount1.hidden = YES ;
@@ -123,6 +162,8 @@
     self.matchTimeLabel.text = [NSString stringWithFormat:@"Rank - %@",[self.teamBroadCastDict objectForKey:@"rank"]];
     
     sharingString = [NSString stringWithFormat:@"I'm live on Pundit now discussing %@, come join me",[self.teamBroadCastDict objectForKey:@"contestantName"]];
+
+    
 }
 -(void)matchBroadcasting {
     
@@ -137,6 +178,8 @@
     
     self.teamANameLabel.text = [NSString stringWithFormat:@"%@",matchlist.team1_name];
     self.teamBNameLabel.text = [NSString stringWithFormat:@"%@",matchlist.team2_name];
+    self.mTeamANameLable.text = [NSString stringWithFormat:@"%@",matchlist.team1_name];
+    self.mTeamBNameLable.text = [NSString stringWithFormat:@"%@",matchlist.team2_name];
     if ([matchlist.matchStatus isEqualToString:@"Fixture"]) {
         self.teamAScoreLabel.text =[NSString stringWithFormat:@": -"];
         self.teamBscoreLabel.text =[NSString stringWithFormat:@": -"];
@@ -161,12 +204,16 @@
         //self.matchTimeLabel.text = [NSString stringWithFormat:@"%@:%@",matchlist.matchLengthMin,matchlist.matchLengthSec];
     }
     
+    [self GetMatchLiveFeed];
+    functionTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target: self
+                                                   selector: @selector(GetMatchLiveFeed) userInfo: nil repeats: YES];
+    
     if ([matchlist.matchStatus isEqualToString:@"Played"]) {
-        [self GetMatchLiveFeed];
+        //[self GetMatchLiveFeed];
     }else if ([matchlist.matchStatus isEqualToString:@"Playing"]){
-        [self GetMatchLiveFeed];
-        functionTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target: self
-                                                       selector: @selector(GetMatchLiveFeed) userInfo: nil repeats: YES];
+//        [self GetMatchLiveFeed];
+//        functionTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target: self
+//                                                       selector: @selector(GetMatchLiveFeed) userInfo: nil repeats: YES];
     }else if ([matchlist.matchStatus isEqualToString:@"Fixture"]){
         self.mTeamTalkLabel.hidden = NO ;
         self.mTeamTalkLabel.text = [NSString stringWithFormat:@"No feeds available"];
@@ -588,11 +635,13 @@
     [DM setupPublisher:connection];
     [DM.currentView attachStream:DM.publishStream];
     NSString *string   = [NSString stringWithFormat:@"%@",streamName];
-    [DM.publishStream publish:string type:R5RecordTypeLive];
+   // @Verma [DM.publishStream publish:string type:R5RecordTypeLive];
+      [DM.publishStream publish:string type:R5RecordTypeRecord];
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     timeSec = 0;
     timeMin = 0;
     [self StartTimer];
+    [self postNoification];
     [Helper hideLoaderSVProgressHUD];
 }
 
@@ -606,18 +655,21 @@
 
 -(void)broadCastStart {
     
-    //NSString *  apiString = [NSString stringWithFormat:@"%@app/mount",KServiceBaseURL];
-    NSString *  apiString = [NSString stringWithFormat:@"%@app/mountest",KServiceBaseURL];
+    NSString *  apiString = [NSString stringWithFormat:@"%@app/mount",KServiceBaseURL];
+    //NSString *  apiString = [NSString stringWithFormat:@"%@app/mountest",KServiceBaseURL];
     NSString *  name;
     NSString *  matchId ;
     if ([DM.channelType isEqualToString:@"match"]) {
         stationName = [NSString stringWithFormat:@"broadcast-%@-%@-%@",[[Helper mCurrentUser]objectForKey:@"id"],matchlist.match_id,[Helper timeStamp]];
         name = [NSString stringWithFormat:@"%@-%@",teams,[[Helper mGetProfileCurrentUser]objectForKey:@"first_name"]];
         matchId = [NSString stringWithFormat:@"%@",matchlist.match_id];
+        notificationString = [NSString stringWithFormat:@"%@ is now the live pundit on %@ , Listen now",[[Helper mGetProfileCurrentUser]objectForKey:@"first_name"],teams];
+        //Lets say “Guarav Verma is now the live pundit on Watford vs Brighton, Listen now”
     }else{
         stationName = [NSString stringWithFormat:@"broadcast-%@-%@-%@",[[Helper mCurrentUser]objectForKey:@"id"],[self.teamBroadCastDict objectForKey:@"contestantId"],[Helper timeStamp]];
         name = [NSString stringWithFormat:@"%@-%@",[self.teamBroadCastDict objectForKey:@"contestantName"],[[Helper mGetProfileCurrentUser]objectForKey:@"first_name"]];
         matchId = [NSString stringWithFormat:@"%@",[self.teamBroadCastDict objectForKey:@"contestantId"]];
+        notificationString = [NSString stringWithFormat:@"%@ is now the live pundit on %@ , Listen now",[[Helper mGetProfileCurrentUser]objectForKey:@"first_name"],[self.teamBroadCastDict objectForKey:@"contestantName"]];
     }
     
     NSMutableDictionary * parameters = [[NSMutableDictionary alloc]init];
@@ -635,6 +687,20 @@
         
         NSError *errorJson=nil;
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
+        allowScoreEdit = [NSString stringWithFormat:@"%@",[[responseDict objectForKey:@"data"]valueForKey:@"allow_score"]];
+    
+        
+        if ([DM.channelType isEqualToString:@"team"]) {
+            self.mEditScoreButton.hidden = YES ;
+        }else{
+            if ([allowScoreEdit isEqualToString:@"Yes"]) {
+                self.mEditScoreButton.hidden = NO ;
+            }else{
+                self.mEditScoreButton.hidden = YES ;
+            }
+        }
+        
+        NSLog(@"");
         channelId = [NSString stringWithFormat:@"%@",[responseDict objectForKey:@"channelid"]];
         streamName = [NSString stringWithFormat:@"%@",[[responseDict objectForKey:@"data"]objectForKey:@"streamName"]];
         
@@ -645,4 +711,183 @@
 }
 
 
+-(void)ScoreEditable{
+    
+}
+
+-(void)postNoification{
+    
+  //  NSString *string = [NSString stringWithFormat:@"%@ is Broadcasting",[[Helper mCurrentUser]objectForKey:@"first_name"]];
+    NSMutableDictionary * parameters = [[NSMutableDictionary alloc]init];
+    [parameters setValue:[[Helper mCurrentUser]objectForKey:@"id"] forKey:@"id"];
+    [parameters setValue:notificationString forKey:@"msg"];
+
+    [DM PostRequest:KServiceBasePushNotificationUrl parameter:parameters onCompletion:^(id  _Nullable dict) {
+        
+        NSError *errorJson=nil;
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
+        NSLog(@"%@",responseDict);
+    
+    } onError:^(NSError * _Nullable Error) {
+        NSLog(@"%@",Error);
+    }];
+
+    
+    
+}
+- (IBAction)ShareButtonPressed:(id)sender{
+     NSString *string = [NSString stringWithFormat:@"%@%@",KServiceBaseShareUrl,streamName];
+    [self shareText:sharingString andImage:nil andUrl:[NSURL URLWithString:string]];
+}
+
+- (void)shareText:(NSString *)text andImage:(UIImage *)image andUrl:(NSURL *)url
+{
+    NSMutableArray *sharingItems = [NSMutableArray new];
+    if (text) {
+        [sharingItems addObject:text];
+    }
+    if (image) {
+        [sharingItems addObject:image];
+    }
+    if (url) {
+        [sharingItems addObject:url];
+    }
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+    [self presentViewController:activityController animated:YES completion:nil];
+}
+
+- (IBAction)ChatButtonPressed:(id)sender{
+    UIAlertView *AltObj  = [[UIAlertView alloc] initWithTitle:@"Under Development" message:@"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    
+    [AltObj show];
+
+}
+
+///////////////
+
+
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
+    // Handle the selection
+    if (pickerView == pickerView1)
+    {
+       // self.mTeamAScoreLable = myArray1[row];
+    }
+    else if (pickerView == pickerView2)
+    {
+       // self.mTeamBScoreLable = myArray2[row];
+    }
+}
+
+// tell the picker how many rows are available for a given component
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
+    if (pickerView == pickerView1)
+    {
+        // First Picker
+        return myArray1.count;
+    }
+    else if (pickerView == pickerView2)
+    {
+        // Second Picker
+        return myArray2.count;
+    }
+    
+    // A third picker passed in somehow
+    return 0;
+}
+
+// tell the picker how many components it will have
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
+    if (pickerView == pickerView1)
+    {
+        // First Picker
+        return 1;
+    }
+    else if (pickerView == pickerView2)
+    {
+        // Second Picker
+        return 1;
+    }
+    
+    // A third picker passed in somehow
+    return 0;
+}
+
+// tell the picker the title for a given component
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
+    NSString *title;
+    
+    if (pickerView == pickerView1)
+    {
+        // First Picker
+        self.mTeamAScoreLable.text = myArray1[row];
+        title = myArray1[row];
+    }
+    else if (pickerView == pickerView2)
+    {
+        // Second Picker
+        self.mTeamBScoreLable.text = myArray2[row];
+        title = myArray1[row];
+
+    }
+    
+    return title;
+}
+
+// tell the picker the width of each row for a given component
+- (CGFloat)pickerView:(UIPickerView *)pickerView widthForComponent:(NSInteger)component {
+    if (pickerView == pickerView1)
+    {
+        // First Picker
+        return 160;
+    }
+    else if (pickerView == pickerView2)
+    {
+        // Second Picker
+        return 160;
+    }
+    
+    // A third picker passed in somehow
+    return 0;
+}
+
+-(void)ScorePost{
+    //Parameters => match_id,team1_id,team2_id,team1_score,team2_score
+    
+    NSString *path = [NSString stringWithFormat:@"%@app/updateScore",KServiceBaseURL];
+    NSMutableDictionary * parameters = [[NSMutableDictionary alloc]init];
+    [parameters setValue:matchlist.match_id forKey:@"match_id"];
+    [parameters setValue:matchlist.team1_id forKey:@"team1_id"];
+    [parameters setValue:matchlist.team2_id forKey:@"team2_id"];
+    [parameters setValue:self.mTeamAScoreLable.text forKey:@"team1_score"];
+    [parameters setValue:self.mTeamBScoreLable.text forKey:@"team2_score"];
+    self.mEditScoreButton.enabled = NO;
+    
+    [DM PostRequest:path parameter:parameters onCompletion:^(id  _Nullable dict)
+    {
+        
+        NSError *errorJson=nil;
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
+        NSMutableDictionary * dictRef = [[NSMutableDictionary alloc]init];
+        dictRef = [responseDict valueForKey:@"Result"];
+        NSLog(@"%@",responseDict);
+        self.teamAScoreLabel.text =[NSString stringWithFormat:@": %@",[dictRef valueForKey:@"team1_score"]];
+        self.teamBscoreLabel.text =[NSString stringWithFormat:@": %@",[dictRef valueForKey:@"team2_score"]];
+        self.timeCount1.text = [NSString stringWithFormat:@"%@:%@",[dictRef valueForKey:@"team1_score"],[dictRef valueForKey:@"team2_score"]];
+        self.mEditScoreButton.enabled = YES;
+
+    } onError:^(NSError * _Nullable Error) {
+        
+        [Helper ISAlertTypeError:@"Error Uploading Score" andMessage:[Error localizedDescription]];
+        self.mEditScoreButton.enabled = YES;
+
+    }];
+}
+
+- (IBAction)ScoreDoneButtonPressed:(id)sender {
+    [self ScorePost];
+    [self OverlaybackgroundTap:self];
+    
+
+}
 @end

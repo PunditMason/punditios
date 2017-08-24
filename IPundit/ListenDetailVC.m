@@ -13,6 +13,7 @@
 #import "ListenersTrophyTableViewCell.h"
 #import "TrophyViewTableViewCell.h"
 #import "ListenMatchDetailVC.h"
+#import "PunditDetailVC.h"
 
 
 @interface ListenDetailVC (){
@@ -21,6 +22,10 @@
     NSMutableArray *searchDataArray ;
     NSMutableArray *teamSearchDataArray ;
 
+    NSMutableArray *mDataArrayy;
+    NSDictionary * dictReff;
+    NSIndexPath *mmindexpath;
+    
 }
 
 @end
@@ -215,6 +220,13 @@
         ListenMatchVC *destinationVC = segue.destinationViewController;
         destinationVC.leaquesmodel = leaque;
     }
+    else if ([segue.identifier isEqualToString:@"PunditDetail"]) {
+        PunditDetailVC *PunditDetailvc = segue.destinationViewController;
+        PunditDetailvc.dictRefff = dictReff;
+        PunditDetailvc.mDataArrayyy = mDataArrayy;
+        PunditDetailvc.mindex = mmindexpath;
+        
+    }
 }
 
 
@@ -390,7 +402,7 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (tableView == self.mTableView) {
-        
+        /*
         NSMutableDictionary * dictRef = [[NSMutableDictionary alloc]init];
         dictRef = [searchDataArray objectAtIndex:indexPath.row];
         ListenMatchDetailVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListenMatchDetailVC"];
@@ -408,6 +420,15 @@
         NSLog(@"%@",dict);
         DM.listenerPresentIcon = [NSString stringWithFormat:@"%@",[[dict valueForKey:@"channel"]valueForKey:@"mark_image"]];
         [self.navigationController pushViewController:vc animated:YES];
+         */
+        
+        [mDataArrayy addObjectsFromArray:[searchDataArray objectAtIndex:indexPath.row]];
+        dictReff = [Helper formatJSONDict:[searchDataArray objectAtIndex:indexPath.row]];
+        mmindexpath = indexPath;
+        
+        [self performSegueWithIdentifier: @"PunditDetail" sender: self];
+
+        
     }
     else if (tableView == self.mTeamTableView)
     {
@@ -482,7 +503,7 @@
             [bgColorView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]];
             [cell setSelectedBackgroundView:bgColorView];
             cell.backgroundColor = [UIColor clearColor];
-            [cell setUserInteractionEnabled:NO];
+           // [cell setUserInteractionEnabled:NO];
             return cell;
         }
     }
@@ -617,6 +638,8 @@
     }];
     
 }
+
+
 
 -(void)StartTeamSearch:(NSString *)searchingWord{
     

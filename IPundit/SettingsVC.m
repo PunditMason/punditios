@@ -11,10 +11,15 @@
 #import "ListenersTrophyTableViewCell.h"
 #import "TrophyViewTableViewCell.h"
 #import "ListenMatchDetailVC.h"
+#import "PunditDetailVC.h"
+
 
 @interface SettingsVC (){
     NSMutableDictionary * mDataDict ;
     NSMutableArray * mDataArray ;
+    NSMutableArray *mDataArrayy;
+    NSDictionary * dictReff;
+    NSIndexPath *mmindexpath;
     
 }
 
@@ -38,6 +43,11 @@
     mTableView.alwaysBounceVertical = YES;
     
     // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    [self getUsers];
 }
 
 -(void)refershControlAction{
@@ -97,7 +107,7 @@
     }
     
     cell.posLabel.hidden = YES ;
-    cell.clubNameLabel.frame = CGRectMake(35, 9, 170, 26);
+    cell.clubNameLabel.frame = CGRectMake(35, 9, 250, 26);
     cell.clubNameLabel.text = [NSString stringWithFormat:@"%@",[dictRef objectForKey:@"first_name"]];
     cell.clubNameLabel.font = [UIFont fontWithName:@"System Bold" size:14] ;
     cell.pLabel.hidden = YES;
@@ -112,7 +122,7 @@
     [bgColorView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]];
     [cell setSelectedBackgroundView:bgColorView];
     cell.backgroundColor = [UIColor clearColor];
-    [cell setUserInteractionEnabled:NO];
+   // [cell setUserInteractionEnabled:NO];
     
     
     return cell;
@@ -121,6 +131,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    /*
+    // PunditDetailView
     NSMutableDictionary * dictRef = [[NSMutableDictionary alloc]init];
     dictRef = [mDataArray objectAtIndex:indexPath.row];
     ListenMatchDetailVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListenMatchDetailVC"];
@@ -139,6 +151,13 @@
     DM.listenerPresentIcon = [NSString stringWithFormat:@"%@",[[dict valueForKey:@"channel"]valueForKey:@"mark_image"]];
     [self.navigationController pushViewController:vc animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
+     */
+    
+    [mDataArrayy addObjectsFromArray:[mDataArray objectAtIndex:indexPath.row]];
+    dictReff = [Helper formatJSONDict:[mDataArray objectAtIndex:indexPath.row]];
+    mmindexpath = indexPath;
+    
+    [self performSegueWithIdentifier: @"PunditDetailVie" sender: self];
 }
 
 
@@ -146,7 +165,8 @@
 -(void)getUsers{
     
     [Helper showLoaderVProgressHUD];
-    NSString *path = [NSString stringWithFormat:@"%@Game/get_users_match_info",KServiceBaseURL];
+    //NSString *path = [NSString stringWithFormat:@"%@Game/get_users_match_info",KServiceBaseURL];
+    NSString *path = [NSString stringWithFormat:@"%@Game/getProfiles/%@",KServiceBaseURL,[[Helper mCurrentUser]objectForKey:@"id"]];
     
     [DM GetRequest:path parameter:nil onCompletion:^(id  _Nullable dict) {
         
@@ -179,15 +199,21 @@
 
 
 
-/*
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"PunditDetailVie"]) {
+        PunditDetailVC *PunditDetailvc = segue.destinationViewController;
+        PunditDetailvc.dictRefff = dictReff;
+        PunditDetailvc.mDataArrayyy = mDataArray;
+        PunditDetailvc.mindex = mmindexpath;
+ 
+    }
+    
+
 }
-*/
 
 - (IBAction)BackButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

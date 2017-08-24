@@ -22,6 +22,7 @@
     NSMutableDictionary * termsAndConditions ;
     
     NSTimer *listenersTimer ;
+    NSMutableArray *ImagesArray;
 }
 
 @end
@@ -30,6 +31,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    //ImagesArray = [[NSMutableArray alloc] init];
         _getProfileParameter =[[NSMutableDictionary alloc]init];
     self.splashScreenView.userInteractionEnabled = NO ;
     self.splashScreenImageView.userInteractionEnabled = NO ;
@@ -61,9 +63,25 @@
     [self HomePageContent];
     [self getTandC];
     [self getBreakingNews];
+    
+    
+    NSURL *url1 = [NSURL URLWithString:@"http://punditsports.com:81/pundit-ios/assets/img/ios_icons/21100500_10213824194909008_1136882959_n.jpg"];
+    NSURL *url2 = [NSURL URLWithString:@"http://punditsports.com:81/pundit-ios/assets/img/ios_icons/Listening-ios.png"];
+
+    
+    NSString *strobj = [NSString stringWithFormat:@"https://raw.github.com/kimar/tapebooth/master/Screenshots/Screen1.png"];
+    NSString *strobj2 = [NSString stringWithFormat:@"https://raw.github.com/kimar/tapebooth/master/Screenshots/Screen2.png"];
+    
+    UIImage *Image1 =[UIImage imageNamed:@"SliderImg1.jpg"];
+    UIImage *Image2 =[UIImage imageNamed:@"SliderImg2.png"];
+
+    ImagesArray = [[NSMutableArray alloc] initWithObjects:Image1,Image2, nil];
+   
+    
     }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
     [super viewWillAppear:YES];
     
     self.breakingNewsLabel.text = DM.breakingNewsString;
@@ -116,7 +134,6 @@
         
     }];
 }
-
 
 
 
@@ -244,8 +261,13 @@
             
             [_getProfileParameter setObject:[Helper base64EncodedStringFromImage:imageRef] forKey:@"cover_photo"];
             [_getProfileParameter setObject:[result objectForKey:@"id"] forKey:@"facebookId"];
+            [_getProfileParameter setObject:DM.deviceTokenForPushNotification forKey:@"deviceToken"];
 
-            NSString *path=[NSString stringWithFormat:@"%@app/login",KServiceBaseURL ];
+           // NSString *path=[NSString stringWithFormat:@"%@app/login",KServiceBaseURL ];
+            NSString *path=[NSString stringWithFormat:@"%@app/loginusertoken",KServiceBaseURL ];
+
+            //http://punditsports.com:81/pundit-ios/v1/App/loginusertoken
+
             [DM PostRequest:path parameter:_getProfileParameter onCompletion:^(id  _Nullable dict) {
                 [Helper hideLoaderSVProgressHUD];
                 NSError *errorJson=nil;
@@ -375,10 +397,16 @@
             self.splashScreenView.hidden = YES;
         }];
         NSString * string = [NSString stringWithFormat:@"%@ios_icons/%@",KserviceBaseIconURL,[mHomePageDict objectForKey:@"broadcaster"]];
+        
         NSURL *url = [NSURL URLWithString:string];
         [self.broadcastButtonImageView sd_setImageWithURL:url];
         NSString * listnerString = [NSString stringWithFormat:@"%@ios_icons/%@",KserviceBaseIconURL,[mHomePageDict objectForKey:@"listeners"]];
         NSURL *listnerUrl = [NSURL URLWithString:listnerString];
+
+//        [ImagesArray addObject:url];
+//        [ImagesArray addObject:listnerUrl];
+//        [_imagePager reloadData];
+        
         [self.listnerButtonImageView sd_setImageWithURL:listnerUrl];
         NSString * settingString = [NSString stringWithFormat:@"%@ios_icons/%@",KserviceBaseIconURL,[mHomePageDict objectForKey:@"setting"]];
         NSString * settingIconString = [NSString stringWithFormat:@"%@ios_icons/%@",KserviceBaseIconURL,[mHomePageDict objectForKey:@"settingicon"]];
@@ -488,5 +516,59 @@
     [super didReceiveMemoryWarning];
 }
 
+
+
+#pragma mark =====================================================
+#pragma mark ===============KLIMAGEPAGER START ===================
+#pragma mark =====================================================
+
+
+
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    _imagePager.pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    _imagePager.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
+    _imagePager.slideshowTimeInterval = 0.5f;
+    _imagePager.slideshowShouldCallScrollToDelegate = YES;
+    
+}
+
+#pragma mark - KIImagePager DataSource
+- (NSArray *) arrayWithImages:(KIImagePager*)pager
+{
+    
+    NSLog(@"Image Array count %lu",(unsigned long)ImagesArray.count);
+    return ImagesArray;
+}
+
+- (UIViewContentMode) contentModeForImage:(NSUInteger)image inPager:(KIImagePager *)pager
+{
+    return UIViewContentModeScaleAspectFill;
+}
+
+- (NSString *) captionForImageAtIndex:(NSUInteger)index inPager:(KIImagePager* )pager
+{
+    return 0;
+    
+}
+
+#pragma mark - KIImagePager Delegate
+- (void) imagePager:(KIImagePager *)imagePager didScrollToIndex:(NSUInteger)index
+{
+    NSLog(@"%s %lu", __PRETTY_FUNCTION__, (unsigned long)index);
+}
+
+- (void) imagePager:(KIImagePager *)imagePager didSelectImageAtIndex:(NSUInteger)index
+{
+    NSLog(@"%s %lu", __PRETTY_FUNCTION__, (unsigned long)index);
+}
+
+
+#pragma mark =====================================================
+#pragma mark ===============KLIMAGEPAGER END ===================
+#pragma mark =====================================================
 
 @end

@@ -550,7 +550,12 @@ static DataManager *sharedDataManager = nil;
     
     R5Configuration* config = [[R5Configuration alloc] init];
    // config.host = @"34.253.228.132";
+    
+    
+  // Pundit Server
     config.host = @"34.249.129.146";
+   // config.host = @"54.76.147.237"; // Red 5 Pro Team Server
+    
     //config.host = @"54.246.160.189";
     //config.host = @"34.252.62.96" 34.253.215.171
     config.port = 8554;

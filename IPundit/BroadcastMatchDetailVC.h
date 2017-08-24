@@ -17,7 +17,7 @@
 #import <Social/Social.h>
 
 
-@interface BroadcastMatchDetailVC : UIViewController<UIAlertViewDelegate>
+@interface BroadcastMatchDetailVC : UIViewController<UIAlertViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
 
 @property (strong, nonatomic) IBOutlet UIImageView *leaqueIconImageView;
 
@@ -45,6 +45,16 @@
 @property (weak, nonatomic) IBOutlet UILabel *timeCount1;
 @property (weak, nonatomic) IBOutlet UILabel *timeCount2;
 @property (strong, nonatomic) IBOutlet UILabel *mTeamTalkLabel;
+@property (strong, nonatomic) IBOutlet UIPickerView *pickerView1;
+@property (strong, nonatomic) IBOutlet UIPickerView *pickerView2;
+@property (strong, nonatomic) IBOutlet UIButton *mEditScoreButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *mTeamAScoreLable;
+@property (weak, nonatomic) IBOutlet UILabel *mTeamBScoreLable;
+@property (weak, nonatomic) IBOutlet UILabel *mTeamANameLable;
+@property (weak, nonatomic) IBOutlet UILabel *mTeamBNameLable;
+
+
 
 @property (strong, nonatomic) IBOutlet UILabel *mListenersCount;
 @property (strong, nonatomic) IBOutlet UILabel *matchStatusLabel;
@@ -52,7 +62,12 @@
 
 - (IBAction)facebookButtonTap:(id)sender;
 - (IBAction)twitterButtonTap:(id)sender;
+- (IBAction)ShareButtonPressed:(id)sender;
+- (IBAction)ChatButtonPressed:(id)sender;
 
+
+@property (nonatomic,weak) IBOutlet UIView *mOverlayView;
+@property (nonatomic,weak) IBOutlet UIView *mScoreUpdateView;
 
 typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage); // don't bother with NSError for that
 
@@ -61,5 +76,6 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
 @property (nonatomic, strong) NSArray *iOSAccounts;
 @property (nonatomic, strong) accountChooserBlock_t accountChooserBlock;
 @property (strong, nonatomic) IBOutlet UIView *liveView;
+- (IBAction)ScoreDoneButtonPressed:(id)sender;
 
 @end

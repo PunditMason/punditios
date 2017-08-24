@@ -62,6 +62,8 @@ typedef void (^SKCompletionQueryBlock)(NSArray *__nullable result, NSError *__nu
 @property (nonatomic,strong)UIImage *__nullable backgroundImage;
 @property (nonatomic,strong)NSString *__nullable appFlowRef ;
 @property (nonatomic,strong)UIView * _Nonnull refView ;
+@property (nonatomic,strong)NSString *__nullable deviceTokenForPushNotification ;
+
 
 
 -(void)GetRequest:(NSString*__nullable)url parameter:(id __nullable)parameter onCompletion:(JSonRepresentation __nullable)completion onError:(errorBlock __nullable)Error;

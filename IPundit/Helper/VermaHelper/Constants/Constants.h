@@ -19,6 +19,7 @@
  #define kServiceBaseURL @"http://punditsports.com:81/pundit-ios/v1/"
  #define KServiceBaseProfileImageURL @"http://punditsports.com:81/pundit-ios/profileusrimg/"
  #define KServiceBaseShareUrl @"http://punditsports.com:81/play/index.php/Welcome/broadcast/"
+#define KServiceBasePushNotificationUrl @"http://punditsports.com:81/pundit-ios/v1/Cron/follow_notification/"
 
 
 

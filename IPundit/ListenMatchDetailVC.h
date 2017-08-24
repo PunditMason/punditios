@@ -40,7 +40,8 @@
 - (IBAction)TwitterShareButtonPressed:(id)sender;
 - (IBAction)SitchBroadcasterTap:(id)sender;
 - (IBAction)goToLiveButtonTap:(id)sender;
-
+- (IBAction)ShareButtonPressed:(id)sender;
+- (IBAction)ChatButtonPressed:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIImageView *animatedImageView;
 
@@ -50,6 +51,8 @@
 @property (nonatomic,weak) IBOutlet UIImageView *mProfileImageView;
 @property (weak, nonatomic) IBOutlet UILabel *mTagsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mFollowersLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mFollowingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mListenersCountLabel;
 
 @property (weak, nonatomic) IBOutlet UITextView *mUserBioTextView;
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;

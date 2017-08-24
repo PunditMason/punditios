@@ -223,7 +223,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "551"
             endingLineNumber = "551"
-            landmarkName = "-ShareOnFacebook"
+            landmarkName = "-twitterButtonTap:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -238,9 +238,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "805"
-            endingLineNumber = "805"
-            landmarkName = "-chooseAccount"
-            landmarkType = "7">
+            endingLineNumber = "805">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -254,9 +252,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "808"
-            endingLineNumber = "808"
-            landmarkName = "-chooseAccount"
-            landmarkType = "7">
+            endingLineNumber = "808">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -270,9 +266,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "804"
-            endingLineNumber = "804"
-            landmarkName = "-chooseAccount"
-            landmarkType = "7">
+            endingLineNumber = "804">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
@@ -318,9 +312,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "684"
-            endingLineNumber = "684"
-            landmarkName = "-broadCastStart"
-            landmarkType = "7">
+            endingLineNumber = "684">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -334,9 +326,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "703"
-            endingLineNumber = "703"
-            landmarkName = "-broadCastStart"
-            landmarkType = "7">
+            endingLineNumber = "703">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -350,9 +340,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "719"
-            endingLineNumber = "719"
-            landmarkName = "-broadCastStart"
-            landmarkType = "7">
+            endingLineNumber = "719">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -366,9 +354,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "750"
-            endingLineNumber = "750"
-            landmarkName = "-loginWithiOSAction"
-            landmarkType = "7">
+            endingLineNumber = "750">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -382,9 +368,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "753"
-            endingLineNumber = "753"
-            landmarkName = "-loginWithiOSAction"
-            landmarkType = "7">
+            endingLineNumber = "753">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -398,9 +382,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "766"
-            endingLineNumber = "766"
-            landmarkName = "-loginWithiOSAccount:"
-            landmarkType = "7">
+            endingLineNumber = "766">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -414,9 +396,7 @@
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "782"
-            endingLineNumber = "782"
-            landmarkName = "-chooseAccount"
-            landmarkType = "7">
+            endingLineNumber = "782">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy

@@ -13,6 +13,7 @@
 #import "ListenersTrophyTableViewCell.h"
 #import "TrophyViewTableViewCell.h"
 #import "ListenMatchDetailVC.h"
+#import "PunditDetailVC.h"
 
 
 @interface ListenVC (){
@@ -22,6 +23,12 @@
     NSMutableArray *searchDataArray ;
     NSMutableArray *teamSearchDataArray ;
     NSString * message ;
+    
+    
+    NSMutableArray *mDataArrayy;
+    NSDictionary * dictReff;
+    NSIndexPath *mmindexpath;
+    
     
 }
 
@@ -228,6 +235,13 @@
         ListenDetailVC *destinationVC = segue.destinationViewController;
         destinationVC.mLeaqueArray = mleaqueArray;
     }
+    else if ([segue.identifier isEqualToString:@"PunditDetailVi"]) {
+        PunditDetailVC *PunditDetailvc = segue.destinationViewController;
+        PunditDetailvc.dictRefff = dictReff;
+        PunditDetailvc.mDataArrayyy = mDataArray;
+        PunditDetailvc.mindex = mmindexpath;
+    }
+    
 }
 
 
@@ -313,6 +327,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
     if (tableView == self.mTableView) {
     
+        
+    /*
     NSMutableDictionary * dictRef = [[NSMutableDictionary alloc]init];
     dictRef = [searchDataArray objectAtIndex:indexPath.row];
     ListenMatchDetailVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListenMatchDetailVC"];
@@ -330,6 +346,26 @@
     NSLog(@"%@",dict);
     DM.listenerPresentIcon = [NSString stringWithFormat:@"%@",[[dict valueForKey:@"channel"]valueForKey:@"mark_image"]];
     [self.navigationController pushViewController:vc animated:YES];
+      */
+
+ /*
+        
+        [mDataArrayy addObjectsFromArray:[mDataArray objectAtIndex:indexPath.row]];
+    
+        PunditDetailVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PunditDetailView"];
+        vc.dictRefff = [Helper formatJSONDict:[mDataArray objectAtIndex:indexPath.row]]; ;
+        vc.mDataArrayyy = mDataArray ;
+        vc.mindex = indexPath ;
+        [self.navigationController pushViewController:vc animated:YES];
+
+        */
+        
+        [mDataArrayy addObjectsFromArray:[searchDataArray objectAtIndex:indexPath.row]];
+        dictReff = [Helper formatJSONDict:[searchDataArray objectAtIndex:indexPath.row]];
+        mmindexpath = indexPath;
+        
+        [self performSegueWithIdentifier: @"PunditDetailVi" sender: self];
+        
     }
     else if (tableView == self.mTeamTableView)
     {
@@ -341,6 +377,10 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
+
+
+
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     NSMutableDictionary * dictRef = [[NSMutableDictionary alloc]init];
@@ -402,7 +442,7 @@
             [bgColorView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]];
             [cell setSelectedBackgroundView:bgColorView];
             cell.backgroundColor = [UIColor clearColor];
-            [cell setUserInteractionEnabled:NO];
+            //[cell setUserInteractionEnabled:NO];
             return cell;
         }
     }

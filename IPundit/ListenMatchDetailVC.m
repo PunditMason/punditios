@@ -39,6 +39,8 @@
     NSTimer *timer;
     NSTimer *functionTimer;
     NSTimer *broadcastersTimer;
+    NSTimer * listnersCount;
+
     
     UIAlertView * checkAlert;
     UIAlertView * broadcasterAlert;
@@ -392,6 +394,8 @@
 -(void)post{
     [self stop];
     [functionTimer invalidate];
+    [listnersCount invalidate];
+
     [broadcastersTimer invalidate];
     self.loggedInAsLabel.text = [NSString stringWithFormat:@"BroadCasting this Game:%@",[postingData objectForKey:@"broadcaster_name"]];
     [self getBroadCastersDetails];
@@ -404,12 +408,17 @@
         [self start];
     }else{
         [self start];
+        
+        //manoj changes
+        [self GetMatchLiveFeed];
+        functionTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target: self
+                                                       selector: @selector(GetMatchLiveFeed) userInfo: nil repeats: YES];
         if ([channellist.matchStatus isEqualToString:@"Played"]) {
-            [self GetMatchLiveFeed];
+           // [self GetMatchLiveFeed];
         }else if ([channellist.matchStatus isEqualToString:@"Playing"]){
-            [self GetMatchLiveFeed];
-            functionTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target: self
-                                                           selector: @selector(GetMatchLiveFeed) userInfo: nil repeats: YES];
+//            [self GetMatchLiveFeed];
+//            functionTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target: self
+//                                                           selector: @selector(GetMatchLiveFeed) userInfo: nil repeats: YES];
         }else if ([channellist.matchStatus isEqualToString:@"Fixture"]){
             self.mTeamTalkLabel.hidden = NO ;
             self.mTeamTalkLabel.text = [NSString stringWithFormat:@"No feeds available"];
@@ -470,7 +479,7 @@
 -(void)mProfileImageVCCornerRadius{
     CALayer *imageLayera = self.mProfileImageView.layer;
     [imageLayera setCornerRadius:self.mProfileImageView.frame.size.width/2];
-    [imageLayera setBorderColor:[[UIColor clearColor]CGColor]];
+    [imageLayera setBorderColor:[[UIColor lightTextColor]CGColor]];
     [imageLayera setBorderWidth:0.5];
     [imageLayera setMasksToBounds:YES];
 }
@@ -583,7 +592,9 @@
     self.mTagsLabel.text = tags;
     NSString *userBio = [NSString stringWithFormat:@"%@",[broadcasterInfo objectForKey:@"user_bio"]];
     self.mUserBioTextView.text = userBio ;
+    NSLog(@"%@",broadcasterInfo);
     self.mFollowersLabel.text = [NSString stringWithFormat:@"%@",[broadcasterInfo objectForKey:@"follower_count"]];
+    self.mFollowingLabel.text = [NSString stringWithFormat:@"%@",[broadcasterInfo objectForKey:@"following_count"]];
     
     self.userNameLabel.text = [broadcasterInfo objectForKey:@"first_name"] ;
     NSString * string = [NSString stringWithFormat:@"%@%@",KServiceBaseProfileImageURL,[broadcasterInfo objectForKey:@"avatar"]];
@@ -725,6 +736,7 @@
     [self stop];
     [self UnMount];
     [self invalidate];
+    [listnersCount invalidate];
     [UIView animateWithDuration:1.0 animations:^{
         self.broadcastersView.hidden = NO ;
     }];
@@ -744,6 +756,7 @@
     self.playNPuseButton.enabled = YES ;
     playerCheckBool = true ;
     [self StartTimer];
+    [self ListnersStartTimer];
     [Helper hideLoaderSVProgressHUD];
 }
 
@@ -751,6 +764,7 @@
     [Helper showLoaderVProgressHUD];
     [DM.stream stop];
     [timer invalidate];
+    [listnersCount invalidate];
     playerCheckBool = false ;
     self.playNPauseImageView.image = [UIImage imageNamed:@"play"];
     self.playNPuseButton.enabled = NO ;
@@ -866,6 +880,7 @@
 -(void)BackButtonFunctionallity {
     [self UnMount];
     [self invalidate];
+    [listnersCount invalidate];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -897,6 +912,7 @@
     NSString * checkString = [NSString stringWithFormat:@"%@",[postingData objectForKey:@"streamName"]];
     if (![checkArray containsObject:checkString]) {
         [broadcastersTimer invalidate];
+        [listnersCount invalidate];
         [timer invalidate];
         [checkAlert show];
     }
@@ -989,6 +1005,59 @@
     [matchTimer invalidate];
     [timer invalidate];
     [broadcastersTimer invalidate];
+    [listnersCount invalidate];
+
+}
+
+- (IBAction)ShareButtonPressed:(id)sender{
+    NSString *string = [NSString stringWithFormat:@"%@%@",KServiceBaseShareUrl,[postingData objectForKey:@"streamName"]];
+    [self shareText:sharingString andImage:nil andUrl:[NSURL URLWithString:string]];
+}
+
+- (void)shareText:(NSString *)text andImage:(UIImage *)image andUrl:(NSURL *)url
+{
+    NSMutableArray *sharingItems = [NSMutableArray new];
+    if (text) {
+        [sharingItems addObject:text];
+    }
+    if (image) {
+        [sharingItems addObject:image];
+    }
+    if (url) {
+        [sharingItems addObject:url];
+    }
+    UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
+    [self presentViewController:activityController animated:YES completion:nil];
+}
+
+- (IBAction)ChatButtonPressed:(id)sender{
+    UIAlertView *AltObj  = [[UIAlertView alloc] initWithTitle:@"Under Development" message:@"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    
+    [AltObj show];
+    
+}
+
+-(void)ListnersStartTimer
+{
+    listnersCount = [NSTimer scheduledTimerWithTimeInterval:1.0 target: self
+                                                   selector: @selector(ListnersCountMethod) userInfo: nil repeats: YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
+    [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+}
+
+-(void)ListnersCountMethod{
+    
+    NSString *path = [NSString stringWithFormat:@"%@Game/ChannelListener_count/%@",KServiceBaseURL,[postingData objectForKey:@"id"]];
+    [DM GetRequest:path parameter:nil onCompletion:^(id  _Nullable dict) {
+        
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
+        NSLog(@"%@",responseDict);
+        
+        self.mListenersCountLabel.text = [NSString stringWithFormat:@"%@",[responseDict objectForKey:@"count"]];
+        
+    } onError:^(NSError * _Nullable Error) {
+        
+    }];
 }
 
 @end
