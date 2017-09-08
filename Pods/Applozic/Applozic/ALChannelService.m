@@ -303,6 +303,7 @@
       andMembersList:(NSMutableArray *)memberArray andImageLink:(NSString *)imageLink channelType:(short)type
          andMetaData:(NSMutableDictionary *)metaData withCompletion:(void(^)(ALChannel *alChannel, NSError *error))completion
 {
+   // metaData = [self getChannelMetaData];
     
     [self createChannel:channelName orClientChannelKey:clientChannelKey andMembersList:memberArray andImageLink:imageLink channelType:type andMetaData:metaData adminUser:nil withCompletion:^(ALChannel *alChannel, NSError *error) {
         completion(alChannel, error);
@@ -387,7 +388,8 @@
 {
     NSMutableDictionary *grpMetaData = [NSMutableDictionary new];
 
-    [grpMetaData setObject:@":adminName created group" forKey:AL_CREATE_GROUP_MESSAGE];
+   // [grpMetaData setObject:@":adminName created group" forKey:AL_CREATE_GROUP_MESSAGE];
+    [grpMetaData setObject:@" " forKey:AL_CREATE_GROUP_MESSAGE];
     [grpMetaData setObject:@":userName removed" forKey:AL_REMOVE_MEMBER_MESSAGE];
     [grpMetaData setObject:@":userName added" forKey:AL_ADD_MEMBER_MESSAGE];
     [grpMetaData setObject:@":userName joined" forKey:AL_JOIN_MEMBER_MESSAGE];
@@ -395,7 +397,7 @@
     [grpMetaData setObject:@":groupName icon changed" forKey:AL_GROUP_ICON_CHANGE_MESSAGE];
     [grpMetaData setObject:@":userName left" forKey:AL_GROUP_LEFT_MESSAGE];
     [grpMetaData setObject:@":groupName deleted" forKey:AL_DELETED_GROUP_MESSAGE];
-    [grpMetaData setObject:@(NO) forKey:@"HIDE"];
+    [grpMetaData setObject:@(true) forKey:@"HIDE"];
     
     return grpMetaData;
 }

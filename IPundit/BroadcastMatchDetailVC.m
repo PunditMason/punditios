@@ -864,6 +864,10 @@
             
             NSNumber *numberobj = [NSNumber numberWithInteger:[self.ChatChannelid intValue]];
             
+            NSLog(@"%@",numberobj);
+
+            
+            
             ALChannelService * channelService  =  [ALChannelService new];
             [channelService getChannelInformation:numberobj orClientChannelKey:nil withCompletion:^(ALChannel *alChannel) {
                 //Channel information
@@ -1047,7 +1051,7 @@
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
         NSMutableDictionary * dictRef = [[NSMutableDictionary alloc]init];
         dictRef = [responseDict valueForKey:@"Result"];
-        //NSLog(@"%@",responseDict);
+        //NSLog(@"%@",responseDict); 
         self.teamAScoreLabel.text =[NSString stringWithFormat:@": %@",[dictRef valueForKey:@"team1_score"]];
         self.teamBscoreLabel.text =[NSString stringWithFormat:@": %@",[dictRef valueForKey:@"team2_score"]];
         self.timeCount1.text = [NSString stringWithFormat:@"%@:%@",[dictRef valueForKey:@"team1_score"],[dictRef valueForKey:@"team2_score"]];

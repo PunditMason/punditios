@@ -68,6 +68,9 @@
 #import "ALAudioVideoBaseVC.h"
 #import "ALVOIPNotificationHandler.h"
 
+
+
+
 #define MQTT_MAX_RETRY 3
 #define NEW_MESSAGE_NOTIFICATION @"newMessageNotification"
 
@@ -212,6 +215,8 @@
 {
 
     [super viewWillAppear:animated];
+    
+   
     
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
     [[self navigationController] setNavigationBarHidden:YES animated:YES];

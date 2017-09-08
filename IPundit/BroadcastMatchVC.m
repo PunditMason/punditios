@@ -223,7 +223,8 @@
     }];
     
     
-    ChannelNameObj = [NSString stringWithFormat:@"%@V/s%@_%@",matchlistmodel.team1_name,matchlistmodel.team2_name,[[Helper mCurrentUser]objectForKey:@"id"]];
+    //ChannelNameObj = [NSString stringWithFormat:@"%@V/s%@_%@",matchlistmodel.team1_name,matchlistmodel.team2_name,[[Helper mCurrentUser]objectForKey:@"id"]];
+    ChannelNameObj = [NSString stringWithFormat:@"%@ V/s %@",matchlistmodel.team1_name,matchlistmodel.team2_name];
    
         ChatChannelId = [NSString stringWithFormat:@"%@",matchlistmodel.chatChannelid];
         NSLog(@"%@",ChatChannelId);
@@ -231,12 +232,32 @@
 
 }
 
+
+
+
+
+
+
 - (void)createChannel:(NSString *)ChannelName
 {
+    
+    NSMutableDictionary *grpMetaData = [NSMutableDictionary new];
+    
+    // [grpMetaData setObject:@":adminName created group" forKey:AL_CREATE_GROUP_MESSAGE];
+    [grpMetaData setObject:ChannelName forKey:AL_CREATE_GROUP_MESSAGE];
+    [grpMetaData setObject:@":userName removed" forKey:AL_REMOVE_MEMBER_MESSAGE];
+    [grpMetaData setObject:@":userName added" forKey:AL_ADD_MEMBER_MESSAGE];
+    [grpMetaData setObject:@":userName joined" forKey:AL_JOIN_MEMBER_MESSAGE];
+    [grpMetaData setObject:@"Group renamed to :groupName" forKey:AL_GROUP_NAME_CHANGE_MESSAGE];
+    [grpMetaData setObject:@":groupName icon changed" forKey:AL_GROUP_ICON_CHANGE_MESSAGE];
+    [grpMetaData setObject:@":userName left" forKey:AL_GROUP_LEFT_MESSAGE];
+    [grpMetaData setObject:@":groupName deleted" forKey:AL_DELETED_GROUP_MESSAGE];
+    [grpMetaData setObject:@(true) forKey:@"HIDE"];
+
     ALChannelService * channelService = [[ALChannelService alloc] init];
     NSMutableArray *arryobj = [[NSMutableArray alloc]initWithObjects:self.CurrentALUser.userId, nil];
     
-    [channelService createChannel:ChannelName orClientChannelKey:nil andMembersList:arryobj andImageLink:nil channelType:PUBLIC andMetaData:nil withCompletion:^(ALChannel *alChannel, NSError *error) {
+    [channelService createChannel:ChannelName orClientChannelKey:nil andMembersList:arryobj andImageLink:nil channelType:PUBLIC andMetaData:grpMetaData withCompletion:^(ALChannel *alChannel, NSError *error) {
         if(alChannel){
              NSLog(@"%@",alChannel.key);
             

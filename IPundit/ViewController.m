@@ -454,7 +454,9 @@
 
        // [ImagesArray addObject:url];
        // [ImagesArray addObject:listnerUrl];
-        [ImagesArray addObject:[responseDict objectForKey:@"banner_images"]];
+        
+        [ImagesArray addObjectsFromArray:[responseDict objectForKey:@"banner_images"]];
+        
         [_imagePager reloadData];
         
         [self.listnerButtonImageView sd_setImageWithURL:listnerUrl];
@@ -584,6 +586,8 @@
 #pragma mark - KIImagePager DataSource
 - (NSArray *) arrayWithImages:(KIImagePager*)pager
 {
+    NSLog(@"%@",ImagesArray);
+    
     return ImagesArray;
 }
 
