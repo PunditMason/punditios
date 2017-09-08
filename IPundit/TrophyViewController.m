@@ -16,6 +16,9 @@
 
 @interface TrophyViewController (){
     NSIndexPath *broadcastRef ;
+    NSString *ChannelNameObj;
+    NSString *ChatChannelId;
+
 }
 
 @end
@@ -26,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.CurrentALUser = [ALChatManager getLoggedinUserInformation];
+
     self.backgroundImageView.image = DM.backgroundImage ;
     if (IS_IPHONE4) {
         self.view.frame = CGRectMake(0, 0, 320, 480);
@@ -214,6 +219,15 @@
             self.mProfileView.frame = CGRectMake(self.mProfileView.frame.origin.x,self.view.frame.size.height-self.mProfileView.frame.size.height,self.mProfileView.frame.size.width,self.mProfileView.frame.size.height);
             
         }];
+        
+        ChannelNameObj = [NSString stringWithFormat:@"%@_%@",[[self.serverResponse objectAtIndex:indexPath.row]objectForKey:@"contestantClubName"],[[Helper mCurrentUser]objectForKey:@"id"]];
+        
+        ChatChannelId = [NSString stringWithFormat:@"%@",[[self.serverResponse objectAtIndex:indexPath.row]objectForKey:@"chatchannelId"]];
+        
+          NSLog(@"%@",[self.serverResponse objectAtIndex:indexPath.row]);
+        NSLog(@"%@",[[self.serverResponse objectAtIndex:indexPath.row]objectForKey:@"chatChannelid"]);
+        NSLog(@"%@",ChatChannelId);
+
     }
     
 }
@@ -234,14 +248,47 @@
 
 - (IBAction)StreemingButtonAction:(id)sender {
     
-    BroadcastMatchDetailVC * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"BroadcastMatchDetailVC"];
-    vc.teamBroadCastDict = [self.serverResponse objectAtIndex:broadcastRef.row];
+    if([ChatChannelId intValue] == 0){
+        
+        [Helper showLoaderVProgressHUD];
+        [self createChannel:ChannelNameObj];
+        
+    }else{
+        [self performSegueWithIdentifier:@"MatchDetail" sender:self];
+    }
     
-    [self.navigationController pushViewController:vc animated:YES];
+    
+
+    
+   
 }
 
 
 
+
+- (void)createChannel:(NSString *)ChannelName
+{
+    ALChannelService * channelService = [[ALChannelService alloc] init];
+    NSMutableArray *arryobj = [[NSMutableArray alloc]initWithObjects:self.CurrentALUser.userId, nil];
+    
+    [channelService createChannel:ChannelName orClientChannelKey:nil andMembersList:arryobj andImageLink:nil channelType:PUBLIC andMetaData:nil withCompletion:^(ALChannel *alChannel, NSError *error) {
+        if(alChannel){
+            NSLog(@"%@",alChannel.key);
+            
+            [Helper hideLoaderSVProgressHUD];
+            ChatChannelId = [NSString stringWithFormat:@"%@",alChannel.key];
+            BroadcastMatchDetailVC * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"BroadcastMatchDetailVC"];
+            vc.teamBroadCastDict = [self.serverResponse objectAtIndex:broadcastRef.row];
+            vc.ChatChannelid = ChatChannelId;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else{
+            [Helper hideLoaderSVProgressHUD];
+            
+            NSLog(@"%@",error);
+        }
+    }];
+}
 
 
 

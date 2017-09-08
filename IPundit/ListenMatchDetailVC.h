@@ -15,11 +15,15 @@
 #import "SCFacebook.h"
 #import "CurrentUser.h"
 
+#import <Applozic/Applozic.h>
+#import "ALChatManager.h"
+#import <IQKeyboardManager/IQKeyboardManager.h>
+
 
 #define kfbPrefixStr @"https://www.facebook.com/"
 
 
-@interface ListenMatchDetailVC : UIViewController
+@interface ListenMatchDetailVC : UIViewController<ALChatViewControllerDelegate,ALMessagesViewDelegate,ALChatCellDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (nonatomic,strong) ChannelListModel *channellist;
@@ -84,6 +88,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *listenLabel;
 
 @property (nonatomic,strong)UIRefreshControl *refreshControl ;
+@property (nonatomic, strong) ALUser * CurrentALUser;
 
 
 @end

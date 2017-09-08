@@ -51,6 +51,7 @@
     [imageLayer setBorderColor:[[UIColor grayColor]CGColor]];
     [imageLayer setBorderWidth:1];
     [imageLayer setMasksToBounds:YES];
+    [[IQKeyboardManager sharedManager] setEnable:YES];
 
 }
 
@@ -58,6 +59,7 @@
     
    
     [self reloadDataMHash];
+    [[IQKeyboardManager sharedManager] setEnable:YES];
 
     
 }

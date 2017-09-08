@@ -24,6 +24,7 @@
 +(void)movewithStoryBourdID:(UINavigationController*)navigationcontroler Id:(NSString*)strID animation:(bool)yes;
 
 + (NSString*)base64EncodedStringFromImage:(UIImage *)sourceImage;
++ (NSString*)base64EncodedString:(NSString *)sourceString;
 + (UIImage *)decodeBase64ToImage:(NSString *)strEncodeData;
 
 + (NSString*)date_String;

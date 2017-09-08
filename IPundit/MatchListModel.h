@@ -39,6 +39,8 @@
 @property (nonatomic) NSString <Optional> *team1_name;
 @property (nonatomic) NSString <Optional> *team2_name;
 @property (nonatomic) NSString <Optional> *season_name;
+@property (nonatomic) NSString <Optional> *chatChannelid;
+
 
 
 

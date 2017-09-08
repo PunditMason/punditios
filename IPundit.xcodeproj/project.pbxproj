@@ -39,9 +39,6 @@
 		0060083F1EB9C67A009DBCD5 /* ic_broadcast.png in Resources */ = {isa = PBXBuildFile; fileRef = 0060083D1EB9C67A009DBCD5 /* ic_broadcast.png */; };
 		006008401EB9C67A009DBCD5 /* speaker_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0060083E1EB9C67A009DBCD5 /* speaker_icon.png */; };
 		0066225D1EBDD6E000944B72 /* getProfileCurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0066225C1EBDD6E000944B72 /* getProfileCurrentUser.m */; };
-		006D57391F4EA00C005AA2B3 /* KICamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 006D57351F4EA00C005AA2B3 /* KICamera.png */; };
-		006D573A1F4EA00C005AA2B3 /* KICamera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 006D57361F4EA00C005AA2B3 /* KICamera@2x.png */; };
-		006D573B1F4EA00C005AA2B3 /* KIImagePager.m in Sources */ = {isa = PBXBuildFile; fileRef = 006D57381F4EA00C005AA2B3 /* KIImagePager.m */; };
 		006D573E1F4EB21B005AA2B3 /* SliderImg1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 006D573C1F4EB21B005AA2B3 /* SliderImg1.jpg */; };
 		006D573F1F4EB21B005AA2B3 /* SliderImg2.png in Resources */ = {isa = PBXBuildFile; fileRef = 006D573D1F4EB21B005AA2B3 /* SliderImg2.png */; };
 		006D57411F4EB59A005AA2B3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 006D57401F4EB59A005AA2B3 /* CoreGraphics.framework */; };
@@ -111,6 +108,12 @@
 		0196F1D71E69D8B3004DE59F /* overlay_opacity.png in Resources */ = {isa = PBXBuildFile; fileRef = 0196F1D61E69D8B3004DE59F /* overlay_opacity.png */; };
 		0196F1E11E69E165004DE59F /* NSBundle+LibraryExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0196F1DE1E69E165004DE59F /* NSBundle+LibraryExtension.m */; };
 		0196F1E21E69E165004DE59F /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0196F1E01E69E165004DE59F /* UIImage+Additions.m */; };
+		019A0FC81F57F5E1009725AF /* ALChatManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 019A0FC71F57F5E1009725AF /* ALChatManager.m */; };
+		019A0FCA1F57F64A009725AF /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 019A0FC91F57F64A009725AF /* CoreData.framework */; };
+		01B9EBB01F6255E200B6D8D0 /* KICamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B9EBAC1F6255E200B6D8D0 /* KICamera.png */; };
+		01B9EBB11F6255E200B6D8D0 /* KICamera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B9EBAD1F6255E200B6D8D0 /* KICamera@2x.png */; };
+		01B9EBB21F6255E200B6D8D0 /* KIImagePager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B9EBAF1F6255E200B6D8D0 /* KIImagePager.m */; };
+		01E689781F5EAC4E002D9586 /* closechat.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E689771F5EAC4E002D9586 /* closechat.png */; };
 		612F817A1EFACD73003C75C5 /* BroadCastTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 612F81781EFACD73003C75C5 /* BroadCastTableViewCell.m */; };
 		612F817B1EFACD73003C75C5 /* BroadCastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 612F81791EFACD73003C75C5 /* BroadCastTableViewCell.xib */; };
 		615367071EF648CE000D1C0B /* MainDetailVCCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 615367061EF648CE000D1C0B /* MainDetailVCCell.m */; };
@@ -282,10 +285,6 @@
 		0060083E1EB9C67A009DBCD5 /* speaker_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = speaker_icon.png; sourceTree = "<group>"; };
 		0066225B1EBDD6E000944B72 /* getProfileCurrentUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getProfileCurrentUser.h; sourceTree = "<group>"; };
 		0066225C1EBDD6E000944B72 /* getProfileCurrentUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getProfileCurrentUser.m; sourceTree = "<group>"; };
-		006D57351F4EA00C005AA2B3 /* KICamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KICamera.png; sourceTree = "<group>"; };
-		006D57361F4EA00C005AA2B3 /* KICamera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KICamera@2x.png"; sourceTree = "<group>"; };
-		006D57371F4EA00C005AA2B3 /* KIImagePager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIImagePager.h; sourceTree = "<group>"; };
-		006D57381F4EA00C005AA2B3 /* KIImagePager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIImagePager.m; sourceTree = "<group>"; };
 		006D573C1F4EB21B005AA2B3 /* SliderImg1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SliderImg1.jpg; sourceTree = "<group>"; };
 		006D573D1F4EB21B005AA2B3 /* SliderImg2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SliderImg2.png; sourceTree = "<group>"; };
 		006D57401F4EB59A005AA2B3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -365,6 +364,14 @@
 		0196F1DE1E69E165004DE59F /* NSBundle+LibraryExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+LibraryExtension.m"; sourceTree = "<group>"; };
 		0196F1DF1E69E165004DE59F /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
 		0196F1E01E69E165004DE59F /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additions.m"; sourceTree = "<group>"; };
+		019A0FC61F57F5E1009725AF /* ALChatManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ALChatManager.h; sourceTree = "<group>"; };
+		019A0FC71F57F5E1009725AF /* ALChatManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ALChatManager.m; sourceTree = "<group>"; };
+		019A0FC91F57F64A009725AF /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		01B9EBAC1F6255E200B6D8D0 /* KICamera.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = KICamera.png; sourceTree = "<group>"; };
+		01B9EBAD1F6255E200B6D8D0 /* KICamera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KICamera@2x.png"; sourceTree = "<group>"; };
+		01B9EBAE1F6255E200B6D8D0 /* KIImagePager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIImagePager.h; sourceTree = "<group>"; };
+		01B9EBAF1F6255E200B6D8D0 /* KIImagePager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIImagePager.m; sourceTree = "<group>"; };
+		01E689771F5EAC4E002D9586 /* closechat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closechat.png; sourceTree = "<group>"; };
 		612F81771EFACD73003C75C5 /* BroadCastTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BroadCastTableViewCell.h; sourceTree = "<group>"; };
 		612F81781EFACD73003C75C5 /* BroadCastTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BroadCastTableViewCell.m; sourceTree = "<group>"; };
 		612F81791EFACD73003C75C5 /* BroadCastTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BroadCastTableViewCell.xib; sourceTree = "<group>"; };
@@ -546,14 +553,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				006D57451F4EB5B8005AA2B3 /* UIKit.framework in Frameworks */,
-				006D57431F4EB5B0005AA2B3 /* Foundation.framework in Frameworks */,
+				0082EF701EBC3C2900D4A047 /* QuartzCore.framework in Frameworks */,
 				006D57411F4EB59A005AA2B3 /* CoreGraphics.framework in Frameworks */,
+				019A0FCA1F57F64A009725AF /* CoreData.framework in Frameworks */,
+				006D57431F4EB5B0005AA2B3 /* Foundation.framework in Frameworks */,
 				0136F37E1EF8E24A00F3CEEC /* Twitter.framework in Frameworks */,
 				0013BC381EEABF0B00300410 /* libiconv.2.4.0.tbd in Frameworks */,
 				0013BC361EEABEF900300410 /* libstdc++.6.0.9.tbd in Frameworks */,
 				0013BC341EEABEE700300410 /* libz.tbd in Frameworks */,
 				0013BC3C1EEABF2700300410 /* CoreFoundation.framework in Frameworks */,
-				0082EF701EBC3C2900D4A047 /* QuartzCore.framework in Frameworks */,
 				0013BC3A1EEABF1500300410 /* OpenAL.framework in Frameworks */,
 				A60A09731E6D72C100F5B4CF /* CoreMedia.framework in Frameworks */,
 				A64EE3561E694AB800BB93DC /* CoreText.framework in Frameworks */,
@@ -621,18 +629,6 @@
 			name = "Profile Images";
 			sourceTree = "<group>";
 		};
-		006D57341F4EA00C005AA2B3 /* KIImagePager */ = {
-			isa = PBXGroup;
-			children = (
-				006D57351F4EA00C005AA2B3 /* KICamera.png */,
-				006D57361F4EA00C005AA2B3 /* KICamera@2x.png */,
-				006D57371F4EA00C005AA2B3 /* KIImagePager.h */,
-				006D57381F4EA00C005AA2B3 /* KIImagePager.m */,
-			);
-			name = KIImagePager;
-			path = Helper/VermaHelper/KIImagePager;
-			sourceTree = "<group>";
-		};
 		0082EF6B1EBC3BCE00D4A047 /* Scrolling Lib */ = {
 			isa = PBXGroup;
 			children = (
@@ -674,6 +670,7 @@
 		015A136C1F483F6800703441 /* New_Icons */ = {
 			isa = PBXGroup;
 			children = (
+				01E689771F5EAC4E002D9586 /* closechat.png */,
 				006D573C1F4EB21B005AA2B3 /* SliderImg1.jpg */,
 				006D573D1F4EB21B005AA2B3 /* SliderImg2.png */,
 				009CD0691F4D9AA500FB765E /* score-board_new.png */,
@@ -718,9 +715,30 @@
 			path = "Helper/VermaHelper/Image Convertor";
 			sourceTree = "<group>";
 		};
+		019A0FC51F57F5E1009725AF /* ALChatManagerHelper */ = {
+			isa = PBXGroup;
+			children = (
+				019A0FC61F57F5E1009725AF /* ALChatManager.h */,
+				019A0FC71F57F5E1009725AF /* ALChatManager.m */,
+			);
+			path = ALChatManagerHelper;
+			sourceTree = "<group>";
+		};
+		01B9EBAB1F6255E200B6D8D0 /* KIImagePager */ = {
+			isa = PBXGroup;
+			children = (
+				01B9EBAC1F6255E200B6D8D0 /* KICamera.png */,
+				01B9EBAD1F6255E200B6D8D0 /* KICamera@2x.png */,
+				01B9EBAE1F6255E200B6D8D0 /* KIImagePager.h */,
+				01B9EBAF1F6255E200B6D8D0 /* KIImagePager.m */,
+			);
+			path = KIImagePager;
+			sourceTree = "<group>";
+		};
 		4171BB1539550E84E4809547 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				019A0FC91F57F64A009725AF /* CoreData.framework */,
 				006D57441F4EB5B8005AA2B3 /* UIKit.framework */,
 				006D57421F4EB5B0005AA2B3 /* Foundation.framework */,
 				006D57401F4EB59A005AA2B3 /* CoreGraphics.framework */,
@@ -1007,6 +1025,8 @@
 		A6D4541B1E6561F500153335 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
+				01B9EBAB1F6255E200B6D8D0 /* KIImagePager */,
+				019A0FC51F57F5E1009725AF /* ALChatManagerHelper */,
 				A6D4544F1E65697900153335 /* Verma Helper */,
 				A6E801431E65488F00AF1B70 /* Assets.xcassets */,
 				A6E801481E65488F00AF1B70 /* Info.plist */,
@@ -1043,6 +1063,7 @@
 				A60A09901E6E88B700F5B4CF /* Model */,
 			);
 			name = AppDelegate;
+			path = IPundit;
 			sourceTree = "<group>";
 		};
 		A6D4544D1E65687200153335 /* Storyboard */ = {
@@ -1078,7 +1099,6 @@
 		A6D4544F1E65697900153335 /* Verma Helper */ = {
 			isa = PBXGroup;
 			children = (
-				006D57341F4EA00C005AA2B3 /* KIImagePager */,
 				00ECE2101F4BF1B700FD33F5 /* FS PageViewer */,
 				015A136C1F483F6800703441 /* New_Icons */,
 				A644A94B1E790449002C82F2 /* Edit Profile */,
@@ -1097,6 +1117,7 @@
 		A6E8012B1E65488E00AF1B70 = {
 			isa = PBXGroup;
 			children = (
+				A6D4544C1E65685C00153335 /* AppDelegate */,
 				A6E801361E65488F00AF1B70 /* IPundit */,
 				A6E801351E65488F00AF1B70 /* Products */,
 				B750A54854BCA67C4AD0B60C /* Pods */,
@@ -1116,7 +1137,6 @@
 			isa = PBXGroup;
 			children = (
 				00365CE71F46CE7A00696ABF /* IPundit.entitlements */,
-				A6D4544C1E65685C00153335 /* AppDelegate */,
 				A6D4544E1E65688500153335 /* ViewController */,
 				A6D4544D1E65687200153335 /* Storyboard */,
 				A6D4541B1E6561F500153335 /* Supporting */,
@@ -1312,9 +1332,11 @@
 				0060083C1EB9C0BA009DBCD5 /* greentile.png in Resources */,
 				A674BBB41E7298DF001E6293 /* unfollow.png in Resources */,
 				0042197F1EE17C8C006618B3 /* edit_profile.png in Resources */,
+				01B9EBB11F6255E200B6D8D0 /* KICamera@2x.png in Resources */,
 				A6FB7DF61E67DA2F0027FBBC /* football.png in Resources */,
 				A64EE36C1E6973B500BB93DC /* Mark Simonson - Proxima Nova Alt Extra Condensed Light.otf in Resources */,
 				A66C09CB1EA4EEB800332CA2 /* ic_div.png in Resources */,
+				01E689781F5EAC4E002D9586 /* closechat.png in Resources */,
 				A644A95D1E790449002C82F2 /* edit-line.png in Resources */,
 				005B4CFE1F30646D00C33E27 /* searchButtonBG.png in Resources */,
 				A6FB7DE51E67DA2F0027FBBC /* btn_login_leftarrow_normal old.png in Resources */,
@@ -1342,7 +1364,6 @@
 				015A13921F483F6800703441 /* New_switching-user.png in Resources */,
 				000BA84D1ED409F2002CBB53 /* yellowCard.png in Resources */,
 				A6E801441E65488F00AF1B70 /* Assets.xcassets in Resources */,
-				006D573A1F4EA00C005AA2B3 /* KICamera@2x.png in Resources */,
 				A6FB7DE81E67DA2F0027FBBC /* Log In.png in Resources */,
 				A6FB7DF71E67DA2F0027FBBC /* golf.png in Resources */,
 				A644A95B1E790449002C82F2 /* add-button.png in Resources */,
@@ -1378,7 +1399,6 @@
 				00C47BC21EF7B69500D78FE1 /* ListenersTrophyTableViewCell.xib in Resources */,
 				00E34BF51EF3A3A700261FCA /* funky-circle.png in Resources */,
 				A668CCE41E77D7AE001AE0E1 /* dot.png in Resources */,
-				006D57391F4EA00C005AA2B3 /* KICamera.png in Resources */,
 				A6FB7DE91E67DA2F0027FBBC /* logo.png in Resources */,
 				00538BA01F20811900A714E6 /* PM.png in Resources */,
 				00ABAFAE1EAF517500706D39 /* next.png in Resources */,
@@ -1439,6 +1459,7 @@
 				A644A9631E790449002C82F2 /* Save.png in Resources */,
 				A6D1BA161E6AA36A0041CA77 /* facebook_icon.png in Resources */,
 				015A13811F483F6800703441 /* New_about.png in Resources */,
+				01B9EBB01F6255E200B6D8D0 /* KICamera.png in Resources */,
 				A64EE3671E6973B500BB93DC /* Mark Simonson - Proxima Nova Alt Black.otf in Resources */,
 				015A13831F483F6800703441 /* New_desktop.ini in Resources */,
 				00E34C071EF3FB5800261FCA /* Match-Lisitng-green.png in Resources */,
@@ -1484,13 +1505,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-IPundit-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		78180673B178762C9589A7FD /* [CP] Embed Pods Frameworks */ = {
@@ -1499,9 +1523,42 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-IPundit/Pods-IPundit-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/Applozic/Applozic.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/CCBottomRefreshControl/CCBottomRefreshControl.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/ISMessages/ISMessages.framework",
+				"${BUILT_PRODUCTS_DIR}/JSONModel/JSONModel.framework",
+				"${BUILT_PRODUCTS_DIR}/JTCalendar/JTCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/NJKScrollFullScreen/NJKScrollFullScreen.framework",
+				"${BUILT_PRODUCTS_DIR}/SCFacebook/SCFacebook.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/STTwitter/STTwitter.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Applozic.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CCBottomRefreshControl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ISMessages.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NJKScrollFullScreen.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCFacebook.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/STTwitter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1533,9 +1590,9 @@
 				A644A96A1E791E2A002C82F2 /* ProfileHashTagCell.m in Sources */,
 				004E26A81EEE5EB000797FBD /* ALToastView.m in Sources */,
 				002E1A381F4851CD00033F0D /* ImageViewCell.m in Sources */,
-				006D573B1F4EA00C005AA2B3 /* KIImagePager.m in Sources */,
 				A6BC55A11E68393D00C500FE /* ListenDetailVC.m in Sources */,
 				A6BC559F1E68393D00C500FE /* ListenCell.m in Sources */,
+				01B9EBB21F6255E200B6D8D0 /* KIImagePager.m in Sources */,
 				A64EE3741E69776D00BB93DC /* BroadcastMatchCell.m in Sources */,
 				A6E8013F1E65488F00AF1B70 /* ViewController.m in Sources */,
 				A6C5A8D01E65921300EF9E0D /* SettingsVC.m in Sources */,
@@ -1551,6 +1608,7 @@
 				A6D1BA081E6A98C50041CA77 /* ListenMatchVC.m in Sources */,
 				0066225D1EBDD6E000944B72 /* getProfileCurrentUser.m in Sources */,
 				6153670A1EF648FC000D1C0B /* MainListenDetailCell.m in Sources */,
+				019A0FC81F57F5E1009725AF /* ALChatManager.m in Sources */,
 				0196F1E21E69E165004DE59F /* UIImage+Additions.m in Sources */,
 				615367071EF648CE000D1C0B /* MainDetailVCCell.m in Sources */,
 				A64EE35B1E6972E100BB93DC /* BroadcastMatchVC.m in Sources */,
@@ -1706,7 +1764,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_LINK_OBJC_RUNTIME = YES;
 				CODE_SIGN_ENTITLEMENTS = IPundit/IPundit.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 99X88ADNQ6;
 				ENABLE_BITCODE = NO;
@@ -1715,7 +1773,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = IPundit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IPundit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1735,7 +1793,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_LINK_OBJC_RUNTIME = YES;
 				CODE_SIGN_ENTITLEMENTS = IPundit/IPundit.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = 99X88ADNQ6;
 				ENABLE_BITCODE = NO;
@@ -1744,7 +1802,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = IPundit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IPundit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

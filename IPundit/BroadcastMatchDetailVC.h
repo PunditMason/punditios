@@ -16,8 +16,15 @@
 #import "STTwitter.h"
 #import <Social/Social.h>
 
+#import <Applozic/Applozic.h>
+#import "ALChatManager.h"
 
-@interface BroadcastMatchDetailVC : UIViewController<UIAlertViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource>
+
+//@property (strong, nonatomic) id <ALChatViewControllerDelegate> chatViewDelegate;
+
+
+
+@interface BroadcastMatchDetailVC : UIViewController<UIAlertViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource,ALChatViewControllerDelegate,ALMessagesViewDelegate,ALChatCellDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *leaqueIconImageView;
 
@@ -27,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *animatedImageView;
 @property (nonatomic,strong) MatchListModel *matchlist;
 @property (nonatomic,strong) CurrentUser *currentUser;
+@property (nonatomic,strong) NSString *ChatChannelid;
 @property (nonatomic,strong) NSMutableDictionary *teamBroadCastDict ;
 
 @property (strong, nonatomic) IBOutlet UILabel *matchTimeLabel;
@@ -54,6 +62,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *mTeamANameLable;
 @property (weak, nonatomic) IBOutlet UILabel *mTeamBNameLable;
 
+@property (nonatomic, strong) ALUser * CurrentALUser;
 
 
 @property (strong, nonatomic) IBOutlet UILabel *mListenersCount;
@@ -64,6 +73,7 @@
 - (IBAction)twitterButtonTap:(id)sender;
 - (IBAction)ShareButtonPressed:(id)sender;
 - (IBAction)ChatButtonPressed:(id)sender;
+- (IBAction)LiveButtonAction:(id)sender;
 
 
 @property (nonatomic,weak) IBOutlet UIView *mOverlayView;

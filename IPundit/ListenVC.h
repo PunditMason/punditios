@@ -16,6 +16,7 @@
 @interface ListenVC : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate>{
     
 }
+@property (weak, nonatomic) IBOutlet UIView *mHideView;
 
 @property (strong, nonatomic) IBOutlet UIButton *mXButton;
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;

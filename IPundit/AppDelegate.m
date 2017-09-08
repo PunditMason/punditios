@@ -13,6 +13,7 @@
 #import "ListenMatchDetailVC.h"
 #import "CurrentUser.h"
 
+
 #define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
 @interface AppDelegate ()
@@ -24,6 +25,51 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+
+#pragma mark ====================================================================
+#pragma mark ======================PUSH NOTIFICATION=============================
+#pragma mark ====================================================================
+    
+    [self registerForNotification];
+    // checks wheather app version is updated/changed then makes server call setting VERSION_CODE
+    [ALRegisterUserClientService isAppUpdated];
+    
+    
+    
+    ALAppLocalNotifications *localNotification = [ALAppLocalNotifications appLocalNotificationHandler];
+    [localNotification dataConnectionNotificationHandler];
+    
+    if ([ALUserDefaultsHandler isLoggedIn])
+    {
+        [ALPushNotificationService userSync];
+      
+    }
+    
+    NSLog(@"launchOptions: %@", launchOptions);
+    
+    if (launchOptions != nil)
+    {
+        NSDictionary *dictionary = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+        if (dictionary != nil)
+        {
+            NSLog(@"Launched from push notification: %@", dictionary);
+            ALPushNotificationService *pushNotificationService = [[ALPushNotificationService alloc] init];
+            BOOL applozicProcessed = [pushNotificationService processPushNotification:dictionary
+                                                                             updateUI:[NSNumber numberWithInt:APP_STATE_INACTIVE]];
+            
+            if (!applozicProcessed) {
+                //Note: notification for app
+            }
+        }
+    }
+    
+#pragma mark ====================================================================
+#pragma mark ====================================================================
+#pragma mark ====================================================================
+    
+    
+    
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
@@ -46,10 +92,165 @@
     
     [NSTimer scheduledTimerWithTimeInterval:30.0 target: self
                                                       selector: @selector(getBreakingNews) userInfo: nil repeats: YES];
-    [self registerForRemoteNotifications];
+    //[self registerForRemoteNotifications];
 
     return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 }
+
+
+
+#pragma mark ====================================================================
+#pragma mark ====================================================================
+#pragma mark ====================================================================
+- (void)application:(UIApplication*)application didReceiveRemoteNotification:(NSDictionary*)dictionary {
+    
+    NSLog(@"RECEIVED_NOTIFICATION :: %@", dictionary);
+    ALPushNotificationService *pushNotificationService = [[ALPushNotificationService alloc] init];
+    //    [pushNotificationService processPushNotification:dictionary updateUI:[NSNumber numberWithInt:APP_STATE_INACTIVE]];
+    [pushNotificationService notificationArrivedToApplication:application withDictionary:dictionary];
+}
+#pragma mark ====================================================================
+
+-(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(nonnull void (^)(UIBackgroundFetchResult))completionHandler{
+    
+    NSLog(@"RECEIVED_NOTIFICATION_WITH_COMPLETION :: %@", userInfo);
+    ALPushNotificationService *pushNotificationService = [[ALPushNotificationService alloc] init];
+    //    [pushNotificationService processPushNotification:userInfo updateUI:[NSNumber numberWithInt:APP_STATE_BACKGROUND]];
+    [pushNotificationService notificationArrivedToApplication:application withDictionary:userInfo];
+    completionHandler(UIBackgroundFetchResultNewData);
+}
+
+
+#pragma mark ====================================================================
+
+
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
+    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+    NSLog(@"APP_ENTER_IN_BACKGROUND");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"APP_ENTER_IN_BACKGROUND" object:nil];
+    
+    
+    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
+    [center postNotification:[NSNotification notificationWithName:@"appDidEnterForeground" object:nil]];
+    application.applicationIconBadgeNumber = 0;
+
+    
+}
+
+#pragma mark ====================================================================
+
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+    
+    [ALPushNotificationService applicationEntersForeground];
+    
+    NSLog(@"APP_ENTER_IN_FOREGROUND");
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"APP_ENTER_IN_FOREGROUND" object:nil];
+    [application setApplicationIconBadgeNumber:0];
+}
+
+
+
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    NSLog(@"Device token: %@", deviceToken.description);
+    NSString * deviceTokenString = [[[[deviceToken description]
+                                      stringByReplacingOccurrencesOfString: @"<" withString: @""]
+                                     stringByReplacingOccurrencesOfString: @">" withString: @""]
+                                    stringByReplacingOccurrencesOfString: @" " withString: @""];
+    
+    NSLog(@"The generated device token string is : %@",deviceTokenString);
+    DM.deviceTokenForPushNotification = deviceTokenString ;
+    
+    
+    
+    NSLog(@"DEVICE_TOKEN :: %@", deviceToken);
+    
+    const unsigned *tokenBytes = [deviceToken bytes];
+    NSString *hexToken = [NSString stringWithFormat:@"%08x%08x%08x%08x%08x%08x%08x%08x",
+                          ntohl(tokenBytes[0]), ntohl(tokenBytes[1]), ntohl(tokenBytes[2]),
+                          ntohl(tokenBytes[3]), ntohl(tokenBytes[4]), ntohl(tokenBytes[5]),
+                          ntohl(tokenBytes[6]), ntohl(tokenBytes[7])];
+    
+    NSString *apnDeviceToken = hexToken;
+    NSLog(@"APN_DEVICE_TOKEN :: %@", hexToken);
+    
+    if ([[ALUserDefaultsHandler getApnDeviceToken] isEqualToString:apnDeviceToken])
+    {
+        return;
+    }
+    
+    ALRegisterUserClientService *registerUserClientService = [[ALRegisterUserClientService alloc] init];
+    [registerUserClientService updateApnDeviceTokenWithCompletion:apnDeviceToken withCompletion:^(ALRegistrationResponse *rResponse, NSError *error) {
+        
+        if (error)
+        {
+            NSLog(@"REGISTRATION ERROR :: %@",error.description);
+            return;
+        }
+        
+        NSLog(@"Registration response from server : %@", rResponse);
+    }];
+}
+
+
+#pragma mark ====================================================================
+
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+    NSLog(@"Failed to get token, error: %@", error);
+}
+
+#pragma mark ====================================================================
+
+-(void)registerForNotification
+{
+    if(SYSTEM_VERSION_LESS_THAN(@"10.0"))
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound |    UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+    }
+    else
+    {
+        UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
+        center.delegate = self;
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error)
+         {
+             if(!error)
+             {
+                 [[UIApplication sharedApplication] registerForRemoteNotifications];  // required to get the app to do anything at all about push notifications
+                 NSLog(@"Push registration success." );
+             }
+             else
+             {
+                 NSLog(@"Push registration FAILED" );
+                 NSLog(@"ERROR: %@ - %@", error.localizedFailureReason, error.localizedDescription );
+                 NSLog(@"SUGGESTIONS: %@ - %@", error.localizedRecoveryOptions, error.localizedRecoverySuggestion );
+             }
+         }];
+    }
+}
+
+
+
+#pragma mark ====================================================================
+#pragma mark ====================================================================
+#pragma mark ====================================================================
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -81,26 +282,10 @@
 }
 
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    
-    
-    
-    ////background
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-    [center postNotification:[NSNotification notificationWithName:@"appDidEnterForeground" object:nil]];
-    
-   
-}
 
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    
-    // again coming back
-    
-}
+
+
 
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -212,16 +397,6 @@
 }
 
 
-- (void)application:(UIApplication* )application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken {
-    NSLog(@"Device token: %@", deviceToken.description);
-    NSString * deviceTokenString = [[[[deviceToken description]
-                                      stringByReplacingOccurrencesOfString: @"<" withString: @""]
-                                     stringByReplacingOccurrencesOfString: @">" withString: @""]
-                                    stringByReplacingOccurrencesOfString: @" " withString: @""];
-    
-    NSLog(@"The generated device token string is : %@",deviceTokenString);
-    DM.deviceTokenForPushNotification = deviceTokenString ;
-   
-}
+
 
 @end

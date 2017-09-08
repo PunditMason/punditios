@@ -13,14 +13,18 @@
 
  //Live Base Urls
  
- #define KserviceBaseIconURL @"http://punditsports.com:81/pundit-ios/assets/img/"
- #define kServiceBaseHomePageURL @"http://punditsports.com:81/pundit-ios/v1/Game/"
- #define KServiceBaseURL @"http://punditsports.com:81/pundit-ios/v1/"
- #define kServiceBaseURL @"http://punditsports.com:81/pundit-ios/v1/"
- #define KServiceBaseProfileImageURL @"http://punditsports.com:81/pundit-ios/profileusrimg/"
- #define KServiceBaseShareUrl @"http://punditsports.com:81/play/index.php/Welcome/broadcast/"
-#define KServiceBasePushNotificationUrl @"http://punditsports.com:81/pundit-ios/v1/Cron/follow_notification/"
+#define KserviceBaseIconURL @"http://punditsports.com:81/pundit-ios/assets/img/"
+#define kServiceBaseHomePageURL @"http://punditsports.com:81/pundit-ios/v1/Game/"
+#define KServiceBaseURL @"http://punditsports.com:81/pundit-ios/v1/"
+#define kServiceBaseURL @"http://punditsports.com:81/pundit-ios/v1/"
+#define KServiceBaseProfileImageURL @"http://punditsports.com:81/pundit-ios/profileusrimg/"
+// New url#define KServiceBaseShareUrl @"http://punditsports.com:81/play/index.php/Welcome/broadcast/"
 
+
+ #define KServiceBaseShareUrl @"http://punditsports.com:81/play/broadcast/"
+
+
+#define KServiceBasePushNotificationUrl @"http://punditsports.com:81/pundit-ios/v1/Cron/follow_notification/"
 
 
  //V2

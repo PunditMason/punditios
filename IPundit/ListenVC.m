@@ -86,6 +86,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     [self.mCollectionView reloadData];
+    searchDataArray = [[NSMutableArray alloc]init];
+    [self.mTableView reloadData];
     IQKeyboardManager.sharedManager.enable = true;
 }
 
@@ -105,6 +107,7 @@
     ListenCell *cell = [self.mCollectionView dequeueReusableCellWithReuseIdentifier:@"CollectionVC" forIndexPath:indexPath];
     self.mCollectionView.allowsMultipleSelection = NO;
     NSError *error;
+    NSLog(@"%@",mDataArray);
     Sports = [[SportsModel alloc] initWithDictionary:[mDataArray objectAtIndex:indexPath.row] error:&error];
     NSString * string = [NSString stringWithFormat:@"%@icons/%@",KserviceBaseIconURL,Sports.cover_image];
     NSString * iconString = [NSString stringWithFormat:@"%@icons/%@",KserviceBaseIconURL,Sports.avatar];
@@ -129,14 +132,21 @@
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
-    self.mSearchTextField.text = nil ;
-    [self.mSearchTextField resignFirstResponder];
-    NSString *index_path = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+   
+    NSLog(@"before%@",Sports.id);
+    NSLog(@"after%@",mDataArray);
     NSError *error;
     Sports = [[SportsModel alloc] initWithDictionary:[mDataArray objectAtIndex:indexPath.row] error:&error];
+    NSLog(@"after%@",[mDataArray objectAtIndex:indexPath.row]);
+
+    NSLog(@"after%@",Sports.id);
     DM.refreshRefStringForListener = Sports.id;
 
     [self performSegueWithIdentifier:@"ListenDetailView" sender:self];
+    self.mSearchTextField.text = nil ;
+    [self.mSearchTextField resignFirstResponder];
+    NSString *index_path = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+    
     
 }
 
@@ -238,7 +248,7 @@
     else if ([segue.identifier isEqualToString:@"PunditDetailVi"]) {
         PunditDetailVC *PunditDetailvc = segue.destinationViewController;
         PunditDetailvc.dictRefff = dictReff;
-        PunditDetailvc.mDataArrayyy = mDataArray;
+        PunditDetailvc.mDataArrayyy = mDataArrayy;
         PunditDetailvc.mindex = mmindexpath;
     }
     
@@ -359,8 +369,10 @@
         [self.navigationController pushViewController:vc animated:YES];
 
         */
-        
-        [mDataArrayy addObjectsFromArray:[searchDataArray objectAtIndex:indexPath.row]];
+        mDataArrayy = [[NSMutableArray alloc]init];
+        [mDataArrayy addObjectsFromArray:searchDataArray ];
+        NSLog(@"%@",searchDataArray);
+        NSLog(@"%@",mDataArrayy);
         dictReff = [Helper formatJSONDict:[searchDataArray objectAtIndex:indexPath.row]];
         mmindexpath = indexPath;
         
@@ -542,11 +554,15 @@
         return;
     }
     
-    NSString *path = [NSString stringWithFormat:@"%@Search/sport_search",KV2serviceBaseIconURL];
+    NSString *path = [NSString stringWithFormat:@"%@IosSearch/sport_search",KV2serviceBaseIconURL];
     NSMutableDictionary * parameters = [[NSMutableDictionary alloc]init];
     [parameters setValue:searchingWord forKey:@"search_text"];
     [parameters setValue:kUser forKey:@"search_type"];
+    [parameters setValue:[[Helper mCurrentUser]objectForKey:@"id"] forKey:@"user_id"];
     [parameters setValue:@"1" forKey:@"live"];
+    [self.mTableView setUserInteractionEnabled:NO];
+    self.mHideView.hidden = NO;
+    
     
     [DM PostRequest:path parameter:parameters onCompletion:^(id  _Nullable dict) {
         NSError *errorJson=nil;
@@ -565,7 +581,14 @@
             searchDataArray = [responseDict objectForKey:@"data"];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.mTableView reloadData];
+                [self.mTableView setUserInteractionEnabled:YES];
+                self.mHideView.hidden = YES;
+
+
             });
+        }
+        else{
+             self.mHideView.hidden = YES;
         }
         
     } onError:^(NSError * _Nullable Error) {
@@ -580,10 +603,11 @@
         return;
     }
     
-    NSString *path = [NSString stringWithFormat:@"%@Search/sport_search",KV2serviceBaseIconURL];
+    NSString *path = [NSString stringWithFormat:@"%@IosSearch/sport_search",KV2serviceBaseIconURL];
     NSMutableDictionary * parameters = [[NSMutableDictionary alloc]init];
     [parameters setValue:searchingWord forKey:@"search_text"];
     [parameters setValue:kTeam forKey:@"search_type"];
+    [parameters setValue:[[Helper mCurrentUser]objectForKey:@"id"] forKey:@"user_id"];
     [parameters setValue:@"1" forKey:@"live"];
     
     [DM PostRequest:path parameter:parameters onCompletion:^(id  _Nullable dict) {

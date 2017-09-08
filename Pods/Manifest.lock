@@ -14,6 +14,8 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - Applozic (4.0.2):
+    - SDWebImage (~> 3.8)
   - Bolts (1.8.4):
     - Bolts/AppLinks (= 1.8.4)
     - Bolts/Tasks (= 1.8.4)
@@ -40,14 +42,15 @@ PODS:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - FBSDKShareKit
-  - SDWebImage (4.0.0):
-    - SDWebImage/Core (= 4.0.0)
-  - SDWebImage/Core (4.0.0)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - STTwitter (0.2.6)
   - SVProgressHUD (2.1.2)
 
 DEPENDENCIES:
   - AFNetworking
+  - Applozic (~> 4.0.1)
   - CCBottomRefreshControl
   - Crashlytics
   - Fabric
@@ -60,12 +63,13 @@ DEPENDENCIES:
   - JTCalendar (~> 2.0)
   - NJKScrollFullScreen
   - SCFacebook
-  - SDWebImage
+  - SDWebImage (~> 3.8)
   - STTwitter
   - SVProgressHUD
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  Applozic: 72026637b479b9671b59aadc3bda64d20d0e3296
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   CCBottomRefreshControl: 389780b4488321c91d18f66a6da5ef9606df6de5
   Crashlytics: dfbae35ef22ca189240d230ad501feea4ee85d2d
@@ -79,10 +83,10 @@ SPEC CHECKSUMS:
   JTCalendar: beb2f4c1b639bf6880f680b4858227acf83a049c
   NJKScrollFullScreen: 13e370f935da7385b92779644b31df8d83a91447
   SCFacebook: 4555a9ffd6b18bd0044d888dab735306cdaec513
-  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   STTwitter: 30ee2f79eff78c3d633a1edc869e97db9c9ead59
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: 2cf1f2832fd99d54b19ecb162cfb606d16c93fd8
+PODFILE CHECKSUM: 79754875eaaae0548c2a1efad4f4024831d2f2ba
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.3.1

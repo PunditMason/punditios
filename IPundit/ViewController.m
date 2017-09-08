@@ -13,16 +13,22 @@
 #import "Helper.h"
 #import "getProfileCurrentUser.h"
 #import <QuartzCore/QuartzCore.h>
+#import "KIImagePager.h"
 
-
-@interface ViewController (){
-    
+@interface ViewController ()<KIImagePagerDelegate, KIImagePagerDataSource>
+{
+    IBOutlet KIImagePager *_imagePager;    
     BOOL FacebookCheckBool;
     BOOL ProfileCheckBool;
     NSMutableDictionary * termsAndConditions ;
     
     NSTimer *listenersTimer ;
     NSMutableArray *ImagesArray;
+    float mCurrentDataVersion;
+    
+    
+    
+
 }
 
 @end
@@ -31,7 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //ImagesArray = [[NSMutableArray alloc] init];
+    ImagesArray = [[NSMutableArray alloc] init];
         _getProfileParameter =[[NSMutableDictionary alloc]init];
     self.splashScreenView.userInteractionEnabled = NO ;
     self.splashScreenImageView.userInteractionEnabled = NO ;
@@ -64,7 +70,7 @@
     [self getTandC];
     [self getBreakingNews];
     
-    
+    /*
     NSURL *url1 = [NSURL URLWithString:@"http://punditsports.com:81/pundit-ios/assets/img/ios_icons/21100500_10213824194909008_1136882959_n.jpg"];
     NSURL *url2 = [NSURL URLWithString:@"http://punditsports.com:81/pundit-ios/assets/img/ios_icons/Listening-ios.png"];
 
@@ -75,8 +81,8 @@
     UIImage *Image1 =[UIImage imageNamed:@"SliderImg1.jpg"];
     UIImage *Image2 =[UIImage imageNamed:@"SliderImg2.png"];
 
-    ImagesArray = [[NSMutableArray alloc] initWithObjects:Image1,Image2, nil];
-   
+    ImagesArray = [[NSMutableArray alloc] initWithObjects:strobj,strobj2, nil];
+   */
     
     }
 
@@ -196,14 +202,20 @@
     }
     else{
         
-        self.LoginLable.text = @"Log in";
-        [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCurrentUser];
-        [self logout];
+        [self LogoutFunction];
         [Helper ISAlertTypeSuccess:@"Success" andMessage:@"You have successfully logged out"];
-        FacebookCheckBool = false;
     }
+}
+
+-(void)LogoutFunction{
+    
+    self.LoginLable.text = @"Log in";
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCurrentUser];
+    [self logout];
+    FacebookCheckBool = false;
     
 }
+
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     
     if (buttonIndex == 0) {
@@ -262,11 +274,16 @@
             [_getProfileParameter setObject:[Helper base64EncodedStringFromImage:imageRef] forKey:@"cover_photo"];
             [_getProfileParameter setObject:[result objectForKey:@"id"] forKey:@"facebookId"];
             [_getProfileParameter setObject:DM.deviceTokenForPushNotification forKey:@"deviceToken"];
+            [_getProfileParameter setObject:@"IOS" forKey:@"deviceType"];
+            
+            
+            
 
            // NSString *path=[NSString stringWithFormat:@"%@app/login",KServiceBaseURL ];
             NSString *path=[NSString stringWithFormat:@"%@app/loginusertoken",KServiceBaseURL ];
 
             //http://punditsports.com:81/pundit-ios/v1/App/loginusertoken
+            [self RegisterUseronApplogic:_getProfileParameter :[[[result objectForKey:@"picture"] objectForKey:@"data"] objectForKey:@"url"]];
 
             [DM PostRequest:path parameter:_getProfileParameter onCompletion:^(id  _Nullable dict) {
                 [Helper hideLoaderSVProgressHUD];
@@ -304,6 +321,35 @@
         if (success) {
             //NSLog(@"Result %@",[result description]);
         }
+    }];
+}
+
+
+-(void)RegisterUseronApplogic :(NSMutableDictionary*)User :(NSString*)UserImageUrl{
+    ALUser *user = [ALUser new];
+    user.userId = [User valueForKey:@"facebookId"];
+    user.password = APPLICATION_ID;
+    user.email = [User valueForKey:@"email"];
+    user.displayName = [User valueForKey:@"name"];
+    user.imageLink = UserImageUrl;
+    [user setAuthenticationTypeId:(short)CLIENT];
+    
+    [ALUserDefaultsHandler setUserId:user.userId];
+    [ALUserDefaultsHandler setPassword:user.password];
+    [ALUserDefaultsHandler setEmailId:user.email];
+    [ALUserDefaultsHandler setDisplayName:user.displayName];
+    [ALUserDefaultsHandler setProfileImageLink:user.imageLink];
+    [ALUserDefaultsHandler setUserAuthenticationTypeId:(short)CLIENT];
+    ALChatManager *manager = [[ALChatManager alloc] initWithApplicationKey:APPLICATION_ID]; // SET APPLICATION ID
+    [manager registerUserWithCompletion:user withHandler:^(ALRegistrationResponse *rResponse, NSError *error) {
+        if (rResponse) {
+            NSLog(@"%@",rResponse);
+        }
+        else{
+            NSLog(@"%@",error);
+            //[ALUtilityClass showAlertMessage:@"ERROR!!" andTitle:@"Oops!!!"];
+        }
+        
     }];
 }
 
@@ -381,6 +427,9 @@
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
         NSMutableDictionary *mHomePageDict = [[NSMutableDictionary alloc]init];
         mHomePageDict = [responseDict objectForKey:@"ios"];
+        NSLog(@"%@",responseDict);
+
+        [self checkDataVersion:[[responseDict objectForKey:@"ios"] valueForKey:@"appVersion"]];
         
         CATransition *transition = [CATransition animation];
         transition.duration = 1.0f;
@@ -403,9 +452,10 @@
         NSString * listnerString = [NSString stringWithFormat:@"%@ios_icons/%@",KserviceBaseIconURL,[mHomePageDict objectForKey:@"listeners"]];
         NSURL *listnerUrl = [NSURL URLWithString:listnerString];
 
-//        [ImagesArray addObject:url];
-//        [ImagesArray addObject:listnerUrl];
-//        [_imagePager reloadData];
+       // [ImagesArray addObject:url];
+       // [ImagesArray addObject:listnerUrl];
+        [ImagesArray addObject:[responseDict objectForKey:@"banner_images"]];
+        [_imagePager reloadData];
         
         [self.listnerButtonImageView sd_setImageWithURL:listnerUrl];
         NSString * settingString = [NSString stringWithFormat:@"%@ios_icons/%@",KserviceBaseIconURL,[mHomePageDict objectForKey:@"setting"]];
@@ -447,7 +497,6 @@
     } onError:^(NSError * _Nullable Error) {
         NSLog(@"%@",Error);
     }];
-    
     
 }
 
@@ -522,25 +571,19 @@
 #pragma mark ===============KLIMAGEPAGER START ===================
 #pragma mark =====================================================
 
-
-
-
 - (void) viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    _imagePager.pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
-    _imagePager.pageControl.pageIndicatorTintColor = [UIColor whiteColor];
-    _imagePager.slideshowTimeInterval = 0.5f;
+    _imagePager.pageControl.currentPageIndicatorTintColor = [UIColor lightGrayColor];
+    _imagePager.pageControl.pageIndicatorTintColor = [UIColor blackColor];
+    _imagePager.slideshowTimeInterval = 5.5f;
     _imagePager.slideshowShouldCallScrollToDelegate = YES;
-    
 }
 
 #pragma mark - KIImagePager DataSource
 - (NSArray *) arrayWithImages:(KIImagePager*)pager
 {
-    
-    NSLog(@"Image Array count %lu",(unsigned long)ImagesArray.count);
     return ImagesArray;
 }
 
@@ -549,10 +592,9 @@
     return UIViewContentModeScaleAspectFill;
 }
 
-- (NSString *) captionForImageAtIndex:(NSUInteger)index inPager:(KIImagePager* )pager
+- (NSString *) captionForImageAtIndex:(NSInteger)index inPager:(KIImagePager *)pager
 {
     return 0;
-    
 }
 
 #pragma mark - KIImagePager Delegate
@@ -567,8 +609,40 @@
 }
 
 
+
 #pragma mark =====================================================
 #pragma mark ===============KLIMAGEPAGER END ===================
 #pragma mark =====================================================
+
+
+
+#pragma mark =====================================================
+#pragma mark ===============CHECK DATA VERSION ===================
+#pragma mark =====================================================
+
+-(void)checkDataVersion:(NSString *)AppVersion {
+    if (USERDEFAULTS(kDataVersion)) {
+        mCurrentDataVersion = [AppVersion floatValue];
+        float previousVal = [USERDEFAULTS(kDataVersion) floatValue];
+        if (mCurrentDataVersion > previousVal) {
+            [self LogoutFunction];
+            [USER_DEFAULTS setObject:[NSNumber numberWithFloat:mCurrentDataVersion] forKey:kDataVersion];
+            [USER_DEFAULTS synchronize];
+        }
+    }
+    else {
+        [USER_DEFAULTS setObject:[NSNumber numberWithFloat:1.0f] forKey:kDataVersion];
+        [USER_DEFAULTS synchronize];
+        [self LogoutFunction];
+    }
+
+}
+
+#pragma mark =====================================================
+#pragma mark ===============CHECK DATA VERSION ===================
+#pragma mark =====================================================
+
+
+
 
 @end

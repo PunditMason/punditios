@@ -90,6 +90,9 @@
     
     self.breakingNewsLabel.text = DM.breakingNewsString ;
     [DM marqueLabel:self.breakingNewsLabel];
+    searchDataArray = [[NSMutableArray alloc]init];
+    [self.mTableView reloadData];
+    [self.mCollectionView reloadData];
     [self GetSportsList];
 }
 
@@ -421,8 +424,8 @@
         DM.listenerPresentIcon = [NSString stringWithFormat:@"%@",[[dict valueForKey:@"channel"]valueForKey:@"mark_image"]];
         [self.navigationController pushViewController:vc animated:YES];
          */
-        
-        [mDataArrayy addObjectsFromArray:[searchDataArray objectAtIndex:indexPath.row]];
+        mDataArrayy = [[NSMutableArray alloc]init];
+        [mDataArrayy addObjectsFromArray:searchDataArray ];
         dictReff = [Helper formatJSONDict:[searchDataArray objectAtIndex:indexPath.row]];
         mmindexpath = indexPath;
         
@@ -447,8 +450,12 @@
     NSMutableDictionary * dictRef = [[NSMutableDictionary alloc]init];
     
     if (tableView == self.mTableView) {
-        dictRef = [searchDataArray objectAtIndex:indexPath.row];
+       // if (searchDataArray) {
         
+            
+      //  }
+       
+        dictRef = [searchDataArray objectAtIndex:indexPath.row];
         if (dictRef [@"channel_info"] ) {
             static NSString *CellIdentifier = @"ListenersTrophyTableViewCell";
             ListenersTrophyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -601,9 +608,12 @@
     if ([searchingWord isEqualToString:@""]) {
         return;
     }
-    NSString *path = [NSString stringWithFormat:@"%@Search/league_search",KV2serviceBaseIconURL];
+    //NSString *path = [NSString stringWithFormat:@"%@Demosearch/league_search",KV2serviceBaseIconURL];
+    NSString *path = [NSString stringWithFormat:@"%@IosSearch/league_search",KV2serviceBaseIconURL];
+
     NSMutableDictionary * parameters = [[NSMutableDictionary alloc]init];
     [parameters setValue:searchingWord forKey:@"search_text"];
+    [parameters setValue:[[Helper mCurrentUser]objectForKey:@"id"] forKey:@"user_id"];
     [parameters setValue:searchRef forKey:@"search_type"];
     [parameters setValue:DM.refreshRefStringForListener forKey:@"sport_id"];
     [parameters setValue:@"1" forKey:@"live"];
@@ -647,12 +657,16 @@
         return;
     }
     
-    NSString *path = [NSString stringWithFormat:@"%@Search/sport_search",KV2serviceBaseIconURL];
+    NSString *path = [NSString stringWithFormat:@"%@IosSearch/league_search",KV2serviceBaseIconURL];
+
     NSMutableDictionary * parameters = [[NSMutableDictionary alloc]init];
     [parameters setValue:searchingWord forKey:@"search_text"];
+    [parameters setValue:[[Helper mCurrentUser]objectForKey:@"id"] forKey:@"user_id"];
     [parameters setValue:kTeam forKey:@"search_type"];
+    [parameters setValue:DM.refreshRefStringForListener forKey:@"sport_id"];
     [parameters setValue:@"1" forKey:@"live"];
-    
+    [self.mTableView setUserInteractionEnabled:NO];
+
     [DM PostRequest:path parameter:parameters onCompletion:^(id  _Nullable dict) {
         NSError *errorJson=nil;
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
@@ -670,7 +684,12 @@
             teamSearchDataArray = [responseDict objectForKey:@"data"];
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.mTeamTableView reloadData];
+                [self.mTableView setUserInteractionEnabled:YES];
+
             });
+        }
+        else{
+            //[self.mTableView setUserInteractionEnabled:YES];
         }
     } onError:^(NSError * _Nullable Error) {
         

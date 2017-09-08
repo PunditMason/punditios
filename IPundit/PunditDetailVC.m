@@ -28,10 +28,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    
+    self.CurrentALUser = [ALChatManager getLoggedinUserInformation];
+
     
     NSMutableDictionary * dictRef = [[NSMutableDictionary alloc]init];
-    dictRef = [self.mDataArrayyy objectAtIndex:self.mindex.row];
+    NSLog(@"%@",self.mDataArrayyy);
+    if (self.mDataArrayyy) {
+        dictRef = [self.mDataArrayyy objectAtIndex:self.mindex.row];
+    }
+    
     
     
     
@@ -73,8 +78,14 @@
         self.mYoutubeButton.enabled = YES ;
     }
     
-    self.mFollowersLable.text =[NSString stringWithFormat:@"%@",[self.dictRefff objectForKey:@"followCount"]];
-    self.mFollowingLable.text =[NSString stringWithFormat:@"%@",[self.dictRefff objectForKey:@"followingCount"]];
+    
+    
+    self.mFollowersLable.text =[NSString stringWithFormat:@"%@",[self.dictRefff objectForKey:@"followingCount"]];
+    self.mFollowingLable.text =[NSString stringWithFormat:@"%@",[self.dictRefff objectForKey:@"followCount"]];
+    
+    
+    
+    
     NSString * string = [NSString stringWithFormat:@"%@%@",KServiceBaseProfileImageURL,[self.dictRefff objectForKey:@"avatar"]];
     NSURL *url = [NSURL URLWithString:string];
     [self.mProfileImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"No-following-min"]];
@@ -109,13 +120,14 @@
         [followAlert show];
         
     }else{
-        NSString *string = [NSString stringWithFormat:@"%@game/follow/%@/%@",KServiceBaseURL,[self.dictRefff objectForKey:@"id"],[[Helper mCurrentUser]objectForKey:@"id"]];
+        NSString *string = [NSString stringWithFormat:@"%@game/followlist/%@/%@",KServiceBaseURL,[[Helper mCurrentUser]objectForKey:@"id"],[self.dictRefff objectForKey:@"id"]];
         [Helper showLoaderVProgressHUD];
         [DM GetRequest:string parameter:nil onCompletion:^(id  _Nullable dict) {
             NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
             
             NSMutableDictionary *data = [[NSMutableDictionary alloc]init];
             data = [responseDict objectForKey:@"data"];
+            self.mFollowingLable.text = [NSString stringWithFormat:@"%@",[data objectForKey:@"followingCount"]];
             self.mFollowersLable.text = [NSString stringWithFormat:@"%@",[data objectForKey:@"count"]];
             
             NSString *stringRef = [NSString stringWithFormat:@"%@",[data objectForKey:@"result"]];
@@ -221,6 +233,18 @@
     dict = [[dictRef valueForKey:@"channel_info"]objectAtIndex:0];
     vc.punditsMessage = @"yes" ;
     vc.channelDict = [dict valueForKey:@"channel"];
+    
+    
+    NSNumber *mChannelKey = [NSNumber numberWithInteger:[[[dict valueForKey:@"channel"] valueForKey:@"chatChannelid"]integerValue]];
+    NSLog(@"%@",mChannelKey);
+    NSLog(@"%@",self.CurrentALUser.userId);
+    ALChannelService * channelService = [[ALChannelService alloc] init];
+    [channelService addMemberToChannel:self.CurrentALUser.userId andChannelKey:mChannelKey orClientChannelKey:nil withCompletion:^(NSError *error, ALAPIResponse *response) {
+        NSLog(@"%@",response);
+        
+    }];
+    
+    
     
     if ([[[dict valueForKey:@"channel"] valueForKey:@"channel_type"]isEqualToString:@"match"]) {
         vc.matchInfoDict = [dict valueForKey:@"match_info"];

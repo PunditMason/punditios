@@ -12,6 +12,10 @@
 #import "DataManager.h"
 #import "MatchListModel.h"
 #import "LeaquesModel.h"
+
+#import <Applozic/Applozic.h>
+#import "ALChatManager.h"
+
 @interface BroadcastMatchVC : UIViewController<JTCalendarDelegate,UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
@@ -40,5 +44,7 @@
 @property (strong, nonatomic) IBOutlet UIView *matchView;
 @property (strong, nonatomic) IBOutlet UIView *breakingNewsView;
 @property (strong, nonatomic) IBOutlet UIButton *teamTable;
+@property (nonatomic, strong) ALUser * CurrentALUser;
+
 
 @end

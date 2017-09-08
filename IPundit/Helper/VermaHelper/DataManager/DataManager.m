@@ -527,6 +527,7 @@ static DataManager *sharedDataManager = nil;
 -(void) onR5StreamStatus:(R5Stream *)stream withStatus:(int)statusCode withMessage:(NSString *)msg{
     NSLog(@"Status: %s", r5_string_for_status(statusCode));
     NSString* s = [NSString stringWithFormat:@"%s (%@)", r5_string_for_status(statusCode), msg];
+    NSLog(@"%@",s);
     if ([s isEqualToString:@"Connected"]) {
         [ALToastView toastInView:self.refView withText:@"Streaming Started"];
     }
@@ -549,21 +550,26 @@ static DataManager *sharedDataManager = nil;
 -(R5Configuration*) getConfig{
     
     R5Configuration* config = [[R5Configuration alloc] init];
-   // config.host = @"34.253.228.132";
-    
-    
-  // Pundit Server
-    config.host = @"34.249.129.146";
-   // config.host = @"54.76.147.237"; // Red 5 Pro Team Server
-    
+    // config.host = @"34.253.228.132";
+    //  config.host = @"54.76.147.237"; // Red 5 Pro Team Server
     //config.host = @"54.246.160.189";
     //config.host = @"34.252.62.96" 34.253.215.171
+    
+    // Pundit Server Old
+    config.host = @"34.249.129.146";
     config.port = 8554;
     config.contextName = @"live";
     config.protocol = 1;
     config.buffer_time = 0.1 ;
     config.licenseKey = @"KWAU-2V3K-VFOJ-JXIN" ;
-   
+  /*
+    config.host = @"54.76.147.237";
+    config.port = 8554;
+    config.contextName = @"live";
+    config.protocol = 1;
+    config.buffer_time = 0.1 ;
+    config.licenseKey = @"KWAU-2V3K-VFOJ-JXIN" ;
+     */
     return config;
 }
 

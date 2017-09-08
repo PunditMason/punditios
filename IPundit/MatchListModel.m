@@ -44,6 +44,7 @@
                                                                  @"team1_name" : @"team1_name",
                                                                  @"team2_name" : @"team2_name",
                                                                  @"season_name" : @"season_name",
+                                                                 @"chatChannelid" : @"chatChannelid",
                                                                                                                                  } ];
 }
 

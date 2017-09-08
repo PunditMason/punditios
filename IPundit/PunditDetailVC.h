@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "ListenMatchDetailVC.h"
 #import "DataManager.h"
-
+#import <Applozic/Applozic.h>
+#import "ALChatManager.h"
 @interface PunditDetailVC : UIViewController
 
 
@@ -26,6 +27,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *mYoutubeButton;
 
 
+@property (nonatomic, strong) ALUser * CurrentALUser;
 
 @property (strong, nonatomic)NSDictionary * dictRefff;
 @property (strong, nonatomic)NSMutableArray *mDataArrayyy;

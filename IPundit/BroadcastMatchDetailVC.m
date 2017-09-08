@@ -13,6 +13,7 @@
 #import "ALToastView.h"
 #import "BroadCastTableViewCell.h"
 #import <Social/Social.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 
 
@@ -32,10 +33,11 @@
     NSString * teams;
     NSString * channelId;
     NSString * streamName ;
+    NSString * NewStreamName;
     NSString * allowScoreEdit ;
     
     NSMutableDictionary *followInfo ;
-    NSMutableDictionary *dictData;
+    NSDictionary *dictData;
     NSArray * myArray1;
     NSArray * myArray2;
     
@@ -50,6 +52,12 @@
     
     NSString * sharingString;
     NSString * notificationString;
+    
+    ALChatViewController *ChatViewObj;
+    UINavigationController *ChatController;
+    BOOL ChatViewCheckBool;
+    ALChatViewController *chatView;
+
 
 
 }
@@ -62,6 +70,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.CurrentALUser = [ALChatManager getLoggedinUserInformation];
+
+    
     matchStatusCheck = YES ;
     self.mEditScoreButton.hidden = YES ;
     self.backgroundImageView.image = DM.backgroundImage ;
@@ -96,6 +107,43 @@
     [center addObserver:self selector:@selector(appDidEnterForeground) name:@"appDidEnterForeground" object:nil];
     myArray1 = @[@"0",@"1", @"2", @"3",@"4", @"5", @"6",@"7", @"8", @"9",@"10", @"11", @"12",@"13", @"14", @"15",@"16", @"17", @"18",@"19", @"20",];
     myArray2 = @[@"0",@"1", @"2", @"3",@"4", @"5", @"6",@"7", @"8", @"9",@"10", @"11", @"12",@"13", @"14", @"15",@"16", @"17", @"18",@"19", @"20",];
+    
+/*
+    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Applozic" bundle:[NSBundle bundleForClass:ALChatViewController.class]];
+
+    ChatViewObj = (ALChatViewController *)[storyboard instantiateViewControllerWithIdentifier: @"ALChatViewController"];
+    ChatController = [[UINavigationController alloc] initWithRootViewController:ChatViewObj];
+    ChatController.navigationBarHidden = YES;
+    ChatController.view.frame = CGRectMake(0,80,self.view.frame.size.width,self.view.frame.size.height-130);
+    [self.view addSubview:ChatController.view];
+    ChatController.view.hidden = YES;
+ */
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(CloseChatNotification:)
+                                                 name:@"CloseChat" object:nil];
+    
+}
+
+
+
+
+
+
+
+
+- (void)CloseChatNotification:(NSNotification *)note {
+    
+ //   @
+    
+
+    
+     NSLog(@"%@",note.name);
+
+    if ([note.name isEqualToString:@"CloseChat"]) {
+    
+    NSLog(@"Received Notification - Someone seems to have CloseChat");
+    [self ChatButtonPressed:self];
+         }
 }
 
 -(void)appDidEnterForeground{
@@ -105,6 +153,13 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
+    
+     ChatController.view.frame = CGRectMake(0,80,self.view.frame.size.width,self.view.frame.size.height-130);
+    
+    [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    [[IQKeyboardManager sharedManager]setKeyboardDistanceFromTextField:3];
+    
     
     [self.pickerView1 reloadAllComponents];
     [self.pickerView2 reloadAllComponents];
@@ -391,7 +446,7 @@
     [DM GetRequest:path parameter:nil onCompletion:^(id  _Nullable dict) {
         
     NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
-    NSLog(@"%@",responseDict);
+   // NSLog(@"%@",responseDict);
     
     self.mListenersCount.text = [NSString stringWithFormat:@"%@",[responseDict objectForKey:@"count"]];
         
@@ -430,8 +485,10 @@
         NSError *errorJson=nil;
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
        
-        dictData = [[NSMutableDictionary alloc]init];
-        dictData = [responseDict objectForKey:@"matchinfo"];
+        dictData = [[NSDictionary alloc]init];
+
+        
+        dictData = [Helper formatJSONDict:[responseDict objectForKey:@"matchinfo"]];
 
         self.teamAScoreLabel.text = [NSString stringWithFormat:@": %@",[dictData objectForKey:@"team1_score"]];
         self.teamBscoreLabel.text = [NSString stringWithFormat:@": %@",[dictData objectForKey:@"team2_score"]];
@@ -506,8 +563,9 @@
 }
 
 -(void)ShareFacebook{
+    //base64EncodedString
   
-    NSString *string = [NSString stringWithFormat:@"%@%@",KServiceBaseShareUrl,streamName];
+    NSString *string = [NSString stringWithFormat:@"%@%@",KServiceBaseShareUrl,NewStreamName];
 //
 //    FBSDKShareLinkContent *content = [[FBSDKShareLinkContent alloc] init];
 //    content.contentURL = [NSURL
@@ -532,7 +590,7 @@
 -(void)ShareOnFacebook{
     
 
-    NSString *string = [NSString stringWithFormat:@"%@%@",KServiceBaseShareUrl,streamName];
+    NSString *string = [NSString stringWithFormat:@"%@%@",KServiceBaseShareUrl,NewStreamName];
     
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeFacebook])
     {
@@ -581,7 +639,7 @@
     if ([SLComposeViewController isAvailableForServiceType:SLServiceTypeTwitter])
     {
         SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
-        NSString *string = [NSString stringWithFormat:@"%@%@",KServiceBaseShareUrl,streamName];
+        NSString *string = [NSString stringWithFormat:@"%@%@",KServiceBaseShareUrl,NewStreamName];
         NSString * stringContent = [NSString stringWithFormat:@"%@",sharingString];
         [tweet setInitialText:stringContent];
         [tweet addURL:[NSURL URLWithString:string]];
@@ -642,6 +700,7 @@
     timeMin = 0;
     [self StartTimer];
     [self postNoification];
+   [self StartRecording:streamName];
     [Helper hideLoaderSVProgressHUD];
 }
 
@@ -682,6 +741,8 @@
     [parameters setValue:[[Helper mGetProfileCurrentUser]objectForKey:@"first_name"] forKey:@"broadcaster_name"];
     [parameters setValue:DM.sportsIdForTrophyVC forKey:@"sport_id"];
     [parameters setValue:DM.leaqueIdForTrophyVC forKey:@"league_id"];
+    [parameters setValue:self.ChatChannelid forKey:@"ChatChannelId"];
+
 
     [DM PostRequest:apiString parameter:parameters onCompletion:^(id  _Nullable dict) {
         
@@ -692,7 +753,9 @@
         
         if ([DM.channelType isEqualToString:@"team"]) {
             self.mEditScoreButton.hidden = YES ;
-        }else{
+        }
+        
+        else{
             if ([allowScoreEdit isEqualToString:@"Yes"]) {
                 self.mEditScoreButton.hidden = NO ;
             }else{
@@ -700,15 +763,45 @@
             }
         }
         
-        NSLog(@"");
+        
         channelId = [NSString stringWithFormat:@"%@",[responseDict objectForKey:@"channelid"]];
         streamName = [NSString stringWithFormat:@"%@",[[responseDict objectForKey:@"data"]objectForKey:@"streamName"]];
         
+       
+        NSString *newString = [NSString stringWithFormat:@"%@-%@",[[responseDict objectForKey:@"data"]objectForKey:@"broadcaster_name"],[Helper base64EncodedString:[[responseDict objectForKey:@"data"]objectForKey:@"broadcaster_id"]]];
+        
+        NewStreamName = [newString stringByReplacingOccurrencesOfString:@" " withString:@""];
         [self startBroadCasting];
+
+        
     } onError:^(NSError * _Nullable Error) {
         NSLog(@"%@",Error);
     }];
 }
+
+
+
+-(void)StartRecording:(NSString *)stream{
+    return;
+    NSString * path = [NSString stringWithFormat:@"http://54.76.147.237:5080/streammanager/api/2.0/event/live/%@?action=broadcast",stream];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:path]];
+    [request setHTTPMethod:@"GET"];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError *error) {
+        NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+
+        NSLog(@"Request reply: %@", requestReply);
+
+        
+    }] resume];
+    
+}
+
+
+
 
 
 -(void)ScoreEditable{
@@ -726,7 +819,7 @@
         
         NSError *errorJson=nil;
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
-        NSLog(@"%@",responseDict);
+      //  NSLog(@"%@",responseDict);
     
     } onError:^(NSError * _Nullable Error) {
         NSLog(@"%@",Error);
@@ -736,7 +829,9 @@
     
 }
 - (IBAction)ShareButtonPressed:(id)sender{
-     NSString *string = [NSString stringWithFormat:@"%@%@",KServiceBaseShareUrl,streamName];
+    [self HiddenChatView];
+
+     NSString *string = [NSString stringWithFormat:@"%@%@",KServiceBaseShareUrl,NewStreamName];
     [self shareText:sharingString andImage:nil andUrl:[NSURL URLWithString:string]];
 }
 
@@ -756,14 +851,96 @@
     [self presentViewController:activityController animated:YES completion:nil];
 }
 
-- (IBAction)ChatButtonPressed:(id)sender{
-    UIAlertView *AltObj  = [[UIAlertView alloc] initWithTitle:@"Under Development" message:@"" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-    
-    [AltObj show];
 
+- (IBAction)ChatButtonPressed:(id)sender{
+    
+//    ALChatManager *manager = [[ALChatManager alloc] initWithApplicationKey:APPLICATION_ID]; // SET APPLICATION ID
+//    [manager launchChatForUserWithDisplayName:self.CurrentALUser.userId withGroupId:[NSNumber numberWithInteger:[self.ChatChannelid intValue]] andwithDisplayName:self.CurrentALUser.displayName andFromViewController:self];
+//   
+//    return;
+
+    if (!([self.ChatChannelid intValue] == 0)) {
+        if (ChatViewCheckBool == FALSE) {
+            
+            NSNumber *numberobj = [NSNumber numberWithInteger:[self.ChatChannelid intValue]];
+            
+            ALChannelService * channelService  =  [ALChannelService new];
+            [channelService getChannelInformation:numberobj orClientChannelKey:nil withCompletion:^(ALChannel *alChannel) {
+                //Channel information
+                
+                
+                //NSLog(@" alChannel ###%@ ", alChannel.name);
+                UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Applozic"
+                                            
+                                                                     bundle:[NSBundle bundleForClass:ALChatViewController.class]];
+               
+                chatView = (ALChatViewController *) [storyboard instantiateViewControllerWithIdentifier:@"ALChatViewController"];
+                
+                chatView.channelKey = numberobj;
+                chatView.text = @"";
+                chatView.contactIds = self.CurrentALUser.userId;
+                chatView.individualLaunch = YES;
+                chatView.displayName = self.CurrentALUser.displayName;
+                chatView.chatViewDelegate = self;
+                
+                
+                ChatController = [[UINavigationController alloc] initWithRootViewController:chatView];
+                ChatController.navigationBarHidden = YES;
+                //ChatController.view.frame = CGRectMake(0,80,self.view.frame.size.width,self.view.frame.size.height-130);
+                
+                ChatController.view.frame = CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y,self.view.frame.size.width,self.view.frame.size.height);
+
+                
+                [self.view addSubview:ChatController.view];
+                
+                ChatController.view.hidden = NO;
+            }];
+            ChatController.view.hidden = NO;
+            ChatViewCheckBool = true;
+            
+        }
+        else{
+            
+            [self HiddenChatView];
+        }
+    }
+    else{
+        
+       UIAlertView *alertobj  =[[UIAlertView alloc]
+         initWithTitle:@"Error !!"
+         message:@"Unable TO Chat"
+         delegate:self
+         cancelButtonTitle:@"OK"
+         otherButtonTitles:nil, nil];
+      //  [alertobj show];
+        
+        
+    }
+    
 }
 
-///////////////
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+
+ [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (IBAction)LiveButtonAction:(id)sender {
+}
+
+-(void)HiddenChatView{
+    ChatController.view.hidden = YES;
+    ChatViewCheckBool = false;
+    [self keyborddown];
+}
+
+
+-(void)keyborddown{
+    
+    [self.view endEditing:YES];
+}
+
 
 
 
@@ -870,7 +1047,7 @@
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
         NSMutableDictionary * dictRef = [[NSMutableDictionary alloc]init];
         dictRef = [responseDict valueForKey:@"Result"];
-        NSLog(@"%@",responseDict);
+        //NSLog(@"%@",responseDict);
         self.teamAScoreLabel.text =[NSString stringWithFormat:@": %@",[dictRef valueForKey:@"team1_score"]];
         self.teamBscoreLabel.text =[NSString stringWithFormat:@": %@",[dictRef valueForKey:@"team2_score"]];
         self.timeCount1.text = [NSString stringWithFormat:@"%@:%@",[dictRef valueForKey:@"team1_score"],[dictRef valueForKey:@"team2_score"]];
@@ -890,4 +1067,37 @@
     
 
 }
+
+
+/*
+ ALChannelService * channelService  =  [ALChannelService new];
+ [channelService getChannelInformation:[NSNumber numberWithInteger:[self.ChatChannelid intValue]] orClientChannelKey:nil withCompletion:^(ALChannel *alChannel) {
+ //Channel information
+ 
+ 
+ NSLog(@" alChannel ###%@ ", alChannel.name);
+ UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Applozic"
+ 
+ bundle:[NSBundle bundleForClass:ALChatViewController.class]];
+ 
+ ALChatViewController *chatView = (ALChatViewController *) [storyboard instantiateViewControllerWithIdentifier:@"ALChatViewController"];
+ 
+ chatView.channelKey = [NSNumber numberWithInteger:[self.ChatChannelid intValue]];
+ chatView.text = @"";
+ chatView.contactIds = self.CurrentALUser.userId;
+ chatView.individualLaunch = YES;
+ chatView.displayName = self.CurrentALUser.displayName;
+ chatView.chatViewDelegate = self;
+ 
+ 
+ chatView = (ALChatViewController *)[storyboard instantiateViewControllerWithIdentifier: @"ALChatViewController"];
+ ChatController = [[UINavigationController alloc] initWithRootViewController:chatView];
+ ChatController.navigationBarHidden = YES;
+ ChatController.view.frame = CGRectMake(0,80,self.view.frame.size.width,self.view.frame.size.height-130);
+ [self.view addSubview:ChatController.view];
+ ChatController.view.hidden = NO;
+ }];
+
+
+*/
 @end

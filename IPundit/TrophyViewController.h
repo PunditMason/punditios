@@ -10,6 +10,8 @@
 #import "Helper.h"
 #import "LeaquesModel.h"
 #import "MatchListModel.h"
+#import <Applozic/Applozic.h>
+#import "ALChatManager.h"
 
 @interface TrophyViewController : UIViewController <UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
@@ -28,6 +30,7 @@
 - (IBAction)StreemingButtonAction:(id)sender;
 @property (nonatomic,weak) IBOutlet UIView *mOverlayView;
 @property (nonatomic,weak) IBOutlet UIView *mProfileView;
+@property (nonatomic, strong) ALUser * CurrentALUser;
 
 
 

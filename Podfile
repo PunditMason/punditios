@@ -6,7 +6,8 @@ use_frameworks!
 target "IPundit" do
 
 	pod 'SCFacebook'
-    	pod 'SDWebImage'
+    #pod 'SDWebImage'
+    pod 'SDWebImage', '~>3.8'
   	pod 'FBSDKCoreKit'
 	pod 'FBSDKShareKit'
 	pod 'FBSDKLoginKit'
@@ -20,8 +21,10 @@ target "IPundit" do
    	pod 'CCBottomRefreshControl'
   	pod 'SVProgressHUD'
         #pod 'FSCalendar'
-        pod 'JTCalendar', '~> 2.0'
-        pod 'Fabric'
-        pod 'Crashlytics'
+    pod 'JTCalendar', '~> 2.0'
+    pod 'Fabric'
+    pod 'Crashlytics'
+    pod 'Applozic', '~>4.0.1'
+
 end
 

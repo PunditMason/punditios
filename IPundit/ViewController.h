@@ -13,15 +13,15 @@
 #import "UIImageView+WebCache.h"
 #import "MarqueeLabel.h"
 #import "Constants.h"
-#import "KIImagePager.h"
+#import <Foundation/Foundation.h>
+#import "ALChatManager.h"
+#import <Applozic/Applozic.h>
 
 
 
 
 
-@interface ViewController : UIViewController<KIImagePagerDelegate, KIImagePagerDataSource>{
-    IBOutlet KIImagePager *_imagePager;
-}
+@interface ViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIImageView *punditLogo;
 
 @property (nonatomic,strong)IBOutlet UILabel *LoginLable;

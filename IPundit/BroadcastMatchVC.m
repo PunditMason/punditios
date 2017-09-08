@@ -24,6 +24,8 @@
     
     NSDate *dateSelected;
     UIDatePicker *datePicker;
+    NSString *ChannelNameObj;
+    NSString *ChatChannelId;
 
 }
 
@@ -35,6 +37,8 @@
     [super viewDidLoad];
     self.backgroundImageView.image = DM.backgroundImage ;
     
+    self.CurrentALUser = [ALChatManager getLoggedinUserInformation];
+
     if(IS_IPHONE4){
         
         self.view.frame = CGRectMake(0, 0, 320, 480);
@@ -218,8 +222,42 @@
         
     }];
     
+    
+    ChannelNameObj = [NSString stringWithFormat:@"%@V/s%@_%@",matchlistmodel.team1_name,matchlistmodel.team2_name,[[Helper mCurrentUser]objectForKey:@"id"]];
+   
+        ChatChannelId = [NSString stringWithFormat:@"%@",matchlistmodel.chatChannelid];
+        NSLog(@"%@",ChatChannelId);
+
 
 }
+
+- (void)createChannel:(NSString *)ChannelName
+{
+    ALChannelService * channelService = [[ALChannelService alloc] init];
+    NSMutableArray *arryobj = [[NSMutableArray alloc]initWithObjects:self.CurrentALUser.userId, nil];
+    
+    [channelService createChannel:ChannelName orClientChannelKey:nil andMembersList:arryobj andImageLink:nil channelType:PUBLIC andMetaData:nil withCompletion:^(ALChannel *alChannel, NSError *error) {
+        if(alChannel){
+             NSLog(@"%@",alChannel.key);
+            
+            [Helper hideLoaderSVProgressHUD];
+
+            
+            ChatChannelId = [NSString stringWithFormat:@"%@",alChannel.key];
+             [self performSegueWithIdentifier:@"MatchDetail" sender:self];
+            
+        }
+        else{
+            [Helper hideLoaderSVProgressHUD];
+
+            NSLog(@"%@",error);
+            
+        }
+    }];
+}
+
+
+
 
 
 - (IBAction)OverlaybackgroundTap:(id)sender {
@@ -247,8 +285,15 @@
 }
 
 - (IBAction)StreemingButtonAction:(id)sender {
-    
-     [self performSegueWithIdentifier:@"MatchDetail" sender:self];
+    if([ChatChannelId intValue] == 0){
+        
+        [Helper showLoaderVProgressHUD];
+        [self createChannel:ChannelNameObj];
+        
+    }else{
+        [self performSegueWithIdentifier:@"MatchDetail" sender:self];
+    }
+   
     
 }
 
@@ -269,6 +314,7 @@
          DM.channelType = @"match";
          BroadcastMatchDetailVC *destinationVC = segue.destinationViewController;
            destinationVC.matchlist = matchlistmodel;
+        destinationVC.ChatChannelid = ChatChannelId;
     }
 }
 
