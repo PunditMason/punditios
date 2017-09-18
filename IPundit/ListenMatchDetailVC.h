@@ -18,21 +18,63 @@
 #import <Applozic/Applozic.h>
 #import "ALChatManager.h"
 #import <IQKeyboardManager/IQKeyboardManager.h>
+#import "MZTimerLabel.h"
 
 
 #define kfbPrefixStr @"https://www.facebook.com/"
 
 
-@interface ListenMatchDetailVC : UIViewController<ALChatViewControllerDelegate,ALMessagesViewDelegate,ALChatCellDelegate>
+@interface ListenMatchDetailVC : UIViewController<ALChatViewControllerDelegate,ALMessagesViewDelegate,ALChatCellDelegate,MZTimerLabelDelegate>{
+    BOOL ProfileCheckBool;
+    BOOL playerCheckBool;
+    BOOL matchStatusCheck;
+    
+    NSMutableDictionary *broadcasterInfo;
+    NSMutableDictionary *postingData;
+    NSMutableArray *referenceArray;
+    NSMutableDictionary * dictData;
+    
+    int timeSec ;
+    int timeMin ;
+    
+    int matchTimeSec ;
+    int matchTimeMin ;
+    
+    NSTimer * matchTimer;
+    NSTimer *timer;
+    NSTimer *functionTimer;
+    NSTimer *broadcastersTimer;
+    NSTimer * listnersCount;
+    
+    
+    UIAlertView * checkAlert;
+    UIAlertView * broadcasterAlert;
+    UIAlertView * followAlert;
+    UIAlertView * stopListening;
+    UIAlertView * switchBroadcasting;
+    
+    NSString * listenersUnmountParameter;
+    NSString * sharingString;
+    
+    ALChatViewController *ChatViewObj;
+    UINavigationController *ChatController;
+    BOOL ChatViewCheckBool;
+
+}
 
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (nonatomic,strong) ChannelListModel *channellist;
 @property (nonatomic,strong) CurrentUser *currentUser;
+@property (nonatomic,strong) NSString *ViewName;
+
+@property (nonatomic,strong) NSString *ChatChannelid;
+
 @property (strong, nonatomic) IBOutlet UIView *broadcastersView;
 @property (strong, nonatomic) IBOutlet UIImageView *broadcasterViewImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *playNPauseImageView;
 @property (nonatomic,strong) NSMutableDictionary *teamListenDetails ;
 @property (strong, nonatomic) IBOutlet UIView *liveView;
+@property (nonatomic,strong)NSMutableArray * mrliveBroadcastersArray;
 
 
 - (IBAction)ShowHideProfileNameButtonAction:(id)sender;
@@ -62,7 +104,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *userNameLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *mTeamVsTeamLabel;
-@property (weak, nonatomic) IBOutlet UILabel *mKickOFTimeLabel;
+@property (weak, nonatomic) IBOutlet MZTimerLabel *mKickOFTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *loggedInAsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mTeamANameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mTeamBNameLabel;
@@ -81,6 +123,11 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *mFollowButton;
 @property (strong, nonatomic) IBOutlet UIButton *mProfileShowHideButton;
+@property (strong, nonatomic) IBOutlet UIButton *mProfileShowHideButtonn;
+@property (strong, nonatomic) IBOutlet UIButton *mSitchBroadcasterButton;
+@property (strong, nonatomic) IBOutlet UIButton *mShareButtonButton;
+
+
 @property (strong, nonatomic) IBOutlet UILabel *mTeamTalkLabel;
 @property (strong, nonatomic) IBOutlet UIButton *playNPuseButton;
 - (IBAction)mPlaynPauseButton:(id)sender;

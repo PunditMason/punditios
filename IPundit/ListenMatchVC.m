@@ -33,6 +33,10 @@
     NSDate *dateSelected;
     UIDatePicker *datePicker;
     NSString *broadcaster_team_count ;
+    NSString *ChatChannelId;
+    NSString *ChannelNameObj;
+
+
 
 }
 
@@ -46,6 +50,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.CurrentALUser = [ALChatManager getLoggedinUserInformation];
+
+    
     self.backgroundImageView.image = DM.backgroundImage ;
     if(IS_IPHONE4){
         
@@ -207,6 +214,18 @@
     cell.mTeam1Name.text = [NSString stringWithFormat:@"%@",channellistmodel.team1_name];
     cell.mTeam2name.text = [NSString stringWithFormat:@"%@",channellistmodel.team2_name];
    
+    
+    NSArray *arrayobj = [[mDataArray_Ref objectAtIndex:indexPath.row]objectForKey:@"channel"];
+    if (arrayobj.count > 0) {
+        cell.mCellBackgroundImage.image = [UIImage imageNamed:@"Match-Lisitng-green.png"];
+    }
+    else{
+        
+        cell.mCellBackgroundImage.image = [UIImage imageNamed:@"Match-Lisitng.png"];
+
+    }
+    
+    
     return cell;
 }
 
@@ -215,15 +234,98 @@
     [mMatchTableView deselectRowAtIndexPath:indexPath animated:NO];
     DM.channelType = [NSString stringWithFormat:@"match"];
      channellistmodel = [[mMatches_Dict objectForKey:[TitalArray objectAtIndex:indexPath.section]] objectAtIndex:indexPath.row];
+    
+
+    self.mliveBroadcastersArray = [[mDataArray_Ref objectAtIndex:indexPath.row]objectForKey:@"channel"];
+    
      DM.liveBroadcastersArray = [[mDataArray_Ref objectAtIndex:indexPath.row]objectForKey:@"channel"];
     
-    [self performSegueWithIdentifier:@"ListenMatchDetail" sender:self];
+    
+    
+    ChannelNameObj = [NSString stringWithFormat:@"%@ V/s %@",channellistmodel.team1_name,channellistmodel.team2_name];
+    
+    ChatChannelId = [NSString stringWithFormat:@"%@",channellistmodel.chatChannelid];
+    NSLog(@"%@",ChatChannelId);
+    
+    
+    
+    if([ChatChannelId intValue] == 0){
+        
+        [Helper showLoaderVProgressHUD];
+        [self createChannel :ChannelNameObj:channellistmodel.match_id];
+        
+    }else{
+        [self performSegueWithIdentifier:@"ListenMatchDetail" sender:self];
+    }
+    
+    
     
   
 }
 
 
 
+- (void)createChannel:(NSString *)ChannelName :(NSString *)Match_id
+{
+    
+    NSMutableDictionary *grpMetaData = [NSMutableDictionary new];
+    
+    // [grpMetaData setObject:@":adminName created group" forKey:AL_CREATE_GROUP_MESSAGE];
+    [grpMetaData setObject:ChannelName forKey:AL_CREATE_GROUP_MESSAGE];
+    [grpMetaData setObject:@":userName removed" forKey:AL_REMOVE_MEMBER_MESSAGE];
+    [grpMetaData setObject:@":userName added" forKey:AL_ADD_MEMBER_MESSAGE];
+    [grpMetaData setObject:@":userName joined" forKey:AL_JOIN_MEMBER_MESSAGE];
+    [grpMetaData setObject:@"Group renamed to :groupName" forKey:AL_GROUP_NAME_CHANGE_MESSAGE];
+    [grpMetaData setObject:@":groupName icon changed" forKey:AL_GROUP_ICON_CHANGE_MESSAGE];
+    [grpMetaData setObject:@":userName left" forKey:AL_GROUP_LEFT_MESSAGE];
+    [grpMetaData setObject:@":groupName deleted" forKey:AL_DELETED_GROUP_MESSAGE];
+    [grpMetaData setObject:@(true) forKey:@"HIDE"];
+    
+    ALChannelService * channelService = [[ALChannelService alloc] init];
+    NSMutableArray *arryobj = [[NSMutableArray alloc]initWithObjects:self.CurrentALUser.userId, nil];
+    
+    [channelService createChannel:ChannelName orClientChannelKey:nil andMembersList:arryobj andImageLink:nil channelType:PUBLIC andMetaData:grpMetaData withCompletion:^(ALChannel *alChannel, NSError *error) {
+        if(alChannel){
+            NSLog(@"%@",alChannel.key);
+            
+            [Helper hideLoaderSVProgressHUD];
+            
+            ChatChannelId = [NSString stringWithFormat:@"%@",alChannel.key];
+            
+            [self UpdateChatChannelID:Match_id];
+        
+            [self performSegueWithIdentifier:@"ListenMatchDetail" sender:self];
+
+            
+        }
+        else{
+            [Helper hideLoaderSVProgressHUD];
+            
+            NSLog(@"%@",error);
+            
+        }
+    }];
+}
+
+
+-(void)UpdateChatChannelID:(NSString *)Matchid{
+    
+    NSMutableDictionary *ParameterDct =[[NSMutableDictionary alloc]init];
+    [ParameterDct setObject:Matchid forKey:@"match_id"];
+    [ParameterDct setObject:@"match" forKey:@"channeltype"];
+    [ParameterDct setObject:ChatChannelId forKey:@"chatChannelid"];
+
+
+    
+    NSString *string = [NSString stringWithFormat:@"%@app/updateChatId/",KServiceBaseURL];
+    [DM PostRequest:string parameter:ParameterDct onCompletion:^(id  _Nullable dict) {
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
+        NSLog(@"ResponseDict %@",responseDict);
+   
+    } onError:^(NSError * _Nullable Error) {
+        NSLog(@"Following Functionality Error %@",Error);
+    }];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -245,7 +347,9 @@
         
         
         ListenMatchDetailVC *destinationVC = segue.destinationViewController;
+        destinationVC.ChatChannelid = ChatChannelId;
         destinationVC.channellist = channellistmodel;
+        destinationVC.self.mrliveBroadcastersArray = _mliveBroadcastersArray;
         
 
     }
@@ -261,43 +365,52 @@
     mDataArray_Ref = [[NSMutableArray alloc]init];
     
    // NSString *path=[NSString stringWithFormat:@"%@Game/getmatchdata/%@/%@/%@",kServiceBaseURL,leaquesmodel.sport_id,leaquesmodel.id,date];
-    NSString *path=[NSString stringWithFormat:@"%@Game/getmatch/%@/%@/%@",kServiceBaseURL,leaquesmodel.sport_id,leaquesmodel.id,date];
+    
+   // getmatch
+    // get_match_channel_list
+    
+    NSString *path=[NSString stringWithFormat:@"%@Game/get_match_channel_list/%@/%@/%@",kServiceBaseURL,leaquesmodel.sport_id,leaquesmodel.id,date];
     [DM GetRequest:path parameter:nil onCompletion:^(id dict) {
         NSError *errorJson=nil;
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
         NSLog(@"%@",responseDict);
         
-        NSMutableArray *mDataArray  = [[NSMutableArray alloc] init];
-        [mDataArray addObjectsFromArray:[responseDict valueForKey:@"data"]];
-        [mDataArray_Ref addObjectsFromArray:[responseDict valueForKey:@"data"]];
-        broadcaster_team_count = [NSString stringWithFormat:@"%@",[responseDict valueForKey:@"team_broadcaster_count"]];
-        NSLog(@"%@",mDataArray);
+       
         
-        
-        for (NSDictionary *MatchObj in mDataArray)
-        {
-            NSError *error;
-            channellistmodel = [[ChannelListModel alloc] initWithDictionary:MatchObj error:&error];
-            [self.mMatchArray addObject:channellistmodel];
-        }
-        mMatches_Dict = [self groupSessionByDate:self.mMatchArray];
-        TitalArray = [[mMatches_Dict allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if ([broadcaster_team_count isEqualToString:@"0"]) {
-                self.broadcasterCountLabel.hidden = YES ;
-                self.broadcasterCountImageView.hidden = YES ;
-            }else{
-                self.broadcasterCountLabel.text = broadcaster_team_count ;
-                self.broadcasterCountLabel.hidden = NO ;
-                self.broadcasterCountImageView.hidden = NO ;
-            }
-            if (TitalArray.count == 0) {
-                self.mNoBroadCastersAvilable.hidden = NO;
-            }
-            [self.mMatchTableView reloadData];
-            [Helper hideLoaderSVProgressHUD];
+      //  if (![[responseDict valueForKey:@"data"] isKindOfClass:[NSNull class]]) {
+            NSMutableArray *mDataArray  = [[NSMutableArray alloc] init];
+            [mDataArray addObjectsFromArray:[responseDict valueForKey:@"data"]];
+            [mDataArray_Ref addObjectsFromArray:[responseDict valueForKey:@"data"]];
+            broadcaster_team_count = [NSString stringWithFormat:@"%@",[responseDict valueForKey:@"team_broadcaster_count"]];
+            NSLog(@"%@",mDataArray);
             
-        });
+            
+            for (NSDictionary *MatchObj in mDataArray)
+            {
+                NSError *error;
+                channellistmodel = [[ChannelListModel alloc] initWithDictionary:MatchObj error:&error];
+                [self.mMatchArray addObject:channellistmodel];
+            }
+            mMatches_Dict = [self groupSessionByDate:self.mMatchArray];
+            TitalArray = [[mMatches_Dict allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if ([broadcaster_team_count isEqualToString:@"0"]) {
+                    self.broadcasterCountLabel.hidden = YES ;
+                    self.broadcasterCountImageView.hidden = YES ;
+                }else{
+                    self.broadcasterCountLabel.text = broadcaster_team_count ;
+                    self.broadcasterCountLabel.hidden = NO ;
+                    self.broadcasterCountImageView.hidden = NO ;
+                }
+                if (TitalArray.count == 0) {
+                    self.mNoBroadCastersAvilable.hidden = NO;
+                }
+                [self.mMatchTableView reloadData];
+                [Helper hideLoaderSVProgressHUD];
+                
+            });
+            
+       
         
     } onError:^(NSError *Error) {
         [Helper hideLoaderSVProgressHUD];

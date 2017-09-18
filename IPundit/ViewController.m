@@ -586,7 +586,7 @@
 #pragma mark - KIImagePager DataSource
 - (NSArray *) arrayWithImages:(KIImagePager*)pager
 {
-    NSLog(@"%@",ImagesArray);
+   // NSLog(@"%@",ImagesArray);
     
     return ImagesArray;
 }

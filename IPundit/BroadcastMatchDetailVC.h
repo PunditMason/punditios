@@ -18,13 +18,55 @@
 
 #import <Applozic/Applozic.h>
 #import "ALChatManager.h"
+#import "MZTimerLabel.h"
 
 
 //@property (strong, nonatomic) id <ALChatViewControllerDelegate> chatViewDelegate;
 
 
-
-@interface BroadcastMatchDetailVC : UIViewController<UIAlertViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource,ALChatViewControllerDelegate,ALMessagesViewDelegate,ALChatCellDelegate>
+@interface BroadcastMatchDetailVC : UIViewController<UIAlertViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource,ALChatViewControllerDelegate,ALMessagesViewDelegate,ALChatCellDelegate,MZTimerLabelDelegate>{
+    
+    NSTimer * timer;
+    NSTimer * matchTimer;
+    NSTimer * listnersCount;
+    
+    
+    
+    int timeSec ;
+    int timeMin ;
+    
+    int matchTimeSec ;
+    int matchTimeMin ;
+    
+    NSString * stationName ;
+    NSString * teams;
+    NSString * channelId;
+    NSString * streamName ;
+    NSString * NewStreamName;
+    NSString * allowScoreEdit ;
+    
+    NSMutableDictionary *followInfo ;
+    NSDictionary *dictData;
+    NSArray * myArray1;
+    NSArray * myArray2;
+    
+    
+    NSMutableArray *referenceArray;
+    
+    NSTimer *functionTimer;
+    BOOL matchStatusCheck;
+    
+    UIAlertView * stopBroadcastingAlert;
+    
+    
+    NSString * sharingString;
+    NSString * notificationString;
+    
+    ALChatViewController *ChatViewObj;
+    UINavigationController *ChatController;
+    BOOL ChatViewCheckBool;
+    ALChatViewController *chatView;
+}
 
 @property (strong, nonatomic) IBOutlet UIImageView *leaqueIconImageView;
 
@@ -43,7 +85,7 @@
 @property (nonatomic,strong) NSMutableArray *MatchLiveFeedArray;
 @property (weak, nonatomic) IBOutlet UILabel *loggedInAsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *teamVsTeamLabel;
-@property (weak, nonatomic) IBOutlet UILabel *kickOffTimeLabel;
+@property (weak, nonatomic) IBOutlet MZTimerLabel *kickOffTimeLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *teamBNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *teamANameLabel;
@@ -51,7 +93,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *teamBscoreLabel;
 @property (weak, nonatomic) IBOutlet UILabel *teamVsTeamLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *timeCount1;
-@property (weak, nonatomic) IBOutlet UILabel *timeCount2;
+@property (weak, nonatomic) IBOutlet MZTimerLabel *timeCount2;
 @property (strong, nonatomic) IBOutlet UILabel *mTeamTalkLabel;
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView1;
 @property (strong, nonatomic) IBOutlet UIPickerView *pickerView2;
@@ -62,7 +104,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *mTeamANameLable;
 @property (weak, nonatomic) IBOutlet UILabel *mTeamBNameLable;
 
-@property (nonatomic, strong) ALUser * CurrentALUser;
+@property (nonatomic,
+           strong) ALUser * CurrentALUser;
 
 
 @property (strong, nonatomic) IBOutlet UILabel *mListenersCount;

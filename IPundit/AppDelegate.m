@@ -68,7 +68,9 @@
 #pragma mark ====================================================================
 #pragma mark ====================================================================
     
-    
+    self.location = [[CLLocationManager alloc] init];
+    self.location.delegate = self ;
+    [self.location requestAlwaysAuthorization];
     
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];

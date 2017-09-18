@@ -10,6 +10,7 @@
 #import "UIImageView+WebCache.h"
 #import "UIImage+Additions.h"
 #import "Helper.h"
+#import "PoadcastVC.h"
 
 #define kfbPrefixStr @"https://www.facebook.com/"
 #define ktwitterPrefixStr @"https://twitter.com/"
@@ -49,6 +50,7 @@
     }
     
     NSLog(@"dictRefff     %@",self.dictRefff);
+    
     
     if ([[self.dictRefff objectForKey:@"followCheck"]isEqualToString:@"FALSE"]) {
         [self.mFollowmwButton setTitle:@"FOLLOW ME" forState:UIControlStateNormal];
@@ -99,8 +101,28 @@
                                             delegate:self
                                    cancelButtonTitle:@"Ok"
                                    otherButtonTitles:nil];
+    [self mProfileImageVCCornerRadius];
 
 }
+
+-(void)mProfileImageVCCornerRadius{
+    CALayer *imageLayera = self.mProfileImageView.layer;
+    [imageLayera setCornerRadius:self.mProfileImageView.frame.size.width/2];
+    [imageLayera setBorderColor:[[UIColor lightTextColor]CGColor]];
+    [imageLayera setBorderWidth:0.5];
+    [imageLayera setMasksToBounds:YES];
+    
+    
+    CALayer *imageLayer = self.mProfileImageViewOverlay.layer;
+    [imageLayer setCornerRadius:self.mProfileImageViewOverlay.frame.size.width/2];
+    [imageLayer setBorderColor:[[UIColor lightTextColor]CGColor]];
+    [imageLayer setBorderWidth:0.5];
+    [imageLayer setMasksToBounds:YES];
+
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -226,14 +248,22 @@
 
 
 -(void)ListenNow{
+  
+    
     NSMutableDictionary * dictRef = [[NSMutableDictionary alloc]init];
-    dictRef = [_mDataArrayyy objectAtIndex:0];
+    dictRef = [_mDataArrayyy objectAtIndex:self.mindex.row];
     ListenMatchDetailVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListenMatchDetailVC"];
     NSMutableDictionary * dict = [[NSMutableDictionary alloc]init];
     dict = [[dictRef valueForKey:@"channel_info"]objectAtIndex:0];
     vc.punditsMessage = @"yes" ;
+    vc.ViewName = @"PunditDetail";
     vc.channelDict = [dict valueForKey:@"channel"];
     
+    NSString *strobj = [NSString stringWithFormat:@"%@",[[dict valueForKey:@"channel"] valueForKey:@"chatChannelid"]];
+    
+    vc.ChatChannelid = strobj;
+
+    //[dict valueForKey:@"chatChannelid"]
     
     NSNumber *mChannelKey = [NSNumber numberWithInteger:[[[dict valueForKey:@"channel"] valueForKey:@"chatChannelid"]integerValue]];
     NSLog(@"%@",mChannelKey);
@@ -257,14 +287,15 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-/*
-#pragma mark - Navigation
+//
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"PoadcastVieww"]) {
+        PoadcastVC *destinationVC = segue.destinationViewController;
+        destinationVC.selectedUser = [self.dictRefff objectForKey:@"id"];
+        
+    }
 }
-*/
 
 @end

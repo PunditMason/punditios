@@ -122,7 +122,7 @@
                                                                        _scrollView.frame.size.height-kOverlayHeight,
                                                                        kOverlayWidth,
                                                                        kOverlayHeight)];
-    _imageCounterBackground.backgroundColor = [UIColor whiteColor];
+    _imageCounterBackground.backgroundColor = [UIColor clearColor];
     _imageCounterBackground.alpha = 0.7f;
     _imageCounterBackground.layer.cornerRadius = 5.0f;
 
@@ -134,7 +134,7 @@
     _countLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 48, 24)];
     [_countLabel setTextAlignment:NSTextAlignmentCenter];
     [_countLabel setBackgroundColor:[UIColor clearColor]];
-    [_countLabel setTextColor:[UIColor blackColor]];
+    [_countLabel setTextColor:[UIColor clearColor]];
     [_countLabel setFont:[UIFont systemFontOfSize:11.0f]];
     _countLabel.center = CGPointMake(15, _imageCounterBackground.frame.size.height/2);
     [_imageCounterBackground addSubview:_countLabel];

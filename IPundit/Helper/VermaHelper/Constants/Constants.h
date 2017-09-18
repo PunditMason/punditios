@@ -11,46 +11,33 @@
 
 
 
+ //Local Base Urls
+/*
+#define KserviceBaseIconURL @"http://54.154.252.47/pundit-ios/assets/img/"
+#define kServiceBaseHomePageURL @"http://54.154.252.47/pundit-ios/v1/Game/"
+#define KServiceBaseURL @"http://54.154.252.47/pundit-ios/v1/"
+#define kServiceBaseURL @"http://54.154.252.47/pundit-ios/v1/"
+#define KServiceBaseProfileImageURL @"http://54.154.252.47/pundit-ios/profileusrimg/"
+#define KServiceBaseShareUrl @"http://54.154.252.47/play/broadcast/"
+#define KServiceBasePushNotificationUrl @"http://54.154.252.47/pundit-ios/v1/Cron/follow_notification/"
+#define KV2serviceBaseIconURL @"http://54.154.252.47/pundit-ios/v2/"
+#define kStreemManagerHostIP @"54.229.3.56"
+*/
+
  //Live Base Urls
- 
-#define KserviceBaseIconURL @"http://punditsports.com:81/pundit-ios/assets/img/"
-#define kServiceBaseHomePageURL @"http://punditsports.com:81/pundit-ios/v1/Game/"
-#define KServiceBaseURL @"http://punditsports.com:81/pundit-ios/v1/"
-#define kServiceBaseURL @"http://punditsports.com:81/pundit-ios/v1/"
-#define KServiceBaseProfileImageURL @"http://punditsports.com:81/pundit-ios/profileusrimg/"
-// New url#define KServiceBaseShareUrl @"http://punditsports.com:81/play/index.php/Welcome/broadcast/"
 
-
+ #define KserviceBaseIconURL @"http://punditsports.com:81/pundit-ios/assets/img/"
+ #define kServiceBaseHomePageURL @"http://punditsports.com:81/pundit-ios/v1/Game/"
+ #define KServiceBaseURL @"http://punditsports.com:81/pundit-ios/v1/"
+ #define kServiceBaseURL @"http://punditsports.com:81/pundit-ios/v1/"
+ #define KServiceBaseProfileImageURL @"http://punditsports.com:81/pundit-ios/profileusrimg/"
  #define KServiceBaseShareUrl @"http://punditsports.com:81/play/broadcast/"
-
-
-#define KServiceBasePushNotificationUrl @"http://punditsports.com:81/pundit-ios/v1/Cron/follow_notification/"
-
-
- //V2
- // http://punditsports.com:81/pundit-ios/v2/Search/sport_search
+ #define KServiceBasePushNotificationUrl @"http://punditsports.com:81/pundit-ios/v1/Cron/follow_notification/"
  #define KV2serviceBaseIconURL @"http://punditsports.com:81/pundit-ios/v2/"
-/*
+ #define kStreemManagerHostIP @"54.229.3.56"
 
-//Local DataBase Urls
 
-#define KserviceBaseIconURL @"http://112.196.72.187/pundit-web/assets/img/"
-#define kServiceBaseHomePageURL @"http://112.196.72.187/pundit-web/api/Game/"
-#define KServiceBaseURL @"http://112.196.72.187/pundit-ios/v1/"
-#define kServiceBaseURL @"http://112.196.72.187/pundit-ios/v1/"
-#define KServiceBaseProfileImageURL @"http://112.196.72.187/pundit-web/profileusrimg/"
-
-*/
-
-/*
- //Main Urls
-#define KserviceBaseIconURL @"http://punditsports.com:81/pundit-app/assets/img/"
-#define kServiceBaseHomePageURL @"http://punditsports.com:81/pundit-app/v1/Game/"
-#define KServiceBaseURL @"http://punditsports.com:81/pundit-app/v1/"
-#define kServiceBaseURL @"http://punditsports.com:81/pundit-app/v1/"
-#define KServiceBaseProfileImageURL @"http://punditsports.com:81/pundit-app/profileusrimg/"
-#define KServiceBaseShareUrl @"http://punditsports.com:81/play/index.php/Welcome/broadcast/"
-*/
+ 
 
 
 

@@ -16,6 +16,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *mTeam1Score;
 @property (weak, nonatomic) IBOutlet UILabel *mTeam2Score;
 @property (weak, nonatomic) IBOutlet UILabel *mTimeLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *mCellBackgroundImage;
+
 
 
 @end

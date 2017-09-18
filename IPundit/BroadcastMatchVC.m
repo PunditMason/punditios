@@ -224,6 +224,7 @@
     
     
     //ChannelNameObj = [NSString stringWithFormat:@"%@V/s%@_%@",matchlistmodel.team1_name,matchlistmodel.team2_name,[[Helper mCurrentUser]objectForKey:@"id"]];
+    
     ChannelNameObj = [NSString stringWithFormat:@"%@ V/s %@",matchlistmodel.team1_name,matchlistmodel.team2_name];
    
         ChatChannelId = [NSString stringWithFormat:@"%@",matchlistmodel.chatChannelid];
@@ -265,6 +266,8 @@
 
             
             ChatChannelId = [NSString stringWithFormat:@"%@",alChannel.key];
+            
+            
              [self performSegueWithIdentifier:@"MatchDetail" sender:self];
             
         }
@@ -312,6 +315,18 @@
         [self createChannel:ChannelNameObj];
         
     }else{
+        
+        NSNumber *mChannelKey = [NSNumber numberWithInteger:[ChatChannelId integerValue]];
+        NSLog(@"%@",mChannelKey);
+        NSLog(@"%@",self.CurrentALUser.userId);
+        
+        ALChannelService * channelService = [[ALChannelService alloc] init];
+        [channelService addMemberToChannel:self.CurrentALUser.userId andChannelKey:mChannelKey orClientChannelKey:nil withCompletion:^(NSError *error, ALAPIResponse *response) {
+            NSLog(@"%@",response);
+            
+        }];
+
+        
         [self performSegueWithIdentifier:@"MatchDetail" sender:self];
     }
    

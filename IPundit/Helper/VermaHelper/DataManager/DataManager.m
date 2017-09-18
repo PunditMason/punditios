@@ -547,16 +547,23 @@ static DataManager *sharedDataManager = nil;
     }
 }
 
--(R5Configuration*) getConfig{
+-(R5Configuration*) getConfig :(NSString *)hostAddress{
     
     R5Configuration* config = [[R5Configuration alloc] init];
     // config.host = @"34.253.228.132";
     //  config.host = @"54.76.147.237"; // Red 5 Pro Team Server
     //config.host = @"54.246.160.189";
     //config.host = @"34.252.62.96" 34.253.215.171
-    
+   // 34.253.213.222
     // Pundit Server Old
-    config.host = @"34.249.129.146";
+    
+    if (hostAddress) {
+        config.host = hostAddress;
+    }
+    else{
+        config.host = @"34.249.129.146";
+    }
+
     config.port = 8554;
     config.contextName = @"live";
     config.protocol = 1;

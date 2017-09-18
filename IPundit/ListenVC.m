@@ -250,6 +250,8 @@
         PunditDetailvc.dictRefff = dictReff;
         PunditDetailvc.mDataArrayyy = mDataArrayy;
         PunditDetailvc.mindex = mmindexpath;
+        
+        
     }
     
 }

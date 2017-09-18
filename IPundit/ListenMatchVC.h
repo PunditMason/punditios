@@ -13,6 +13,10 @@
 #import "ChannelListModel.h"
 #import "LeaquesModel.h"
 
+#import <Applozic/Applozic.h>
+#import "ALChatManager.h"
+
+
 @interface ListenMatchVC : UIViewController<JTCalendarDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
@@ -22,6 +26,7 @@
 
 @property (strong, nonatomic)  NSMutableArray *mMatchArray;
 @property (strong, nonatomic) IBOutlet UITableView *mMatchTableView;
+@property (nonatomic,strong)NSMutableArray * mliveBroadcastersArray;
 
 @property (strong, nonatomic) IBOutlet JTCalendarMenuView *calendarMenuView;
 
@@ -46,6 +51,7 @@
 @property (strong, nonatomic) IBOutlet UIView *matchView;
 @property (strong, nonatomic) IBOutlet UIView *breakingNewsView;
 @property (strong, nonatomic) IBOutlet UIButton *teamTable;
+@property (nonatomic, strong) ALUser * CurrentALUser;
 
 @end
 

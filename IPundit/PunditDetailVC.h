@@ -21,6 +21,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *mFollowmwButton;
 @property (strong, nonatomic) IBOutlet UIButton *mListenNowButton;
 @property (strong, nonatomic) IBOutlet UIImageView *mProfileImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *mProfileImageViewOverlay;
+
+
 @property (strong, nonatomic) IBOutlet UITextView *mBioTextView;
 @property (strong, nonatomic) IBOutlet UIButton *mFacebookButton;
 @property (strong, nonatomic) IBOutlet UIButton *mTwitterButton;
@@ -32,6 +35,8 @@
 @property (strong, nonatomic)NSDictionary * dictRefff;
 @property (strong, nonatomic)NSMutableArray *mDataArrayyy;
 @property (strong, nonatomic)NSIndexPath *mindex;
+
+
 
 
 - (IBAction)BackButtonAction:(id)sender;

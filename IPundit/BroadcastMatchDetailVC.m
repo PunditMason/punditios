@@ -18,45 +18,7 @@
 
 
 @interface BroadcastMatchDetailVC (){
-    int timeSec ;
-    int timeMin ;
-    
-    int matchTimeSec ;
-    int matchTimeMin ;
-    
-    
-    NSTimer * timer;
-    NSTimer * matchTimer;
-    NSTimer * listnersCount;
-    
-    NSString * stationName ;
-    NSString * teams;
-    NSString * channelId;
-    NSString * streamName ;
-    NSString * NewStreamName;
-    NSString * allowScoreEdit ;
-    
-    NSMutableDictionary *followInfo ;
-    NSDictionary *dictData;
-    NSArray * myArray1;
-    NSArray * myArray2;
-    
-    
-    NSMutableArray *referenceArray;
-
-    NSTimer *functionTimer;
-    BOOL matchStatusCheck;
-
-    UIAlertView * stopBroadcastingAlert;
-    
-    
-    NSString * sharingString;
-    NSString * notificationString;
-    
-    ALChatViewController *ChatViewObj;
-    UINavigationController *ChatController;
-    BOOL ChatViewCheckBool;
-    ALChatViewController *chatView;
+  
 
 
 
@@ -101,6 +63,9 @@
     else{
     [self matchBroadcasting];
     }
+    
+    
+    
     [self broadCastStart];
     
     NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
@@ -422,12 +387,14 @@
 -(void)StartTimer
 {
     listnersCount = [NSTimer scheduledTimerWithTimeInterval:1.0 target: self
-                                                   selector: @selector(ListnersCountMethod) userInfo: nil repeats: YES];
-    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
+                                                   selector: @selector(ListnersCountMethood:) userInfo: nil repeats: YES];
+    /*
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerTickk:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
+    */
 }
 
-- (void)timerTick:(NSTimer *)timer {
+- (void)timerTickk:(NSTimer *)timer {
     timeSec++;
     if (timeSec == 60)
     {
@@ -435,12 +402,15 @@
         timeMin++;
     }
     NSString* timeNow = [NSString stringWithFormat:@"%02d:%02d", timeMin, timeSec];
+    NSLog(@"Broadcast Timer ===========================%@===================================",timeNow);
+
     self.kickOffTimeLabel.text = timeNow;
+    
     self.timeCount2.text = timeNow ;
 }
 
 
--(void)ListnersCountMethod{
+-(void)ListnersCountMethood:(NSTimer *)timer{
     
     NSString *path = [NSString stringWithFormat:@"%@Game/ChannelListener_count/%@",KServiceBaseURL,channelId];
     [DM GetRequest:path parameter:nil onCompletion:^(id  _Nullable dict) {
@@ -525,7 +495,7 @@
         if ([[dictData objectForKey:@"st_lengthMin"] isEqual:[NSNull null]]) {
             
             self.matchStatusLabel .hidden = YES ;
-            return;
+           // return;
         }
         if ([[dictData objectForKey:@"st_lengthMin"]isEqualToString:@"0"]) {
 
@@ -551,7 +521,7 @@
         matchTimeSec = [stringSec intValue];
         }
         [self MatchStartTimer];
-        matchStatusCheck = NO ;
+        matchStatusCheck = YES ;
     }
 }
 
@@ -689,7 +659,7 @@
 -(void)startBroadCasting{
     [Helper showLoaderVProgressHUD];
     DM.refView = self.view ;
-    R5Connection* connection = [[R5Connection alloc] initWithConfig:[DM getConfig]];
+    R5Connection* connection = [[R5Connection alloc] initWithConfig:[DM getConfig:kStreemManagerHostIP]];
     [DM setupPublisher:connection];
     [DM.currentView attachStream:DM.publishStream];
     NSString *string   = [NSString stringWithFormat:@"%@",streamName];
@@ -698,9 +668,18 @@
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     timeSec = 0;
     timeMin = 0;
-    [self StartTimer];
-    [self postNoification];
-   [self StartRecording:streamName];
+    
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        self.kickOffTimeLabel.timerType = MZTimerLabelTypeStopWatch;
+        [self.kickOffTimeLabel start];
+        
+        self.timeCount2.timerType = MZTimerLabelTypeStopWatch;
+        [self.timeCount2 start];
+        [self StartTimer];
+    }];
+        [self postNoification];
+   //[self StartRecording:streamName];
     [Helper hideLoaderSVProgressHUD];
 }
 
@@ -771,7 +750,9 @@
         NSString *newString = [NSString stringWithFormat:@"%@-%@",[[responseDict objectForKey:@"data"]objectForKey:@"broadcaster_name"],[Helper base64EncodedString:[[responseDict objectForKey:@"data"]objectForKey:@"broadcaster_id"]]];
         
         NewStreamName = [newString stringByReplacingOccurrencesOfString:@" " withString:@""];
-        [self startBroadCasting];
+        [self StartRecording:streamName];
+
+       // [self startBroadCasting];
 
         
     } onError:^(NSError * _Nullable Error) {
@@ -782,7 +763,6 @@
 
 
 -(void)StartRecording:(NSString *)stream{
-    return;
     NSString * path = [NSString stringWithFormat:@"http://54.76.147.237:5080/streammanager/api/2.0/event/live/%@?action=broadcast",stream];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -792,7 +772,12 @@
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     [[session dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError *error) {
         NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self startBroadCasting];
 
+        }];
+        
         NSLog(@"Request reply: %@", requestReply);
 
         

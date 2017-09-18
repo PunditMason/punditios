@@ -20,41 +20,7 @@
 
 
 @interface ListenMatchDetailVC (){
-    BOOL ProfileCheckBool;
-    BOOL playerCheckBool;
-    BOOL matchStatusCheck;
-    
-    NSMutableDictionary *broadcasterInfo;
-    NSMutableDictionary *postingData;
-    NSMutableArray *referenceArray;
-    NSMutableDictionary * dictData;
-
-    int timeSec ;
-    int timeMin ;
-    
-    int matchTimeSec ;
-    int matchTimeMin ;
-    
-    NSTimer * matchTimer;
-    NSTimer *timer;
-    NSTimer *functionTimer;
-    NSTimer *broadcastersTimer;
-    NSTimer * listnersCount;
-
-    
-    UIAlertView * checkAlert;
-    UIAlertView * broadcasterAlert;
-    UIAlertView * followAlert;
-    UIAlertView * stopListening;
-    UIAlertView * switchBroadcasting;
-    
-    NSString * listenersUnmountParameter;
-    NSString * sharingString;
-    
-    ALChatViewController *ChatViewObj;
-    UINavigationController *ChatController;
-    BOOL ChatViewCheckBool;
-    
+      
     
 }
 
@@ -66,6 +32,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+ 
+    
+
+    if ([self.ViewName isEqualToString:@"PunditDetail"]) {
+        
+    }
+    else{
+        if (self.mrliveBroadcastersArray.count > 0) {
+            self.broadcastersView.hidden = NO ;
+            
+            
+        }
+        else{
+            
+            self.broadcastersView.hidden = YES ;
+            self.mProfileShowHideButtonn.enabled = false;
+            self.mSitchBroadcasterButton.enabled = false;
+            self.mShareButtonButton.enabled = false;
+            
+        }
+    }
+    
+    
+    
+    
+   
+    
+
+    
+    
     self.CurrentALUser = [ALChatManager getLoggedinUserInformation];
 
     
@@ -172,6 +168,8 @@
                                              selector:@selector(CloseChatNotification:)
                                                  name:@"CloseListenChat" object:nil];
     
+    
+    
 }
 
 
@@ -220,7 +218,7 @@
 
 -(void)punditsListening{
     self.punditsMessage = nil ;
-    //self.broadcastersView.hidden = YES ;
+    self.broadcastersView.hidden = YES ;
     
     if ([[self.channelDict valueForKey:@"channel_type"]isEqualToString:@"match"]) {
         channellist = [[ChannelListModel alloc]initWithDictionary:self.matchInfoDict error:nil];
@@ -428,7 +426,7 @@
         postingData = [[NSMutableDictionary alloc]init];
         postingData = [DM.liveBroadcastersArray objectAtIndex:indexPath.row];
         
-        NSNumber *mChannelKey = [NSNumber numberWithInteger:[[postingData valueForKey:@"chatChannelid"] integerValue]];
+        NSNumber *mChannelKey = [NSNumber numberWithInteger:[self.ChatChannelid integerValue]];
         NSLog(@"%@",mChannelKey);
         NSLog(@"%@",self.CurrentALUser.userId);
         ALChannelService * channelService = [[ALChannelService alloc] init];
@@ -687,7 +685,9 @@
     {
         SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeFacebook];
         
-        NSString *NewStreamName = [NSString stringWithFormat:@"%@-%@",[[postingData objectForKey:@"data"]objectForKey:@"broadcaster_name"],[Helper base64EncodedString:[[postingData objectForKey:@"data"]objectForKey:@"broadcaster_id"]]];
+        //NSString *NewStreamName = [NSString stringWithFormat:@"%@-%@",[[postingData objectForKey:@"data"]objectForKey:@"broadcaster_name"],[Helper base64EncodedString:[[postingData objectForKey:@"data"]objectForKey:@"broadcaster_id"]]];
+        NSString *NewStreamName = [NSString stringWithFormat:@"%@-%@",[postingData objectForKey:@"broadcaster_name"],[Helper base64EncodedString:[postingData objectForKey:@"broadcaster_id"]]];
+
         
         NewStreamName = [NSString stringWithFormat:@"%@%@",KServiceBaseShareUrl,NewStreamName]
         ;
@@ -734,8 +734,9 @@
         SLComposeViewController *tweet = [SLComposeViewController composeViewControllerForServiceType:SLServiceTypeTwitter];
         
         
-        NSString *NewStreamName = [NSString stringWithFormat:@"%@-%@",[[postingData objectForKey:@"data"]objectForKey:@"broadcaster_name"],[Helper base64EncodedString:[[postingData objectForKey:@"data"]objectForKey:@"broadcaster_id"]]];
-        
+      //  NSString *NewStreamName = [NSString stringWithFormat:@"%@-%@",[[postingData objectForKey:@"data"]objectForKey:@"broadcaster_name"],[Helper base64EncodedString:[[postingData objectForKey:@"data"]objectForKey:@"broadcaster_id"]]];
+        NSString *NewStreamName = [NSString stringWithFormat:@"%@-%@",[postingData objectForKey:@"broadcaster_name"],[Helper base64EncodedString:[postingData objectForKey:@"broadcaster_id"]]];
+
         
         NewStreamName = [NSString stringWithFormat:@"%@%@",KServiceBaseShareUrl,NewStreamName]
         ;
@@ -798,6 +799,10 @@
         timeMin++;
     }
     NSString* timeNow = [NSString stringWithFormat:@"%02d:%02d", timeMin, timeSec];
+    
+    
+    NSLog(@"ListenTimer===========================%@===================================",timeNow);
+    
     self.mKickOFTimeLabel.text = timeNow;
 }
 
@@ -820,7 +825,7 @@
 
 - (void)start {
     [Helper showLoaderVProgressHUD];
-    R5Connection *connection = [[R5Connection new] initWithConfig:[DM getConfig]];
+    R5Connection *connection = [[R5Connection new] initWithConfig:[DM getConfig:kStreemManagerHostIP]];
     DM.refView = self.view;
     DM.stream = [[R5Stream new] initWithConnection:connection];
     [DM.currentView attachStream:DM.stream];
@@ -831,7 +836,16 @@
     self.playNPauseImageView.image = [UIImage imageNamed:@"stop"];
     self.playNPuseButton.enabled = YES ;
     playerCheckBool = true ;
-    [self StartTimer];
+    
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        self.mKickOFTimeLabel.timerType = MZTimerLabelTypeStopWatch;
+        [self.mKickOFTimeLabel start];
+    }];
+    
+   // [self StartTimer];
+    
+    
+    
     [self ListnersStartTimer];
     [Helper hideLoaderSVProgressHUD];
 }
@@ -873,6 +887,7 @@
 
 
 - (void)GetMatchLiveFeed{
+    
     
     NSString *path=[NSString stringWithFormat:@"%@Game/getMatchLiveFeedsdata/%@",KServiceBaseURL,channellist.match_id];
     [DM GetRequest:path parameter:nil onCompletion:^(id dict) {
@@ -975,13 +990,13 @@
     }
 }
 -(void)ButtonPressed{
-    [self start];
-    [Helper hideLoaderSVProgressHUD];
+    
+//    [self start];
+//    [Helper hideLoaderSVProgressHUD];
 }
 
 
 -(void)broadcasterCheck{
-    
     [self broadcasterLive];
     NSMutableArray * refArray = [[NSMutableArray alloc]init];
     NSMutableArray * checkArray = [[NSMutableArray alloc]init];
@@ -994,7 +1009,16 @@
         [broadcastersTimer invalidate];
         [listnersCount invalidate];
         [timer invalidate];
-        [checkAlert show];
+       // [checkAlert show];
+        [self.mKickOFTimeLabel pause];
+        [DM.stream stop];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pundit"
+                                                        message:@"Broadcaster Left"
+                                                       delegate:self
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+        
     }
 }
 
@@ -1092,7 +1116,9 @@
 - (IBAction)ShareButtonPressed:(id)sender{
     [self HiddenChatView];
     
-    NSString *NewStreamName = [NSString stringWithFormat:@"%@-%@",[[postingData objectForKey:@"data"]objectForKey:@"broadcaster_name"],[Helper base64EncodedString:[[postingData objectForKey:@"data"]objectForKey:@"broadcaster_id"]]];
+    //NSString *NewStreamName = [NSString stringWithFormat:@"%@-%@",[[postingData objectForKey:@"data"]objectForKey:@"broadcaster_name"],[Helper base64EncodedString:[[postingData objectForKey:@"data"]objectForKey:@"broadcaster_id"]]];
+    
+    NSString *NewStreamName = [NSString stringWithFormat:@"%@-%@",[postingData objectForKey:@"broadcaster_name"],[Helper base64EncodedString:[postingData objectForKey:@"broadcaster_id"]]];
     
     NewStreamName = [NSString stringWithFormat:@"%@%@",KServiceBaseShareUrl,NewStreamName]
     ;
@@ -1129,10 +1155,13 @@
 
    
 
-    if (!([[postingData valueForKey:@"chatChannelid"] integerValue] == 0)) {
+    if (!([self.ChatChannelid integerValue] == 0)) {
         
         if (ChatViewCheckBool == FALSE) {
-            NSNumber *numberobj = [NSNumber numberWithInteger:[[postingData valueForKey:@"chatChannelid"] integerValue]];
+           // NSNumber *numberobj = [NSNumber numberWithInteger:[[postingData valueForKey:@"chatChannelid"] integerValue]];
+             NSNumber *numberobj = [NSNumber numberWithInteger:[self.ChatChannelid integerValue]];
+            
+            
             
             ALChannelService * channelService  =  [ALChannelService new];
             [channelService getChannelInformation:numberobj orClientChannelKey:nil withCompletion:^(ALChannel *alChannel) {
@@ -1206,12 +1235,12 @@
 -(void)ListnersStartTimer
 {
     listnersCount = [NSTimer scheduledTimerWithTimeInterval:1.0 target: self
-                                                   selector: @selector(ListnersCountMethod) userInfo: nil repeats: YES];
+                                                   selector: @selector(ListnersCountMethood) userInfo: nil repeats: YES];
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerTick:) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:timer forMode:NSDefaultRunLoopMode];
 }
 
--(void)ListnersCountMethod{
+-(void)ListnersCountMethood{
     
     NSString *path = [NSString stringWithFormat:@"%@Game/ChannelListener_count/%@",KServiceBaseURL,[postingData objectForKey:@"id"]];
     [DM GetRequest:path parameter:nil onCompletion:^(id  _Nullable dict) {

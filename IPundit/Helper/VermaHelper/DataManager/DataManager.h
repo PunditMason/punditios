@@ -79,7 +79,7 @@ typedef void (^SKCompletionQueryBlock)(NSArray *__nullable result, NSError *__nu
 
 
 -(void) closeTest;
--(R5Configuration*_Nonnull) getConfig;
+-(R5Configuration*_Nullable) getConfig :(NSString * _Nonnull)hostAddress;
 -(void) setupPublisher:(R5Connection*_Nonnull)connection;
 
 

@@ -1,0 +1,153 @@
+//
+//  PoadcastDetailVC.m
+//  IPundit
+//
+//  Created by Gaurav Verma on 13/09/17.
+//  Copyright © 2017 Gaurav Verma. All rights reserved.
+//
+
+#import "PoadcastDetailVC.h"
+
+@interface PoadcastDetailVC ()
+
+@end
+
+@implementation PoadcastDetailVC
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+    NSSortDescriptor *sortDescriptor;
+    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"time_stamp"
+                                                 ascending:YES];
+    self.ChannelArray = [self.ChannelArray sortedArrayUsingDescriptors:@[sortDescriptor]];
+    
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+- (IBAction)BackButtonAction:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+    
+}
+
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+    NSIndexPath *tableSelection = [self.mPoadcastDetailTableView indexPathForSelectedRow];
+    [self.mPoadcastDetailTableView deselectRowAtIndexPath:tableSelection animated:NO];
+    self.mPoadcastDetailTableView.separatorColor = [UIColor clearColor];
+    
+}
+
+
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.ChannelArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    
+    static NSString *CellIdentifier = @"Poadcastdetailcell";
+    PoadcastDetailCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    
+    
+    if (cell == nil) {
+        cell = [[PoadcastDetailCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
+    }
+    UIView *bgColorView = [[UIView alloc] init];
+    [bgColorView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]];
+    [cell setSelectedBackgroundView:bgColorView];
+    
+    NSLog(@"%@",self.ChannelArray);
+    NSDictionary *dct = [Helper formatJSONDict:[self.ChannelArray objectAtIndex:indexPath.row]];
+    cell.mMatchDetail.text = [dct objectForKey:@"time_stamp"];
+
+    
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;{
+    
+    [self.mPoadcastDetailTableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+     NSDictionary *dct = [Helper formatJSONDict:[self.ChannelArray objectAtIndex:indexPath.row]];
+    
+    
+    
+    [self openSocialUrl:[NSString stringWithFormat:@"https://s3.amazonaws.com/red5proautoplay/live/streams/%@.mp4",[dct objectForKey:@"streamName"]]];
+    
+    
+    
+    NSURL *streamURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://s3.amazonaws.com/red5proautoplay/live/streams/%@.mp4",[dct objectForKey:@"streamName"]]];
+    
+    //[self PlayAudio:streamURL];
+}
+
+
+-(void)PlayAudio:(NSURL *)streamURL{
+
+    self.streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:streamURL];
+    self.streamPlayer.view.frame = CGRectMake(0, 528, 320, 40);
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleMPMoviePlayerPlaybackDidFinish:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:nil];
+    
+    self.streamPlayer.controlStyle = MPMovieControlStyleEmbedded;
+    self.streamPlayer.view.tag = 114;
+    self.streamPlayer.scalingMode = MPMovieScalingModeAspectFill;
+    self.streamPlayer.movieSourceType = MPMovieSourceTypeStreaming;
+    [self.view addSubview:self.streamPlayer.view];
+    
+    [self.streamPlayer prepareToPlay];
+    [self.streamPlayer play];
+    
+}
+
+- (void)handleMPMoviePlayerPlaybackDidFinish:(NSNotification *)notification {
+    [self.streamPlayer.view removeFromSuperview];
+    NSDictionary *notificationUserInfo = [notification userInfo];
+    NSNumber *resultValue = [notificationUserInfo objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
+    MPMovieFinishReason reason = [resultValue intValue];
+    if (reason == MPMovieFinishReasonPlaybackError) {
+        NSError *mediaPlayerError = [notificationUserInfo objectForKey:@"error"];
+        if (mediaPlayerError) {
+            NSLog(@"playback failed with error description: %@", [mediaPlayerError localizedDescription]);
+        }
+        else {
+            NSLog(@"playback failed without any given reason");
+        }
+    }
+}
+
+
+
+- (void)openSocialUrl:(NSString *) linkStr {
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:linkStr]];
+}
+
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end
