@@ -20,10 +20,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     MatchArray =  [[NSMutableArray alloc] init];
     SelectedMatchArray = [[NSMutableArray alloc] init];
     // Do any additional setup after loading the view.
-    [self GetChannelt];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,6 +52,7 @@
             [Helper hideLoaderSVProgressHUD];
             return ;
         }else{
+            [MatchArray removeAllObjects];
             [MatchArray addObjectsFromArray:[responseDict objectForKey:@"Match"]];
 
         }
@@ -71,7 +72,8 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
-    
+    [self GetChannelt];
+
     NSIndexPath *tableSelection = [self.mPoadcastTableView indexPathForSelectedRow];
     [self.mPoadcastTableView deselectRowAtIndexPath:tableSelection animated:NO];
     self.mPoadcastTableView.separatorColor = [UIColor clearColor];

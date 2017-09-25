@@ -20,8 +20,6 @@
 
 
 @interface ListenMatchDetailVC (){
-      
-    
 }
 
 @end
@@ -41,11 +39,8 @@
     else{
         if (self.mrliveBroadcastersArray.count > 0) {
             self.broadcastersView.hidden = NO ;
-            
-            
         }
         else{
-            
             self.broadcastersView.hidden = YES ;
             self.mProfileShowHideButtonn.enabled = false;
             self.mSitchBroadcasterButton.enabled = false;
@@ -54,17 +49,8 @@
         }
     }
     
-    
-    
-    
-   
-    
-
-    
-    
     self.CurrentALUser = [ALChatManager getLoggedinUserInformation];
 
-    
     matchStatusCheck = YES;
     self.backgroundImageView.image = DM.backgroundImage ;
     self.broadcasterViewImageView.image = DM.backgroundImage ;
@@ -169,7 +155,7 @@
                                                  name:@"CloseListenChat" object:nil];
     
     
-    
+   // bufferTime  = 1.0;
 }
 
 
@@ -825,7 +811,13 @@
 
 - (void)start {
     [Helper showLoaderVProgressHUD];
-    R5Connection *connection = [[R5Connection new] initWithConfig:[DM getConfig:kStreemManagerHostIP]];
+    
+    R5Connection *connection;
+    if ([_mLowSignalModeSwitch isOn]) {
+     connection  = [[R5Connection new] initWithConfig:[DM getConfig:kStreemManagerHostIP bufferTime:@"Yes"]];
+    }else{
+     connection  = [[R5Connection new] initWithConfig:[DM getConfig:kStreemManagerHostIP bufferTime:nil]];
+    }
     DM.refView = self.view;
     DM.stream = [[R5Stream new] initWithConnection:connection];
     [DM.currentView attachStream:DM.stream];
@@ -989,11 +981,7 @@
         [NSTimer scheduledTimerWithTimeInterval:10 target:self selector:@selector(ButtonPressed) userInfo:nil repeats:NO];
     }
 }
--(void)ButtonPressed{
-    
-//    [self start];
-//    [Helper hideLoaderSVProgressHUD];
-}
+
 
 
 -(void)broadcasterCheck{
@@ -1255,4 +1243,24 @@
     }];
 }
 
+- (IBAction)LowSignalModeAction:(id)sender {
+    
+    UISwitch *mySwitch = (UISwitch *)sender;
+    if ([mySwitch isOn]) {
+        NSLog(@"its on!");
+    } else {
+        NSLog(@"its off!");
+    }
+
+    if (_broadcastersView.hidden == YES) {
+        [Helper showLoaderVProgressHUD];
+        [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(ButtonPressed) userInfo:nil repeats:NO];
+        [self stop];
+    }
+}
+
+-(void)ButtonPressed{
+       [self start];
+       [Helper hideLoaderSVProgressHUD];
+}
 @end

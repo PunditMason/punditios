@@ -14,6 +14,7 @@
 #import "getProfileCurrentUser.h"
 #import <QuartzCore/QuartzCore.h>
 #import "KIImagePager.h"
+#import <IQKeyboardManager/IQKeyboardManager.h>
 
 @interface ViewController ()<KIImagePagerDelegate, KIImagePagerDataSource>
 {
@@ -37,6 +38,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSURL *url = [[NSBundle mainBundle] URLForResource:@"App Preview" withExtension:@"gif"];
+    
+    self.splashScreenImageView.image= [UIImage animatedImageWithAnimatedGIFURL:url];
+    
+    
     ImagesArray = [[NSMutableArray alloc] init];
         _getProfileParameter =[[NSMutableDictionary alloc]init];
     self.splashScreenView.userInteractionEnabled = NO ;
@@ -84,11 +90,20 @@
     ImagesArray = [[NSMutableArray alloc] initWithObjects:strobj,strobj2, nil];
    */
     
+    
+    self.mLoginView.frame = CGRectMake(self.mLoginView.frame.origin.x,self.view.frame.size.height,self.mLoginView.frame.size.width,self.mLoginView.frame.size.height);
+    
     }
+
+
+
 
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:YES];
+     [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
+    [[IQKeyboardManager sharedManager] setEnable:YES];
+    [[IQKeyboardManager sharedManager]setKeyboardDistanceFromTextField:50];
     
     self.breakingNewsLabel.text = DM.breakingNewsString;
     [DM marqueLabel:self.breakingNewsLabel];
@@ -153,7 +168,58 @@
 #pragma mark ---------------------------------------------------------
 #pragma mark LOGIN WITH FACEBOOK START
 #pragma mark ---------------------------------------------------------
+- (IBAction)SignUpButtonPressed:(id)sender{
+    
+     [self performSegueWithIdentifier:@"SignUpView" sender:self];
+    
+}
 
+
+-(IBAction)keyborddown:(id)sender{
+    
+    [self.view endEditing:YES];
+}
+
+- (IBAction)LoginButtonPressed:(id)sender{
+    [self CloseLoginView];
+    
+}
+
+- (IBAction)DashbordLoginButtonPressed:(id)sender{
+    
+    
+    CurrentUser *currentUser = [[CurrentUser alloc] init];
+    [currentUser setupUser:[Helper mCurrentUser]];
+    if ([currentUser.mUsers_Id length] == 0) {
+        [UIView animateWithDuration:0.5 animations:^{
+            self.mLoginView.frame = CGRectMake(self.mLoginView.frame.origin.x,self.view.frame.size.height-self.mLoginView.frame.size.height,self.mLoginView.frame.size.width,self.mLoginView.frame.size.height);
+            
+        }];
+        
+        
+    }
+    else{
+        FacebookCheckBool = true;
+        [self LogoutFunction];
+    }
+    
+    
+   
+    
+    
+   
+    
+
+    
+  
+}
+
+
+-(void)CloseLoginView{
+    [UIView animateWithDuration:0.5 animations:^{
+        self.mLoginView.frame = CGRectMake(self.mLoginView.frame.origin.x,self.view.frame.size.height,self.mLoginView.frame.size.width,self.mLoginView.frame.size.height);
+    }];
+}
 
 - (IBAction)LoginwithFacebookButtonPressed:(id)sender{
     
@@ -300,6 +366,8 @@
                 [Helper ISAlertTypeSuccess:@"Success" andMessage:@"You have successfully logged in"];
                 FacebookCheckBool = true;
                 self.LoginLable.text = @"Log Out";
+                [self CloseLoginView];
+
                 
             } onError:^(NSError * _Nullable Error) {
                 [Helper hideLoaderSVProgressHUD];
@@ -442,8 +510,12 @@
         NSURL *backgroundImageUrl = [NSURL URLWithString:backgroundImageString];
         [self.backgroundImageView sd_setImageWithURL:backgroundImageUrl completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             DM.backgroundImage = image ;
-            self.splashScreenImageView.hidden = YES;
-            self.splashScreenView.hidden = YES;
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                self.splashScreenImageView.hidden = YES;
+                self.splashScreenView.hidden = YES;
+                
+            });
+            
         }];
         NSString * string = [NSString stringWithFormat:@"%@ios_icons/%@",KserviceBaseIconURL,[mHomePageDict objectForKey:@"broadcaster"]];
         

@@ -26,6 +26,7 @@
 - (IBAction)backButtonAction:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *noMatchesLabel;
 
+@property (nonatomic,strong)NSMutableArray * mliveBroadcastersArray;
 
 - (IBAction)StreemingButtonAction:(id)sender;
 @property (nonatomic,weak) IBOutlet UIView *mOverlayView;

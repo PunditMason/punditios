@@ -126,6 +126,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *mProfileShowHideButtonn;
 @property (strong, nonatomic) IBOutlet UIButton *mSitchBroadcasterButton;
 @property (strong, nonatomic) IBOutlet UIButton *mShareButtonButton;
+@property (weak, nonatomic) IBOutlet UISwitch *mLowSignalModeSwitch;
+- (IBAction)LowSignalModeAction:(id)sender;
 
 
 @property (strong, nonatomic) IBOutlet UILabel *mTeamTalkLabel;

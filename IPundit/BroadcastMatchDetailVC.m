@@ -48,7 +48,14 @@
     referenceArray = [[NSMutableArray alloc]init];
     
     NSURL *url = [[NSBundle mainBundle] URLForResource:@"equalizer1" withExtension:@"gif"];
+    
+    
+    
+    
     self.animatedImageView.image= [UIImage animatedImageWithAnimatedGIFURL:url];
+    
+   
+   
     
     self.loggedInAsLabel.text =[NSString stringWithFormat:@"Logged in as %@",[[Helper mGetProfileCurrentUser]objectForKey:@"first_name"]];
     
@@ -659,7 +666,9 @@
 -(void)startBroadCasting{
     [Helper showLoaderVProgressHUD];
     DM.refView = self.view ;
-    R5Connection* connection = [[R5Connection alloc] initWithConfig:[DM getConfig:kStreemManagerHostIP]];
+    R5Connection* connection = [[R5Connection alloc] initWithConfig:[DM getConfig:kStreemManagerHostIP bufferTime:nil]];
+ 
+    
     [DM setupPublisher:connection];
     [DM.currentView attachStream:DM.publishStream];
     NSString *string   = [NSString stringWithFormat:@"%@",streamName];

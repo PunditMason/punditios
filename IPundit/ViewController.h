@@ -16,6 +16,8 @@
 #import <Foundation/Foundation.h>
 #import "ALChatManager.h"
 #import <Applozic/Applozic.h>
+#import "UIImage+animatedGIF.h"
+
 
 
 
@@ -23,6 +25,8 @@
 
 @interface ViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UIImageView *punditLogo;
+@property (strong, nonatomic) IBOutlet UIImageView *AnimatedImage;
+
 
 @property (nonatomic,strong)IBOutlet UILabel *LoginLable;
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
@@ -60,8 +64,16 @@
 @property (strong, nonatomic) IBOutlet UIImageView *broadcasterCountImageView;
 @property (strong, nonatomic)NSMutableDictionary *getProfileParameter;
 
+@property (nonatomic,weak) IBOutlet UIView *mOverlayView;
+@property (nonatomic,weak) IBOutlet UIView *mLoginView;
 
+@property (strong, nonatomic) IBOutlet UITextField *mEmailTextField;
+@property (strong, nonatomic) IBOutlet UITextField *mPasswordTextField;
 
+-(IBAction)keyborddown:(id)sender;
+- (IBAction)LoginButtonPressed:(id)sender;
+- (IBAction)SignUpButtonPressed:(id)sender;
+- (IBAction)DashbordLoginButtonPressed:(id)sender;
 
 - (IBAction)LoginwithFacebookButtonPressed:(id)sender;
 - (IBAction)BrodcastButtonPressed:(id)sender;

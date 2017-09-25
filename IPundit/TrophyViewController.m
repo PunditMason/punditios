@@ -28,6 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.mliveBroadcastersArray = [[NSMutableArray alloc] init];
+
     
     self.CurrentALUser = [ALChatManager getLoggedinUserInformation];
 
@@ -206,8 +208,12 @@
 
     DM.channelType = @"team";
     if ([DM.appFlowRef isEqualToString:@"Listen"]) {
+        self.mliveBroadcastersArray = [[self.serverResponse objectAtIndex:indexPath.row]objectForKey:@"channel"];
+
         ListenMatchDetailVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListenMatchDetailVC"];
         vc.teamListenDetails = [self.serverResponse objectAtIndex:indexPath.row];
+        vc.self.mrliveBroadcastersArray = _mliveBroadcastersArray;
+
         DM.liveBroadcastersArray = [[self.serverResponse objectAtIndex:indexPath.row]objectForKey:@"channel"];
         NSLog(@"%@",DM.liveBroadcastersArray);
         [self.navigationController pushViewController:vc animated:YES];
@@ -303,6 +309,8 @@
             BroadcastMatchDetailVC * vc = [self.storyboard instantiateViewControllerWithIdentifier:@"BroadcastMatchDetailVC"];
             vc.teamBroadCastDict = [self.serverResponse objectAtIndex:broadcastRef.row];
             vc.ChatChannelid = ChatChannelId;
+
+            
             [self.navigationController pushViewController:vc animated:YES];
         }
         else{

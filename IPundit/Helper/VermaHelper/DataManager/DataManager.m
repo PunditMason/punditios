@@ -547,7 +547,8 @@ static DataManager *sharedDataManager = nil;
     }
 }
 
--(R5Configuration*) getConfig :(NSString *)hostAddress{
+-(R5Configuration*) getConfig :(NSString *)hostAddress  bufferTime:(NSString*)time
+{
     
     R5Configuration* config = [[R5Configuration alloc] init];
     // config.host = @"34.253.228.132";
@@ -556,18 +557,24 @@ static DataManager *sharedDataManager = nil;
     //config.host = @"34.252.62.96" 34.253.215.171
    // 34.253.213.222
     // Pundit Server Old
-    
     if (hostAddress) {
         config.host = hostAddress;
     }
     else{
         config.host = @"34.249.129.146";
     }
-
+    
+    if (time) {
+        config.buffer_time = 5 ;
+        config.stream_buffer_time = 5 ;
+    }else
+    {
+        config.buffer_time = 0.1 ;
+    }
+    
     config.port = 8554;
     config.contextName = @"live";
     config.protocol = 1;
-    config.buffer_time = 0.1 ;
     config.licenseKey = @"KWAU-2V3K-VFOJ-JXIN" ;
   /*
     config.host = @"54.76.147.237";
@@ -576,11 +583,13 @@ static DataManager *sharedDataManager = nil;
     config.protocol = 1;
     config.buffer_time = 0.1 ;
     config.licenseKey = @"KWAU-2V3K-VFOJ-JXIN" ;
-     */
+ */
     return config;
 }
 
--(void) setupPublisher:(R5Connection*)connection{
+-(void) setupPublisher:(R5Connection*)connection
+
+{
     _publishStream = [[R5Stream alloc] initWithConnection:connection];
     _publishStream.delegate = self;
 

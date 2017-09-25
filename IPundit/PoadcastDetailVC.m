@@ -8,7 +8,9 @@
 
 #import "PoadcastDetailVC.h"
 
-@interface PoadcastDetailVC ()
+@interface PoadcastDetailVC (){
+    NSMutableArray *EditedChannelArray;
+}
 
 @end
 
@@ -17,10 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSSortDescriptor *sortDescriptor;
-    sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"time_stamp"
-                                                 ascending:YES];
-    self.ChannelArray = [self.ChannelArray sortedArrayUsingDescriptors:@[sortDescriptor]];
+    EditedChannelArray = [[NSMutableArray alloc] init];
+    [EditedChannelArray addObjectsFromArray:self.ChannelArray];
+    
     
     
 }
@@ -51,7 +52,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.ChannelArray.count;
+    return EditedChannelArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -69,8 +70,8 @@
     [bgColorView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]];
     [cell setSelectedBackgroundView:bgColorView];
     
-    NSLog(@"%@",self.ChannelArray);
-    NSDictionary *dct = [Helper formatJSONDict:[self.ChannelArray objectAtIndex:indexPath.row]];
+    NSLog(@"%@",EditedChannelArray);
+    NSDictionary *dct = [Helper formatJSONDict:[EditedChannelArray objectAtIndex:indexPath.row]];
     cell.mMatchDetail.text = [dct objectForKey:@"time_stamp"];
 
     
@@ -81,7 +82,7 @@
     
     [self.mPoadcastDetailTableView deselectRowAtIndexPath:indexPath animated:NO];
     
-     NSDictionary *dct = [Helper formatJSONDict:[self.ChannelArray objectAtIndex:indexPath.row]];
+     NSDictionary *dct = [Helper formatJSONDict:[EditedChannelArray objectAtIndex:indexPath.row]];
     
     
     
@@ -93,6 +94,77 @@
     
     //[self PlayAudio:streamURL];
 }
+
+
+
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *dct = [Helper formatJSONDict:[EditedChannelArray objectAtIndex:indexPath.row]];
+    if ([[dct objectForKey:@"broadcaster_id"] integerValue] == [[[Helper mCurrentUser]objectForKey:@"id"] integerValue]) {
+        return YES;
+
+    }
+    else{
+        return NO;
+
+    }
+    
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSDictionary *dct = [Helper formatJSONDict:[EditedChannelArray objectAtIndex:indexPath.row]];
+        [self DeleteChannel:dct];
+        
+        
+    }
+}
+
+
+
+//Parameters => ,
+
+
+-(void)DeleteChannel:(NSDictionary *)dct {
+    
+
+    NSMutableDictionary *Parameters = [NSMutableDictionary new];
+    [Parameters setObject:[dct objectForKey:@"broadcaster_id"] forKey:@"broadcaster_id"];
+    [Parameters setObject:[dct objectForKey:@"id"] forKey:@"channel_id"];
+    [Helper showLoaderVProgressHUD];
+    
+    NSString *string = [NSString stringWithFormat:@"%@app/deletePodcast/",KServiceBaseURL];
+    [DM PostRequest:string parameter:Parameters onCompletion:^(id  _Nullable dict) {
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
+        NSLog(@"ResponseDict %@",responseDict);
+        
+        if ([[responseDict objectForKey:@"responsestatus"] integerValue] == 1) {
+            NSLog(@"%@",[responseDict objectForKey:@"message"]);
+            [self BackButtonAction:self];
+        }
+        else{
+            NSLog(@"%@",[responseDict objectForKey:@"message"]);
+            
+             [Helper ISAlertTypeError:[responseDict objectForKey:@"message"] andMessage:kNOInternet];
+            
+        }
+            
+        
+        
+        [self.mPoadcastDetailTableView reloadData];
+        [Helper hideLoaderSVProgressHUD];
+        
+        
+    } onError:^(NSError * _Nullable Error) {
+        [Helper hideLoaderSVProgressHUD];
+        NSLog(@"%@",Error);
+        NSString *ErrorString = [NSString stringWithFormat:@"%@",Error];
+        [Helper ISAlertTypeError:ErrorString andMessage:kNOInternet];
+    }];
+}
+
+
+
 
 
 -(void)PlayAudio:(NSURL *)streamURL{

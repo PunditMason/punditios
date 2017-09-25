@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (strong, nonatomic) IBOutlet UIView *breakingNewsView;
+@property (nonatomic,strong)NSMutableArray * mliveBroadcastersArray;
 
 @property (nonatomic,strong) NSString *mSearchString;
 @property (nonatomic,weak)IBOutlet UITextField *mSearchTextField;

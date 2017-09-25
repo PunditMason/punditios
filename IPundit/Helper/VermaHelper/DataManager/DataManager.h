@@ -79,12 +79,9 @@ typedef void (^SKCompletionQueryBlock)(NSArray *__nullable result, NSError *__nu
 
 
 -(void) closeTest;
--(R5Configuration*_Nullable) getConfig :(NSString * _Nonnull)hostAddress;
+//-(R5Configuration*_Nullable) getConfig :(NSString * _Nonnull)hostAddress;
 -(void) setupPublisher:(R5Connection*_Nonnull)connection;
-
-
-
-
+-(R5Configuration*_Nullable) getConfig :(NSString *_Nullable)hostAddress  bufferTime:(NSString*_Nullable)time ;
 
 +(DataManager *__nullable)sharedDataManager;
 -(void)startReachability;

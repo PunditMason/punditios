@@ -42,6 +42,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.mliveBroadcastersArray = [[NSMutableArray alloc] init];
+    
     self.searchSelectionView.hidden = YES ;
     searchRef = nil ;
 
@@ -384,7 +386,10 @@
     else if (tableView == self.mTeamTableView)
     {
         DM.channelType = @"team";
+        self.mliveBroadcastersArray = [[teamSearchDataArray objectAtIndex:indexPath.row]objectForKey:@"channel_info"];
         ListenMatchDetailVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListenMatchDetailVC"];
+        vc.mrliveBroadcastersArray = _mliveBroadcastersArray;
+
         vc.teamListenDetails = [teamSearchDataArray objectAtIndex:indexPath.row];
         DM.liveBroadcastersArray = [[teamSearchDataArray objectAtIndex:indexPath.row]objectForKey:@"channel_info"];
         NSLog(@"%@",DM.liveBroadcastersArray);

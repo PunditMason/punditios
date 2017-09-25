@@ -102,8 +102,8 @@
     }else{
          self.subView.frame = CGRectMake(0, 340, 320, 200);
     }
-    self.mProfileFollowersLabel.text = [NSString stringWithFormat:@"%@",[[Helper mGetProfileCurrentUser]objectForKey:@"follower"]];
-    self.mProfileFollowingLabel.text = [NSString stringWithFormat:@"%@",[[Helper mGetProfileCurrentUser]objectForKey:@"following"]];
+    self.mProfileFollowersLabel.text = [NSString stringWithFormat:@"%@",[[Helper mGetProfileCurrentUser]objectForKey:@"following"]];
+    self.mProfileFollowingLabel.text = [NSString stringWithFormat:@"%@",[[Helper mGetProfileCurrentUser]objectForKey:@"follower"]];
 }
 
 - (void)didReceiveMemoryWarning {

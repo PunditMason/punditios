@@ -25,6 +25,7 @@
 @property (nonatomic,strong) NSString *mSearchString;
 @property (nonatomic,weak)IBOutlet UITextField *mSearchTextField;
 @property (nonatomic,strong)IBOutlet UICollectionView *mCollectionView;
+@property (nonatomic,strong)NSMutableArray * mliveBroadcastersArray;
 
 @property (nonatomic,strong)SportsModel *Sports;
 @property (nonatomic,strong)LeaquesModel *leaques;
