@@ -145,7 +145,7 @@
         else{
             NSLog(@"%@",[responseDict objectForKey:@"message"]);
             
-             [Helper ISAlertTypeError:[responseDict objectForKey:@"message"] andMessage:kNOInternet];
+             [Helper ISAlertTypeError:@"Error!!" andMessage:[responseDict objectForKey:@"message"]];
             
         }
             
@@ -159,7 +159,7 @@
         [Helper hideLoaderSVProgressHUD];
         NSLog(@"%@",Error);
         NSString *ErrorString = [NSString stringWithFormat:@"%@",Error];
-        [Helper ISAlertTypeError:ErrorString andMessage:kNOInternet];
+        [Helper ISAlertTypeError:@"Error!!" andMessage:ErrorString];
     }];
 }
 

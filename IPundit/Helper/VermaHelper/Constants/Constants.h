@@ -23,7 +23,7 @@
 #define KV2serviceBaseIconURL @"http://54.154.252.47/pundit-ios/v2/"
 #define kStreemManagerHostIP @"54.229.3.56"
 
- */
+*/
  //Live Base Urls
 
  #define KserviceBaseIconURL @"http://punditsports.com:81/pundit-ios/assets/img/"

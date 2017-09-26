@@ -348,8 +348,6 @@
 		012A41281E7672E100185D0D /* 1TestImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1TestImage.png; sourceTree = "<group>"; };
 		0134D0431F74DFB8007B70FE /* faceebookk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = faceebookk.png; sourceTree = "<group>"; };
 		0134D0441F74E2EB007B70FE /* ipundit-red-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipundit-red-icon.png"; sourceTree = "<group>"; };
-		0134D0451F74E515007B70FE /* user_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_new.png; sourceTree = "<group>"; };
-		0134D0461F74E560007B70FE /* user_pass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user_pass.png; sourceTree = "<group>"; };
 		0136F37D1EF8E24A00F3CEEC /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		014289461F7390DD000FE95A /* pundit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = pundit.gif; path = IPundit/Helper/pundit.gif; sourceTree = "<group>"; };
 		0147C8201F68E86A00B5B53A /* PoadcastVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoadcastVC.h; sourceTree = "<group>"; };
@@ -362,6 +360,8 @@
 		0147C82A1F68E8C400B5B53A /* PoadcastDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoadcastDetailCell.m; sourceTree = "<group>"; };
 		014C87FB1F752E6F00278462 /* PSignUpVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSignUpVC.h; sourceTree = "<group>"; };
 		014C87FC1F752E6F00278462 /* PSignUpVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSignUpVC.m; sourceTree = "<group>"; };
+		014C87FE1F78C93D00278462 /* user_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user_new.png; path = IPundit/Helper/Assets_Images/user_new.png; sourceTree = SOURCE_ROOT; };
+		014C87FF1F78C93F00278462 /* user_pass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user_pass.png; path = IPundit/Helper/Assets_Images/user_pass.png; sourceTree = SOURCE_ROOT; };
 		015A136D1F483F6800703441 /* New_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = New_about.png; sourceTree = "<group>"; };
 		015A136E1F483F6800703441 /* New_chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = New_chat.png; sourceTree = "<group>"; };
 		015A136F1F483F6800703441 /* New_desktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = New_desktop.ini; sourceTree = "<group>"; };
@@ -715,16 +715,16 @@
 		015A136C1F483F6800703441 /* New_Icons */ = {
 			isa = PBXGroup;
 			children = (
+				014C87FE1F78C93D00278462 /* user_new.png */,
+				014C87FF1F78C93F00278462 /* user_pass.png */,
 				0134D0441F74E2EB007B70FE /* ipundit-red-icon.png */,
 				0134D0431F74DFB8007B70FE /* faceebookk.png */,
-				0134D0461F74E560007B70FE /* user_pass.png */,
 				01E689771F5EAC4E002D9586 /* closechat.png */,
 				006D573C1F4EB21B005AA2B3 /* SliderImg1.jpg */,
 				006D573D1F4EB21B005AA2B3 /* SliderImg2.png */,
 				009CD0691F4D9AA500FB765E /* score-board_new.png */,
 				009CD0651F4D83C500FB765E /* volume-muted.png */,
 				009CD0661F4D83C500FB765E /* volume-off.png */,
-				0134D0451F74E515007B70FE /* user_new.png */,
 				009CD0631F4D7D6C00FB765E /* edit-new-icon-22.png */,
 				009CD0611F4D6A4500FB765E /* score-board.png */,
 				015A136D1F483F6800703441 /* New_about.png */,
@@ -1840,7 +1840,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = IPundit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IPundit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1870,7 +1870,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = IPundit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IPundit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

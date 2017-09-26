@@ -26,8 +26,9 @@
     NSTimer *listenersTimer ;
     NSMutableArray *ImagesArray;
     float mCurrentDataVersion;
-    
-    
+    NSString *message;
+    UIAlertView *ForfotPasswordAlert;
+
     
 
 }
@@ -38,9 +39,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"App Preview" withExtension:@"gif"];
     
-    self.splashScreenImageView.image= [UIImage animatedImageWithAnimatedGIFURL:url];
+    [self.ScrollView layoutIfNeeded];
+    self.ScrollView.contentSize = self.ContentView.bounds.size;
+    
+    [self.mScrollView layoutIfNeeded];
+    self.mScrollView.contentSize = self.mContentView.bounds.size;
     
     
     ImagesArray = [[NSMutableArray alloc] init];
@@ -51,6 +55,7 @@
     self.listenerCountImageView.hidden = YES ;
     self.broadcastersCountLabel.hidden = YES ;
     self.broadcasterCountImageView.hidden = YES ;
+    /*
     if (IS_IPHONE4) {
         self.view.frame = CGRectMake(0, 0, 320, 480);
         self.punditLogo.frame = CGRectMake(23, 12, 98, 49);
@@ -72,6 +77,24 @@
         self.splashScreenView.frame = CGRectMake(0, 0, 320, 480);
         self.splashScreenImageView.frame = CGRectMake(0, 0, 320, 480);
     }
+    */
+    
+    
+    if (IS_IPHONE4) {
+        self.ScrollView.frame = CGRectMake(0, 0, 320, 480);
+        self.splashScreenView.frame = CGRectMake(0, 0, 320, 480);
+        self.mScrollView.frame = CGRectMake(0, 0, 320, 480);
+        self.mLoginView.frame = CGRectMake(0, 0, 320, 480);
+
+        
+        
+    }else{
+        NSURL *url = [[NSBundle mainBundle] URLForResource:@"App Preview" withExtension:@"gif"];
+        
+        self.splashScreenImageView.image= [UIImage animatedImageWithAnimatedGIFURL:url];
+    }
+    
+    
     [self HomePageContent];
     [self getTandC];
     [self getBreakingNews];
@@ -107,7 +130,6 @@
     
     self.breakingNewsLabel.text = DM.breakingNewsString;
     [DM marqueLabel:self.breakingNewsLabel];
-    if ([SCFacebook isSessionValid]) {
         
         CurrentUser *currentUser = [[CurrentUser alloc] init];
         [currentUser setupUser:[Helper mCurrentUser]];
@@ -115,13 +137,12 @@
             self.LoginLable.text = @"Log in";
         }
         else{
+           // self.mLoginView.frame = CGRectMake(self.mLoginView.frame.origin.x,self.view.frame.size.height,self.mLoginView.frame.size.width,self.mLoginView.frame.size.height);
+            
             FacebookCheckBool = true;
             self.LoginLable.text = @"Log out";
         }
-    }
-    else {
-        self.LoginLable.text = @"Log in";
-    }
+    
     listenersTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(ListenerCount) userInfo:nil repeats:YES];
 }
 
@@ -174,19 +195,257 @@
     
 }
 
+- (IBAction)ForgotButtonAction:(id)sender{
+    
+    ForfotPasswordAlert = [[UIAlertView alloc] initWithTitle:@"Forgot Password"
+                                                    message:@"Please Enter Your Email"
+                                                   delegate:self
+                                          cancelButtonTitle:@"OK"
+                                           otherButtonTitles:@"Cancel", nil];
+    ForfotPasswordAlert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    ForfotPasswordAlert.tag = 10014;
+    [ForfotPasswordAlert show];
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    if (ForfotPasswordAlert.tag == 10014) {
+        if (buttonIndex == 0) {
+            
+            if ([[alertView textFieldAtIndex:0].text length ] == 0 ) {
+                
+                 [Helper ISAlertTypeWarning:@"Warning!" andMessage:@"Please enter a valid email."];
+            }
+            
+            else{
+                if ([alertView textFieldAtIndex:0].text != nil)
+                {
+                    NSString *emailString = [alertView textFieldAtIndex:0].text;
+                    
+                    NSString *emailReg = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+                    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",emailReg];
+                    if (([emailTest evaluateWithObject:emailString] != YES) || [emailString isEqualToString:@""])
+                    {
+                        [Helper ISAlertTypeWarning:@"Warning!" andMessage:@"Please enter a valid email."];
+
+                        
+                    }else{
+                        NSLog(@"%@", [alertView textFieldAtIndex:0].text);
+                        
+                        
+                        NSMutableDictionary *Parameters = [NSMutableDictionary new];
+                        [Parameters setObject:[alertView textFieldAtIndex:0].text forKey:@"email"];
+                        [Helper showLoaderVProgressHUD];
+                        NSString *string = [NSString stringWithFormat:@"%@app/forgotPassword/",KServiceBaseURL];
+                        [DM PostRequest:string parameter:Parameters onCompletion:^(id  _Nullable dict) {
+                            NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
+                            NSLog(@"ResponseDict %@",responseDict);
+                            
+                            if ([[responseDict objectForKey:@"responsestatus"] integerValue] == 1) {
+                                NSLog(@"%@",[responseDict objectForKey:@"message"]);
+                                [Helper ISAlertTypeSuccess:@"Success" andMessage:[responseDict objectForKey:@"message"]];
+                            }
+                            else{
+                                NSLog(@"%@",[responseDict objectForKey:@"message"]);
+                                
+                                [Helper ISAlertTypeError:@"Error!!" andMessage:[responseDict objectForKey:@"message"]];
+                                
+                            }
+                            [Helper hideLoaderSVProgressHUD];
+                            
+                            
+                        } onError:^(NSError * _Nullable Error) {
+                            [Helper hideLoaderSVProgressHUD];
+                            NSLog(@"%@",Error);
+                            NSString *ErrorString = [NSString stringWithFormat:@"%@",Error];
+                            [Helper ISAlertTypeError:ErrorString andMessage:kNOInternet];
+                        }];
+                        
+                        
+                        
+                        
+                        
+                        
+                    }
+                }
+            }
+            
+            
+            
+            
+        }
+        
+    }
+    
+    
+    
+    
+    
+}
+
 
 -(IBAction)keyborddown:(id)sender{
     
     [self.view endEditing:YES];
 }
 
-- (IBAction)LoginButtonPressed:(id)sender{
+-(void)Keydow{
+    [self.view endEditing:YES];
+}
+
+
+- (IBAction)textFieldDoneEditing:(id)sender {
+    [sender resignFirstResponder];
+}
+
+
+
+-(IBAction)CloseLoginViewButtonPressed:(id)sender{
     [self CloseLoginView];
+}
+
+
+- (IBAction)LoginButtonPressed:(id)sender{
+   
+    
+    [self Keydow];
+    [self TextfieldVelidations];
+    
+    if (message) {
+        //[DM.mAppObj.mBaseNavigation.view makeToast:message];
+        
+        [Helper ISAlertTypeWarning:@"Warning!" andMessage:message];
+        
+        
+    }
+    else{
+        if (DM.mInternetStatus == false) {
+            NSLog(@"No Internet Connection.");
+            [Helper ISAlertTypeError:@"Internet Connection!!" andMessage:kNOInternet];
+            
+            // [DM.mAppObj.mBaseNavigation.view makeToast:kNOInternet];
+            return;
+        }
+        else{
+            
+            [self LoginWithPFUser:self.mEmailTextField.text :self.mPasswordTextField.text];
+            
+        }
+        
+        
+        
+    }
+    
+    message = nil;
     
 }
 
+
+static void extracted(ViewController *object) {
+    [object getProfile];
+}
+
+-(void)LoginWithPFUser:(NSString *)mEmail:(NSString *) mPassword{
+    [Helper showLoaderVProgressHUD];
+
+    if (mPassword.length <=0 && mEmail.length<=0) {
+        [Helper ISAlertTypeError:@"Login Failed!" andMessage:@"Please enter a valid email or password for login."];
+
+    }
+    else {
+       
+        
+        NSMutableDictionary *Parameters = [NSMutableDictionary new];
+        [Parameters setObject:mEmail forKey:@"email"];
+        [Parameters setObject:mPassword forKey:@"password"];
+        [Helper showLoaderVProgressHUD];
+        
+        NSString *string = [NSString stringWithFormat:@"%@app/login_User/",KServiceBaseURL];
+        [DM PostRequest:string parameter:Parameters onCompletion:^(id  _Nullable dict) {
+            NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
+            NSLog(@"ResponseDict %@",responseDict);
+            
+            if ([[responseDict objectForKey:@"responsestatus"] integerValue] == 1) {
+                NSLog(@"%@",[responseDict objectForKey:@"message"]);
+                
+                NSError *errorJson=nil;
+                NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
+                
+                
+                CurrentUser *currentUser = [[CurrentUser alloc] init];
+                
+                [currentUser setupCurrentUser:[[responseDict valueForKey:@"user"] objectAtIndex:0]];
+                [Helper hideLoaderSVProgressHUD];
+                extracted(self);
+                [Helper ISAlertTypeSuccess:@"Success" andMessage:@"You have successfully logged in"];
+                FacebookCheckBool = true;
+                self.LoginLable.text = @"Log Out";
+                [self RegisterUseronApplogic:[[responseDict valueForKey:@"user"] objectAtIndex:0]];
+                ProfileCheckBool = false ;
+                [self getProfile];
+                [self CloseLoginView];
+            }
+            else{
+                NSLog(@"%@",[responseDict objectForKey:@"message"]);
+                [Helper hideLoaderSVProgressHUD];
+                [Helper ISAlertTypeError:@"Error!!" andMessage:[responseDict objectForKey:@"message"]];
+                
+            }
+            
+            
+            
+            [Helper hideLoaderSVProgressHUD];
+            
+            
+        } onError:^(NSError * _Nullable Error) {
+            [Helper hideLoaderSVProgressHUD];
+            NSLog(@"%@",Error);
+            NSString *ErrorString = [NSString stringWithFormat:@"%@",Error];
+            [Helper ISAlertTypeError:ErrorString andMessage:kNOInternet];
+        }];
+        
+        
+        
+        
+    }
+}
+
+-(void)RegisterUseronApplogic :(NSMutableDictionary*)User{
+    ALUser *user = [ALUser new];
+    user.userId = [User valueForKey:@"fb_id"];
+    user.password = APPLICATION_ID;
+    user.email = [User valueForKey:@"email"];
+    user.displayName = [User valueForKey:@"first_name"];
+    NSString * string = [NSString stringWithFormat:@"%@%@",KServiceBaseProfileImageURL,[User valueForKey:@"avatar"]];
+
+    [user setAuthenticationTypeId:(short)CLIENT];
+    
+    [ALUserDefaultsHandler setUserId:user.userId];
+    [ALUserDefaultsHandler setPassword:user.password];
+    [ALUserDefaultsHandler setEmailId:user.email];
+    [ALUserDefaultsHandler setDisplayName:user.displayName];
+    [ALUserDefaultsHandler setProfileImageLink:user.imageLink];
+    [ALUserDefaultsHandler setUserAuthenticationTypeId:(short)CLIENT];
+    ALChatManager *manager = [[ALChatManager alloc] initWithApplicationKey:APPLICATION_ID]; // SET APPLICATION ID
+    [manager registerUserWithCompletion:user withHandler:^(ALRegistrationResponse *rResponse, NSError *error) {
+        if (rResponse) {
+            NSLog(@"%@",rResponse);
+        }
+        else{
+            NSLog(@"%@",error);
+            //[ALUtilityClass showAlertMessage:@"ERROR!!" andTitle:@"Oops!!!"];
+        }
+        
+    }];
+}
+
+
+
 - (IBAction)DashbordLoginButtonPressed:(id)sender{
     
+    self.mEmailTextField.text  = @"";
+    self.mPasswordTextField.text = @"";
     
     CurrentUser *currentUser = [[CurrentUser alloc] init];
     [currentUser setupUser:[Helper mCurrentUser]];
@@ -203,15 +462,7 @@
         [self LogoutFunction];
     }
     
-    
-   
-    
-    
-   
-    
-
-    
-  
+ 
 }
 
 
@@ -284,13 +535,19 @@
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     
-    if (buttonIndex == 0) {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstTime"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
+    if (ForfotPasswordAlert.tag == 10014) {
         
-        [self loginWithFacebook];
-
+    }else{
+        if (buttonIndex == 0) {
+            [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstTime"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            
+            [self loginWithFacebook];
+            
+        }
     }
+    
+    
 }
 
 
@@ -362,6 +619,7 @@
                 
                 [currentUser setupCurrentUser:[[responseDict valueForKey:@"user"] objectAtIndex:0]];
                 [Helper hideLoaderSVProgressHUD];
+                ProfileCheckBool = false ;
                 [self getProfile];
                 [Helper ISAlertTypeSuccess:@"Success" andMessage:@"You have successfully logged in"];
                 FacebookCheckBool = true;
@@ -510,6 +768,8 @@
         NSURL *backgroundImageUrl = [NSURL URLWithString:backgroundImageString];
         [self.backgroundImageView sd_setImageWithURL:backgroundImageUrl completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             DM.backgroundImage = image ;
+            self.LoginbackgroundImageView.image = DM.backgroundImage ;
+            
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 2.5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
                 self.splashScreenImageView.hidden = YES;
                 self.splashScreenView.hidden = YES;
@@ -720,5 +980,30 @@
 
 
 
+
+-(void)TextfieldVelidations{
+    
+    
+    if ([self.mEmailTextField.text length ] == 0  || [self.mPasswordTextField.text length] == 0 ) {
+        message = @"Please enter a valid email or password for login.";
+    }
+    
+    else{
+        if (self.mEmailTextField.text != nil)
+        {
+            NSString *emailString = self.mEmailTextField.text;
+            
+            NSString *emailReg = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
+            NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",emailReg];
+            if (([emailTest evaluateWithObject:emailString] != YES) || [emailString isEqualToString:@""])
+            {
+                message = @" Enter Valid Email";
+                
+                self.mEmailTextField.text = nil;
+            }
+        }
+    }
+    
+}
 
 @end

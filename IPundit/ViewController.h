@@ -30,7 +30,7 @@
 
 @property (nonatomic,strong)IBOutlet UILabel *LoginLable;
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
-
+@property (strong, nonatomic) IBOutlet UIImageView *LoginbackgroundImageView;
 @property (weak, nonatomic) IBOutlet UIButton *broadcastButton;
 @property (weak, nonatomic) IBOutlet UIButton *listenButton;
 @property (weak, nonatomic) IBOutlet UIView *broadcastButtonView;
@@ -70,11 +70,19 @@
 @property (strong, nonatomic) IBOutlet UITextField *mEmailTextField;
 @property (strong, nonatomic) IBOutlet UITextField *mPasswordTextField;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *ScrollView;
+@property (weak, nonatomic) IBOutlet UIView *ContentView;
+
+@property (weak, nonatomic) IBOutlet UIScrollView *mScrollView;
+@property (weak, nonatomic) IBOutlet UIView *mContentView;
+
+-(IBAction)CloseLoginViewButtonPressed:(id)sender;
+
 -(IBAction)keyborddown:(id)sender;
 - (IBAction)LoginButtonPressed:(id)sender;
 - (IBAction)SignUpButtonPressed:(id)sender;
 - (IBAction)DashbordLoginButtonPressed:(id)sender;
-
+- (IBAction)ForgotButtonAction:(id)sender;
 - (IBAction)LoginwithFacebookButtonPressed:(id)sender;
 - (IBAction)BrodcastButtonPressed:(id)sender;
 - (IBAction)ListenButtonPressed:(id)sender;
