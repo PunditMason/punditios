@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.6.3</string>
+	<string>1.9</string>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
@@ -40,7 +40,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.0.4</string>
+	<string>1.7</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -122,15 +122,15 @@
 	<key>NSContactsUsageDescription</key>
 	<string>Allow Contacts</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string></string>
+	<string>Pundit want to access Location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string>Pundit want to access Location</string>
 	<key>NSMicrophoneUsageDescription</key>
 	<string>Pundit want to access microphone </string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string></string>
+	<string>Pundit want to access Photo Library</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string></string>
+	<string>Pundit want to access Photo Library</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Mark Simonson - Proxima Nova Alt Black</string>

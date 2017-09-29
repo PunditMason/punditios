@@ -26,7 +26,7 @@ target "IPundit" do
     pod 'Crashlytics'
     pod 'Applozic', '~>4.0.1'
     pod 'MZTimerLabel'
-    
+    #pod update 'Crashlytics'
     #pod 'GoogleMaps'
     #pod 'GooglePlaces'
 end

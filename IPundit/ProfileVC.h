@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "UIImage+Additions.h"
+#import "PoadcastVC.h"
 
 @interface ProfileVC : UIViewController<UIActionSheetDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate>{
     UIImagePickerController *cameraUI;
