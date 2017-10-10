@@ -137,7 +137,7 @@
           //  [currentUser setupCurrentUser:[[responseDict valueForKey:@"user"] objectAtIndex:0]];
             [Helper hideLoaderSVProgressHUD];
             //[self getProfile];
-            [Helper ISAlertTypeSuccess:@"Success" andMessage:@"You have successfully SignUP"];
+            [Helper ISAlertTypeSuccess:@"Nearly there..." andMessage:@"Check your email to confirm"];
             
          //   [self RegisterUseronApplogic:[[responseDict valueForKey:@"user"] objectAtIndex:0]];
             
@@ -249,7 +249,7 @@
                     self.mPasswordTextField.text = @"" ;
                     self.mConfPasswordTextField.text = @"";
                     
-                    message = @"Oops! Password does not matches";
+                    message = @"Oops! Password does not match";
                 }
             }
         }

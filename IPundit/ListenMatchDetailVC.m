@@ -123,14 +123,14 @@
                                      otherButtonTitles:@"No", nil];
     
     broadcasterAlert = [[UIAlertView alloc] initWithTitle:@"Sorry"
-                                                  message:@"No Broadcaster's Available"
+                                                  message:@"No Matches Available"
                                                  delegate:self
                                         cancelButtonTitle:@"Ok"
                                         otherButtonTitles:nil];
-    followAlert = [[UIAlertView alloc] initWithTitle:@"Alert !!"
-                                             message:@"You Con't follow your self"
+    followAlert = [[UIAlertView alloc] initWithTitle:@"Bit Much?!!"
+                                             message:@"Following yourself!?"
                                             delegate:self
-                                   cancelButtonTitle:@"Ok"
+                                   cancelButtonTitle:@"Shame"
                                    otherButtonTitles:nil];
     checkAlert = [[UIAlertView alloc] initWithTitle:@"Sorry"
                                             message:@"Broadcaster Left"
@@ -282,7 +282,7 @@
        // self.matchStatus.text = [NSString stringWithFormat:@"%@:%@",channellist.matchLengthMin,channellist.matchLengthSec];
     }
     
-    sharingString = [NSString stringWithFormat:@"I'm live on Pundit now, listening the game between %@ Vs %@, come join me",channellist.team1_name,channellist.team2_name];
+    sharingString = [NSString stringWithFormat:@"I'm live on Pundit now, listening to %@ Vs %@, come join me",channellist.team1_name,channellist.team2_name];
     
 }
 -(void)teamListening{
@@ -293,7 +293,7 @@
     self.mTeamBNameLabel.text = [NSString stringWithFormat:@"Points - %@",[self.teamListenDetails objectForKey:@"points"]];
     self.matchStatus.text = [NSString stringWithFormat:@"Rank - %@",[self.teamListenDetails objectForKey:@"rank"]];
     
-    sharingString = [NSString stringWithFormat:@"I'm live on Pundit now listening %@, come join me",[self.teamListenDetails objectForKey:@"contestantName"]];
+    sharingString = [NSString stringWithFormat:@"I'm listening on PUNDIT now %@, come join me",[self.teamListenDetails objectForKey:@"contestantName"]];
 
 }
 
@@ -445,9 +445,9 @@
     broadcastersTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target: self
                                                        selector: @selector(broadcasterCheck) userInfo: nil repeats: YES];
     if ([DM.channelType isEqualToString:@"team"]) {
-        [self start];
+        [self StartListing];
     }else{
-        [self start];
+        [self StartListing];
         
         //manoj changes
         [self GetMatchLiveFeed];
@@ -809,14 +809,14 @@
     }];
 }
 
-- (void)start {
+- (void)start:(NSString *)ServerIP {
     [Helper showLoaderVProgressHUD];
     
     R5Connection *connection;
     if ([_mLowSignalModeSwitch isOn]) {
-     connection  = [[R5Connection new] initWithConfig:[DM getConfig:kStreemManagerHostIP bufferTime:@"Yes"]];
+     connection  = [[R5Connection new] initWithConfig:[DM getConfig:ServerIP bufferTime:@"Yes"]];
     }else{
-     connection  = [[R5Connection new] initWithConfig:[DM getConfig:kStreemManagerHostIP bufferTime:nil]];
+     connection  = [[R5Connection new] initWithConfig:[DM getConfig:ServerIP bufferTime:nil]];
     }
     DM.refView = self.view;
     DM.stream = [[R5Stream new] initWithConnection:connection];
@@ -1260,7 +1260,46 @@
 }
 
 -(void)ButtonPressed{
-       [self start];
+       [self StartListing];
        [Helper hideLoaderSVProgressHUD];
 }
+
+-(void)StartListing{
+    NSString * path = [NSString stringWithFormat:@"http://54.76.147.237:5080/streammanager/api/2.0/admin/nodegroup/group-b8fc5323-240b-41eb-932b-70e3f1d027b0/node/edge?accessToken=pest8Mmyriad"];
+    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+    [request setURL:[NSURL URLWithString:path]];
+    [request setHTTPMethod:@"GET"];
+    
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    [[session dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError *error) {
+        
+        NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+        
+        NSError *errorJson;
+
+        NSArray *responseDict =[NSJSONSerialization JSONObjectWithData:[requestReply dataUsingEncoding:NSUTF8StringEncoding]
+                                        options:NSJSONReadingMutableContainers
+                                          error:&errorJson];
+        
+        NSMutableDictionary *dict = responseDict[0];
+
+        NSString *ServerIP =  [dict objectForKey:@"address"];
+        NSLog(@": %@", ServerIP);
+        
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self start:ServerIP];
+            
+        }];
+        
+        NSLog(@"Request reply: %@", requestReply);
+        
+        
+    }] resume];
+    
+}
+
+
+
 @end

@@ -663,10 +663,10 @@
     
 }
 
--(void)startBroadCasting{
+-(void)startBroadCasting:(NSString *)ServerIP{
     [Helper showLoaderVProgressHUD];
     DM.refView = self.view ;
-    R5Connection* connection = [[R5Connection alloc] initWithConfig:[DM getConfig:kStreemManagerHostIP bufferTime:nil]];
+    R5Connection* connection = [[R5Connection alloc] initWithConfig:[DM getConfig:ServerIP bufferTime:nil]];
  
     
     [DM setupPublisher:connection];
@@ -780,11 +780,23 @@
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     [[session dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError *error) {
+        
+        NSError *errorJson;
+        
+         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&errorJson];
+        
+        NSLog(@": %@", responseDict);
+        
+        NSString *ServerIP =   [responseDict objectForKey:@"serverAddress"];
+         NSLog(@": %@", ServerIP);
         NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
         
+        
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self startBroadCasting];
+            [self startBroadCasting:ServerIP];
 
+            
+            
         }];
         
         NSLog(@"Request reply: %@", requestReply);
@@ -793,6 +805,7 @@
     }] resume];
     
 }
+
 
 
 

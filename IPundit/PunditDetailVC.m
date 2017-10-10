@@ -96,10 +96,10 @@
     self.mBioTextView.text = [NSString stringWithFormat:@"%@",[self.dictRefff objectForKey:@"user_bio"]];
     
     
-    followAlert = [[UIAlertView alloc] initWithTitle:@"Alert !!"
-                                             message:@"You Con't follow your self"
+    followAlert = [[UIAlertView alloc] initWithTitle:@"Shame!!"
+                                             message:@"Trying to follow yourself?"
                                             delegate:self
-                                   cancelButtonTitle:@"Ok"
+                                   cancelButtonTitle:@"I am Billy No-Mates"
                                    otherButtonTitles:nil];
     [self mProfileImageVCCornerRadius];
 
