@@ -818,10 +818,12 @@
     }else{
      connection  = [[R5Connection new] initWithConfig:[DM getConfig:ServerIP bufferTime:nil]];
     }
+    
     DM.refView = self.view;
     DM.stream = [[R5Stream new] initWithConnection:connection];
     [DM.currentView attachStream:DM.stream];
     [DM.stream play:[postingData objectForKey:@"streamName"]];
+    
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     timeSec = 0;
     timeMin = 0;
@@ -856,10 +858,12 @@
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [self stop];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//    [self stop];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
 
 }
+
+
 
 
 
@@ -1055,6 +1059,9 @@
     else if (alertView == stopListening)
     {
         if (buttonIndex == 0) {
+            [self stop];
+            [[NSNotificationCenter defaultCenter] removeObserver:self];
+            
         [self BackButtonFunctionallity];
         }
     }else if (alertView == switchBroadcasting)
@@ -1134,7 +1141,14 @@
 
 - (IBAction)ChatButtonPressed:(id)sender{
     
+    if (!([self.ChatChannelid intValue] == 0)) {
+            ALChatManager *manager = [[ALChatManager alloc] initWithApplicationKey:APPLICATION_ID]; // SET APPLICATION ID
+            [manager launchGroupWithClientId:self.ChatChannelid withMetaData:nil andWithUser:[ALUserDefaultsHandler getUserId] andFromViewController:self];
 
+        
+    }
+        
+        return;
 
 //    ALChatManager *manager = [[ALChatManager alloc] initWithApplicationKey:APPLICATION_ID]; // SET APPLICATION ID
 //    [manager launchChatForUserWithDisplayName:self.CurrentALUser.userId withGroupId:[NSNumber numberWithInteger:[[postingData valueForKey:@"chatChannelid"] integerValue]] andwithDisplayName:self.CurrentALUser.displayName andFromViewController:self];
@@ -1209,8 +1223,8 @@
 
 
 -(void)HiddenChatView{
-    ChatController.view.hidden = YES;
     ChatViewCheckBool = false;
+    ChatController.view.hidden = YES;
     [self keyborddown];
 }
 

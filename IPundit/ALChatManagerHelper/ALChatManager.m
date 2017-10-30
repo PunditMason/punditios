@@ -448,10 +448,10 @@
     NSString * appName = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleName"];
     [ALApplozicSettings setNotificationTitle:appName];
     
-    //[ALApplozicSettings enableNotification]; //0
+   // [ALApplozicSettings enableNotification]; //0
         [ALApplozicSettings disableNotification]; //2
     //    [ALApplozicSettings disableNotificationSound]; //1                /*  IF NOTIFICATION SOUND NOT NEEDED  */
-    //    [ALApplozicSettings enableNotificationSound];//0                   /*  IF NOTIFICATION SOUND NEEDED    */
+     //   [ALApplozicSettings enableNotificationSound];//0                   /*  IF NOTIFICATION SOUND NEEDED    */
     /****************************************************************************************************************/
     
     
@@ -660,6 +660,44 @@
     //    UIViewController * customView = [storyboard instantiateViewControllerWithIdentifier:@"CustomVC"];
     //    ALChatViewController * chatVC = (ALChatViewController *)chatView;
     //    [chatVC presentViewController:customView animated:YES completion:nil];
+}
+
+
+
+-(void)launchGroupWithClientId:(NSString*)clientGroupId
+                  withMetaData:(NSMutableDictionary*)metadata
+                   andWithUser:(NSString *)userId
+         andFromViewController:(UIViewController *)viewController
+{
+    ALChannelService * channelService = [[ALChannelService alloc] init];
+    
+    ALChannel *alChannel = [channelService fetchChannelWithClientChannelKey:clientGroupId];
+    if (alChannel){
+        
+        [self launchChatForUserWithDisplayName:nil withGroupId:alChannel.key
+                            andwithDisplayName:nil andFromViewController:viewController];
+    }
+    else
+    {
+        [channelService getChannelInformation:nil orClientChannelKey:clientGroupId withCompletion:^(ALChannel *alChannel) {
+            
+            if(alChannel.key){
+                [self launchChatForUserWithDisplayName:nil withGroupId:alChannel.key
+                                    andwithDisplayName:nil andFromViewController:viewController];
+            }else{
+                
+                //Create new one channel and launch:;;
+                [channelService createChannel:clientGroupId orClientChannelKey:clientGroupId andMembersList:@[userId]
+                                 andImageLink:nil channelType:PUBLIC
+                                  andMetaData:metadata withCompletion:^(ALChannel *alChannelInRespose, NSError *error) {
+                                      NSLog(@" group of two id %@", alChannelInRespose.key);
+                                      [self launchChatForUserWithDisplayName:nil withGroupId:alChannelInRespose.key
+                                                          andwithDisplayName:nil andFromViewController:viewController];
+                                  }];
+            }
+        }];
+    }
+    
 }
 
 @end

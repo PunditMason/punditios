@@ -64,6 +64,7 @@ typedef void (^SKCompletionQueryBlock)(NSArray *__nullable result, NSError *__nu
 @property (nonatomic,strong)UIView * _Nonnull refView ;
 @property (nonatomic,strong)NSString *__nullable deviceTokenForPushNotification ;
 
+-(void)Play:(UIView *__nullable)view Selstream:(R5Stream *__nullable)Selectedstream streamName:(NSString *__nullable)streamName;
 
 
 -(void)GetRequest:(NSString*__nullable)url parameter:(id __nullable)parameter onCompletion:(JSonRepresentation __nullable)completion onError:(errorBlock __nullable)Error;

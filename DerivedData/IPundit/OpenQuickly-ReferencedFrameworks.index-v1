@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>FBSDKShareKit</string>
+	<string>netinet6</string>
+	<string>MapKit</string>
+	<string>Applozic</string>
+	<string>CocoaLumberjack</string>
+	<string>R5Streaming</string>
+	<string>Bolts</string>
+	<string>IQKeyboardManager</string>
+	<string>libkern</string>
+	<string>CoreLocation</string>
+	<string>ImageIO</string>
+	<string>StoreKit</string>
+	<string>AssetsLibrary</string>
+	<string>TwitterKit</string>
+	<string>CoreServices</string>
+	<string>JSONModel</string>
+	<string>SafariServices</string>
+	<string>AVFoundation</string>
+	<string>JTCalendar</string>
+	<string>MobileCoreServices</string>
+	<string>WatchKit</string>
+	<string>CoreText</string>
+	<string>AdSupport</string>
+	<string>FBSDKLoginKit</string>
+	<string>SDWebImage</string>
+	<string>AddressBookUI</string>
+	<string>AppKit</string>
+	<string>FBSDKCoreKit</string>
+	<string>Twitter</string>
+	<string>CoreFoundation</string>
+	<string>Cocoa</string>
+	<string>Crashlytics</string>
+	<string>Contacts</string>
+	<string>Accounts</string>
+	<string>CoreData</string>
+	<string>netinet</string>
+	<string>CommonCrypto</string>
+	<string>arpa</string>
+	<string>QuartzCore</string>
+	<string>AudioToolbox</string>
+	<string>MediaPlayer</string>
+	<string>SystemConfiguration</string>
+	<string>Security</string>
+	<string>Social</string>
+	<string>AddressBook</string>
+	<string>ContactsUI</string>
+	<string>CoreGraphics</string>
+	<string>objc</string>
+	<string>UserNotifications</string>
+	<string>UIKit</string>
+	<string>Fabric</string>
+	<string>CoreTelephony</string>
+	<string>Foundation</string>
+	<string>sys</string>
+</array>
+</plist>

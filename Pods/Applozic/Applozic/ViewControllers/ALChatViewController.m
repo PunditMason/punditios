@@ -1,4 +1,5 @@
 
+
 //
 //  ALChatViewController.m
 //  ChatApp
@@ -177,8 +178,10 @@
 
 - (IBAction)CloseButtonPressed:(id)sender{
     NSLog(@"CloseChat" );
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"CloseChat" object:nil];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"CloseListenChat" object:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+    }];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"CloseChat" object:nil];
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"CloseListenChat" object:nil];
 
     
     

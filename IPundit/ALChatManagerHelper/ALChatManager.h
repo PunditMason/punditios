@@ -54,6 +54,9 @@
 
 +(ALUser *)getLoggedinUserInformation;
 
-
+-(void)launchGroupWithClientId:(NSString*)clientGroupId
+                  withMetaData:(NSMutableDictionary*)metadata
+                   andWithUser:(NSString *)userId
+         andFromViewController:(UIViewController *)viewController;
 
 @end

@@ -14,14 +14,11 @@
 #import "BroadCastTableViewCell.h"
 #import <Social/Social.h>
 #import <IQKeyboardManager/IQKeyboardManager.h>
-
+#import <Applozic/ALUserDefaultsHandler.h>
 
 
 @interface BroadcastMatchDetailVC (){
   
-
-
-
 }
 
 @end
@@ -861,10 +858,20 @@
 
 - (IBAction)ChatButtonPressed:(id)sender{
     
-//    ALChatManager *manager = [[ALChatManager alloc] initWithApplicationKey:APPLICATION_ID]; // SET APPLICATION ID
-//    [manager launchChatForUserWithDisplayName:self.CurrentALUser.userId withGroupId:[NSNumber numberWithInteger:[self.ChatChannelid intValue]] andwithDisplayName:self.CurrentALUser.displayName andFromViewController:self];
-//   
-//    return;
+    
+    //    ALChatManager *manager = [[ALChatManager alloc] initWithApplicationKey:APPLICATION_ID]; // SET APPLICATION ID
+    //    [manager launchChatForUserWithDisplayName:self.CurrentALUser.userId withGroupId:[NSNumber numberWithInteger:[self.ChatChannelid intValue]] andwithDisplayName:self.CurrentALUser.displayName andFromViewController:self];
+    //
+    
+    if (!([self.ChatChannelid intValue] == 0)) {
+        
+            ALChatManager *manager = [[ALChatManager alloc] initWithApplicationKey:APPLICATION_ID]; // SET APPLICATION ID
+            [manager launchGroupWithClientId:self.ChatChannelid withMetaData:nil andWithUser:[ALUserDefaultsHandler getUserId] andFromViewController:self];
+            ChatViewCheckBool = true;
+        
+    }
+    
+    return;
 
     if (!([self.ChatChannelid intValue] == 0)) {
         if (ChatViewCheckBool == FALSE) {
@@ -873,6 +880,12 @@
             
             NSLog(@"%@",numberobj);
 
+            //
+            
+            
+
+            //
+            
             
             
             ALChannelService * channelService  =  [ALChannelService new];

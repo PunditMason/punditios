@@ -601,7 +601,14 @@ static DataManager *sharedDataManager = nil;
         [_publishStream attachAudio:microphone];
 }
 
-
+/*
+-(void)Play:(UIView*)view Selstream:(R5Stream*)Selectedstream streamName:(NSString*)streamName{
+    self.refView = view;
+    self.stream = Selectedstream;
+    self.currentView attachStream:Selectedstream;
+    [DM.stream play:streamName];
+}
+*/
 
 
 #pragma Mark ================================================================
