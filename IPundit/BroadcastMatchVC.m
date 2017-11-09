@@ -11,7 +11,7 @@
 #import "UIImage+Additions.h"
 #import "BroadcastMatchDetailVC.h"
 #import "UIImageView+WebCache.h"
-
+#import "VideoHighlightsVC.h"
 
 @interface BroadcastMatchVC (){
     NSArray *TitalArray;
@@ -66,8 +66,8 @@
     self.calendarMa.settings.weekModeEnabled = !self.calendarMa.settings.weekModeEnabled;
     [self.calendarMa reload];
     
-    self.breakingNewsLabel.text = DM.breakingNewsString ;
-    [DM marqueLabel:self.breakingNewsLabel];
+   // self.breakingNewsLabel.text = DM.breakingNewsString ;
+   // [DM marqueLabel:self.breakingNewsLabel];
    
     NSString * iconString = [NSString stringWithFormat:@"%@ios_league_mark/%@",KserviceBaseIconURL,[DM.broadCastPresentData objectForKey:@"icon"]];
     NSURL *iconUrl = [NSURL URLWithString:iconString];
@@ -91,8 +91,64 @@
     [toolBar setItems:[NSArray arrayWithObjects:space,doneBtn, nil]];
     [self.dateSelectionTextField setInputAccessoryView:toolBar];
     
+    [self GetLeaguenewsList:leaquesmodel.id datestring:[Helper Leaque_date_String]];
+    //[Helper Leaque_date_String]
+}
+
+-(void)GetLeaguenewsList :(NSString *)leaqueID datestring:(NSString *)DateString{
+    
+    [Helper showLoaderVProgressHUD];
+    
+    
+    NSString *string = [NSString stringWithFormat:@"%@game/getLeaguenewsList/%@/%@/",KServiceBaseURL,leaqueID,DateString];
+    [DM GetRequest:string parameter:nil onCompletion:^(id  _Nullable dict) {
+        
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
+        NSLog(@"ResponseDict %@",responseDict);
 
 
+        NSMutableArray *breakingNews =[[NSMutableArray alloc]init];
+        NSMutableArray *breakingNewsText =[[NSMutableArray alloc]init];
+     
+        if ([responseDict objectForKey:@"news"]) {
+            [breakingNews removeAllObjects];
+            [breakingNews addObjectsFromArray:[responseDict objectForKey:@"news"]];
+            if (breakingNews.count > 0) {
+                
+                for (int i = 0; i < breakingNews.count; i++) {
+                    [breakingNewsText addObject:[[breakingNews objectAtIndex:i]objectForKey:@"title"]];
+                }
+                NSString *stringobj = [breakingNewsText componentsJoinedByString:@" || "];
+                NSLog(@"ResponseDict %@",stringobj);
+                
+                DM.LequebreakingNewsString  = [breakingNewsText componentsJoinedByString:@" || "];
+                
+                
+                self.breakingNewsLabel.text = stringobj ;
+                [DM marqueLabel:self.breakingNewsLabel];
+                
+   
+            }
+            else{
+                
+                self.breakingNewsLabel.text = @"No News Avalable" ;
+                [DM marqueLabel:self.breakingNewsLabel];
+                
+                DM.LequebreakingNewsString   = @"No News Avalable" ;
+                
+            }
+        }
+            
+        
+        [Helper hideLoaderSVProgressHUD];
+        
+        
+    } onError:^(NSError * _Nullable Error) {
+        [Helper hideLoaderSVProgressHUD];
+        NSLog(@"%@",Error);
+        NSString *ErrorString = [NSString stringWithFormat:@"%@",Error];
+        [Helper ISAlertTypeError:ErrorString andMessage:kNOInternet];
+    }];
 }
 
 
@@ -178,19 +234,15 @@
     }
     
     NSString *string = [NSString stringWithFormat:@"%@",matchlistmodel.matchStatus];
-    if ([string isEqualToString:@"Playing"]) {
-        
-//        if ([matchlistmodel.matchLengthSec isEqualToString:@"0"]) {
-//            cell.mmatchStatus.text = [NSString stringWithFormat:@"- : -"];
-//        }else{
-//            
-//        }
-        
-        cell.mmatchStatus.text = [NSString stringWithFormat:@"%@:%@",matchlistmodel.matchLengthMin,matchlistmodel.matchLengthSec];
-    }else if ([string isEqualToString:@"Played"]){
+    if (([string containsString:@"First Half"] != 0)||([string containsString:@"Second Half"] != 0)) {
+
+        cell.mmatchStatus.text = [NSString stringWithFormat:@"Playing"];
+    }else if ([string isEqualToString:@"Full Time"]){
         cell.mmatchStatus.text = [NSString stringWithFormat:@"FT"];
-    }else if([string isEqualToString:@"Fixture"]){
+    }else if([string containsString:@"Kick off"] != 0){
         cell.mmatchStatus.text = [NSString stringWithFormat:@"Fixture"];
+    }else{
+        cell.mmatchStatus.text = @"-";
     }
     
     NSString *dateString = matchlistmodel.match_start_time ;
@@ -573,6 +625,19 @@
     
     
 }
+
+
+- (IBAction)VideoHighlightsPressedButtonAction:(id)sender{
+    
+    VideoHighlightsVC *VideoHighlightsPressedUp = [self.storyboard instantiateViewControllerWithIdentifier:@"VideoHighlightsView"];
+    
+    VideoHighlightsPressedUp.leaqueID = leaquesmodel.id;
+    
+    
+    [self.navigationController pushViewController:VideoHighlightsPressedUp animated:YES];
+
+}
+
 
 
 

@@ -1,0 +1,221 @@
+{
+	"match": {
+		"competition": "Premier League",
+		"date": "Friday 11th August 2017",
+		"time": "19:45:00",
+		"status": "Full Time",
+		"teams": [{
+				"side": "home",
+				"no": "1",
+				"name": "Arsenal",
+				"halfTimeScore": "2",
+				"score": "4",
+				"goals": [{
+						"goal": "Alexandre Lacazette (2')"
+					},
+					{
+						"goal": "Danny Welbeck (45')"
+					},
+					{
+						"goal": "Aaron Ramsey (83')"
+					},
+					{
+						"goal": "Olivier Giroud (85')"
+					}
+				],
+				"players": [{
+						"shirtNo": "33",
+						"name": "Petr ?ech"
+					},
+					{
+						"shirtNo": "18",
+						"name": "Nacho Monreal"
+					},
+					{
+						"shirtNo": "31",
+						"name": "Sead Kola?inac"
+					},
+					{
+						"shirtNo": "16",
+						"name": "Rob Holding",
+						"substitution": {
+							"replacedBy": "Olivier Giroud",
+							"minute": "69"
+						}
+					},
+					{
+						"shirtNo": "24",
+						"name": "Héctor Bellerín"
+					},
+					{
+						"shirtNo": "29",
+						"name": "Granit Xhaka"
+					},
+					{
+						"shirtNo": "35",
+						"name": "Mohamed Elneny",
+						"substitution": {
+							"replacedBy": "Aaron Ramsey",
+							"minute": "67"
+						}
+					},
+					{
+						"shirtNo": "15",
+						"name": "Alex Oxlade-Chamberlain"
+					},
+					{
+						"shirtNo": "11",
+						"name": "Mesut Özil"
+					},
+					{
+						"shirtNo": "23",
+						"name": "Danny Welbeck",
+						"substitution": {
+							"replacedBy": "Theo Walcott",
+							"minute": "75"
+						}
+					},
+					{
+						"shirtNo": "9",
+						"name": "Alexandre Lacazette"
+					},
+					{
+						"shirtNo": "13",
+						"name": "David Ospina"
+					},
+					{
+						"shirtNo": "20",
+						"name": "Shkodran Mustafi"
+					},
+					{
+						"shirtNo": "8",
+						"name": "Aaron Ramsey"
+					},
+					{
+						"shirtNo": "34",
+						"name": "Francis Coquelin"
+					},
+					{
+						"shirtNo": "14",
+						"name": "Theo Walcott"
+					},
+					{
+						"shirtNo": "12",
+						"name": "Olivier Giroud"
+					},
+					{
+						"shirtNo": "17",
+						"name": "Alex Iwobi"
+					}
+				]
+			},
+			{
+				"side": "away",
+				"no": "30",
+				"name": "Leicester City",
+				"halfTimeScore": "2",
+				"score": "3",
+				"goals": [{
+						"goal": "Shinji Okazaki (5')"
+					},
+					{
+						"goal": "Jamie Vardy (30')"
+					},
+					{
+						"goal": "Jamie Vardy (56')"
+					}
+				],
+				"players": [{
+						"shirtNo": "1",
+						"name": "Kasper Schmeichel"
+					},
+					{
+						"shirtNo": "15",
+						"name": "Harry Maguire"
+					},
+					{
+						"shirtNo": "5",
+						"name": "Wes Morgan",
+						"caution": {
+							"minute": "90"
+						}
+					},
+					{
+						"shirtNo": "2",
+						"name": "Danny Simpson"
+					},
+					{
+						"shirtNo": "28",
+						"name": "Christian Fuchs"
+					},
+					{
+						"shirtNo": "26",
+						"name": "Riyad Mahrez"
+					},
+					{
+						"shirtNo": "22",
+						"name": "Matty James",
+						"substitution": {
+							"replacedBy": "Kelechi Iheanacho",
+							"minute": "82"
+						}
+					},
+					{
+						"shirtNo": "11",
+						"name": "Marc Albrighton",
+						"substitution": {
+							"replacedBy": "Demarai Gray",
+							"minute": "87"
+						}
+					},
+					{
+						"shirtNo": "25",
+						"name": "Wilfred Ndidi"
+					},
+					{
+						"shirtNo": "9",
+						"name": "Jamie Vardy"
+					},
+					{
+						"shirtNo": "20",
+						"name": "Shinji Okazaki",
+						"substitution": {
+							"replacedBy": "Daniel Amartey",
+							"minute": "72"
+						}
+					},
+					{
+						"shirtNo": "12",
+						"name": "Ben Hamer"
+					},
+					{
+						"shirtNo": "3",
+						"name": "Ben Chilwell"
+					},
+					{
+						"shirtNo": "10",
+						"name": "Andy King"
+					},
+					{
+						"shirtNo": "18",
+						"name": "Daniel Amartey"
+					},
+					{
+						"shirtNo": "7",
+						"name": "Demarai Gray"
+					},
+					{
+						"shirtNo": "19",
+						"name": "Islam Slimani"
+					},
+					{
+						"shirtNo": "8",
+						"name": "Kelechi Iheanacho"
+					}
+				]
+			}
+		],
+		"attendance": "59387",
+		"venue": "Emirates Stadium"
+	}
+}

@@ -160,6 +160,17 @@
                                     stringByReplacingOccurrencesOfString: @" " withString: @""];
     
     NSLog(@"The generated device token string is : %@",deviceTokenString);
+    
+    
+//    if (deviceTokenString == nil || [deviceTokenString isKindOfClass:[NSNull class]]) {
+//        DM.deviceTokenForPushNotification = @"No Device Token";
+//    }
+//    else{
+//        DM.deviceTokenForPushNotification =  deviceTokenString;
+//
+//    }
+    
+    
     DM.deviceTokenForPushNotification = deviceTokenString ;
     
     
@@ -199,6 +210,11 @@
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
+
+        DM.deviceTokenForPushNotification = @"";
+    
+    
+    
     NSLog(@"Failed to get token, error: %@", error);
 }
 

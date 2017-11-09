@@ -26,6 +26,17 @@
     NSDictionary * dictReff;
     NSIndexPath *mmindexpath;
     
+    
+    NSMutableArray *mPlayers1Array;
+    NSMutableArray *mPlayers2Array;
+    NSMutableArray *mGoals1Array;
+    NSMutableArray *mGoals2Array;
+    NSMutableArray *msubstitution1Array;
+    NSMutableArray *msubstitution2Array;
+    NSMutableArray *mFinalGoalsArray;
+    NSMutableArray *mFinalsubstitutionArray;
+    NSArray *mFinalOverviewArray;
+    
 }
 
 @end
@@ -35,6 +46,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.mliveBroadcastersArray = [[NSMutableArray alloc] init];
 
     self.searchSelectionView.hidden = YES ;

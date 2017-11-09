@@ -15,16 +15,16 @@
 #import <AVFoundation/AVFoundation.h>
 #import "STTwitter.h"
 #import <Social/Social.h>
-
+#import "UIViewController+MJPopupViewController.h"
 #import <Applozic/Applozic.h>
 #import "ALChatManager.h"
 #import "MZTimerLabel.h"
-
+#import "LineupCell.h"
 
 //@property (strong, nonatomic) id <ALChatViewControllerDelegate> chatViewDelegate;
 
 
-@interface BroadcastMatchDetailVC : UIViewController<UIAlertViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource,ALChatViewControllerDelegate,ALMessagesViewDelegate,ALChatCellDelegate,MZTimerLabelDelegate>{
+@interface BroadcastMatchDetailVC : UIViewController<UIAlertViewDelegate,UIPickerViewDelegate,UIPickerViewDataSource,ALChatViewControllerDelegate,ALMessagesViewDelegate,ALChatCellDelegate,MZTimerLabelDelegate,UITableViewDelegate,UITableViewDataSource>{
     
     NSTimer * timer;
     NSTimer * matchTimer;
@@ -79,9 +79,10 @@
 @property (nonatomic,strong) NSString *ChatChannelid;
 @property (nonatomic,strong) NSMutableDictionary *teamBroadCastDict ;
 
-@property (strong, nonatomic) IBOutlet UILabel *matchTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *matchTimeLabel;
 
-@property (strong, nonatomic) IBOutlet UITableView *mTableView;
+
+
 @property (nonatomic,strong) NSMutableArray *MatchLiveFeedArray;
 @property (weak, nonatomic) IBOutlet UILabel *loggedInAsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *teamVsTeamLabel;
@@ -94,23 +95,34 @@
 @property (weak, nonatomic) IBOutlet UILabel *teamVsTeamLabel2;
 @property (weak, nonatomic) IBOutlet UILabel *timeCount1;
 @property (weak, nonatomic) IBOutlet MZTimerLabel *timeCount2;
-@property (strong, nonatomic) IBOutlet UILabel *mTeamTalkLabel;
-@property (strong, nonatomic) IBOutlet UIPickerView *pickerView1;
-@property (strong, nonatomic) IBOutlet UIPickerView *pickerView2;
-@property (strong, nonatomic) IBOutlet UIButton *mEditScoreButton;
+@property (weak, nonatomic) IBOutlet UILabel *mTeamTalkLabel;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView1;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView2;
+@property (weak, nonatomic) IBOutlet UIButton *mEditScoreButton;
+
+@property (weak, nonatomic) IBOutlet UITableView *mOverviewTableView;
+@property (weak, nonatomic) IBOutlet UITableView *mLineupTableView;
+
+@property (weak, nonatomic) IBOutlet UIButton *mOverviewButton;
+@property (weak, nonatomic) IBOutlet UIButton *mLineupButton;
+
+- (IBAction)OverviewButtonTap:(id)sender;
+- (IBAction)LineupButtonTap:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *mTeamAScoreLable;
 @property (weak, nonatomic) IBOutlet UILabel *mTeamBScoreLable;
 @property (weak, nonatomic) IBOutlet UILabel *mTeamANameLable;
 @property (weak, nonatomic) IBOutlet UILabel *mTeamBNameLable;
 
-@property (nonatomic,
-           strong) ALUser * CurrentALUser;
+@property (nonatomic,strong) ALUser * CurrentALUser;
 
 
-@property (strong, nonatomic) IBOutlet UILabel *mListenersCount;
-@property (strong, nonatomic) IBOutlet UILabel *matchStatusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *mListenersCount;
+@property (weak, nonatomic) IBOutlet UILabel *matchStatusLabel;
 
+
+@property (weak, nonatomic) IBOutlet MarqueeLabel *breakingNewsLabel;
+@property (weak, nonatomic) IBOutlet UIView *breakingNewsView;
 
 - (IBAction)facebookButtonTap:(id)sender;
 - (IBAction)twitterButtonTap:(id)sender;
@@ -128,7 +140,8 @@ typedef void (^accountChooserBlock_t)(ACAccount *account, NSString *errorMessage
 @property (nonatomic, strong) ACAccountStore *accountStore;
 @property (nonatomic, strong) NSArray *iOSAccounts;
 @property (nonatomic, strong) accountChooserBlock_t accountChooserBlock;
-@property (strong, nonatomic) IBOutlet UIView *liveView;
+
+@property (weak, nonatomic) IBOutlet UIView *liveView;
 - (IBAction)ScoreDoneButtonPressed:(id)sender;
 
 @end

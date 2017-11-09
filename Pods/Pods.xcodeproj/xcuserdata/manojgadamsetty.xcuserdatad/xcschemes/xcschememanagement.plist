@@ -30,6 +30,11 @@
 			<key>orderHint</key>
 			<integer>3</integer>
 		</dict>
+		<key>DZNWebViewController.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>19</integer>
+		</dict>
 		<key>FBSDKCoreKit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -89,7 +94,7 @@
 		<key>MZTimerLabel.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>19</integer>
+			<integer>20</integer>
 		</dict>
 		<key>NJKScrollFullScreen.xcscheme</key>
 		<dict>
@@ -111,6 +116,11 @@
 			<false/>
 			<key>orderHint</key>
 			<integer>14</integer>
+		</dict>
+		<key>SCLAlertView-Objective-C.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>21</integer>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
 		<dict>
@@ -146,12 +156,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>0A2E50C24B03143F1418B06D739A8001</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>279AA6726F52A334C45E85774BD21A3D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>30D74442D29CA6B634639F54ED1E3014</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>318754A0CEDFFBF268D84213EB4C5F6C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -167,6 +187,11 @@
 			<true/>
 		</dict>
 		<key>58A695DD456608C69E5276220E14FA24</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5C52DA4623C4C6BDDA21E56E20C3AFE4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -191,6 +216,11 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>99FAFABF17D43CA8D5998AF7D5D8446E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>ACF6E6A7483049990B65E65D525766B2</key>
 		<dict>
 			<key>primary</key>
@@ -206,7 +236,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>BFB6D19A17F28941042994608DE325BD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C9FD1FF5C3002B5FBDDD4344C5A5F451</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CC0FEA811789B5CDC56E5E2222110C1D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -231,12 +271,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>DD1F15A05F62E2C20BC860F6DA62FC5E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>E050B17C2762DB93F69F976823925716</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E396A93E4C79B22B7816E9F02F62ECED</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E588DE1FF62636CD786C28B78A1F7110</key>
 		<dict>
 			<key>primary</key>
 			<true/>

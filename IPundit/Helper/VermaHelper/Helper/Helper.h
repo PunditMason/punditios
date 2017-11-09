@@ -40,7 +40,7 @@
 +(void)removePreviousData:(NSString *)file;
 +(void)writeJsonData:(NSString *)jsonString andfileName:(NSString *)fileName ;
 
-
++ (NSString*)Leaque_date_String;
 +(NSString *)saveImage:(UIImage*)img withName:(NSString *)imageName;
 +(NSString *)documentImagePath;
 +(NSString *)docFolderPath:(NSString *)fileName;

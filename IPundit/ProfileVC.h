@@ -33,6 +33,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *mProfileFollowingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *mProfileFollowersLabel;
 
+- (IBAction)FollowersPressedButtonAction:(id)sender;
+- (IBAction)FollowingPressedButtonAction:(id)sender;
 
 @property (nonatomic,weak)IBOutlet UIImageView *mProfileImage;
 @property (weak, nonatomic) IBOutlet UIImageView *mProfileImageBlurView;

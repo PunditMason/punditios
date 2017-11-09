@@ -13,11 +13,12 @@
 #import "DataManager.h"
 #import "UIImageView+WebCache.h"
 #import "UIImage+Additions.h"
-
+#import "FollowersVC.h"
 @interface ProfileVC (){
     bool mIsPickerEnabled;
     UIImage *chosenImage;
     NSMutableDictionary *parameters;
+
     
 }
 
@@ -42,8 +43,10 @@
     [self.ScrollView layoutIfNeeded];
     self.ScrollView.contentSize = self.ContentView.bounds.size;
     
-    [self PostData];
     
+    
+    [self getProfile];
+
     self.mAddtagTextField.autocorrectionType = UITextAutocorrectionTypeNo;
 
     CALayer *imageLayer = self.mProfileImage.layer;
@@ -55,9 +58,41 @@
 
 }
 
+-(void)getProfile{
+    NSMutableDictionary *parametersGetProfile = [[NSMutableDictionary alloc]init];
+    [parametersGetProfile setValue:[[Helper mCurrentUser]objectForKey:@"id"] forKey:@"userid"];
+    NSString *path = [NSString stringWithFormat:@"%@App/get_profile",KServiceBaseURL];
+    
+    [DM PostRequest:path parameter:parametersGetProfile onCompletion:^(id  _Nullable dict) {
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
+        
+        if ([responseDict objectForKey:@"tags"] != [NSNull null]  ) {
+            NSString *tags = [[responseDict objectForKey:@"tags"]objectForKey:@"tags"];
+            DM.tags = [tags componentsSeparatedByString:@","];
+            DM.tagsString = tags ;
+        }
+        getProfileCurrentUser *currentUser = [[getProfileCurrentUser alloc] init];
+        [currentUser setupCurrentUser:[responseDict objectForKey:@"message"]];
+       
+        
+    } onError:^(NSError * _Nullable Error) {
+        NSLog(@"%@",Error);
+        [Helper hideLoaderSVProgressHUD];
+    }];
+    
+    
+}
+
 -(void)viewWillAppear:(BOOL)animated{
     
-   
+    if (chosenImage){
+        
+    }else{
+        [self PostData];
+
+    }
+    
+
     [self reloadDataMHash];
     [[IQKeyboardManager sharedManager] setEnable:YES];
 
@@ -500,6 +535,28 @@
 - (IBAction)BackButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
     
+}
+
+
+
+
+
+- (IBAction)FollowersPressedButtonAction:(id)sender{
+    chosenImage = nil;
+    FollowersVC *FollowersVCPressedUp = [self.storyboard instantiateViewControllerWithIdentifier:@"FollowersView"];
+    
+    FollowersVCPressedUp.Followstringg =@"Followers";
+    
+    [self.navigationController pushViewController:FollowersVCPressedUp animated:YES];
+}
+- (IBAction)FollowingPressedButtonAction:(id)sender{
+    chosenImage = nil;
+
+    FollowersVC *FollowersVCPressedUp = [self.storyboard instantiateViewControllerWithIdentifier:@"FollowersView"];
+    
+    FollowersVCPressedUp.Followstringg =@"Following";
+
+    [self.navigationController pushViewController:FollowersVCPressedUp animated:YES];
 }
 
 

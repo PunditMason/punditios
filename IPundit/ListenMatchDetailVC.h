@@ -24,7 +24,7 @@
 #define kfbPrefixStr @"https://www.facebook.com/"
 
 
-@interface ListenMatchDetailVC : UIViewController<ALChatViewControllerDelegate,ALMessagesViewDelegate,ALChatCellDelegate,MZTimerLabelDelegate>{
+@interface ListenMatchDetailVC : UIViewController<ALChatViewControllerDelegate,ALMessagesViewDelegate,ALChatCellDelegate,MZTimerLabelDelegate,UITableViewDelegate,UITableViewDataSource>{
     BOOL ProfileCheckBool;
     BOOL playerCheckBool;
     BOOL matchStatusCheck;
@@ -129,6 +129,14 @@
 @property (weak, nonatomic) IBOutlet UISwitch *mLowSignalModeSwitch;
 - (IBAction)LowSignalModeAction:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UITableView *mLineupTableView;
+
+@property (weak, nonatomic) IBOutlet UIButton *mOverviewButton;
+@property (weak, nonatomic) IBOutlet UIButton *mLineupButton;
+
+- (IBAction)OverviewButtonTap:(id)sender;
+- (IBAction)LineupButtonTap:(id)sender;
+
 
 @property (strong, nonatomic) IBOutlet UILabel *mTeamTalkLabel;
 @property (strong, nonatomic) IBOutlet UIButton *playNPuseButton;
@@ -138,6 +146,10 @@
 
 @property (nonatomic,strong)UIRefreshControl *refreshControl ;
 @property (nonatomic, strong) ALUser * CurrentALUser;
+
+@property (strong, nonatomic) IBOutlet MarqueeLabel *breakingNewsLabel;
+@property (strong, nonatomic) IBOutlet UIView *breakingNewsView;
+
 
 
 @end

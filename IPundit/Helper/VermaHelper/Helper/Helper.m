@@ -169,7 +169,16 @@
     return date_String;
 }
 
+
+
++ (NSString*)Leaque_date_String {
     
+    NSDateFormatter *dateformate=[[NSDateFormatter alloc]init];
+    [dateformate setDateFormat:@"yyyy-MM-dd"];
+    NSString *date_String =[dateformate stringFromDate:[NSDate date]];
+    NSLog(@"%@",date_String);
+    return date_String;
+}
     
     + (NSString*)TempId {
         

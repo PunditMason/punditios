@@ -89,7 +89,20 @@
             [mWebDataDict setObject:self.mNameTextField.text forKey:@"name"];
             [mWebDataDict setObject:self.mEmailTextField.text forKey:@"email"];
             [mWebDataDict setObject:self.mPasswordTextField.text forKey:@"password"];
-            [mWebDataDict setObject:DM.deviceTokenForPushNotification forKey:@"deviceToken"];
+            
+            NSString * deviceToken ;
+            deviceToken = @"";
+            if (DM.deviceTokenForPushNotification == nil || [DM.deviceTokenForPushNotification isKindOfClass:[NSNull class]]) {
+                deviceToken = @"No deviceToken";
+            }
+            else{
+                 deviceToken = DM.deviceTokenForPushNotification ;
+                
+            }
+            
+            
+            
+            [mWebDataDict setObject:deviceToken forKey:@"deviceToken"];
             [mWebDataDict setObject:[Helper base64EncodedStringFromImage:UserImage] forKey:@"cover_photo"];
             [mWebDataDict setObject:@"IOS" forKey:@"deviceType"];
 

@@ -12,7 +12,7 @@
 #import "DataManager.h"
 #import "ChannelListModel.h"
 #import "LeaquesModel.h"
-
+#import "UIViewController+MJPopupViewController.h"
 #import <Applozic/Applozic.h>
 #import "ALChatManager.h"
 
@@ -52,6 +52,7 @@
 @property (strong, nonatomic) IBOutlet UIView *breakingNewsView;
 @property (strong, nonatomic) IBOutlet UIButton *teamTable;
 @property (nonatomic, strong) ALUser * CurrentALUser;
+- (IBAction)VideoHighlightsPressedButtonAction:(id)sender;
 
 @end
 

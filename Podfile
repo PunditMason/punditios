@@ -13,6 +13,7 @@ target "IPundit" do
 	pod 'FBSDKLoginKit'
     pod 'STTwitter'
 	pod 'ISMessages'
+    pod 'SCLAlertView-Objective-C'
     pod 'NJKScrollFullScreen'
 
   	pod 'AFNetworking'
@@ -25,7 +26,10 @@ target "IPundit" do
     pod 'Fabric'
     pod 'Crashlytics'
     pod 'Applozic', '~>4.0.1'
+    pod 'youtube-ios-player-helper', '~> 0.1.4'
     pod 'MZTimerLabel'
+    pod 'DZNWebViewController'
+    
     #pod update 'Crashlytics'
     #pod 'GoogleMaps'
     #pod 'GooglePlaces'

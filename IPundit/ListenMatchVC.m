@@ -16,8 +16,7 @@
 #import "Helper.h"
 #import "ChannelListModel.h"
 #import "UIImageView+WebCache.h"
-
-
+#import "VideoHighlightsVC.h"
 
 @interface ListenMatchVC ()<UIGestureRecognizerDelegate>{
     
@@ -91,14 +90,70 @@
     [toolBar setItems:[NSArray arrayWithObjects:space,doneBtn, nil]];
     [self.dateSelectionTextField setInputAccessoryView:toolBar];
     
+    [self GetLeaguenewsList:leaquesmodel.id datestring:[Helper Leaque_date_String]];
+    //[Helper Leaque_date_String]
+}
+
+-(void)GetLeaguenewsList :(NSString *)leaqueID datestring:(NSString *)DateString{
+    
+    [Helper showLoaderVProgressHUD];
+    
+    
+    NSString *string = [NSString stringWithFormat:@"%@game/getLeaguenewsList/%@/%@/",KServiceBaseURL,leaqueID,DateString];
+    [DM GetRequest:string parameter:nil onCompletion:^(id  _Nullable dict) {
+        
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
+        NSLog(@"ResponseDict %@",responseDict);
+        
+        NSMutableArray *breakingNews =[[NSMutableArray alloc]init];
+        NSMutableArray *breakingNewsText =[[NSMutableArray alloc]init];
+        
+        if ([responseDict objectForKey:@"news"]) {
+            [breakingNews removeAllObjects];
+            [breakingNews addObjectsFromArray:[responseDict objectForKey:@"news"]];
+            if (breakingNews.count > 0) {
+                
+                for (int i = 0; i < breakingNews.count; i++) {
+                    [breakingNewsText addObject:[[breakingNews objectAtIndex:i]objectForKey:@"title"]];
+                }
+                NSString *stringobj = [breakingNewsText componentsJoinedByString:@" || "];
+                NSLog(@"ResponseDict %@",stringobj);
+                
+                DM.LequebreakingNewsString  = [breakingNewsText componentsJoinedByString:@" || "];
+                
+                self.mNewsLabel.text = stringobj ;
+                [DM marqueLabel:self.mNewsLabel];
+                
+                
+            }
+            else{
+                
+                self.mNewsLabel.text = @"No News Avalable" ;
+                [DM marqueLabel:self.mNewsLabel];
+                
+                DM.LequebreakingNewsString  = [breakingNewsText componentsJoinedByString:@" || "];
+                
+            }
+        }
+        
+        
+        [Helper hideLoaderSVProgressHUD];
+        
+        
+    } onError:^(NSError * _Nullable Error) {
+        [Helper hideLoaderSVProgressHUD];
+        NSLog(@"%@",Error);
+        NSString *ErrorString = [NSString stringWithFormat:@"%@",Error];
+        [Helper ISAlertTypeError:ErrorString andMessage:kNOInternet];
+    }];
 }
 
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     
-    self.mNewsLabel.text = DM.breakingNewsString ;
-    [DM marqueLabel:self.mNewsLabel];
+//    self.mNewsLabel.text = DM.breakingNewsString ;
+//    [DM marqueLabel:self.mNewsLabel];
     
     [self.calendarMa setContentView:self.calenderManager];
     [self.calendarMa setDate:todayDate];
@@ -189,19 +244,21 @@
     }
     
     NSString *timeString = [NSString stringWithFormat:@"%@",channellistmodel.matchStatus];
-    if ([timeString isEqualToString:@"Playing"]) {
+    
+    if (([timeString containsString:@"First Half"] != 0)||([string containsString:@"Second Half"] != 0)) {
         
-//        if ([channellistmodel.matchLengthSec isEqualToString:@"0"]) {
-//            cell.mTimeLabel.text = [NSString stringWithFormat:@"- : -"];
-//        }else{
-//            
-//        }
-      cell.mTimeLabel.text = [NSString stringWithFormat:@"%@:%@",channellistmodel.matchLengthMin,channellistmodel.matchLengthSec];
-    }else if ([timeString isEqualToString:@"Played"]){
+        cell.mTimeLabel.text = [NSString stringWithFormat:@"Playing"];
+    }else if ([timeString isEqualToString:@"Full Time"]){
         cell.mTimeLabel.text = [NSString stringWithFormat:@"FT"];
-    }else if([timeString isEqualToString:@"Fixture"]){
-        cell.mTimeLabel.text = [NSString stringWithFormat:@"%@",timeString];
+    }else if([timeString containsString:@"Kick off"] != 0){
+        cell.mTimeLabel.text = [NSString stringWithFormat:@"Fixture"];
+    }else{
+        cell.mTimeLabel.text = @"-";
     }
+    
+    
+    
+    
    
     NSString *dateString = channellistmodel.match_start_time ;
     NSDateFormatter* dateFormatter1 = [[NSDateFormatter alloc] init];
@@ -578,4 +635,19 @@
     NSString *date_String =[dateformate stringFromDate:todayDate];
     [self GetMatchList:date_String];
 }
+
+
+
+- (IBAction)VideoHighlightsPressedButtonAction:(id)sender{
+    
+    VideoHighlightsVC *VideoHighlightsPressedUp = [self.storyboard instantiateViewControllerWithIdentifier:@"VideoHighlightsView"];
+    
+    VideoHighlightsPressedUp.leaqueID = leaquesmodel.id;
+    
+    
+    [self.navigationController pushViewController:VideoHighlightsPressedUp animated:YES];
+    
+}
+
+
 @end

@@ -92,7 +92,20 @@
         NSURL *url = [[NSBundle mainBundle] URLForResource:@"App Preview" withExtension:@"gif"];
         
         self.splashScreenImageView.image= [UIImage animatedImageWithAnimatedGIFURL:url];
+        
+        NSURL *url1 = [[NSBundle mainBundle] URLForResource:@"giphy01" withExtension:@"gif"];
+        
+        self.broadcastButtonImageViewNew.image= [UIImage animatedImageWithAnimatedGIFURL:url1];
+        
+        NSURL *url2 = [[NSBundle mainBundle] URLForResource:@"listning" withExtension:@"gif"];
+        
+        self.listnerButtonImageViewNew.image= [UIImage animatedImageWithAnimatedGIFURL:url2];
+         
     }
+    
+    
+    
+
     
     
     [self HomePageContent];
@@ -591,7 +604,20 @@ static void extracted(ViewController *object) {
             
             [_getProfileParameter setObject:[Helper base64EncodedStringFromImage:imageRef] forKey:@"cover_photo"];
             [_getProfileParameter setObject:[result objectForKey:@"id"] forKey:@"facebookId"];
-            [_getProfileParameter setObject:DM.deviceTokenForPushNotification forKey:@"deviceToken"];
+            
+            
+            NSString * deviceToken ;
+            deviceToken = @"";
+            if (DM.deviceTokenForPushNotification == nil || [DM.deviceTokenForPushNotification isKindOfClass:[NSNull class]]) {
+                deviceToken = @"No deviceToken";
+            }
+            else{
+                deviceToken = DM.deviceTokenForPushNotification ;
+                
+            }
+            
+            
+            [_getProfileParameter setObject:deviceToken forKey:@"deviceToken"];
             [_getProfileParameter setObject:@"IOS" forKey:@"deviceType"];
             
             

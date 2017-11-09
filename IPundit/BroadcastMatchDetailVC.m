@@ -18,17 +18,39 @@
 
 
 @interface BroadcastMatchDetailVC (){
-  
+    NSMutableArray *mPlayers1Array;
+    NSMutableArray *mPlayers2Array;
+    NSMutableArray *mGoals1Array;
+    NSMutableArray *mGoals2Array;
+    NSMutableArray *msubstitution1Array;
+    NSMutableArray *msubstitution2Array;
+    NSMutableArray *mFinalGoalsArray;
+    NSMutableArray *mFinalsubstitutionArray;
+    NSArray *mFinalOverviewArray;
+    
 }
 
 @end
 
 @implementation BroadcastMatchDetailVC
-@synthesize mTableView,matchlist,MatchLiveFeedArray,currentUser,pickerView1,pickerView2;
+@synthesize mOverviewTableView,mLineupTableView,matchlist,MatchLiveFeedArray,currentUser,pickerView1,pickerView2;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+  //  mFinalOverviewArray = [[NSMutableArray alloc]init];
+    self.matchStatusLabel.text =@"-";
+    
+    mFinalsubstitutionArray = [[NSMutableArray alloc]init];
+    mFinalGoalsArray =[[NSMutableArray alloc]init];
+    mPlayers1Array =[[NSMutableArray alloc]init];
+    mPlayers2Array =[[NSMutableArray alloc]init];
+    mGoals1Array =[[NSMutableArray alloc]init];
+    mGoals2Array =[[NSMutableArray alloc]init];
+    msubstitution1Array =[[NSMutableArray alloc]init];
+    msubstitution2Array =[[NSMutableArray alloc]init];
+    
     self.CurrentALUser = [ALChatManager getLoggedinUserInformation];
 
     
@@ -38,18 +60,19 @@
     
     if (IS_IPHONE4) {
         self.view.frame = CGRectMake(0, 0, 320, 480);
-        self.mTableView.frame = CGRectMake(0, 189, 320, 126);
+        self.mOverviewTableView.frame = CGRectMake(0, 227, 320, 126);
+        self.mLineupTableView.frame  = CGRectMake(0, 227, 320, 126);
         self.liveView.frame = CGRectMake(0, 314, 320, 166);
         self.mTeamTalkLabel.frame = CGRectMake(20, 205, 275, 44);
     }
+    else{
+        NSURL *url = [[NSBundle mainBundle] URLForResource:@"equalizer1" withExtension:@"gif"];
+
+        self.animatedImageView.image= [UIImage animatedImageWithAnimatedGIFURL:url];
+    }
     referenceArray = [[NSMutableArray alloc]init];
     
-    NSURL *url = [[NSBundle mainBundle] URLForResource:@"equalizer1" withExtension:@"gif"];
-    
-    
-    
-    
-    self.animatedImageView.image= [UIImage animatedImageWithAnimatedGIFURL:url];
+   
     
    
    
@@ -91,13 +114,26 @@
                                              selector:@selector(CloseChatNotification:)
                                                  name:@"CloseChat" object:nil];
     
+    self.breakingNewsLabel.text = DM.LequebreakingNewsString ;
+    [DM marqueLabel:self.breakingNewsLabel];
+    
+    
+   
+    
+    [self.mOverviewButton setImage:[UIImage imageNamed:@"OverviewButtonSelected"] forState:UIControlStateNormal];
+    self.mOverviewTableView.hidden = false;
+    self.mLineupTableView.hidden = true;
+    [self.mLineupButton setImage:[UIImage imageNamed:@"LineupButton"] forState:UIControlStateNormal];
+    
+    self.mOverviewTableView.delegate = self;
+    self.mOverviewTableView.dataSource = self;
+    self.mLineupTableView.delegate = self;
+    self.mLineupTableView.dataSource = self;
+
+
+    
+    
 }
-
-
-
-
-
-
 
 
 - (void)CloseChatNotification:(NSNotification *)note {
@@ -137,9 +173,15 @@
     self.mScoreUpdateView.frame = CGRectMake(self.mScoreUpdateView.frame.origin.x,self.view.frame.size.height,self.mScoreUpdateView.frame.size.width,self.mScoreUpdateView.frame.size.height);
     
     
-    NSIndexPath *tableSelection = [self.mTableView indexPathForSelectedRow];
-    [self.mTableView deselectRowAtIndexPath:tableSelection animated:NO];
-    self.mTableView.separatorColor = [UIColor clearColor];
+    NSIndexPath *tableSelection = [self.mOverviewTableView indexPathForSelectedRow];
+    [self.mOverviewTableView deselectRowAtIndexPath:tableSelection animated:NO];
+    self.mOverviewTableView.separatorColor = [UIColor clearColor];
+    
+    NSIndexPath *LineupTableSelection = [self.mLineupTableView indexPathForSelectedRow];
+    [self.mLineupTableView deselectRowAtIndexPath:tableSelection animated:NO];
+    self.mLineupTableView.separatorColor = [UIColor clearColor];
+    
+    
     
     
 }
@@ -209,8 +251,12 @@
         self.teamBscoreLabel.text =[NSString stringWithFormat:@": -"];
         self.timeCount1.text = [NSString stringWithFormat:@"- : -"];
     }else{
+        self.teamAScoreLabel.text =@"-";
+        self.teamBscoreLabel.text =@"-";
+        /*
         self.teamAScoreLabel.text =[NSString stringWithFormat:@": %@",matchlist.team1_score];
         self.teamBscoreLabel.text =[NSString stringWithFormat:@": %@",matchlist.team2_score];
+         */
         self.timeCount1.text = [NSString stringWithFormat:@"%@:%@",matchlist.team1_score,matchlist.team2_score];
     }
     if ([matchlist.matchStatus isEqualToString:@"Played"]) {
@@ -228,9 +274,11 @@
         //self.matchTimeLabel.text = [NSString stringWithFormat:@"%@:%@",matchlist.matchLengthMin,matchlist.matchLengthSec];
     }
     
-    [self GetMatchLiveFeed];
-    functionTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target: self
+   // [self GetMatchLiveFeed];
+    
+    functionTimer = [NSTimer scheduledTimerWithTimeInterval:10.0 target: self
                                                    selector: @selector(GetMatchLiveFeed) userInfo: nil repeats: YES];
+    
     
     if ([matchlist.matchStatus isEqualToString:@"Played"]) {
         //[self GetMatchLiveFeed];
@@ -248,83 +296,223 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 25;
+    
+    if (tableView == mLineupTableView) {
+        return 50;
+    }
+    
+    else {
+        return 25;
+    }
+    
+    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 1;
+    
+    if (tableView == mLineupTableView) {
+        return 1;
+    }
+    
+    else {
+        return 1;
+    }
+    
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return referenceArray.count;
+    
+    if (tableView == mLineupTableView) {
+        if (mPlayers1Array.count > mPlayers2Array.count) {
+            
+            return mPlayers1Array.count;
+        }
+        else{
+            return  mPlayers2Array.count;
+        }
+    }
+    
+    else {
+        return mFinalOverviewArray.count;
+    }
+    
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *CellIdentifier = @"BroadCastTableViewCell";
-    BroadCastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    if (cell == nil) {
-        cell = [[NSBundle mainBundle]loadNibNamed:@"BroadCastTableViewCell" owner:self options:0][0];
+    if (tableView == mLineupTableView) {
+        
+        static NSString *CellIdentifier = @"lineupCell";
+        LineupCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        // Configure the cell...
+        if (cell == nil) {
+            cell = [[LineupCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            
+        }
+        
+        UIView *bgColorView = [[UIView alloc] init];
+        [bgColorView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]];
+        
+        [cell setSelectedBackgroundView:bgColorView];
+        
+        NSMutableDictionary *Player_1_Dict = [[NSMutableDictionary alloc]init];
+        Player_1_Dict = [mPlayers1Array objectAtIndex:indexPath.row];
+        
+        NSMutableDictionary *Player_2_Dict = [[NSMutableDictionary alloc]init];
+        Player_2_Dict = [mPlayers2Array objectAtIndex:indexPath.row];
+        
+        
+#pragma Mark ================================================================
+#pragma Mark Player 1
+#pragma Mark ================================================================
+        
+        if ([Player_1_Dict objectForKey:@"shirtNo"]){
+            cell.mPlayer1shirtNo.text = [NSString stringWithFormat:@"%@",[Player_1_Dict objectForKey:@"shirtNo"]];
+
+        }
+        else{
+            cell.mPlayer1shirtNo.text = @"";
+
+        }
+        
+        cell.mPlayer1name.text = [NSString stringWithFormat:@"%@",[Player_1_Dict objectForKey:@"name"]];
+        
+        if ([Player_1_Dict objectForKey:@"Type"]) {
+            cell.mPlayer1substitutionImage.hidden = false;
+            
+            cell.mPlayer1replacedBy.text = [NSString stringWithFormat:@"%@ %@",[[Player_1_Dict objectForKey:@"substitution"]objectForKey:@"replacedBy"],[[Player_1_Dict objectForKey:@"substitution"]objectForKey:@"minute"]];
+        }
+             
+             else{
+                 cell.mPlayer1substitutionImage.hidden = true;
+                 cell.mPlayer1replacedBy.text = @"";
+                 
+             }
+             cell.mPlayer1minute.text = @"";
+        
+#pragma Mark ================================================================
+#pragma Mark Player 2
+#pragma Mark ================================================================
+        if ([Player_2_Dict objectForKey:@"shirtNo"]){
+            cell.mPlayer2shirtNo.text = [NSString stringWithFormat:@"%@",[Player_2_Dict objectForKey:@"shirtNo"]];
+            
+        }
+        else{
+            cell.mPlayer2shirtNo.text = @"";
+            
+        }
+        
+             cell.mPlayer2name.text = [NSString stringWithFormat:@"%@",[Player_2_Dict objectForKey:@"name"]];
+        
+        if ([Player_2_Dict objectForKey:@"Type"]) {
+            cell.mPlayer2substitutionImage.hidden = false;
+
+        cell.mPlayer2replacedBy.text = [NSString stringWithFormat:@"%@ %@",[[Player_2_Dict objectForKey:@"substitution"]objectForKey:@"replacedBy"],[[Player_2_Dict objectForKey:@"substitution"]objectForKey:@"minute"]];
+        }
+
+             else{
+                 cell.mPlayer2substitutionImage.hidden = true;
+                 cell.mPlayer2replacedBy.text = @"";
+
+
+             }
+        cell.mPlayer2minute.text = @"";
+        
+
+        
+        return cell;
+
     }
     
+    else {
+        static NSString *CellIdentifier = @"BroadCastTableViewCell";
+        BroadCastTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        
+        if (cell == nil) {
+            cell = [[NSBundle mainBundle]loadNibNamed:@"BroadCastTableViewCell" owner:self options:0][0];
+        }
+        
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+        dict = [mFinalOverviewArray objectAtIndex:indexPath.row];
+        
+        NSLog(@"%@",dict);
+
+
+        if ([[dict objectForKey:@"Type"]isEqualToString:@"Goals"]) {
+            NSString *string =[NSString stringWithFormat:@"%@",[dict objectForKey:@"goal"]];
+            cell.textlbl.text = string;
+            cell.image.image = [UIImage imageNamed:@"g"];
+        }
+        else{
+            NSString *string1 =[NSString stringWithFormat:@"%@:%@:%@",[dict objectForKey:@"name"],[[dict objectForKey:@"substitution"]objectForKey:@"replacedBy"],[[dict objectForKey:@"substitution"]objectForKey:@"minute"]];
+            cell.textlbl.text = string1;
+            cell.image.image = [UIImage imageNamed:@"sub"];
+        }
+
+        
+        /*
         NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
         dict = [referenceArray objectAtIndex:indexPath.row];
-    if (dict[@"type"]) {
-        if ([[dict objectForKey:@"type"]isEqualToString:@"G"]) {
-            NSString *string =[NSString stringWithFormat:@"%@:%@",[dict objectForKey:@"scorerName"],[dict objectForKey:@"timeMin"]];
+        if (dict[@"type"]) {
+            if ([[dict objectForKey:@"type"]isEqualToString:@"G"]) {
+                NSString *string =[NSString stringWithFormat:@"%@:%@",[dict objectForKey:@"scorerName"],[dict objectForKey:@"timeMin"]];
                 cell.textlbl.text = string;
                 cell.image.image = [UIImage imageNamed:@"g"];
+            }
+            
+            else if ([[dict objectForKey:@"type"]isEqualToString:@"OG"]){
+                NSString *string =[NSString stringWithFormat:@"%@:%@",[dict objectForKey:@"scorerName"],[dict objectForKey:@"timeMin"]];
+                cell.textlbl.text = string;
+                cell.image.image = [UIImage imageNamed:@"og"];
+            }
+            
+            else if ([[dict objectForKey:@"type"]isEqualToString:@"PG"]){
+                NSString *string =[NSString stringWithFormat:@"%@:%@",[dict objectForKey:@"scorerName"],[dict objectForKey:@"timeMin"]];
+                cell.textlbl.text = string;
+                cell.image.image = [UIImage imageNamed:@"pg"];
+            }
+            
+            else if ([[dict objectForKey:@"type"]isEqualToString:@"RC"]){
+                NSString *string =[NSString stringWithFormat:@"%@:%@",[dict objectForKey:@"playerName"],[dict objectForKey:@"timeMin"]];
+                cell.textlbl.text = string;
+                cell.image.image = [UIImage imageNamed:@"redCard"];
+            }
+            
+            else if ([[dict objectForKey:@"type"]isEqualToString:@"Y2C"]){
+                NSString *string =[NSString stringWithFormat:@"%@:%@",[dict objectForKey:@"playerName"],[dict objectForKey:@"timeMin"]];
+                cell.textlbl.text = string;
+                cell.image.image = [UIImage imageNamed:@"Y2Card"];
+            }
+            else if ([[dict objectForKey:@"type"]isEqualToString:@"PM"]||[[dict objectForKey:@"type"]isEqualToString:@"PS"]){
+                NSString *string =[NSString stringWithFormat:@"%@:%@",[dict objectForKey:@"playerName"],[dict objectForKey:@"timeMin"]];
+                cell.textlbl.text = string;
+                cell.image.image = [UIImage imageNamed:@"PM"];
+            }
+            else
+            {
+                NSString *string =[NSString stringWithFormat:@"%@:%@",[dict objectForKey:@"playerName"],[dict objectForKey:@"timeMin"]];
+                cell.textlbl.text = string;
+                cell.image.image = [UIImage imageNamed:@"yellowCard"];
+            }
+            
+        }else{
+            NSString *string1 =[NSString stringWithFormat:@"%@:%@:%@",[dict objectForKey:@"playerOffName"],[dict objectForKey:@"playerOnName"],[dict objectForKey:@"timeMin"]];
+            cell.textlbl.text = string1;
+            cell.image.image = [UIImage imageNamed:@"sub"];
         }
+         */
+        UIView *bgColorView = [[UIView alloc] init];
+        [bgColorView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]];
+        [cell setSelectedBackgroundView:bgColorView];
         
-        else if ([[dict objectForKey:@"type"]isEqualToString:@"OG"]){
-            NSString *string =[NSString stringWithFormat:@"%@:%@",[dict objectForKey:@"scorerName"],[dict objectForKey:@"timeMin"]];
-            cell.textlbl.text = string;
-            cell.image.image = [UIImage imageNamed:@"og"];
-        }
-        
-        else if ([[dict objectForKey:@"type"]isEqualToString:@"PG"]){
-            NSString *string =[NSString stringWithFormat:@"%@:%@",[dict objectForKey:@"scorerName"],[dict objectForKey:@"timeMin"]];
-            cell.textlbl.text = string;
-            cell.image.image = [UIImage imageNamed:@"pg"];
-        }
-        
-        else if ([[dict objectForKey:@"type"]isEqualToString:@"RC"]){
-            NSString *string =[NSString stringWithFormat:@"%@:%@",[dict objectForKey:@"playerName"],[dict objectForKey:@"timeMin"]];
-            cell.textlbl.text = string;
-            cell.image.image = [UIImage imageNamed:@"redCard"];
-        }
-        
-        else if ([[dict objectForKey:@"type"]isEqualToString:@"Y2C"]){
-            NSString *string =[NSString stringWithFormat:@"%@:%@",[dict objectForKey:@"playerName"],[dict objectForKey:@"timeMin"]];
-            cell.textlbl.text = string;
-            cell.image.image = [UIImage imageNamed:@"Y2Card"];
-        }
-        else if ([[dict objectForKey:@"type"]isEqualToString:@"PM"]||[[dict objectForKey:@"type"]isEqualToString:@"PS"]){
-            NSString *string =[NSString stringWithFormat:@"%@:%@",[dict objectForKey:@"playerName"],[dict objectForKey:@"timeMin"]];
-            cell.textlbl.text = string;
-            cell.image.image = [UIImage imageNamed:@"PM"];
-        }
-        else
-         {
-            NSString *string =[NSString stringWithFormat:@"%@:%@",[dict objectForKey:@"playerName"],[dict objectForKey:@"timeMin"]];
-            cell.textlbl.text = string;
-            cell.image.image = [UIImage imageNamed:@"yellowCard"];
-        }
-        
-    }else{
-        NSString *string1 =[NSString stringWithFormat:@"%@:%@:%@",[dict objectForKey:@"playerOffName"],[dict objectForKey:@"playerOnName"],[dict objectForKey:@"timeMin"]];
-                cell.textlbl.text = string1;
-              cell.image.image = [UIImage imageNamed:@"sub"];
+        return cell;
     }
-    UIView *bgColorView = [[UIView alloc] init];
-    [bgColorView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]];
-    [cell setSelectedBackgroundView:bgColorView];
+
     
-    return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;{
     
     NSLog(@"Selected View index=%ld",(long)indexPath.row);
-    [mTableView deselectRowAtIndexPath:indexPath animated:NO];
+    [mOverviewTableView deselectRowAtIndexPath:indexPath animated:NO];
     
 }
 
@@ -450,8 +638,197 @@
 
 
 
-
 - (void)GetMatchLiveFeed{
+    NSString *URlStr = [NSString stringWithFormat:@"https://www.footballwebpages.co.uk/match.json?match=%@",matchlist.match_id];
+    NSLog(@"My Service Request  = %@", URlStr);
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URlStr]cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:120.0];
+    [request setHTTPMethod:@"GET"];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request
+                                                completionHandler:^(NSData* data, NSURLResponse* response, NSError *error) {
+                                                    NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+                                                    if(httpResponse.statusCode == 200){
+                                                        NSString *responsestrobj = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+                                                        NSLog(@"The Response is  = %@", responsestrobj);
+                                                        NSError *errorJson;
+
+                                                        NSDictionary *responseDict =[NSJSONSerialization JSONObjectWithData:[responsestrobj dataUsingEncoding:NSUTF8StringEncoding]
+                                                                                                               options:NSJSONReadingMutableContainers
+                                                                                                                 error:&errorJson];
+
+                                                      //  NSLog(@"The Response is  = %@", responseDict);
+                                                        
+                                                        
+                                                        
+                                                        if ([responseDict objectForKey:@"match"]) {
+                                                            
+                                                            
+                                                           
+                                                            
+                                                            if ([[responseDict objectForKey:@"match"]objectForKey:@"teams"]) {
+                                                                
+                                                                
+                                                                if ([[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:0]objectForKey:@"players"]) {
+
+                                                                    [mPlayers1Array removeAllObjects];
+                                                                    
+                                                                    [mPlayers1Array addObjectsFromArray:[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:0]objectForKey:@"players"]];
+                                                                    
+                                                                }
+                                                                if ([[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:1]objectForKey:@"players"]) {
+
+                                                                    [mPlayers2Array removeAllObjects];
+                                                                    
+                                                                    [mPlayers2Array addObjectsFromArray:[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:1]objectForKey:@"players"]];
+                                                                }
+                                                                
+                                                                if ([[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:0]objectForKey:@"goals"]) {
+                                                                    [mGoals1Array removeAllObjects];
+                                                                    
+                                                                    [mGoals1Array addObjectsFromArray:[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:0]objectForKey:@"goals"]];
+                                                                }
+                                                                
+                                                                if ([[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:1]objectForKey:@"goals"]) {
+                                                                    [mGoals2Array removeAllObjects];
+                                                                    
+                                                                    [mGoals2Array addObjectsFromArray:[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:1]objectForKey:@"goals"]];
+                                                                }
+                                                                
+                                                                
+                                                                [msubstitution1Array removeAllObjects];
+                                                                [msubstitution2Array removeAllObjects];
+                                                                
+                                                                for (NSDictionary *dct in mPlayers1Array ) {
+                                                                    
+                                                                    if ([dct valueForKey:@"substitution"]) {
+                                                                        
+                                                                        [msubstitution1Array addObject:dct];
+                                                                        
+                                                                    }
+                                                                    
+                                                                }
+                                                                for (NSDictionary *dct in mPlayers2Array ) {
+                                                                    
+                                                                    if ([dct valueForKey:@"substitution"]) {
+                                                                        [msubstitution2Array addObject:dct];
+                                                                        
+                                                                    }
+                                                                    
+                                                                }
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                
+                                                                NSMutableSet *set = [NSMutableSet setWithArray:mGoals1Array];
+                                                                [set addObjectsFromArray:mGoals2Array];
+                                                                
+                                                                NSArray *teamArray = [set allObjects];
+                                                                
+                                                                [mFinalGoalsArray removeAllObjects];
+                                                                
+                                                                for (NSMutableDictionary *dct in teamArray ) {
+                                                                    [dct
+                                                                     setObject:@"Goals" forKey:@"Type"];
+                                                                    [mFinalGoalsArray addObject:dct];
+                                                                }
+                                                                
+                                                                
+                                                                
+                                                                NSMutableSet *set1 = [NSMutableSet setWithArray:msubstitution1Array];
+                                                                [set1 addObjectsFromArray:msubstitution2Array];
+                                                                
+                                                                NSArray *teamArray1 = [set1 allObjects];
+                                                                
+                                                                [mFinalsubstitutionArray removeAllObjects];
+                                                                
+                                                                for (NSMutableDictionary *dct in teamArray1 ) {
+                                                                    [dct
+                                                                     setObject:@"Substitute" forKey:@"Type"];
+                                                                    [mFinalsubstitutionArray addObject:dct];
+                                                                }
+                                                                
+                                                                
+                                                                
+                                                            //    NSLog(@"The mFinalsubstitutionArray is  = %@", mFinalsubstitutionArray);
+                                                                
+                                                                
+                                                                
+                                                                NSMutableSet *set2 = [NSMutableSet setWithArray:mFinalGoalsArray];
+                                                                [set2 addObjectsFromArray:mFinalsubstitutionArray];
+                                                                NSArray *OverviewArray = [set2 allObjects];
+                                                                
+                                                                NSSortDescriptor *sortDescriptor;
+                                                                sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"Type"
+                                                                                                             ascending:YES];
+                                                                mFinalOverviewArray = [OverviewArray sortedArrayUsingDescriptors:@[sortDescriptor]];
+                                                                
+                                                                
+                                                                
+                                                            //    NSLog(@"The mFinalOverviewArray is  = %@", mFinalOverviewArray);
+                                                                
+                                                                
+ 
+                                                             //   NSLog(@"The mPlayers1Array is  = %@", mPlayers1Array);
+                                                             //   NSLog(@"The mPlayers2Array is  = %@", mPlayers2Array);
+                                                                
+                                                            //    NSLog(@"The mGoals1Array is  = %@", mGoals1Array);
+                                                             //   NSLog(@"The mGoals2Array is  = %@", mGoals2Array);
+                                                                
+                                                             //   NSLog(@"The mGoals1Array is  = %@", msubstitution1Array);
+                                                             //   NSLog(@"The mGoals2Array is  = %@", msubstitution2Array);
+
+                                                            }
+                                                           
+                                                            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                                                
+                                                                NSString *string = [NSString stringWithFormat:@"%@",[[responseDict objectForKey:@"match"]objectForKey:@"status"]];
+                                                                if (([string containsString:@"First Half"] != 0)||([string containsString:@"Second Half"] != 0)) {
+                                                                    
+                                                                    self.matchStatusLabel.text = [NSString stringWithFormat:@"Playing"];
+                                                                }else if ([string isEqualToString:@"Full Time"]){
+                                                                    self.matchStatusLabel.text = [NSString stringWithFormat:@"FT"];
+                                                                }else if([string containsString:@"Kick off"] != 0){
+                                                                    self.matchStatusLabel.text = [NSString stringWithFormat:@"Fixture"];
+                                                                }else{
+                                                                    self.matchStatusLabel.text = @"-";
+                                                                }
+                                                                
+                                                                
+                                                                if ([[responseDict objectForKey:@"match"]objectForKey:@"teams"]) {                                                                                                                                                                                                            self.teamAScoreLabel.text = [NSString stringWithFormat:@": %@",[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:0]objectForKey:@"score"]];
+                                                                    
+                                                                }
+                                                                if ([[responseDict objectForKey:@"match"]objectForKey:@"teams"]) {                                                                                                                                                                                                            self.teamBscoreLabel.text = [NSString stringWithFormat:@": %@",[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:1]objectForKey:@"score"]];
+                                                                }
+
+                                                                
+                                                                
+                                                                [self.mOverviewTableView reloadData];
+                                                                [self.mLineupTableView reloadData];
+                                                            }];
+                                                            
+                                                        }
+                                                        
+                                                    }
+                                                    else{
+                                                        NSLog(@"The Response is  = %@", error.localizedDescription);
+
+                                                    }
+                                                    
+                                                    
+                                                   
+
+                                                    
+                                                    
+                                                }];
+    [dataTask resume];
+
+    
+    
+}
+
+- (void)GetMatchLiveFeedOld{
     
     NSString *path=[NSString stringWithFormat:@"%@Game/getMatchLiveFeedsdata/%@",KServiceBaseURL,matchlist.match_id];
     
@@ -474,9 +851,9 @@
         referenceArray = [responseDict objectForKey:@"feeds"];
         NSLog(@"%@",referenceArray);
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.mTableView reloadData];
+            [self.mOverviewTableView reloadData];
             if (referenceArray.count > 5) {
-                [mTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:referenceArray.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
+                [mOverviewTableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:referenceArray.count - 1 inSection:0] atScrollPosition:UITableViewScrollPositionTop animated:YES];
             }
             
         });
@@ -506,6 +883,8 @@
             stringMin= [NSString stringWithFormat:@"%@",[dictData objectForKey:@"ft_lengthMin"]];
             stringSec = [NSString stringWithFormat:@"%@",[dictData objectForKey:@"ft_lengthSec"]];
             self.matchStatusLabel.text =[NSString stringWithFormat:@"1st Half"];
+            
+
             
         }
         else{
@@ -1071,9 +1450,14 @@
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
         NSMutableDictionary * dictRef = [[NSMutableDictionary alloc]init];
         dictRef = [responseDict valueForKey:@"Result"];
-        //NSLog(@"%@",responseDict); 
+        //NSLog(@"%@",responseDict);
+        
         self.teamAScoreLabel.text =[NSString stringWithFormat:@": %@",[dictRef valueForKey:@"team1_score"]];
         self.teamBscoreLabel.text =[NSString stringWithFormat:@": %@",[dictRef valueForKey:@"team2_score"]];
+       /*
+        self.teamAScoreLabel.text =@"-";
+        self.teamBscoreLabel.text =@"-";
+         */
         self.timeCount1.text = [NSString stringWithFormat:@"%@:%@",[dictRef valueForKey:@"team1_score"],[dictRef valueForKey:@"team2_score"]];
         self.mEditScoreButton.enabled = YES;
 
@@ -1124,4 +1508,29 @@
 
 
 */
+
+- (IBAction)OverviewButtonTap:(id)sender{
+    
+    self.mOverviewTableView.hidden = false;
+    self.mLineupTableView.hidden = true;
+    [self.mOverviewButton setImage:[UIImage imageNamed:@"OverviewButtonSelected"] forState:UIControlStateNormal];
+    [self.mLineupButton setImage:[UIImage imageNamed:@"LineupButton"] forState:UIControlStateNormal];
+    
+    [self.mOverviewTableView reloadData];
+    
+
+}
+- (IBAction)LineupButtonTap:(id)sender{
+    
+    self.mOverviewTableView.hidden = true;
+    self.mLineupTableView.hidden = false;
+    [self.mOverviewButton setImage:[UIImage imageNamed:@"OverviewButton"] forState:UIControlStateNormal];
+    [self.mLineupButton setImage:[UIImage imageNamed:@"LineupButtonSelected"] forState:UIControlStateNormal];
+    
+    [self.mLineupTableView reloadData];
+
+    
+    
+}
+
 @end

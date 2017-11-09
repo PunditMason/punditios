@@ -72,9 +72,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:YES];
     IQKeyboardManager.sharedManager.enable = true;
+    
     self.breakingNewsLabel.text = DM.breakingNewsString ;
-    
-    
     [DM marqueLabel:self.breakingNewsLabel];
 }
 

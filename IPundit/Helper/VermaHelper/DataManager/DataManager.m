@@ -228,7 +228,10 @@ static DataManager *sharedDataManager = nil;
         return;
     }
     self.manager.requestSerializer = [AFJSONRequestSerializer serializer];
+    [self.manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"accept"];
     [self.manager.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+
+    
     self.manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     [self.manager POST:url parameters:parameter progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject)
      {
@@ -459,12 +462,52 @@ static DataManager *sharedDataManager = nil;
 
 
 -(void)marqueLabel:(MarqueeLabel*)_marqueLabel {
+    
+    CGFloat mScrollDuration = 0.0f;
+    
+    if (_marqueLabel) {
+        CGSize textSize = [[_marqueLabel text] sizeWithAttributes:@{NSFontAttributeName:[_marqueLabel font]}];
+        
+        mScrollDuration = textSize.width;
+        
+        if (mScrollDuration > 100000 ) {
+
+            mScrollDuration = mScrollDuration/20;
+        }
+        
+        NSLog(@"%f",mScrollDuration);
+    }
+    
+    
+    
+
+
     _marqueLabel.marqueeType = MLContinuous;
-    _marqueLabel.scrollDuration = 30.0f;
+    _marqueLabel.scrollDuration = mScrollDuration/210+10 ;
     _marqueLabel.animationCurve = UIViewAnimationOptionCurveEaseInOut;
-    _marqueLabel.fadeLength = 2.0f;
-    _marqueLabel.leadingBuffer = 40.0f;
-    _marqueLabel.trailingBuffer = 40.0f;
+    _marqueLabel.fadeLength = 10.0f;
+   // _marqueLabel.leadingBuffer = 5.0f;
+    //_marqueLabel.trailingBuffer = 5.0f;
+    
+    
+  
+    
+}
+
+- (CGFloat)getLabelwidth:(UILabel*)label
+{
+    CGSize constraint = CGSizeMake(label.frame.size.width, CGFLOAT_MAX);
+    CGSize size;
+    
+    NSStringDrawingContext *context = [[NSStringDrawingContext alloc] init];
+    CGSize boundingBox = [label.text boundingRectWithSize:constraint
+                                                  options:NSStringDrawingUsesLineFragmentOrigin
+                                               attributes:@{NSFontAttributeName:label.font}
+                                                  context:context].size;
+    
+    size = CGSizeMake(ceil(boundingBox.width), ceil(boundingBox.width));
+    
+    return size.height;
 }
 
 -(void)getProfile{
@@ -585,7 +628,10 @@ static DataManager *sharedDataManager = nil;
     config.licenseKey = @"KWAU-2V3K-VFOJ-JXIN" ;
  */
     return config;
+
+
 }
+
 
 -(void) setupPublisher:(R5Connection*)connection
 

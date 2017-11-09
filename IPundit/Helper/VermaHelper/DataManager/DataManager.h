@@ -43,6 +43,8 @@ typedef void (^SKCompletionQueryBlock)(NSArray *__nullable result, NSError *__nu
 @property (nonatomic,retain)AppDelegate *__nullable mAppObj;
 
 @property (nonatomic,strong)NSString *__nullable breakingNewsString ;
+@property (nonatomic,strong)NSString *__nullable LequebreakingNewsString ;
+
 @property (nonatomic,strong)NSString *__nullable listenersCount ;
 @property (nonatomic,strong)NSString *__nullable leaqueNameForTrophyViewController ;
 @property (nonatomic,strong)NSMutableDictionary *__nullable aboutPageContent;
