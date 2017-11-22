@@ -1,6 +1,0 @@
-framework module Pods_IPundit {
-  umbrella header "Pods-IPundit-umbrella.h"
-
-  export *
-  module * { export * }
-}

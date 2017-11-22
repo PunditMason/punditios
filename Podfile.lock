@@ -23,20 +23,20 @@ PODS:
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
   - CCBottomRefreshControl (0.5.2)
-  - Crashlytics (3.8.6):
-    - Fabric (~> 1.6.3)
+  - Crashlytics (3.9.3):
+    - Fabric (~> 1.7.2)
   - DZNWebViewController (3.2)
-  - Fabric (1.6.13)
-  - FBSDKCoreKit (4.27.0):
+  - Fabric (1.7.2)
+  - FBSDKCoreKit (4.28.0):
     - Bolts (~> 1.7)
-  - FBSDKLoginKit (4.27.0):
+  - FBSDKLoginKit (4.28.0):
     - FBSDKCoreKit
-  - FBSDKShareKit (4.27.0):
+  - FBSDKShareKit (4.28.0):
     - FBSDKCoreKit
-  - IQKeyboardManager (5.0.2)
+  - IQKeyboardManager (5.0.6)
   - ISMessages (1.2)
   - JSONModel (1.7.0)
-  - JTCalendar (2.1.9)
+  - JTCalendar (2.1.10)
   - MZTimerLabel (0.5.4)
   - NJKScrollFullScreen (0.2.6)
   - SCFacebook (4.0):
@@ -49,7 +49,7 @@ PODS:
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - STTwitter (0.2.6)
-  - SVProgressHUD (2.2.1)
+  - SVProgressHUD (2.2.2)
   - youtube-ios-player-helper (0.1.6)
 
 DEPENDENCIES:
@@ -80,23 +80,23 @@ SPEC CHECKSUMS:
   Applozic: 72026637b479b9671b59aadc3bda64d20d0e3296
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   CCBottomRefreshControl: 389780b4488321c91d18f66a6da5ef9606df6de5
-  Crashlytics: 95d05f4e4c19a771250c4bd9ce344d996de32bbf
+  Crashlytics: dbb07d01876c171c5ccbdf7826410380189e452c
   DZNWebViewController: 8e927a5de637fe0c4104c001d5cccd4fa5621e50
-  Fabric: 2fb5676bc811af011a04513451f463dac6803206
-  FBSDKCoreKit: ebc6c5f5b3f0e72396041050e2266781a38ac587
-  FBSDKLoginKit: 887be4b7452e1c5a3cc4485ce152529965a0c41e
-  FBSDKShareKit: 4f83956d4ca2960730fe7588a168eb8d535c06dc
-  IQKeyboardManager: 5ab84749f20f682f784160c2c63bef4f19d10d26
+  Fabric: 9cd6a848efcf1b8b07497e0b6a2e7d336353ba15
+  FBSDKCoreKit: ca961e279113f691fd83dc634c0bbad9d4e3f370
+  FBSDKLoginKit: b077381c27d800f21661757e8140cf2c80a91e4a
+  FBSDKShareKit: 4f525556e0df4cf0f574cb3f01c675434f29d477
+  IQKeyboardManager: 077b7f691dfa9d69db9cff66f2bed68ebfc02d9b
   ISMessages: d39098b48672813d69d30f44da06260b9920fed4
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
-  JTCalendar: beb2f4c1b639bf6880f680b4858227acf83a049c
+  JTCalendar: d85b0222e9378007a2d185b15c90b7d707a2abe0
   MZTimerLabel: cd9bfb9304540ef2a9e163384fca9c978f0dbf83
   NJKScrollFullScreen: 13e370f935da7385b92779644b31df8d83a91447
   SCFacebook: 4555a9ffd6b18bd0044d888dab735306cdaec513
   SCLAlertView-Objective-C: 0e54351fa4f98a5c7c6ad3727e6dbb46784534e5
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   STTwitter: 30ee2f79eff78c3d633a1edc869e97db9c9ead59
-  SVProgressHUD: db27c54e6e18bc903341661fc9feb55e04905cc4
+  SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
 PODFILE CHECKSUM: 39e03e4c5ce0b59f987db2044d5daf3cace3b165

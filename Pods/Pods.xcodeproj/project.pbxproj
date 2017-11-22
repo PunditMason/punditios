@@ -64,13 +64,11 @@
 		0DBC7200012F40CC081AA31A85927F11 /* ISMessages.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 655587E14783D3758FC663A874584716 /* ISMessages.bundle */; };
 		0E0531B3DF8F5D45E33AF3C56A43FF4F /* ALMediaBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A98C635F55A24F71C89394580029AF52 /* ALMediaBaseCell.m */; };
 		0E826B10014FD81D1827C2FDB7842751 /* SVIndefiniteAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 62D1C52D5C3651B3FC5DC108A8A13E6F /* SVIndefiniteAnimatedView.m */; };
-		0E83C01F2754D79DB9DB4B81514B9DD7 /* JTCalendarWeekView.h in Headers */ = {isa = PBXBuildFile; fileRef = D12FDA7562721FD153B30F3BFB219904 /* JTCalendarWeekView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EBFC2AC17303805FFFB18FD9AD19F92 /* SDWebImagePrefetcher.h in Headers */ = {isa = PBXBuildFile; fileRef = 96FC77BFA3C0AA0EE418F0B3466319F9 /* SDWebImagePrefetcher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EC86AD4A19CEE78DA15BB13FD64D7B2 /* BFAppLinkTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EE5717C8F4F850543E4E5CD5334FCB3 /* BFAppLinkTarget.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0EE37B4F65396E9B7E3FE2D7ACAF4EA6 /* FBSDKLoginTooltipView.m in Sources */ = {isa = PBXBuildFile; fileRef = 19EAB4FDA1F5F64F07CDA1211E275A8D /* FBSDKLoginTooltipView.m */; };
 		0F070DF68450843849761B257E21E5FF /* ALDataNetworkConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = FE6C051427491C4256B3512169138FA2 /* ALDataNetworkConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0F2B4541EEC2608FAC614205B5617705 /* FBSDKMath.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D5192AF180513F965256AF5DB18E8E7 /* FBSDKMath.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		0F739572C0CF75BCCE9F48661DEC0CA9 /* JTCalendarPage.h in Headers */ = {isa = PBXBuildFile; fileRef = AA3A386D736C2FAF620EAF1E4A73E865 /* JTCalendarPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0F890D262B603A80C13EB075A2B00A3C /* MQTTInMemoryPersistence.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B9F3FA59C9E3F542F86E9E720A54D59 /* MQTTInMemoryPersistence.m */; };
 		0F8F015D21DE1B6DFBEDF272E170B09A /* SCLTimerDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = F17E5EE88243EAD9DF2F9F2DE563678F /* SCLTimerDisplay.m */; };
 		0FB6434BA8491ED55C8499B3B360DE5E /* FBSDKAppEventsUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4DE43EA989BFEAFA094C72375F7147 /* FBSDKAppEventsUtility.m */; };
@@ -86,7 +84,6 @@
 		11770572CFE88E09AEBE3A26FF06CE91 /* FBSDKMonotonicTime.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DF78DBECD176B148BB6EBD1D817B11 /* FBSDKMonotonicTime.m */; };
 		11A64DD81DDE840AFDFEF2FF5A108D76 /* UIImage+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = FD0DB9AA0246DE6A57647A44DF15BDBD /* UIImage+Utility.m */; };
 		11FD74AD0EB236550B86DC92F0D28CD7 /* ALContactCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B74ABD7905E7594092B0A0A55140D83 /* ALContactCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1250244D90DA83552E050573D3E2F68A /* JTCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 616ACA72D18D3AE8660A7AD656EBE1D7 /* JTCalendarManager.m */; };
 		1272F071D11EFD3133246140B9A8130D /* IQUIViewController+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = B96FB76B1FC3580B7AD55AFEE84D2DC6 /* IQUIViewController+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		12CC2C8A8860B5FD1A4E7384D29E5705 /* ALMultipleAttachmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9136FF6B4C0545D1E04CCD5B74F1812 /* ALMultipleAttachmentView.m */; };
 		1317F51A329F717341A7C4140908E43D /* ALNewContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 366756F0B2313FA516C57FA4C4C0B972 /* ALNewContactCell.m */; };
@@ -117,8 +114,6 @@
 		19BB91B52687494B16E7E47AF317F42A /* MQTTCoreDataPersistence.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EBD2EFB05DFB292F393207025932C2F /* MQTTCoreDataPersistence.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		19D142307852128A400F57744724D82B /* ALChannelService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B999D70EBED50D44FCB1A7F92E480A8 /* ALChannelService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1A1D2BF594940C7E5ED977588CBD4491 /* FBSDKGameRequestContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B85C3082123778F80047F8BBB3EB238 /* FBSDKGameRequestContent.m */; };
-		1B02137317A8CB0A10B84BB42794527F /* JTCalendarDelegateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AB794BE65EDBC4AF5F2FD025E5F985AB /* JTCalendarDelegateManager.m */; };
-		1B660B191FBB791B355F63834CC45233 /* JTCalendarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C9304CC766C318F033B4F2FDEAF6DD0 /* JTCalendarMenuView.m */; };
 		1B7730C43D80C9708F39CB16D69FFA9B /* FBSDKGraphRequestBody.m in Sources */ = {isa = PBXBuildFile; fileRef = FB9F370EA1BC79A1460B297AEF66F403 /* FBSDKGraphRequestBody.m */; };
 		1BA4D3A4E249B81B14821B1B3B8C73AE /* DB_CONTACT.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A824DFEA3977EC34E8B0FED12A01978 /* DB_CONTACT.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1BBC209A56EA3982C081D35B7CE89A77 /* FBSDKShareKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD9E90465027A6BC516DC891B8270F5 /* FBSDKShareKit-dummy.m */; };
@@ -126,13 +121,13 @@
 		1C57DE6F3918258DF8CFC6B3C86EA4D9 /* UIImage+ImageEffects.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AC8F482B27DCE1F3ED0B562B6DACCC4 /* UIImage+ImageEffects.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1CEBE1C3C77649E972E5CF0E0D5147A9 /* FBSDKLoginError.m in Sources */ = {isa = PBXBuildFile; fileRef = 983F244C5999352633C50AB561DEBB7E /* FBSDKLoginError.m */; };
 		1DB3418C0E1C5862794AAA60E09ECE0A /* SCLTimerDisplay.h in Headers */ = {isa = PBXBuildFile; fileRef = 08663B72439E98F27DCEF4DCDCA3243E /* SCLTimerDisplay.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1DDB75B14E73C9AF6D6EF56BE4F3ED1C /* JTCalendarScrollManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 240F56DCE4E4EEC6DF63D70F61DB0AC6 /* JTCalendarScrollManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1DE2B18AF5B9155A8F5F610A746DB124 /* ALColorUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 320462D61F88D23E831B6F1AFA25AF17 /* ALColorUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1DF6282AC5528B9FCABC86695AE4A805 /* SDWebImageDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = D61070095EB2C11D8B3BDFC70E96D783 /* SDWebImageDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E0C1C24BB58DC9EAE01F0AC167FD4D2 /* FBSDKProfilePictureView.h in Headers */ = {isa = PBXBuildFile; fileRef = 05EE1CC53A6543542C9766E348967110 /* FBSDKProfilePictureView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1E157747466C9ADBF7A5E2F6D04088E7 /* FBSDKErrorRecoveryConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = EBBDDD1752E2EB4D74FBC7519FE07D6E /* FBSDKErrorRecoveryConfiguration.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		1E1D46AF3DCE7FE66A3349DD4A13C75B /* Applozic-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B0C6E91FDC6AD0A7136DCB7C9B8FA12 /* Applozic-dummy.m */; };
 		1E2A6D057E20BE8F5ED3E594F7B8C286 /* AFNetworking-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 352F848FF9D69BC50F943BD507509462 /* AFNetworking-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1EBB5121C4545A0E009022F5C1EAA09D /* JTCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A58BD328403DC1E777CC61754C1E3D4 /* JTCalendarDayView.m */; };
 		1EEFC29548248E5C53B46DD3003E744D /* FBSDKCameraEffectTextures.h in Headers */ = {isa = PBXBuildFile; fileRef = D2C81F673BBE28310CA4F12A7CAFFFE7 /* FBSDKCameraEffectTextures.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FAF936145744EF7FBEBD2B1CCF20430 /* IQTitleBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 952BE6C3F9C337E9BAA3356D79C57729 /* IQTitleBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1FB48E77E06D5ACE51DB2B0956EA0551 /* FBSDKCameraEffectArguments+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = D8240F8D82F7FCB1982691373734A748 /* FBSDKCameraEffectArguments+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -154,7 +149,7 @@
 		23C798811D612AA782CF1F28A7284A09 /* ALAudioAttachmentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 988CD3AA381AF8FF88FA9C2AF17D5313 /* ALAudioAttachmentViewController.m */; };
 		2429D5C143D7F35D89795E1F2B3BC3E8 /* FBSDKGraphRequest+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9B7228700D64AB24ECA99F429C148B12 /* FBSDKGraphRequest+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		2433C1EF0CA19F668278082E1927892B /* FBSDKCoreKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 13C27F5BA3D85474660E3F683CD299B2 /* FBSDKCoreKit-dummy.m */; };
-		243B9FA63C5E0497B5E37531A449C4BB /* JTCalendar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2FCDBC6E6E9F146C7C5C4B8421A6337 /* JTCalendar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		243B9FA63C5E0497B5E37531A449C4BB /* JTCalendar-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DAC5D30C24584CC9D822333E7F1738 /* JTCalendar-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2520ACA2440B5FB259BFE6D0D693D118 /* FBSDKShareVideoContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD2302F4C0C59C93C96D8440A253FBC /* FBSDKShareVideoContent.m */; };
 		25A9E264C0FD7FC58C783D358AAD0356 /* FBSDKLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = BB0C9CD101631476EEFD02358ABFB463 /* FBSDKLogger.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		25CB7EC95F90CFCA1B553EFF292490BA /* ALShowImageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 43E3116C6E9DA5F4F1FF1C848C26BD06 /* ALShowImageViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -164,7 +159,6 @@
 		28BB1BC7671B90018AF7EC02CC9B59CF /* SDWebImagePrefetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8886FE24FFCB9135CAC03C90DECEDD62 /* SDWebImagePrefetcher.m */; };
 		29476636EA86BEFC4CB833D3BB7A52D7 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = B3FCA5575A5DDE3A68C77C6269DE48F0 /* AFURLRequestSerialization.m */; };
 		29906CE718473021270661AB0392FB05 /* ALChannelCreateResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3D12D233BE6A95B319928852D3E5F1 /* ALChannelCreateResponse.m */; };
-		29B0E18B0C4EAE776B9810AC4CBED411 /* JTCalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = B3619AB4FC7F67A6869C177F4577F48C /* JTCalendarWeekView.m */; };
 		2A2FC6BA5CD553E94C470C94DDCA3149 /* BFTask+Exceptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E7680DA9DA672710AE2656278F69247 /* BFTask+Exceptions.m */; };
 		2A8AAC1EF2E8BE3B8DE9A16BFED053B1 /* FBSDKMessengerIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 803A067FB9A6E76581942E4733A222BE /* FBSDKMessengerIcon.m */; };
 		2AFB0AFA2138181E162CD00669D87FE3 /* JSONModelError.h in Headers */ = {isa = PBXBuildFile; fileRef = 61DDBF12717B38732A9C53429D7B178C /* JSONModelError.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -182,8 +176,8 @@
 		2CA45B0F7175C884633BBE0ADEA5AC9E /* IQUIView+IQKeyboardToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = E6E1FED8DBEFD5DE6A834D0D35873687 /* IQUIView+IQKeyboardToolbar.m */; };
 		2D2833809325F3F9775CEEBC320D27E7 /* ALMuteRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2707726515AC66EDEBAA360010C6E42B /* ALMuteRequest.m */; };
 		2E0AA48F58E78537F06F47C11209BD43 /* FBSDKShareMediaContent.h in Headers */ = {isa = PBXBuildFile; fileRef = EFC55E965F30053AE851AD3BAE8768B2 /* FBSDKShareMediaContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2E3224FC0857AD57BC2719FFA5FBE226 /* JTCalendarDelegateManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D6D650B63F9CFB1D12F221680A51D3F8 /* JTCalendarDelegateManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2ECBA559A0A5CF2C7208CA1B2652EA56 /* BFMeasurementEvent_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 30541E5C2B3F7684BCEC316356D5358C /* BFMeasurementEvent_Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2F0BAB070948B762475A50B5B10818EC /* JTDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E27FE38816BD0F69BA3E51E000573C15 /* JTDateHelper.m */; };
 		3042E471A4A1A364148E476DE85DD14A /* ALChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2AC42D3D9FBBCD8CBCD5DD4490A3D0 /* ALChannel.m */; };
 		304459CFF17428C1D86A2EFD860223D3 /* FBSDKGameRequestDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = D901345EECA201FF0E88BB7D1AE9974E /* FBSDKGameRequestDialog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3089511208D63F73F1840F06C5798B87 /* FBSDKCloseIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = E7DF16E02593609A225D8ADABF3401D5 /* FBSDKCloseIcon.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -191,6 +185,8 @@
 		30CF529BCF74557FE1CC089D77270D2A /* NJKScrollFullScreen-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 81440E9FB694EA3F4649347A81E60D19 /* NJKScrollFullScreen-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30E0984300E8E2A586A1EF2CAD7F8270 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD391DC54A0C57352634FDB6E50C67A5 /* UIKit.framework */; };
 		30F0BAE1DBB79BBB6CBD957EA8B89E4B /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C4CFC75B11E1F059E5C6AAF9F483360 /* MobileCoreServices.framework */; };
+		310361CE75893671536852D251EF2965 /* JTCalendarMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = ED0547D5CC73EEDCBCDF09D434801E29 /* JTCalendarMenuView.m */; };
+		3160FE445C0D90A20AE73A4C9B7576E8 /* JTCalendarPageView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2467DD4B3A4CAE5D38FAFF03E17568FD /* JTCalendarPageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		317618616521E4C67C4B6D91F288D128 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD391DC54A0C57352634FDB6E50C67A5 /* UIKit.framework */; };
 		31DFF5C8D2E8E7C5F1F48E1F58A6CE2D /* STTwitterStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = DF92B056CCB22EADBC91FB8315737EF4 /* STTwitterStreamParser.m */; };
 		31E5BF8A28D57C3C726310C4B643E047 /* FBSDKShareError.m in Sources */ = {isa = PBXBuildFile; fileRef = C059A697B48CB305273682AABE773521 /* FBSDKShareError.m */; };
@@ -221,7 +217,6 @@
 		37FD169854FF4B397051998D611F152A /* JSONModel.h in Headers */ = {isa = PBXBuildFile; fileRef = F33B0848BD57F26193B9FC6EA07BEEA2 /* JSONModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3811122AA52B17F2E38C133A4CE73D22 /* ALJson.h in Headers */ = {isa = PBXBuildFile; fileRef = E8B6F9C619CC3F29DF1A53676BC8178E /* ALJson.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38519B67CAA81FF8DDA6EE6DD2C6CE0D /* NSData+ImageContentType.h in Headers */ = {isa = PBXBuildFile; fileRef = 36EC582C026BC36DD9FA546B7923424C /* NSData+ImageContentType.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		386300772085625A73EBB53C488A735E /* JTCalendarWeek.h in Headers */ = {isa = PBXBuildFile; fileRef = 45C6F69D54200FB1561AB46DF691E6B9 /* JTCalendarWeek.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38640F86ABD446506B6C54FBEBEDE7F3 /* FBSDKBridgeAPIRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F47E45D7030C4143F17749493FF25B2 /* FBSDKBridgeAPIRequest.m */; };
 		38A1F6F98363A3978C694CD7F8F6DC21 /* FBSDKShareButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A45421C29C91A332554F78D6A44B0E2 /* FBSDKShareButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		38C1E680AF0A6D1777590710D9644D5F /* ALMessageClientService.h in Headers */ = {isa = PBXBuildFile; fileRef = 56F420B624C2C8FE6B8F42A40581DB29 /* ALMessageClientService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -245,14 +240,17 @@
 		3CD558477435E5E94B43C8F78BAAA654 /* FBSDKShareButton.m in Sources */ = {isa = PBXBuildFile; fileRef = F506E200C63113B7EAF102816D196B70 /* FBSDKShareButton.m */; };
 		3CD6D6F384ECA6E5E3E72FF72BBB2E2A /* ALMessageService.h in Headers */ = {isa = PBXBuildFile; fileRef = 4800A6AE5F0AA8FC10FA9A009BB8FD0F /* ALMessageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3CFCFB46364AF0574491286EA0B29B6B /* FBSDKAccessToken.h in Headers */ = {isa = PBXBuildFile; fileRef = 5320EC9D7D632C484178C602DB5CF16F /* FBSDKAccessToken.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3D284A341F5C87509CF6534F8D5E123F /* JTCalendarDelegateManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 35C1CBF0ACF467A266053B8BED9DDFC5 /* JTCalendarDelegateManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3D85D6B4CFC481482FCC2288366EB79A /* DB_CHANNEL_USER_X.h in Headers */ = {isa = PBXBuildFile; fileRef = FB635B3370C0F2C61FACA8749CA74140 /* DB_CHANNEL_USER_X.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3DD5A26B210989F539F9ECFFB69DE28C /* IQUITextFieldView+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = BCDF94DBC512D290C1CE0192153A02FD /* IQUITextFieldView+Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3DDE2B83DBD0E03C0BAFF7C4BF85F50E /* ALChatCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CB358135DCF8D33EDCCC7D5815ECB0 /* ALChatCell.m */; };
+		3E56943C3F8A140BB52C923E3DDD5E5E /* JTCalendarScrollManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E742D6A2B47F5D026B267DDF4AB8080 /* JTCalendarScrollManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3E70DB80CA2A43FEDA11929A6744369B /* FBSDKShareKit+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D1294084F5CE09F000CA6830B3A289E /* FBSDKShareKit+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3ED61D0A47336589F6A2664E29DD30EA /* FBSDKImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 99A26C31B5CB0A9EDFEC9836AEAAFAA1 /* FBSDKImageDownloader.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3F1A5D10778AAD482D977798476727A9 /* FBSDKMaleSilhouetteIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = F075EDBD4345A144D479A91FA0F3FF02 /* FBSDKMaleSilhouetteIcon.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		3F3FAF36F1FAD089D911584FA93558D8 /* ALChatLauncher.h in Headers */ = {isa = PBXBuildFile; fileRef = E778B5AD385049BA77F103B2FB461D32 /* ALChatLauncher.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3FD8A12B4BA580D8ECF810ED7FD9495B /* FBSDKAppEvents.h in Headers */ = {isa = PBXBuildFile; fileRef = 98BB263D30812B0994AC54D38234557F /* FBSDKAppEvents.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3FF9B6657B9A9822C3AC3F42F7850D1C /* JTCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = C6AFFB82CCDFAE0A448CAFEFAF3EAD16 /* JTCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		402DAAA4362D5FFE757D1572E921B95D /* MQTTCFSocketDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 39EFB4086CAE11E7BD46A7DD82766720 /* MQTTCFSocketDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4030554E25309FBF6886A5722736668F /* FBSDKCrypto.h in Headers */ = {isa = PBXBuildFile; fileRef = 4046C98ADAA24F8158D386B0D34D1620 /* FBSDKCrypto.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		40A6216FC50B4540584DA1C45F98F9FD /* JSONModelClassProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = B2C5371DE87C1683790D4775312ED0F8 /* JSONModelClassProperty.m */; };
@@ -263,7 +261,6 @@
 		42711E8F3E2750B52847A20C33B30FDD /* FBSDKShareOpenGraphAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 713BCCC4486A8BA287BD1C5F1F21CC61 /* FBSDKShareOpenGraphAction.m */; };
 		42AF1BB1ED090CC9E588A463441D09E3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400EB39B1E0E88D1C00EB0DD72478194 /* SystemConfiguration.framework */; };
 		42B0D44D14E565606319EAFBAC22D17F /* ALAudioVideoBaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A53D16805776EBB899331196A9E40C11 /* ALAudioVideoBaseVC.m */; };
-		43359B6B8260A3E62F294EA302C05676 /* JTCalendarDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0277F817F5394E1E6D2768B1A7EEB462 /* JTCalendarDayView.m */; };
 		43BD87FE2A4B628E1D72CB2F3DC45F9F /* IQToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = D9237C112BC3A6A3AC616A641CC7C6AF /* IQToolbar.m */; };
 		44218F764FD54A83155071741BA4CF06 /* FBSDKGraphRequestMetadata.h in Headers */ = {isa = PBXBuildFile; fileRef = F8DE0188F893A99A210315991A597574 /* FBSDKGraphRequestMetadata.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		443346908A8190FBBBB34B1FA593EB54 /* IQKeyboardReturnKeyHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = E44A811761FB8F46E5B2E4E39EDB0130 /* IQKeyboardReturnKeyHandler.m */; };
@@ -276,7 +273,6 @@
 		4509F6847FF99BA857ADFEFFD455D564 /* dzn_icn_activity_opera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B3B9434906503D29E672E5298291F7ED /* dzn_icn_activity_opera@2x.png */; };
 		453612B3302CFF3345E7FC70F827F90D /* FBSDKLikeBoxBorderView.h in Headers */ = {isa = PBXBuildFile; fileRef = 23051A73F3B9353B9643E4F8E9F0D45B /* FBSDKLikeBoxBorderView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4548BDAD4B233A95EB9E8944DD5B7494 /* SVProgressAnimatedView.m in Sources */ = {isa = PBXBuildFile; fileRef = C7909DC7BFBA0B15B2B174E50B6977C2 /* SVProgressAnimatedView.m */; };
-		4556AB657576B67ECAB9A118590C1CBF /* JTDateHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 9150A3C980ED35DB3CD872C138F97A27 /* JTDateHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		456E46E81C3AF0C1213DEE4A4E5FC96E /* ALMediaPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CEE7E342B91CECCE7226BDC9FE4C037 /* ALMediaPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		45F802D04B3BE0CAEC586C2F3016027B /* UIActivityIndicatorView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 558C897B71FFF779B01E1FD98EF767C2 /* UIActivityIndicatorView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		46483DCF617A3E54019728AA51598689 /* ALVCFClass.m in Sources */ = {isa = PBXBuildFile; fileRef = DAA8EBD1572E4FFF2863ADD05F840093 /* ALVCFClass.m */; };
@@ -285,12 +281,13 @@
 		4684DE919CC6D626CDB24611D4981881 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31138DF66733702F7D8BA47CE7F67EA /* Foundation.framework */; };
 		46C86D8E29C04D5373A9FF78D1FD77ED /* SCLSwitchView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AE85C6F923118F6F183E61076EB4F50 /* SCLSwitchView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47929AE03AFB658120E3D02682B676AD /* ALMessageInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B13258E4A6B57763FB0DBD0DC87064CB /* ALMessageInfoViewController.m */; };
-		47A8A3F248C4C744CDC885A793E1C6C8 /* JTCalendarSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5AB1788CDEAAD47B49B82AF47CB31E /* JTCalendarSettings.m */; };
+		47ADAA487B332C0BE92AADA45A945D88 /* JTCalendarWeek.h in Headers */ = {isa = PBXBuildFile; fileRef = 088A512CC79B89A51B9F66A1530559FC /* JTCalendarWeek.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47D879D59E77BC45913404EDBDECAB43 /* AlMultipleAttachmentCell.h in Headers */ = {isa = PBXBuildFile; fileRef = C70EE2378920D29F0380646CD07384CF /* AlMultipleAttachmentCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		47F04CBDF6C54B220F6AEECEF15264D5 /* AFAutoPurgingImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D94FE7AF72D8C06DD5593080164CBF5 /* AFAutoPurgingImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		481EB6C7197B328F29B813C07495E38A /* ALMQTTConversationService.h in Headers */ = {isa = PBXBuildFile; fileRef = A106EC633C9D30E4F70E14B743CE4432 /* ALMQTTConversationService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		48B9EB3D4DE6A3E9522E405E63F77047 /* ALAPIResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 93C1EA4C1DA1E14E27F1F295FDC6E27F /* ALAPIResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		49881C73BCF105616FDD7601A010EFC5 /* FBSDKLikeActionControllerCache.h in Headers */ = {isa = PBXBuildFile; fileRef = CEE0405F30BD7D840A4E971E03F82F0F /* FBSDKLikeActionControllerCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4B23649D5D47A1D543CAD57FE0C55485 /* JTCalendarDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A8ED5E258FAE5C18889F414B5A4E3B7 /* JTCalendarDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B49FC52B69851F117C49AA94C01B337 /* IQKeyboardManagerConstantsInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C58DDFFBC3CD6B0BAF1B7D014C4DB87 /* IQKeyboardManagerConstantsInternal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		4B7D819829F7A7240442F1AD8CEBF6DB /* NSError+STTwitter.h in Headers */ = {isa = PBXBuildFile; fileRef = CF9EFECA49C308F91800C39079C2CAB2 /* NSError+STTwitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4B8B987CC76CEF6ED221DC98FF990B3F /* MQTTSSLSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = A12AA332DEF25EB17A945DEC254B9407 /* MQTTSSLSecurityPolicy.m */; };
@@ -314,7 +311,6 @@
 		50FDB4CB4FACEAAD1F45C6CF087338F1 /* FBSDKErrorRecoveryAttempter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C5C04419201ABF19AB170D7BFF71498 /* FBSDKErrorRecoveryAttempter.m */; };
 		51047C1945103943F70BEADE83725630 /* UIWebView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5AE75A43A1AC1B2B45A71CFCC47C80E3 /* UIWebView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5176D4337E6EB5A5D414003464C49F22 /* FBSDKLoginManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DCCDF9D44C9556BF9D07AA111310814F /* FBSDKLoginManager.m */; };
-		5192E632CBAD450BB95B07B1373DD065 /* JTVerticalCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6ED1CF27095D20750078B276B3D1C6C0 /* JTVerticalCalendarView.m */; };
 		51B610E76246D72ABD3374F5D9D697B2 /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31839E547225EBFD440E387318D79F3F /* Accounts.framework */; };
 		51BA8EAC16F6EE63895CB2DDBA452A5C /* FBSDKSendButton.m in Sources */ = {isa = PBXBuildFile; fileRef = A46DE6C1F62E59BB3CF5189CFD8FC250 /* FBSDKSendButton.m */; };
 		521AA4E35FE9A32F8F2BA5F7923AB64A /* ALCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0494E056CAA991566BB1EDE4ACD7FDC7 /* ALCollectionReusableView.m */; };
@@ -329,7 +325,6 @@
 		55AA601B4FB9DBC77E46B1CEACC805DA /* IQTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 155FBB81FEA9B9133A9D101853EBB000 /* IQTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		564C51BF2A5B16B22B4D1473EE6DC8D6 /* FBSDKShareOpenGraphValueContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 71C332480FB2770048E1B6F234BA776B /* FBSDKShareOpenGraphValueContainer.m */; };
 		56530BD24097DDB95A910FD5C2EEC864 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31138DF66733702F7D8BA47CE7F67EA /* Foundation.framework */; };
-		56782B3944A6975B911CB754C857EBC7 /* JTCalendarManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 35B9C93E0EF8E7E2F9292E106E253554 /* JTCalendarManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		56CF74DF6F20549F9B5EF318CA713649 /* FBSDKCheckmarkIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = AC9D6185FED8256CB8C778C3AFDF0FE3 /* FBSDKCheckmarkIcon.m */; };
 		57344E8E446CD6486163FE5A47BDE41E /* PSPDFTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 72AC5EC1FBC0B319E5A4FD260CD92273 /* PSPDFTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5788E872E93960A8108CF45DA95124A6 /* DZNPolyActivity.h in Headers */ = {isa = PBXBuildFile; fileRef = A45E074A202C3590BAC515C52E8DB951 /* DZNPolyActivity.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -337,10 +332,8 @@
 		57FE38F17C0EDD5CF73B2A084A17586E /* JSONHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 61AAFD8FAC3DA950DFC1BFC857FC41F3 /* JSONHTTPClient.m */; };
 		58388F773008AF671CE67FE1C902E6CB /* JSONKeyMapper.h in Headers */ = {isa = PBXBuildFile; fileRef = 1F5F6700EC8E1A44050E8DCF57452887 /* JSONKeyMapper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		585EC932292CD0410B609B43823CFCB9 /* ALSubViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0B52002387607FD36B8C604957CC49BE /* ALSubViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5880629CCE6A2D3F9590EBB6DEB69A6B /* JTCalendarWeekDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = C59E2D448D67EE19377B32938C168ACC /* JTCalendarWeekDayView.m */; };
 		5890149031D7BE39D8F5721F6505E482 /* _FBSDKLoginRecoveryAttempter.h in Headers */ = {isa = PBXBuildFile; fileRef = 55A05EA06D3D25191ADC58DDDFA1D521 /* _FBSDKLoginRecoveryAttempter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		58B5E39A20D3F89C146702D0C7A7E960 /* ALChannelInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = C47185BA5E3F5C0CFA602BD1EFBE92A7 /* ALChannelInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		58C8CD48136CA6F5FFDCDDA54010D278 /* JTContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 884ABB429A99BDCB8BF397B45453BD61 /* JTContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		58CA974FDB418086553DDE7BF339B500 /* NJKScrollFullScreen.h in Headers */ = {isa = PBXBuildFile; fileRef = 0309974F3E5B4FAC7BD77E637648E1A9 /* NJKScrollFullScreen.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		58F180CC0AC226750002689E7A90D179 /* ALNewContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B675CBD1481E97D4C9D29DBB359BF2B3 /* ALNewContactsViewController.m */; };
 		593FACE5092D783FE41113EB6DDDE053 /* FBSDKErrorRecoveryAttempter.h in Headers */ = {isa = PBXBuildFile; fileRef = 04B6104383873D6F6B48DECB27C7054D /* FBSDKErrorRecoveryAttempter.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -361,7 +354,6 @@
 		5B7BA402BC3CF5FE6EC4CF31F35A35F6 /* FBSDKLikeBoxView.h in Headers */ = {isa = PBXBuildFile; fileRef = 77E0C5AC63EF18EAAE1E3F488D485515 /* FBSDKLikeBoxView.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5BC328135749268754CB8F4B8D1A3D30 /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = A6C1FC948934F56E92F8EB3353697E09 /* UIView+WebCacheOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BC5A55477A7364E646700C6D9EC2BC8 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DD6AD4B25C7D0C369987D2B4624E568 /* ImageIO.framework */; };
-		5BC963C2BD7A76D0A7AA77DAD26259D8 /* JTVerticalCalendarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 292BE7F2AA75C37EE54D0C57D4183CFD /* JTVerticalCalendarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5BCA526AE726899C55B960403391150B /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1934096E7367849E4E460D7A1DB0265D /* AudioToolbox.framework */; };
 		5C14994B6F5BA1CD82F8D6042FCF50A5 /* MQTTSSLSecurityPolicyEncoder.m in Sources */ = {isa = PBXBuildFile; fileRef = C356F6BD38BC1660407563B594717A3F /* MQTTSSLSecurityPolicyEncoder.m */; };
 		5CA9668C07FCC3070D34544D5FE01D19 /* FBSDKCameraEffectArguments.h in Headers */ = {isa = PBXBuildFile; fileRef = 38A052F61CD936FA8F1BD08534BFC2C9 /* FBSDKCameraEffectArguments.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -380,6 +372,7 @@
 		6041105C965934F8A763700154EC1AA6 /* FBSDKUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 28CCAB987876208D976ABA5BCA73FE05 /* FBSDKUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		60550CBEF2A1ECB61FAA64CE35685B66 /* FBSDKTriStateBOOL.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F87141C652738033024B391C34DBC52 /* FBSDKTriStateBOOL.m */; };
 		60805260EE2BBD414EE988B4DD779B7C /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EFC4BB4A40FF06D3E94F958F94B00B /* NSData+ImageContentType.m */; };
+		609C01755F6E60329D1849FC34911CD5 /* JTCalendarWeekView.h in Headers */ = {isa = PBXBuildFile; fileRef = A4E090A123CC12EB2A2B6BE8F0708399 /* JTCalendarWeekView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		60E1B1F9F820EC1C1C1E0357573345ED /* MQTTCFSocketEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 5C4F8B46AB7709EE9CAF86525A26D737 /* MQTTCFSocketEncoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		610CF3A0227BF99BD5D6EFA7A69A7C04 /* FBSDKTestUsersManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D78511C399E66C728F5B17AB642F9F4 /* FBSDKTestUsersManager.m */; };
 		611ED467E14256B681DBEB291A19EFF8 /* STTwitter-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 943D9817CB455B194652B7EBFCD5A367 /* STTwitter-dummy.m */; };
@@ -395,13 +388,16 @@
 		63A49532C857D4508B8112C46EB1E501 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E6F853BD45E988E1BE2471EC73FC5C0F /* FBSDKCoreKit.framework */; };
 		63B1CEFF6E8C054D7BC2735CD3B1B98D /* MQTTCFSocketTransport.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA6959C5431A7546BF3E4E3FA46532D /* MQTTCFSocketTransport.m */; };
 		640751498CA9559EC1F88863178934B5 /* FBSDKKeychainStoreViaBundleID.m in Sources */ = {isa = PBXBuildFile; fileRef = A49F3C3B23FDB0F249B1D487FA840A21 /* FBSDKKeychainStoreViaBundleID.m */; };
+		644CF20680709923E73B3EABD64EFDD4 /* JTCalendarWeekDay.h in Headers */ = {isa = PBXBuildFile; fileRef = AB646F6224A0F35E3CCD74854B8FF716 /* JTCalendarWeekDay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		649E78B5EA450FABDF5201E31F265FAB /* AFNetworkActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 24006D557CE9163637FD46F8AA8F2219 /* AFNetworkActivityIndicatorManager.m */; };
+		64AB5C8C4A9C63B94DCD3653E2BA1E6F /* JTCalendarDelegateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 38E3E0FA63FF12CBB8E2FAB290F8001C /* JTCalendarDelegateManager.m */; };
 		64ABB824BB889E06903DDAD2FA6B76A5 /* FBSDKAppGroupContent.h in Headers */ = {isa = PBXBuildFile; fileRef = EA5B85668DFA8B01603F45A84B9D06AD /* FBSDKAppGroupContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		651BBDE59D19961D9461C8F270EBA3AE /* UIImage+MultiFormat.h in Headers */ = {isa = PBXBuildFile; fileRef = D3CC2B5AC9C9900C10C647F61660358D /* UIImage+MultiFormat.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6573AF9ABA59AC8D1F52B07088197F71 /* AFSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B6BCC5AE05B1184A12A85EF053FB283 /* AFSecurityPolicy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		65776A8016E9BB167855428DAE0198CF /* FBSDKMutableCopying.h in Headers */ = {isa = PBXBuildFile; fileRef = F8B647B52662F142DA8F51E3F693E8E7 /* FBSDKMutableCopying.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6579723577815423E8DD45C0EF2B59F2 /* ALSyncMessageFeed.m in Sources */ = {isa = PBXBuildFile; fileRef = A28AB201A68C164E3DD5E8E03E222A40 /* ALSyncMessageFeed.m */; };
 		65861FC7B5C10FD77B12244A43F9822D /* ALConversationCreateResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 506FB686A9DECEFA3F8016E2112744BA /* ALConversationCreateResponse.m */; };
+		65D29E6337F3E00B4AA40E420C020E9F /* JTCalendarSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F425FA745528107542BEB00F6A3A3FA /* JTCalendarSettings.m */; };
 		66064FE057D6E98B6064299F4B819DF1 /* FBSDKWebDialogView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C65A42AADD4A54C40C3614966F4711F /* FBSDKWebDialogView.m */; };
 		660857A2600A20F9F8A1171418A0C2F4 /* UIScrollView+BottomRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A44CEEFEB001775F67E4A6DACB8AA77 /* UIScrollView+BottomRefreshControl.m */; };
 		660D3F9F24DBD302A9A6B5A4B0A5F6ED /* BFAppLinkReturnToRefererView.h in Headers */ = {isa = PBXBuildFile; fileRef = 26997FF08A0A7471565D053A71B83613 /* BFAppLinkReturnToRefererView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -429,6 +425,7 @@
 		6A3D2BF94C8A98AEE130A80DC2D99E4B /* FBSDKLoginManagerLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = 2705FE40C9F5505559D59F65D0F6A926 /* FBSDKLoginManagerLogger.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6A5E235F0587AA01F6C75E4231DCFB0E /* ALReceiverUserProfileVC.h in Headers */ = {isa = PBXBuildFile; fileRef = 3333E509075980A104BA9DA2D9E0CFA7 /* ALReceiverUserProfileVC.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6AFE71483C188C376C7B0F37453FDB24 /* BFAppLink.h in Headers */ = {isa = PBXBuildFile; fileRef = 83345A16BE98D6B0072E0F7875DDF9D9 /* BFAppLink.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6B825307B0FFE80EB445C90B9511CA36 /* JTCalendarSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 00E1595574D72494554E8FCEDF5E50EB /* JTCalendarSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		6BE01BA63F626BB87ADE5E09888C4883 /* FBSDKURLOpening.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C6857E674FCC4A8AA6B43F05A1EA4FB /* FBSDKURLOpening.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6BF7C2E65ECD57330DCF10555DC297D7 /* FBSDKBridgeAPIRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 7594E8F4E36A5028BA338AA081BEDFC9 /* FBSDKBridgeAPIRequest.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6BFA8B2B334C5D5D00F77275B4C4A0F2 /* FBSDKTriStateBOOL.h in Headers */ = {isa = PBXBuildFile; fileRef = BEF84E3B8854D07F26E7DF9BBA13745C /* FBSDKTriStateBOOL.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -456,7 +453,6 @@
 		726E6CE07FEBA7B881B82C4472915241 /* DZNWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A6C69EAA89328C46A02EBC897302949E /* DZNWebViewController.m */; };
 		7357F283046E9E694E441D6895AB0ADA /* FBSDKBridgeAPIProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 7310C288E5F69E9B751983D245E84D2C /* FBSDKBridgeAPIProtocol.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		7378D407E576ECFF91DB0B59B33B31DC /* MQTTTransport.h in Headers */ = {isa = PBXBuildFile; fileRef = F5289AA66699FF28519854CBE659776F /* MQTTTransport.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		739453D99F855BD1CCB56D8D4033E33B /* JTCalendar.h in Headers */ = {isa = PBXBuildFile; fileRef = 68F58B0FB8A3EF6C47DA084ED84942DE /* JTCalendar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		73A966B3EA7E2DB9547C6156B65DF5D1 /* DB_Message.h in Headers */ = {isa = PBXBuildFile; fileRef = 049598B16FA87064FF887FA2960AD4EE /* DB_Message.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		74078AE56D73CC1B5FCDC34BD3E666B5 /* ALMultipleAttachmentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 058B09FA6F8112156FF9DEAC28603E02 /* ALMultipleAttachmentView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7440553CFD65022FD931F248B71955A6 /* TSBlurView.m in Sources */ = {isa = PBXBuildFile; fileRef = 875FA93A3FA3D05A4FC4C812B692DC38 /* TSBlurView.m */; };
@@ -468,6 +464,7 @@
 		759B73E16C6B69793AE9C0C5C12F5FB4 /* FBSDKShareOpenGraphAction.h in Headers */ = {isa = PBXBuildFile; fileRef = 0ADBE41D969D31826AE21FF9E25AD6DF /* FBSDKShareOpenGraphAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		75AB5ADC68D96FCC0066F66D70929D4B /* FBSDKLikeControl.h in Headers */ = {isa = PBXBuildFile; fileRef = 31D8E2FD6A27D4D2D2E1C9126993A6E2 /* FBSDKLikeControl.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		75B9C66D14031BE20196637B764390BE /* FBSDKShareCameraEffectContent.h in Headers */ = {isa = PBXBuildFile; fileRef = D7A3A79ECD33209CBE9B8DFC4CD36CA0 /* FBSDKShareCameraEffectContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		76676DF0923C4E4869BEAA1C111BEF28 /* JTCalendarPage.h in Headers */ = {isa = PBXBuildFile; fileRef = 086C4FAAB6A5471E523AC4E2CCE8337B /* JTCalendarPage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7681965BE99C97840CEA5A0398690008 /* ALCollectionReusableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F96CC08B926DF0067F48734CC0DC934 /* ALCollectionReusableView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		769609A92489E52DD8C008ADDA912C00 /* BFAppLink.m in Sources */ = {isa = PBXBuildFile; fileRef = 27AEAFB0FEC7D0A35613CEBE0E278A4A /* BFAppLink.m */; };
 		772785574BC1059C2913576CBFF3AD17 /* JSONKeyMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 97054721AFDDA06861E1E893A46CE6C7 /* JSONKeyMapper.m */; };
@@ -479,10 +476,10 @@
 		788EED46BFA2179E9453FFC3D7FCDC27 /* SDWebImageDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = E90A57787741982998B03DDC490354B3 /* SDWebImageDecoder.m */; };
 		789D749690B308852115FF20CD982A69 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF15B5BF886A60C8B72D495824FF9AAD /* CoreGraphics.framework */; };
 		78E75621A737128F57766F08EF87DBB6 /* FBSDKShareUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 3159CFC162834CA16C1326E1EE997A84 /* FBSDKShareUtility.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		78F6D04BCFD8C2D43D11E09EC4302679 /* JTCalendarWeekDayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 624BCA823ECF9D46DD98E237AC306C77 /* JTCalendarWeekDayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		78FBA4375C3D33B3848C3B94D6205838 /* ALContactCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E3655302C23E326B0BCBD3873B74068B /* ALContactCell.m */; };
 		7987EFA531DEBBDA1F32C6510E9980AF /* ALMuteRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 0330609335F93A29C27E7763240751DD /* ALMuteRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7A112C0F21A62CB6F1AA8D917A6EEA6C /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 944E0E01E844B8694E201B304278C989 /* AFNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7A5EA800BAA54274CAE7E085762E7E24 /* JTHorizontalCalendarView.h in Headers */ = {isa = PBXBuildFile; fileRef = AF0E3C9709F9E7B2B8FBD9C83805C33B /* JTHorizontalCalendarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7ACF145005D1ED87F1F8F72DD694A24F /* SCLTextView.h in Headers */ = {isa = PBXBuildFile; fileRef = 94511F1DF7E017B43CE41AAF1D393D19 /* SCLTextView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7AEE2FF2348D63FDC40D7693A61006B7 /* PSPDFTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 73714777F12009D84F6F303E7D2D895E /* PSPDFTextView.m */; };
 		7B24153CC0785C1D0310AE959248588B /* ALLocationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 36A90220AA6F0BAFBE5B394D1EAB926B /* ALLocationCell.m */; };
@@ -582,8 +579,10 @@
 		962B7EC0E23EFB35EC44CBBB53219E14 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31138DF66733702F7D8BA47CE7F67EA /* Foundation.framework */; };
 		96A7D0F1FE874093C9A8C6B7AFB8F0FF /* FBSDKGraphRequestPiggybackManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BAB896580C5B0A0CFD5FE9FE1740721E /* FBSDKGraphRequestPiggybackManager.m */; };
 		96E38AB85794062A6E3BFF2CD1991FD7 /* FBSDKLoginConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 950774E666DF9C9D0FEEC0A981CBDA05 /* FBSDKLoginConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		96F082A9300515C630F999FB7827703A /* JTCalendarDay.h in Headers */ = {isa = PBXBuildFile; fileRef = A7BA9C912D536DA8E90E633708F6F9BF /* JTCalendarDay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		96F942CCDE8A8F09DAFA9DC245C6F671 /* FBSDKAccessTokenCacheV4.m in Sources */ = {isa = PBXBuildFile; fileRef = B032084D7C1E53BAAEC21CC33F7A8A83 /* FBSDKAccessTokenCacheV4.m */; };
 		971A1481F558E8B11A1846F5F61AC742 /* TSMessageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CCA8CFB9C952D1B166F5C729025DB1B /* TSMessageView.m */; };
+		97EA76FA3D25BE981550B5FA457C83FF /* JTDateHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = A0CBA2B524AE7E3380D3A37D23EFFF2C /* JTDateHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9830C5925A905F407D61B29355840A2B /* FBSDKTimeSpentData.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D5402277E56DC95977789FD7B33E349 /* FBSDKTimeSpentData.m */; };
 		985DD9AC3CD1CB98BB8DDAB4C6F76C81 /* DB_Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A4852F42C949AAE950126AE934FE19E /* DB_Message.m */; };
 		987564B5D3CB86520614E00B79404DAC /* FBSDKMonotonicTime.h in Headers */ = {isa = PBXBuildFile; fileRef = 7980E2507326B095587AD61042219FE3 /* FBSDKMonotonicTime.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -591,6 +590,7 @@
 		989D7FA2C988AF749518B8D8A6DD0A5A /* ALUserBlockResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 69C98889540D8186EAF62DF61E8D6EBB /* ALUserBlockResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		98D0FD6F634DB222D25B918930B0A3C6 /* BFTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 063F33676CF36AB9CF2D41DFC3351EA0 /* BFTask.m */; };
 		98F19C682AC68E9D2E2052F709F42AF9 /* JSONModel+networking.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F9B407BA6A7A90BF7F6675FFBE0E333 /* JSONModel+networking.m */; };
+		9A2B80AE50EC1185034E39EA0B3DDCAC /* JTCalendarWeekView.m in Sources */ = {isa = PBXBuildFile; fileRef = AC18EF59AA5A7DF1AB8D1C2784AB3C8D /* JTCalendarWeekView.m */; };
 		9A4D6DEE8FC1423FB6D05A88690A8920 /* FBSDKLoginKit+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = B51932A0F684B270B1E5F5726DCB5150 /* FBSDKLoginKit+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		9A4F3B96216012F07366F59478B6F2FD /* ALContactMessageCell.h in Headers */ = {isa = PBXBuildFile; fileRef = FF97BA0B31047391139265E68D077DA3 /* ALContactMessageCell.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9AA1E079D88F10804A3F21CDD498C2F5 /* STTwitter-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E99434B9AF933AAD438A70632DFFE320 /* STTwitter-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -602,6 +602,7 @@
 		9BA1CF6E26085C1F2993C3BDFBD14983 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD391DC54A0C57352634FDB6E50C67A5 /* UIKit.framework */; };
 		9BCDA5018A81DA38A04BDD58B1F6BEAF /* FBSDKGraphRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4561C1DF1702D3AC56346CA5DE122999 /* FBSDKGraphRequest.m */; };
 		9BD77BE63FB751D361C5409441185E26 /* UIViewController+NJKFullScreenSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 28B4683FEDA1D6B40FF33BE7142EC39D /* UIViewController+NJKFullScreenSupport.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9C06176E7C7CEF175C6D414C2471BBAB /* JTCalendarManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B4A23674B838A5F396597987709B81D /* JTCalendarManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C0E8C8D70FF1ACB09367A04C876E669 /* ALMessageInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = FAB6E4A94BDAC7D683C29DA470DF7C83 /* ALMessageInfo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C2D39CAD1579ADCFA4ADC6A24A83C3A /* ALChannelClientService.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D816C982AAB77D51EC8E20428538222 /* ALChannelClientService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9C893922BC58FB7E1FBFEC8DDAD7AEC4 /* YTPlayerView.h in Headers */ = {isa = PBXBuildFile; fileRef = D03EB685AC43C823F46DCF785ED79A8D /* YTPlayerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -619,11 +620,11 @@
 		9F9685589B81444A3EEC8C60ECD086BC /* NJKScrollFullScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = C89F167219BAB271F4FF6F50CB8D9C54 /* NJKScrollFullScreen.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		9FB91DE583932D5A2EAF081796399961 /* STTwitterStreamParser.h in Headers */ = {isa = PBXBuildFile; fileRef = BDEA3FEF1A72F49FFA1D026174B80570 /* STTwitterStreamParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9FFF9A61547B27A24D43A7104EB7ACD6 /* ALVOIPCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9B59264E986D4475128DA1F0475AE672 /* ALVOIPCell.m */; };
-		A06BC4663F6719421239A279D01B39BF /* JTCalendarWeekDay.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E538619BAA3531A1F86948AE1D9C000 /* JTCalendarWeekDay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A080FDF48E9242631606884F7E6DCF6E /* FBSDKLikeButton+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 7D421EA2A9DCBF0F9AB13E684283B35B /* FBSDKLikeButton+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A08CB1AF5E50436DD02ABDD7741D48ED /* ALVOIPNotificationHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A864F86D7B6DE4914F222F077125490 /* ALVOIPNotificationHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A093962F31FFC96F96BB3F32F174A2B4 /* ALPushNotificationService.h in Headers */ = {isa = PBXBuildFile; fileRef = AACDE9EBF559691B8C2FAAFBEC41EAE9 /* ALPushNotificationService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0AED7665B0DABFFBCAEE07626DAEFAC /* ALSendMessageResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 21FF7E05FC27EDAC4E14E9B881BE5085 /* ALSendMessageResponse.m */; };
+		A0B31C86A693F0CE6C51244C5D635D58 /* JTMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = D6DD785FFF92148F8A7387E81D89FBCF /* JTMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A0B54340EB8A02336452DBD2AABE3207 /* FBSDKGraphRequestBody.h in Headers */ = {isa = PBXBuildFile; fileRef = 9CEA5D44EDB76CE0775496FFDB53F046 /* FBSDKGraphRequestBody.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A1036F194A423951C2A5FD3BC2D7C247 /* UIImage+Utility.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A6B051925B2E6E9C05F369202ACB4CD /* UIImage+Utility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1117755DDA279216CAACBD6609A58CB /* IQUIViewController+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = C86B00F095E3B0DB93FC2ECFEFBA3870 /* IQUIViewController+Additions.m */; };
@@ -635,6 +636,7 @@
 		A1E1077DF2497AB6F547482F52765A8E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD391DC54A0C57352634FDB6E50C67A5 /* UIKit.framework */; };
 		A2474C88093508194AFA348BBEEB3A7A /* BFAppLinkNavigation.h in Headers */ = {isa = PBXBuildFile; fileRef = 9665B8ECA67BE8B532F98F495BA857A0 /* BFAppLinkNavigation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2FDAB824A7F85ED1C1DF4F925EF8D86 /* FBSDKAppEventsStateManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 200A32BD54C233F0B2021E4CC7697F91 /* FBSDKAppEventsStateManager.m */; };
+		A34F68E88AD06D7C7BD7C3C73321E8C9 /* JTHorizontalCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B967A7248AC214AD07ADDF08A204FFC /* JTHorizontalCalendarView.m */; };
 		A3591DEDA776B48C026E7F9144981E58 /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B82EBAD5555193DAE7E645A5DCB1685 /* AFAutoPurgingImageCache.m */; };
 		A398D63C8DED664D99A864D79881A13C /* AFImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 92CD5F916F94F052607C03B6F93C227C /* AFImageDownloader.m */; };
 		A3E090930180AB35866DC5F8F482B837 /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F35190C829ED1DAC0540B6FA22A1DC /* UIImage+MultiFormat.m */; };
@@ -644,7 +646,6 @@
 		A5098DA5D31C4C0C42F3AA75C49219F1 /* BFAppLinkReturnToRefererView.m in Sources */ = {isa = PBXBuildFile; fileRef = 250A3EC153C419B8AF168E7754F19286 /* BFAppLinkReturnToRefererView.m */; };
 		A52BCF4E72B2DF16B17514F60A8A8FEE /* FBSDKIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = C80A8CD46221495593CA08BDE80075D9 /* FBSDKIcon.m */; };
 		A54EEA1B0153C81B07BC95D580C209D3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 400EB39B1E0E88D1C00EB0DD72478194 /* SystemConfiguration.framework */; };
-		A5859D598B17B2482CF8ACAA0A5FE543 /* JTCalendarMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = F2D7A2D1B1FEE1B33F6E303D336316C5 /* JTCalendarMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5B82849A94DA2513F98D5DB6FC4FDCE /* ALConversationClientService.h in Headers */ = {isa = PBXBuildFile; fileRef = 6C2B9AF4408C5DA82940945FCD9702F0 /* ALConversationClientService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5E626CB76B3213CE6181D5E7C28BD2A /* FBSDKInternalUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 62B769B74E209DDEDB402218DC09B57C /* FBSDKInternalUtility.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		A619FEAEBD936917BEEEDB6154D6256F /* dzn_icn_toolbar_forward@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = EFD78A02364782C1AE5A2A621D159EA3 /* dzn_icn_toolbar_forward@3x.png */; };
@@ -668,9 +669,9 @@
 		AA9487F1ABCF4698BD6A6F8F54E247E7 /* FBSDKLikeDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 88072C6A4EAC4597BE7A8BF9D7A0B735 /* FBSDKLikeDialog.m */; };
 		AAB80A4E388CC1D74A755A6F5D67DD62 /* ISMessages.h in Headers */ = {isa = PBXBuildFile; fileRef = 92F63A46683BB23DDD5EDE6583350ECB /* ISMessages.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AAE972EF1A55EEE30B116B272BF7E366 /* FBSDKShareLinkContent+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 4A1461E29B2649E93658CECA548ECE8F /* FBSDKShareLinkContent+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AB0A7E26E5DF1D0B6D0A89A603CD1ED7 /* JTHorizontalCalendarView.h in Headers */ = {isa = PBXBuildFile; fileRef = AC2391804C67AD9963E803DFC22B3D4A /* JTHorizontalCalendarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		AB328F1EB330588ED711C6E7F00C001F /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D08BAEF981DD1C59CF4E0E89239A9AF4 /* AddressBookUI.framework */; };
 		AB859DD367036A83C6C5BAB558EC7929 /* FBSDKGraphRequestDataAttachment.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DE0FAB5195F1E94ECD2F0DBEF9A4C9C /* FBSDKGraphRequestDataAttachment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ABB7F7F599AAD2C927A51455AA1F2D35 /* JTCalendarScrollManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E8139D2A35FFD553944C2506180472A3 /* JTCalendarScrollManager.m */; };
 		ABD9785050E3B83CD7379B792B417396 /* Contacts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DFD366EA95EF882C6946FE33B3754C7 /* Contacts.framework */; };
 		AC469BF5C1C9CEEF508EE1ED60F73768 /* SDWebImageDownloaderOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D6FA452F7A4F872EFAEC12A90F7D6C8F /* SDWebImageDownloaderOperation.m */; };
 		ACFF7D46B812B83F872A308006022C32 /* FBSDKBoltsMeasurementEventListener.h in Headers */ = {isa = PBXBuildFile; fileRef = F476131235E10B96093893390E262858 /* FBSDKBoltsMeasurementEventListener.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -697,7 +698,6 @@
 		B12E34BF9032C23F6E00182698097E59 /* FBSDKAppLinkResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = F9E47B7229471B215A66B5AEB7805E62 /* FBSDKAppLinkResolver.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B16A078FC7FBC172A266A336AEF7F673 /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = DEA9B19F12A1E59CA48C9DB9074C1E9D /* UIRefreshControl+AFNetworking.m */; };
 		B19A8410C2D95EFFAA90118E1AFF7F73 /* ISMessages-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4830986D98CA97BE1FD510C600498921 /* ISMessages-dummy.m */; };
-		B1AE74BF07E7402C9C45F6DD9B337C60 /* JTHorizontalCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B65F9A64BB6D623ADEE807E3EFE848 /* JTHorizontalCalendarView.m */; };
 		B1F94922B5746AF67E95662B33EB0EC7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31138DF66733702F7D8BA47CE7F67EA /* Foundation.framework */; };
 		B221A76AAA75BA10184E9746602A778C /* STTwitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 73EFCEBC11DBD23D7BE2FD03D9363F78 /* STTwitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B27BADF0DBE671641878EB74830F40F4 /* ALConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = BEEDC5BB913700F1EBF25996ACCEBBC9 /* ALConnection.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -707,9 +707,11 @@
 		B2AD4D098642F111DC1DDB0550BA9EDF /* FBSDKURLSessionTask.m in Sources */ = {isa = PBXBuildFile; fileRef = F31EE54B614EB5EE4E50C33432DEECE6 /* FBSDKURLSessionTask.m */; };
 		B2BB5A22DF4CF4C2479819C4E7157011 /* ALChannelUserX.h in Headers */ = {isa = PBXBuildFile; fileRef = 11362B7CC6041E6D8714B1DED115668D /* ALChannelUserX.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B2CA7FC41622904417A5382B4B2478C8 /* FBSDKBridgeAPIProtocolWebV1.m in Sources */ = {isa = PBXBuildFile; fileRef = 04D8780309135B9AD87E806D46750B19 /* FBSDKBridgeAPIProtocolWebV1.m */; };
+		B314AF5162665C79E15AD40098948D96 /* JTCalendarWeekDayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 83B9A46AA1DA014B435A32113DF72FC9 /* JTCalendarWeekDayView.m */; };
 		B3266E88D0D7F9DFE445ACA63CCC2346 /* ALVCardClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 811E98DA88E25E6AE791A4289B5CA107 /* ALVCardClass.m */; };
 		B33DE9765DA35480CEFD3C2AF4C31E02 /* DZNPolyActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = A1554383FBFB5095DC43DE942233B884 /* DZNPolyActivity.m */; };
 		B38C06449C1F05984F200945804EEE42 /* ALUserService.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C6A38D936FABF4BF2FC58045596BE0 /* ALUserService.m */; };
+		B3916040717DB6828E733D3DF2E0A644 /* JTCalendarPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 74DA5EE4DB50C2923EB59DC9C4E0CCC5 /* JTCalendarPageView.m */; };
 		B42A9495A77E2359F87812387353E210 /* IQBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E875F1F9F7DD4D868818B5C114E34F75 /* IQBarButtonItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B452028FF0D94E86873C2D723E9328E3 /* NSString+Encode.m in Sources */ = {isa = PBXBuildFile; fileRef = 91DD294A4F1CD3EFB27FB6427097AE76 /* NSString+Encode.m */; };
 		B4A58B2ECFE7BDD6EE1E8B1C66EA92EE /* FBSDKButton+Subclass.h in Headers */ = {isa = PBXBuildFile; fileRef = EA4050A0AE991F1884CD00512E00D6C7 /* FBSDKButton+Subclass.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -725,7 +727,6 @@
 		B7748501FC74B26C8198A3D4D8653A72 /* FBSDKMaleSilhouetteIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = B4576A36D5A91185C846204644515F9F /* FBSDKMaleSilhouetteIcon.m */; };
 		B78606F27DAE8B90256AC3F8122F90CB /* MQTTSSLSecurityPolicy.h in Headers */ = {isa = PBXBuildFile; fileRef = E3E2E6068408E85FC3D1490B2D5F024C /* MQTTSSLSecurityPolicy.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B83E822E44260B3A7958F63DD3F781CA /* FBSDKSystemAccountStoreAdapter.h in Headers */ = {isa = PBXBuildFile; fileRef = D9C74D76CD0C0BE80AB262E425C8F189 /* FBSDKSystemAccountStoreAdapter.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		B85E7EBCC814FDF7A75E6E6B2528300C /* JTCalendarPageView.h in Headers */ = {isa = PBXBuildFile; fileRef = FD04FA9785D3F9415DBF7DB21EDF388F /* JTCalendarPageView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B87AD5EB94596D230F8BB45673D48D37 /* STTwitterAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 423A1E84D2BC09A8B8FE0835DBBB5778 /* STTwitterAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B88806B6E785F6F567FD31152D9F588A /* NSString+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 07D85E5CC51018FCFC243133630B885D /* NSString+STTwitter.m */; };
 		B8B5E81F27C0950858735168BBB1EE25 /* ALRegistrationResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 59E7578A3D0F8AA91881A6E7EC11C6FE /* ALRegistrationResponse.m */; };
@@ -752,6 +753,7 @@
 		BF041E409908C172B805888F932436C2 /* FBSDKAccessTokenCaching.h in Headers */ = {isa = PBXBuildFile; fileRef = 0BE250F29550CD722205F2FA5EB21786 /* FBSDKAccessTokenCaching.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		BF53FDEBBD335143E819283E5CB6BC3F /* isWarningIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = D719982ED005BE42E659D793B0D02A38 /* isWarningIcon.png */; };
 		BF735D77A283B9B04A1AD6F6DA9FECBB /* STTwitterOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 957C0D7BD4E19BD00FF79B88B1D3740F /* STTwitterOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BFD75AA9E3880BD461D3064EF4E19DB8 /* JTVerticalCalendarView.h in Headers */ = {isa = PBXBuildFile; fileRef = 380A7F5AA4BFBDE366F5F11DDCA132B2 /* JTVerticalCalendarView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C003ADAC058AAD4DE03EE20840262ABF /* isSuccessIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D8A2C42FF694811BAD113EEA76A8341E /* isSuccessIcon@2x.png */; };
 		C0649FAC25FD24576851F732CF336A15 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 408DD8310DF813E000376920AF5BDA49 /* en.lproj */; };
 		C0AF552CC217EF2EF5D688DEDAFCF8FF /* FBSDKContainerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = BD2C5D5DBEDB1B8AF627308ED57C4636 /* FBSDKContainerViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -771,7 +773,6 @@
 		C43A928FAA74A6FCDA5342E9394E3D92 /* dzn_icn_toolbar_stop@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 40882B10FA5190A288E8C5D32B1CAD05 /* dzn_icn_toolbar_stop@2x.png */; };
 		C4A0D701D8D3332CD19546FA6DF76E6A /* FBSDKShareCameraEffectContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C8159B62A4CCAA418D4C7269865313 /* FBSDKShareCameraEffectContent.m */; };
 		C4A7B514D46C998C5DF8A0D6C7C99B4B /* FBSDKVideoUploader.h in Headers */ = {isa = PBXBuildFile; fileRef = A40139036AE038347B1EF2FB07BAE50F /* FBSDKVideoUploader.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C5CCE940B14C4D622CBBDF06499CB96C /* JTCalendarWeekDayView.h in Headers */ = {isa = PBXBuildFile; fileRef = BBFC850DAF94F610FD7477CC901732CF /* JTCalendarWeekDayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C62DAE117DC7D30F62E56F56C6683697 /* NSDateFormatter+STTwitter.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A1021950E56DE13DDCB9166560AC417 /* NSDateFormatter+STTwitter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C6509BA2D1C765863F908C693C846FBE /* ALMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F41CD5EBA4FE19C18B3C31B6F77B6A9 /* ALMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C67FD020C66720FA9FC90CA59D6E8168 /* STTwitterOAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = 67C6E0B34DA5C3FFD7A2472423AEB9D0 /* STTwitterOAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -798,6 +799,7 @@
 		CB04742481BF8ABECD0596F2EFF4F675 /* FBSDKTypeUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = F7886A819A4746CDD42693BA4F951716 /* FBSDKTypeUtility.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CB0CA0C3EF2349D1842379874513F870 /* FBSDKApplicationDelegate+Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 2F7A7335857BFA1E3E60D3294968837C /* FBSDKApplicationDelegate+Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		CB2416FCF99E61625C582F954CF88378 /* FBSDKAccessTokenCacheV3_17.h in Headers */ = {isa = PBXBuildFile; fileRef = AC4A1FC5BAA36D7338AC0D0D7955F80A /* FBSDKAccessTokenCacheV3_17.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CB49B851E1D22A9F04A5408C21ED4137 /* JTVerticalCalendarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B571A260EA6B3292E487D34092943F8D /* JTVerticalCalendarView.m */; };
 		CBF7E3E172563DD1AB1CD5D81B18409C /* STTwitterOSRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 7DF3CF2043C745E9EEAD3DE32BF97D7D /* STTwitterOSRequest.m */; };
 		CC0976E2F7E76706B1793E137ECD05BF /* SCFacebook-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C860865E59069684E87547423AFF5B0 /* SCFacebook-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CC1CCFB5CB30E53FDB12A55769070A2E /* ALChannelDBService.h in Headers */ = {isa = PBXBuildFile; fileRef = F58A1915FA68D5E0A81E187481316968 /* ALChannelDBService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -820,11 +822,11 @@
 		D09627F6419B41FF42D89103525DC72D /* FBSDKConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = D43AAB14EE5ED7260E72743386664837 /* FBSDKConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D0F1ADBA3AEB81A595C9A311EB242FD4 /* MQTTInMemoryPersistence.h in Headers */ = {isa = PBXBuildFile; fileRef = 6D603241155E89A2947AD379389A2A68 /* MQTTInMemoryPersistence.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D111B0B7BD6CD54C08FB550578EE2436 /* STHTTPRequest+STTwitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 75E72AE83EF6E957B366CEDA4FFD1E5A /* STHTTPRequest+STTwitter.m */; };
+		D1AE1C1C29836A4C9BE54E8CDFB948C0 /* JTContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 128D09A0FE642523DF4CCBA683D030D1 /* JTContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D1C236E84493A44774E00E724448B388 /* FBSDKLikeActionControllerCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 44F4EAACB64FA6178C23ACC31D389412 /* FBSDKLikeActionControllerCache.m */; };
 		D1EB03C045296D63C0AAE72885BADE7E /* MQTTSessionLegacy.m in Sources */ = {isa = PBXBuildFile; fileRef = AE7430020C44810F82934F98F9F55E3F /* MQTTSessionLegacy.m */; };
 		D34926DFF95BCEAE62FB2CF9CEF97103 /* FBSDKBase64.h in Headers */ = {isa = PBXBuildFile; fileRef = 191F8C17ABEFFBBDD562025887DC5684 /* FBSDKBase64.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D34B37841D3A136E6D5507D4E842C9EA /* FBSDKLoginConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1611D3D93B31F4142233F8C0AD994C /* FBSDKLoginConstants.m */; };
-		D374106884A499EE1F5A3EA76D8C3C12 /* JTDateHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCBB1FD7F6AD8C91B078C1C7AFB5D794 /* JTDateHelper.m */; };
 		D420B56EA23E09FDC6C41F5BBFB3988C /* FBSDKLikeButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 7F69D444B1551DEBD0148BDEF898AD39 /* FBSDKLikeButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D457A5A114D943A8D09640345901C412 /* ALVOIPNotificationHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 89476381CF6F1A58F76BDD8FCE2D896D /* ALVOIPNotificationHandler.m */; };
 		D4E80BD7EAAB83200183110578A80591 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 88D5331CE408A0A9642660CB38F5F327 /* AFURLSessionManager.m */; };
@@ -833,13 +835,11 @@
 		D66C29416BF56599D5F45D141A9B7347 /* SVProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 86A07ACED995C0338607B441BCE0F83E /* SVProgressHUD-dummy.m */; };
 		D68EA326DCF2C25BE1F4A63B3BF171B4 /* FBSDKSharingContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 2DB80ECC000A662D8B102A63C7369788 /* FBSDKSharingContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D68EEBB94A57F615DDF43211FECA234B /* ALUserDetail.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E19BBF108BEB211004A2B5E14CA010D /* ALUserDetail.m */; };
-		D6B5C260BBD35416E3A8EECCEFB6A184 /* JTMenu.h in Headers */ = {isa = PBXBuildFile; fileRef = D5B98AFB134384EAC89417C97D87EAE5 /* JTMenu.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D70184976E98F7A54379726A808CA40C /* FBSDKShareLinkContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 85C9CBD37995B7E4323C1008E39B0771 /* FBSDKShareLinkContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D733DD84BB35E854E467485BC53D6C4C /* FBSDKLoginManagerLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 29FEC0EBB6AD391E622B9311410BA6A8 /* FBSDKLoginManagerLogger.m */; };
 		D7A3784AF85AB0DB34DEAA15B60F0E6A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31138DF66733702F7D8BA47CE7F67EA /* Foundation.framework */; };
 		D7B75689FA51088F09CD54B10583D792 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F2622E163E697FCB7FDA51AC49CA7FEA /* SDWebImage.framework */; };
 		D7BC7C7481038F381F27E8D211958A17 /* ALChannelMsgCell.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8651EC45622F8B391EC355D111C902 /* ALChannelMsgCell.m */; };
-		D7EB61916DDC2CFFB93B1931132D0320 /* JTCalendarDayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 573A7C1BE1F674BA1182F06CA99FE947 /* JTCalendarDayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D86B769C88279BECCFC8EC13C330C422 /* ALChannelService.m in Sources */ = {isa = PBXBuildFile; fileRef = 268424B73F494D2A6DF759263796C5BD /* ALChannelService.m */; };
 		D88F57B84BA0AC2893BA7163946BFA1A /* ALContactService.h in Headers */ = {isa = PBXBuildFile; fileRef = 5890BFB097D7D71D03945F370BADF525 /* ALContactService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D8AE3216969EC91D7CDE8D7D25B48500 /* ALConversationService.m in Sources */ = {isa = PBXBuildFile; fileRef = B47D00ED85FA994D5476296028F0230A /* ALConversationService.m */; };
@@ -854,9 +854,9 @@
 		DAA7FD97F4B87EBD2BC1C7F45157B864 /* SCLAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B101D229C025BAF95C3A1306EB85012 /* SCLAlertView.m */; };
 		DC07AD9CF4D40744B0E24587710133AC /* FBSDKPaymentObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 96B14759E847A158BFB8140570E1756E /* FBSDKPaymentObserver.m */; };
 		DD3A309FA23349B5C8C84AA6F9D24CF9 /* FBSDKGraphRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = 74F7670D65557BE569B4C28F2B4D80AB /* FBSDKGraphRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DD46ED3E8210670622678094C2CE52BC /* JTCalendarMenuView.h in Headers */ = {isa = PBXBuildFile; fileRef = 11777BBFA9627646DAAB8BF82C86D7C7 /* JTCalendarMenuView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD887A93A200A87A51B3D00BD1B80D20 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D90B743F133BA449AC2E4BBF395987C5 /* AFNetworkReachabilityManager.m */; };
 		DE2ABABAFC09F86C4DF77CA04DCA2EED /* FBSDKSharePhotoContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 063A91857F745585EDA01EEE0B0F033A /* FBSDKSharePhotoContent.m */; };
-		DE7122E15C59D25BA0899EBDCBB017C0 /* JTCalendarDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 78CD21250D0E084FBDDF5BB20D9535BF /* JTCalendarDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DF1DAC67966F6EC8D1CD4FC3DDA389CB /* ALConversationClientService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF3774930222A1F238CCAACC2F0D75B /* ALConversationClientService.m */; };
 		DF9411E7ADBB35ECDE812A93C46DDB34 /* HexColors.h in Headers */ = {isa = PBXBuildFile; fileRef = 6DEAC1450AFEEE613E6174D7A4E7DC10 /* HexColors.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DFA0B0C7EC02135911CACDAFD38BE715 /* JSONValueTransformer.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C6A5287789E34A2E1CC5F3B64E3FBF3 /* JSONValueTransformer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -868,7 +868,7 @@
 		E113286DF709E35DE1BB6D460C8DA40D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F31138DF66733702F7D8BA47CE7F67EA /* Foundation.framework */; };
 		E12BDFD0D5C5D99D493903234DEEEB13 /* SCLSwitchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F4DBA2370A17B6F1F077CF17C41F46C /* SCLSwitchView.m */; };
 		E17FC6C2C7A76B443D4536DA6D7FAC3E /* _FBSDKLoginRecoveryAttempter.m in Sources */ = {isa = PBXBuildFile; fileRef = A51080FA4A328354E39BABC54FAFF768 /* _FBSDKLoginRecoveryAttempter.m */; };
-		E1838A533D456F91341DAC7A4AF2A536 /* JTCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 54ADE4AAB3465859BB8B0954763B7408 /* JTCalendar-dummy.m */; };
+		E1838A533D456F91341DAC7A4AF2A536 /* JTCalendar-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A38255F9CE722A39116833A88C9E14B /* JTCalendar-dummy.m */; };
 		E1BC6438C99030DAAF2D07FC3BA4BE93 /* FBSDKShareOpenGraphContent.h in Headers */ = {isa = PBXBuildFile; fileRef = 77DA3014AF43B85DD60F46F8BCFFB2DD /* FBSDKShareOpenGraphContent.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E1DFE32B96F1D6C882593F4AE76125D6 /* FBSDKShareError.h in Headers */ = {isa = PBXBuildFile; fileRef = A150D35F572FB57F54A364BE700E86F1 /* FBSDKShareError.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		E1FAFAA6829FF0012FD23BF2FE15333A /* ALContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E2DD3A20D428DC9110B93950D0BD32A /* ALContact.m */; };
@@ -890,7 +890,6 @@
 		E4BB5E06E7D57A8F7CC55B1ACB465184 /* FBSDKShareVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = A387AE1F5E7D8EE751DCEAAED6640FDF /* FBSDKShareVideo.m */; };
 		E4D4B08C25DC217616E9AD429A50BE2C /* HexColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 615405854AF42EB6AF91C24557120755 /* HexColors.m */; };
 		E550C2AD10B47AE5E2DE1E1533953499 /* FBSDKLoginManager.h in Headers */ = {isa = PBXBuildFile; fileRef = C2B4741E3CE76E7297AF376110EA27DE /* FBSDKLoginManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E5C78AFE249A73E2D3ABF80C3C36BA25 /* JTCalendarPageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 92720542D7B257CBEF3982990DF6E7BE /* JTCalendarPageView.m */; };
 		E5CDA53FCBB11438A4D7D58C9848589C /* SDImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 9E3F3B1A13785545E3A89F64A5AC6F3C /* SDImageCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E617AC9A647AE498876D29B55A57375F /* ALLastSeenSyncFeed.h in Headers */ = {isa = PBXBuildFile; fileRef = 897D6859A315B7C796AC71B84379E623 /* ALLastSeenSyncFeed.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E626D1F5F0DC01ADCFD780321D0D6FC5 /* ALReachability.m in Sources */ = {isa = PBXBuildFile; fileRef = B034DCF45EBFF5A50155C27DB9C825A1 /* ALReachability.m */; };
@@ -917,7 +916,6 @@
 		EB2CF17870BB89A3EB473DBFE8C3D249 /* FBSDKDialogConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE098B03E10C8F6A09D06E10525A71D /* FBSDKDialogConfiguration.m */; };
 		EBD5F45653CD0BD8408D45CFA6449566 /* ALUtilityClass.h in Headers */ = {isa = PBXBuildFile; fileRef = F773E36BDEDD620F20244A23F9891C65 /* ALUtilityClass.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EC6249C07DB399B855405D2C9394F13F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 455B4199F2BD3809F39333411600C767 /* Images.xcassets */; };
-		ECB4D70B1AD82ACD5ED6185C8491A588 /* JTCalendarSettings.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D999CC6C1B674FE05FF6A66CE85745A /* JTCalendarSettings.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECBE34745F9E2C816990E74DF645836A /* MQTTSSLSecurityPolicyDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 88C8DCA59BDFC8D900674BDB3D4EE82A /* MQTTSSLSecurityPolicyDecoder.m */; };
 		EDEF0E4FC0C9F00D3265ED2C10D98419 /* BFAppLinkReturnToRefererView_Internal.h in Headers */ = {isa = PBXBuildFile; fileRef = 3FC073270E2BA38E8B533736D6207B25 /* BFAppLinkReturnToRefererView_Internal.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		EE0EECF23E214900C0D675CAEB98C376 /* FBSDKAppEventsState.m in Sources */ = {isa = PBXBuildFile; fileRef = 26913372D86156F320E49E754296C9C4 /* FBSDKAppEventsState.m */; };
@@ -936,11 +934,12 @@
 		F275D2BC730A21CDE42121FB1340DAAC /* FBSDKAppEvents.m in Sources */ = {isa = PBXBuildFile; fileRef = 38554A123024EDAFD99151F4FD4E1941 /* FBSDKAppEvents.m */; };
 		F2C7932465662C25B5C3E35A215CEFB1 /* BFMeasurementEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = 92BE2109EDFE32DF7D8401662EF59D63 /* BFMeasurementEvent.m */; };
 		F2D899C7AA0D7FC20160091BB9D31CF3 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = BB019B5A82448AC40AD7B45CEC8364FE /* UIImageView+AFNetworking.m */; };
+		F359A17C6620C1648BB8B72A97146F42 /* JTCalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 79942270ADF77E3AD10859E0418B3E9B /* JTCalendarManager.m */; };
 		F3674056E48029678440C2E2EA585232 /* ALConversationProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = E662704999B719B6032DF5D761B2A106 /* ALConversationProxy.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F378B28718CFFC9D0DF5E489A5A6915D /* JTCalendarDay.h in Headers */ = {isa = PBXBuildFile; fileRef = 4435B7E777F5A716E6A5A1C60DB55D4A /* JTCalendarDay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		F3839221AF40109FBFF1CD2D402D61CD /* ALAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 159D796821CBCF235DA0A7E2D8C1AF30 /* ALAPIResponse.m */; };
 		F3E6A3F99D1670F8E3356388271EE209 /* FBSDKLikeDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = 1EF6E03403A5E9D22D37DDBCA5829641 /* FBSDKLikeDialog.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F4159EACE41534062D5602A93F5EDCC0 /* MQTTSSLSecurityPolicyEncoder.h in Headers */ = {isa = PBXBuildFile; fileRef = EF433B5AD3CD028D1131D41D31152B13 /* MQTTSSLSecurityPolicyEncoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F49C48CE2C00DA8FAB63DB9D7FD9C6BC /* JTCalendarScrollManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DA35BB4F1CD2384FB0CC80E99E5651C /* JTCalendarScrollManager.m */; };
 		F4A44D3ED358E7E359FD2B0CE7E0FB3E /* IQUIWindow+Hierarchy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8954BCA6A60A9D66AB16A61DC3899139 /* IQUIWindow+Hierarchy.m */; };
 		F4B07E33E1033643EA1D8032FA001CFC /* FBSDKAccessTokenCacheV3.h in Headers */ = {isa = PBXBuildFile; fileRef = 843016929730B900CC7985239C0FC3F0 /* FBSDKAccessTokenCacheV3.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		F5D4FEEB0A944DA44B269F85E03535C4 /* FBSDKShareKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 92F87A7CF122D30B32836D70A71793F2 /* FBSDKShareKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -969,6 +968,7 @@
 		FB0C3B4CBF3C337B1F8116BF2D517240 /* FBSDKLiking.h in Headers */ = {isa = PBXBuildFile; fileRef = F46F610E66474AB32D6E7A281EFE88E7 /* FBSDKLiking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB32A89DDF6EDADAC4CC1435A62E6DBA /* ALUserProfileVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF521437EF662E0C6C02287D95E86783 /* ALUserProfileVC.m */; };
 		FB4F2A82F4A33C9976BBA198453C6534 /* ALUtilityClass.m in Sources */ = {isa = PBXBuildFile; fileRef = BF6446EC827A7D8A65EBBE6F57392F4E /* ALUtilityClass.m */; };
+		FB7B7935E8D49CEECA76351C2E627A1A /* JTCalendarDayView.h in Headers */ = {isa = PBXBuildFile; fileRef = FA2C6650C7C4B316C0DF9643CB4102D2 /* JTCalendarDayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FB827E52CC9231D0B48849B16F0274E7 /* ALConversationCreateResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 8D098B70A53DB8175CBE53F26DEFCDBD /* ALConversationCreateResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FBCF5A7BB1CC9311E5C401B76A6AFE30 /* TPPropertyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B74B5114AEB0B706CAC35063BBA66A /* TPPropertyAnimation.m */; };
 		FC4075EACD704D89455868099DA684B2 /* UIImageView+WebCache.h in Headers */ = {isa = PBXBuildFile; fileRef = A189EAB1E78DE3F80909329C9FD2A104 /* UIImageView+WebCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1213,16 +1213,18 @@
 /* Begin PBXFileReference section */
 		0074EDADDB42FD8C59B5164C68F732B0 /* FBSDKLoginButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKLoginButton.h; path = FBSDKLoginKit/FBSDKLoginKit/FBSDKLoginButton.h; sourceTree = "<group>"; };
 		00DEF37154F45214F59CFDDE385AA0AC /* FBSDKAppInviteContent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKAppInviteContent.m; path = FBSDKShareKit/FBSDKShareKit/FBSDKAppInviteContent.m; sourceTree = "<group>"; };
+		00E1595574D72494554E8FCEDF5E50EB /* JTCalendarSettings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarSettings.h; path = JTCalendar/JTCalendarSettings.h; sourceTree = "<group>"; };
 		013EF25A7131DEA3304F17ABB250E090 /* ContactsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ContactsUI.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/ContactsUI.framework; sourceTree = DEVELOPER_DIR; };
 		0188EDF69CF5CD1A859C38A8940D0A5D /* ALConversationProxy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALConversationProxy.m; path = Applozic/ALConversationProxy.m; sourceTree = "<group>"; };
 		019D3CE990122C5234CE2986CD318DAF /* FBSDKGraphRequestPiggybackManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKGraphRequestPiggybackManager.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/Network/FBSDKGraphRequestPiggybackManager.h; sourceTree = "<group>"; };
-		0277F817F5394E1E6D2768B1A7EEB462 /* JTCalendarDayView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarDayView.m; path = jtcalendar/views/JTCalendarDayView.m; sourceTree = "<group>"; };
 		02B90F720889B5F62D1CFDA66653B9FE /* FBSDKMessageDialog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKMessageDialog.h; path = FBSDKShareKit/FBSDKShareKit/FBSDKMessageDialog.h; sourceTree = "<group>"; };
 		0309974F3E5B4FAC7BD77E637648E1A9 /* NJKScrollFullScreen.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = NJKScrollFullScreen.h; path = NJKScrollFullScreen/NJKScrollFullScreen.h; sourceTree = "<group>"; };
 		0330609335F93A29C27E7763240751DD /* ALMuteRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALMuteRequest.h; path = Applozic/ALMuteRequest.h; sourceTree = "<group>"; };
+		03DAC5D30C24584CC9D822333E7F1738 /* JTCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTCalendar-umbrella.h"; sourceTree = "<group>"; };
 		0454EAE8CAE099E1B73042327BF87F31 /* ALPushAssist.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALPushAssist.m; path = Applozic/ALPushAssist.m; sourceTree = "<group>"; };
 		0472E86836E58F932EDB09FC31CB4A45 /* BFAppLinkReturnToRefererController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFAppLinkReturnToRefererController.h; path = Bolts/iOS/BFAppLinkReturnToRefererController.h; sourceTree = "<group>"; };
 		0494E056CAA991566BB1EDE4ACD7FDC7 /* ALCollectionReusableView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALCollectionReusableView.m; path = Applozic/ViewControllers/ALCollectionReusableView.m; sourceTree = "<group>"; };
+		0494FFC72DDEB982BC00967708685BD6 /* JTCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTCalendar-prefix.pch"; sourceTree = "<group>"; };
 		049598B16FA87064FF887FA2960AD4EE /* DB_Message.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DB_Message.h; path = Applozic/DomainClasses/DB_Message.h; sourceTree = "<group>"; };
 		04989CB1DCC57899A76A81F82DE79EBE /* FBSDKBridgeAPIProtocolNativeV1.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKBridgeAPIProtocolNativeV1.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/BridgeAPI/ProtocolVersions/FBSDKBridgeAPIProtocolNativeV1.m; sourceTree = "<group>"; };
 		04B6104383873D6F6B48DECB27C7054D /* FBSDKErrorRecoveryAttempter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKErrorRecoveryAttempter.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/ErrorRecovery/FBSDKErrorRecoveryAttempter.h; sourceTree = "<group>"; };
@@ -1245,6 +1247,8 @@
 		07E66DFDA5D15378024F412B5A804A75 /* FacebookSDKStrings.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; path = FacebookSDKStrings.bundle; sourceTree = "<group>"; };
 		07F72D2EEE4D1FD47FF8C4B4ED5025F9 /* dzn_icn_toolbar_reload@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_reload@2x.png"; path = "Source/Resources/dzn_icn_toolbar_reload@2x.png"; sourceTree = "<group>"; };
 		08663B72439E98F27DCEF4DCDCA3243E /* SCLTimerDisplay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLTimerDisplay.h; path = SCLAlertView/SCLTimerDisplay.h; sourceTree = "<group>"; };
+		086C4FAAB6A5471E523AC4E2CCE8337B /* JTCalendarPage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarPage.h; path = JTCalendar/Protocols/JTCalendarPage.h; sourceTree = "<group>"; };
+		088A512CC79B89A51B9F66A1530559FC /* JTCalendarWeek.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarWeek.h; path = JTCalendar/Protocols/JTCalendarWeek.h; sourceTree = "<group>"; };
 		08965803FDEF6023CC429F7D87F03335 /* SCLAlertView-Objective-C-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SCLAlertView-Objective-C-dummy.m"; sourceTree = "<group>"; };
 		08B21DC6AFB3EEB62864FDD9C221365D /* ALBaseViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALBaseViewController.h; path = Applozic/ViewControllers/ALBaseViewController.h; sourceTree = "<group>"; };
 		08DCFC13CB7F5CCE003737CF2A0E41F6 /* DZNWebViewController.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = DZNWebViewController.framework; path = DZNWebViewController.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1274,6 +1278,7 @@
 		0ED98962FE772BF727A7B551A110BC91 /* FBSDKAppEventsDeviceInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKAppEventsDeviceInfo.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/AppEvents/FBSDKAppEventsDeviceInfo.h; sourceTree = "<group>"; };
 		0F2FADE5DCC252E56056F4E9D5DF5573 /* CCBottomRefreshControl-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "CCBottomRefreshControl-dummy.m"; sourceTree = "<group>"; };
 		0F356499D9F101E0374AA3867D73743A /* FBSDKInternalUtility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKInternalUtility.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKInternalUtility.m; sourceTree = "<group>"; };
+		0F425FA745528107542BEB00F6A3A3FA /* JTCalendarSettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarSettings.m; path = JTCalendar/JTCalendarSettings.m; sourceTree = "<group>"; };
 		0F4DBA2370A17B6F1F077CF17C41F46C /* SCLSwitchView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLSwitchView.m; path = SCLAlertView/SCLSwitchView.m; sourceTree = "<group>"; };
 		0FACC624AC50CAAE761B2EC76921B865 /* AFNetworking.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = AFNetworking.modulemap; sourceTree = "<group>"; };
 		0FDB11C746B134AFD03A9F8C21C096E4 /* JSONModelError.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONModelError.m; path = JSONModel/JSONModel/JSONModelError.m; sourceTree = "<group>"; };
@@ -1282,8 +1287,10 @@
 		10F803B6AF2D9426EF184EDDF9EFC048 /* FBSDKServerConfigurationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKServerConfigurationManager.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/ServerConfiguration/FBSDKServerConfigurationManager.h; sourceTree = "<group>"; };
 		112FD5D831CCF421549D9D70058CC581 /* isWarningIcon@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "isWarningIcon@3x.png"; path = "ISMessages/Assets/isWarningIcon@3x.png"; sourceTree = "<group>"; };
 		11362B7CC6041E6D8714B1DED115668D /* ALChannelUserX.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALChannelUserX.h; path = Applozic/ALChannelUserX.h; sourceTree = "<group>"; };
+		11777BBFA9627646DAAB8BF82C86D7C7 /* JTCalendarMenuView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarMenuView.h; path = JTCalendar/Views/JTCalendarMenuView.h; sourceTree = "<group>"; };
 		1232C34269DB0B67DE3BC98C4FF0EC08 /* JSONHTTPClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONHTTPClient.h; path = JSONModel/JSONModelNetworking/JSONHTTPClient.h; sourceTree = "<group>"; };
 		1238C691C84687C96298277C18439480 /* FBSDKBridgeAPIResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKBridgeAPIResponse.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/BridgeAPI/FBSDKBridgeAPIResponse.h; sourceTree = "<group>"; };
+		128D09A0FE642523DF4CCBA683D030D1 /* JTContent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTContent.h; path = JTCalendar/Protocols/JTContent.h; sourceTree = "<group>"; };
 		12B8D95E241A16D061F69F435E6373AC /* DB_CHANNEL.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DB_CHANNEL.h; path = Applozic/DB_CHANNEL.h; sourceTree = "<group>"; };
 		133C61C58CD378B60FEA0562B61A3290 /* ALMessageInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALMessageInfo.m; path = Applozic/ALMessageInfo.m; sourceTree = "<group>"; };
 		1375C9CA1143B4B0740C8F7A1EAD05B8 /* ALUserDetailListFeed.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALUserDetailListFeed.h; path = Applozic/ALUserDetailListFeed.h; sourceTree = "<group>"; };
@@ -1317,6 +1324,7 @@
 		1B1E8F435D5CD60C42E492179D5C125F /* MQTTSession.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTSession.h; path = Applozic/MQTT/MQTTSession.h; sourceTree = "<group>"; };
 		1B6BCC5AE05B1184A12A85EF053FB283 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFSecurityPolicy.h; path = AFNetworking/AFSecurityPolicy.h; sourceTree = "<group>"; };
 		1B831DFBECD58C6C51DC3BDA76A360C3 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFSecurityPolicy.m; path = AFNetworking/AFSecurityPolicy.m; sourceTree = "<group>"; };
+		1B967A7248AC214AD07ADDF08A204FFC /* JTHorizontalCalendarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTHorizontalCalendarView.m; path = JTCalendar/Views/JTHorizontalCalendarView.m; sourceTree = "<group>"; };
 		1B9B0231CB3860BC54AA3C4E230E2D93 /* ALImageActivity.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALImageActivity.h; path = Applozic/ViewControllers/ALImageActivity.h; sourceTree = "<group>"; };
 		1C2A9E0BB5025FF1BA83E1815AFB91FC /* FBSDKApplicationDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKApplicationDelegate.h; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKApplicationDelegate.h; sourceTree = "<group>"; };
 		1C2BD3AE67589E029F267F41F1FF6204 /* FBSDKCoreKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = FBSDKCoreKit.modulemap; sourceTree = "<group>"; };
@@ -1361,7 +1369,7 @@
 		23154572598FD13DD77FEF9E5B41244D /* STTwitterHTML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STTwitterHTML.h; path = STTwitter/STTwitterHTML.h; sourceTree = "<group>"; };
 		239A15FE58ED7C1952A9EEA969F27C9D /* AlMultipleAttachmentCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AlMultipleAttachmentCell.m; path = Applozic/ViewControllers/AlMultipleAttachmentCell.m; sourceTree = "<group>"; };
 		24006D557CE9163637FD46F8AA8F2219 /* AFNetworkActivityIndicatorManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkActivityIndicatorManager.m; path = "UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m"; sourceTree = "<group>"; };
-		240F56DCE4E4EEC6DF63D70F61DB0AC6 /* JTCalendarScrollManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarScrollManager.h; path = jtcalendar/Managers/JTCalendarScrollManager.h; sourceTree = "<group>"; };
+		2467DD4B3A4CAE5D38FAFF03E17568FD /* JTCalendarPageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarPageView.h; path = JTCalendar/Views/JTCalendarPageView.h; sourceTree = "<group>"; };
 		2476D165C025D20BD96DDC412F4FF63B /* AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFNetworking.h; path = AFNetworking/AFNetworking.h; sourceTree = "<group>"; };
 		24FC4540D1CF92C6C0AD943C0736D0C8 /* FBSDKGraphRequestMetadata.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKGraphRequestMetadata.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/Network/FBSDKGraphRequestMetadata.m; sourceTree = "<group>"; };
 		250A3EC153C419B8AF168E7754F19286 /* BFAppLinkReturnToRefererView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFAppLinkReturnToRefererView.m; path = Bolts/iOS/BFAppLinkReturnToRefererView.m; sourceTree = "<group>"; };
@@ -1388,11 +1396,9 @@
 		28B4683FEDA1D6B40FF33BE7142EC39D /* UIViewController+NJKFullScreenSupport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIViewController+NJKFullScreenSupport.h"; path = "NJKScrollFullScreen/UIViewController+NJKFullScreenSupport.h"; sourceTree = "<group>"; };
 		28CCAB987876208D976ABA5BCA73FE05 /* FBSDKUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKUtility.h; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKUtility.h; sourceTree = "<group>"; };
 		28D36878AAC6704691EECAEA03DA1420 /* ALHyperLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALHyperLabel.m; path = Applozic/ALHyperLabel.m; sourceTree = "<group>"; };
-		292BE7F2AA75C37EE54D0C57D4183CFD /* JTVerticalCalendarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTVerticalCalendarView.h; path = jtcalendar/views/JTVerticalCalendarView.h; sourceTree = "<group>"; };
 		2965B220A78BE9E1344977DFCAE75CED /* NSString+Encode.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+Encode.h"; path = "Applozic/Utilities/NSString+Encode.h"; sourceTree = "<group>"; };
 		297F3AC2EA3FD16869C165ECA44C960F /* BFURL_Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFURL_Internal.h; path = Bolts/iOS/Internal/BFURL_Internal.h; sourceTree = "<group>"; };
 		29FEC0EBB6AD391E622B9311410BA6A8 /* FBSDKLoginManagerLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKLoginManagerLogger.m; path = FBSDKLoginKit/FBSDKLoginKit/Internal/FBSDKLoginManagerLogger.m; sourceTree = "<group>"; };
-		2A035E8091A2EFB869BE36E4DF92BA88 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2A44CEEFEB001775F67E4A6DACB8AA77 /* UIScrollView+BottomRefreshControl.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIScrollView+BottomRefreshControl.m"; path = "Classes/UIScrollView+BottomRefreshControl.m"; sourceTree = "<group>"; };
 		2A7E3A81EEC7CA2C746E4E4174865AC1 /* MQTTCoreDataPersistence.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MQTTCoreDataPersistence.m; path = Applozic/MQTT/MQTTCoreDataPersistence.m; sourceTree = "<group>"; };
 		2A864F86D7B6DE4914F222F077125490 /* ALVOIPNotificationHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALVOIPNotificationHandler.h; path = Applozic/ViewControllers/ALVOIPNotificationHandler.h; sourceTree = "<group>"; };
@@ -1400,7 +1406,6 @@
 		2BEB71024A432D026C7C592C9860039A /* Pods-IPundit-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-IPundit-resources.sh"; sourceTree = "<group>"; };
 		2D3C765CD0614C240F469C9A834461FF /* UIImage+GIF.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+GIF.m"; path = "SDWebImage/UIImage+GIF.m"; sourceTree = "<group>"; };
 		2D86C0EF0C2870B697B67E9AEF5188E0 /* FBSDKGameRequestDialog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKGameRequestDialog.m; path = FBSDKShareKit/FBSDKShareKit/FBSDKGameRequestDialog.m; sourceTree = "<group>"; };
-		2D999CC6C1B674FE05FF6A66CE85745A /* JTCalendarSettings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarSettings.h; path = jtcalendar/JTCalendarSettings.h; sourceTree = "<group>"; };
 		2D9BD59F7F7E9DE94FC54881AAB5C5A3 /* JSONModelLib.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModelLib.h; path = JSONModel/JSONModelLib.h; sourceTree = "<group>"; };
 		2DB80ECC000A662D8B102A63C7369788 /* FBSDKSharingContent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKSharingContent.h; path = FBSDKShareKit/FBSDKShareKit/FBSDKSharingContent.h; sourceTree = "<group>"; };
 		2E0DEEBFBB7BC4351BC7624E114F3907 /* FBSDKKeychainStore.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKKeychainStore.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/TokenCaching/FBSDKKeychainStore.m; sourceTree = "<group>"; };
@@ -1445,15 +1450,17 @@
 		3554176A74EF82D8E46AFB22FE856541 /* FBSDKShareDialog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKShareDialog.m; path = FBSDKShareKit/FBSDKShareKit/FBSDKShareDialog.m; sourceTree = "<group>"; };
 		35608E777F26EBA89D9E1AB12F38D81E /* DB_FileMetaInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DB_FileMetaInfo.m; path = Applozic/DomainClasses/DB_FileMetaInfo.m; sourceTree = "<group>"; };
 		35911BE705F39A5C829FB712C57E0CBF /* FBSDKBridgeAPIRequest+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBSDKBridgeAPIRequest+Private.h"; path = "FBSDKCoreKit/FBSDKCoreKit/Internal/BridgeAPI/FBSDKBridgeAPIRequest+Private.h"; sourceTree = "<group>"; };
-		35B9C93E0EF8E7E2F9292E106E253554 /* JTCalendarManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarManager.h; path = jtcalendar/JTCalendarManager.h; sourceTree = "<group>"; };
+		35C1CBF0ACF467A266053B8BED9DDFC5 /* JTCalendarDelegateManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarDelegateManager.h; path = JTCalendar/Managers/JTCalendarDelegateManager.h; sourceTree = "<group>"; };
 		35D93A76FF5A8B828B6AEE8427BDBD91 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		366756F0B2313FA516C57FA4C4C0B972 /* ALNewContactCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALNewContactCell.m; path = Applozic/Views/ALNewContactCell.m; sourceTree = "<group>"; };
 		36A90220AA6F0BAFBE5B394D1EAB926B /* ALLocationCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALLocationCell.m; path = Applozic/ALLocationCell.m; sourceTree = "<group>"; };
 		36EC582C026BC36DD9FA546B7923424C /* NSData+ImageContentType.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+ImageContentType.h"; path = "SDWebImage/NSData+ImageContentType.h"; sourceTree = "<group>"; };
 		36F53942CD57E568D52419B8128995E6 /* ALUIConstant.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALUIConstant.m; path = Applozic/ALUIConstant.m; sourceTree = "<group>"; };
+		380A7F5AA4BFBDE366F5F11DDCA132B2 /* JTVerticalCalendarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTVerticalCalendarView.h; path = JTCalendar/Views/JTVerticalCalendarView.h; sourceTree = "<group>"; };
 		38554A123024EDAFD99151F4FD4E1941 /* FBSDKAppEvents.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKAppEvents.m; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKAppEvents.m; sourceTree = "<group>"; };
 		38A052F61CD936FA8F1BD08534BFC2C9 /* FBSDKCameraEffectArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKCameraEffectArguments.h; path = FBSDKShareKit/FBSDKShareKit/FBSDKCameraEffectArguments.h; sourceTree = "<group>"; };
 		38B6AA1212831B143263FD11C25C192C /* ALMessageDBService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALMessageDBService.h; path = Applozic/ALMessageDBService.h; sourceTree = "<group>"; };
+		38E3E0FA63FF12CBB8E2FAB290F8001C /* JTCalendarDelegateManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarDelegateManager.m; path = JTCalendar/Managers/JTCalendarDelegateManager.m; sourceTree = "<group>"; };
 		390847F82B1F9A54666FA1C67722262C /* JSONAPI.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONAPI.h; path = JSONModel/JSONModelNetworking/JSONAPI.h; sourceTree = "<group>"; };
 		390F2C16298197379FF5F085793C9FC9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		394803DEEB06C922F0958D746645A5F4 /* ALUser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALUser.m; path = Applozic/DomainClasses/ALUser.m; sourceTree = "<group>"; };
@@ -1467,11 +1474,13 @@
 		3C58DDFFBC3CD6B0BAF1B7D014C4DB87 /* IQKeyboardManagerConstantsInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardManagerConstantsInternal.h; path = IQKeyboardManager/Constants/IQKeyboardManagerConstantsInternal.h; sourceTree = "<group>"; };
 		3C6A5287789E34A2E1CC5F3B64E3FBF3 /* JSONValueTransformer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONValueTransformer.h; path = JSONModel/JSONModelTransformations/JSONValueTransformer.h; sourceTree = "<group>"; };
 		3C74F9CF2DDB12D5531FE54D84843A9A /* UIImageView+HighlightedWebCache.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImageView+HighlightedWebCache.h"; path = "SDWebImage/UIImageView+HighlightedWebCache.h"; sourceTree = "<group>"; };
+		3C78B6177E1DCD19F55758C8B6CF219C /* JTCalendar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JTCalendar.xcconfig; sourceTree = "<group>"; };
 		3C98549BEB3609F765C2BCA8FF5F281F /* KAProgressLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KAProgressLabel.h; path = Applozic/Resources/ProgressView/KAProgressLabel.h; sourceTree = "<group>"; };
 		3D740556AF1A490CEAE56BFF1AC0B7BA /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		3D78511C399E66C728F5B17AB642F9F4 /* FBSDKTestUsersManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKTestUsersManager.m; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKTestUsersManager.m; sourceTree = "<group>"; };
 		3D7BE81D9E3E7A436B5231E561DC5860 /* dzn_icn_toolbar_backward.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dzn_icn_toolbar_backward.png; path = Source/Resources/dzn_icn_toolbar_backward.png; sourceTree = "<group>"; };
 		3DA2435094B00C7A5E20B713EC98AC95 /* isWarningIcon@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "isWarningIcon@2x.png"; path = "ISMessages/Assets/isWarningIcon@2x.png"; sourceTree = "<group>"; };
+		3DA35BB4F1CD2384FB0CC80E99E5651C /* JTCalendarScrollManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarScrollManager.m; path = JTCalendar/Managers/JTCalendarScrollManager.m; sourceTree = "<group>"; };
 		3DA4983F43666CDBB3E370E96DD433D3 /* UIImage+GIF.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+GIF.h"; path = "SDWebImage/UIImage+GIF.h"; sourceTree = "<group>"; };
 		3DE075E5E5D5301D74F203CAFB493A4E /* Bolts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Bolts.framework; path = Bolts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E14BC7633FB57DF8D54E16A4027002B /* SCLAlertView-Objective-C.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "SCLAlertView-Objective-C.xcconfig"; sourceTree = "<group>"; };
@@ -1510,14 +1519,12 @@
 		43B11B2783DD2BE7C0F7C5F724B3E373 /* FBSDKURLConnection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKURLConnection.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/Network/FBSDKURLConnection.h; sourceTree = "<group>"; };
 		43E3116C6E9DA5F4F1FF1C848C26BD06 /* ALShowImageViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALShowImageViewController.h; path = Applozic/ViewControllers/ALShowImageViewController.h; sourceTree = "<group>"; };
 		440BADBA38F9B0B4A2725260DE0F7D19 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4435B7E777F5A716E6A5A1C60DB55D4A /* JTCalendarDay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarDay.h; path = jtcalendar/Protocols/JTCalendarDay.h; sourceTree = "<group>"; };
 		44F4EAACB64FA6178C23ACC31D389412 /* FBSDKLikeActionControllerCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKLikeActionControllerCache.m; path = FBSDKShareKit/FBSDKShareKit/Internal/FBSDKLikeActionControllerCache.m; sourceTree = "<group>"; };
 		451019E958080D6143F338E916B630B8 /* STTwitterAppOnly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STTwitterAppOnly.h; path = STTwitter/STTwitterAppOnly.h; sourceTree = "<group>"; };
 		4527657C197AE0A308146FD56BB6CD81 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
 		453A0F0AE1CDFC161625228F418D49D5 /* dzn_icn_toolbar_stop@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_stop@3x.png"; path = "Source/Resources/dzn_icn_toolbar_stop@3x.png"; sourceTree = "<group>"; };
 		455B4199F2BD3809F39333411600C767 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Applozic/Images.xcassets; sourceTree = "<group>"; };
 		4561C1DF1702D3AC56346CA5DE122999 /* FBSDKGraphRequest.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKGraphRequest.m; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequest.m; sourceTree = "<group>"; };
-		45C6F69D54200FB1561AB46DF691E6B9 /* JTCalendarWeek.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarWeek.h; path = jtcalendar/Protocols/JTCalendarWeek.h; sourceTree = "<group>"; };
 		45D3D64066533B2BBF593E9D5141758B /* IQKeyboardManagerConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQKeyboardManagerConstants.h; path = IQKeyboardManager/Constants/IQKeyboardManagerConstants.h; sourceTree = "<group>"; };
 		45ED500828FF4A1781E5F30BA444F973 /* FBSDKAppInviteContent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKAppInviteContent.h; path = FBSDKShareKit/FBSDKShareKit/FBSDKAppInviteContent.h; sourceTree = "<group>"; };
 		465847C8852DFBBB63B4D240DE00C447 /* dzn_icn_activity_safari@2x~ipad.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_safari@2x~ipad.png"; path = "Source/Resources/dzn_icn_activity_safari@2x~ipad.png"; sourceTree = "<group>"; };
@@ -1536,6 +1543,7 @@
 		48B907830BF9B7DB2448185197EF43AD /* dzn_icn_toolbar_forward@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_forward@2x.png"; path = "Source/Resources/dzn_icn_toolbar_forward@2x.png"; sourceTree = "<group>"; };
 		4A1461E29B2649E93658CECA548ECE8F /* FBSDKShareLinkContent+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBSDKShareLinkContent+Internal.h"; path = "FBSDKShareKit/FBSDKShareKit/Internal/FBSDKShareLinkContent+Internal.h"; sourceTree = "<group>"; };
 		4A45421C29C91A332554F78D6A44B0E2 /* FBSDKShareButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKShareButton.h; path = FBSDKShareKit/FBSDKShareKit/FBSDKShareButton.h; sourceTree = "<group>"; };
+		4A58BD328403DC1E777CC61754C1E3D4 /* JTCalendarDayView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarDayView.m; path = JTCalendar/Views/JTCalendarDayView.m; sourceTree = "<group>"; };
 		4A866EAA98C6714F7788A5B0E7C4D900 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A94A886A9BFD528642F16F216FF49D2 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4A9D77D8AC04619A991CEEDE08CFA583 /* IQPreviousNextView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQPreviousNextView.h; path = IQKeyboardManager/IQToolbar/IQPreviousNextView.h; sourceTree = "<group>"; };
@@ -1550,7 +1558,6 @@
 		4E2BCF68EA3097E15E465A3B1B2059E9 /* DB_ConversationProxy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DB_ConversationProxy.h; path = Applozic/DB_ConversationProxy.h; sourceTree = "<group>"; };
 		4E2DD3A20D428DC9110B93950D0BD32A /* ALContact.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALContact.m; path = Applozic/DomainClasses/ALContact.m; sourceTree = "<group>"; };
 		4E3FF80461B7F940F7C56EED0D9345C3 /* STHTTPRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STHTTPRequest.h; path = STTwitter/Vendor/STHTTPRequest.h; sourceTree = "<group>"; };
-		4E538619BAA3531A1F86948AE1D9C000 /* JTCalendarWeekDay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarWeekDay.h; path = jtcalendar/Protocols/JTCalendarWeekDay.h; sourceTree = "<group>"; };
 		4FD48D1E24F4E6E363BA3E95219CCAEE /* FBSDKBridgeAPIResponse.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKBridgeAPIResponse.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/BridgeAPI/FBSDKBridgeAPIResponse.m; sourceTree = "<group>"; };
 		5013960018693F37B6E7DC57C2EFD4E0 /* FBSDKBridgeAPICrypto.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKBridgeAPICrypto.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/BridgeAPI/FBSDKBridgeAPICrypto.h; sourceTree = "<group>"; };
 		5037EDD3E907670D3D6C964A278D82C1 /* ALContactMessageCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALContactMessageCell.m; path = Applozic/ViewControllers/ALContactMessageCell.m; sourceTree = "<group>"; };
@@ -1568,7 +1575,6 @@
 		53F81381118B4122C81F25A4289BCA65 /* ALDBHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALDBHandler.m; path = Applozic/Handlers/ALDBHandler.m; sourceTree = "<group>"; };
 		54030EDCED833C3BEE83584B465F0BC4 /* ALChatViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALChatViewController.m; path = Applozic/ViewControllers/ALChatViewController.m; sourceTree = "<group>"; };
 		5419BAB720EAB0D2A67ACADFDD952FBB /* FBSDKGraphErrorRecoveryProcessor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKGraphErrorRecoveryProcessor.h; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphErrorRecoveryProcessor.h; sourceTree = "<group>"; };
-		54ADE4AAB3465859BB8B0954763B7408 /* JTCalendar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JTCalendar-dummy.m"; sourceTree = "<group>"; };
 		54F305D41A3B94DC8CF2237B0F945624 /* MQTTCFSocketTransport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTCFSocketTransport.h; path = Applozic/MQTT/MQTTCFSocketTransport.h; sourceTree = "<group>"; };
 		55417538CD8FE211433923C16F8C6EC4 /* MQTTSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MQTTSessionManager.m; path = Applozic/MQTT/MQTTSessionManager.m; sourceTree = "<group>"; };
 		558C897B71FFF779B01E1FD98EF767C2 /* UIActivityIndicatorView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIActivityIndicatorView+AFNetworking.h"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h"; sourceTree = "<group>"; };
@@ -1578,7 +1584,6 @@
 		564F544A0BB903064C1A15157C357E31 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		568F3F5CEE3DCC2954CC79F7A62498D7 /* Pods-IPundit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-IPundit.debug.xcconfig"; sourceTree = "<group>"; };
 		56F420B624C2C8FE6B8F42A40581DB29 /* ALMessageClientService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALMessageClientService.h; path = Applozic/ALMessageClientService.h; sourceTree = "<group>"; };
-		573A7C1BE1F674BA1182F06CA99FE947 /* JTCalendarDayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarDayView.h; path = jtcalendar/views/JTCalendarDayView.h; sourceTree = "<group>"; };
 		577B1E02B3F6D32EF81B49000C6EA33B /* FBSDKAppGroupJoinDialog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKAppGroupJoinDialog.h; path = FBSDKShareKit/FBSDKShareKit/FBSDKAppGroupJoinDialog.h; sourceTree = "<group>"; };
 		57816D9DD801567EF27209ACF39EDEF9 /* ALSyncCallService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALSyncCallService.h; path = Applozic/ALSyncCallService.h; sourceTree = "<group>"; };
 		57C13C455C24D791984F976C213B9CD2 /* Applozic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Applozic.framework; path = Applozic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1599,9 +1604,9 @@
 		5A718FEC2989B3D530AAC69383397AE7 /* FBSDKGraphRequestConnection+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBSDKGraphRequestConnection+Internal.h"; path = "FBSDKCoreKit/FBSDKCoreKit/Internal/Network/FBSDKGraphRequestConnection+Internal.h"; sourceTree = "<group>"; };
 		5A7BC332E6D020F373F8DA24FAC9F8DC /* FBSDKSharePhotoContent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKSharePhotoContent.h; path = FBSDKShareKit/FBSDKShareKit/FBSDKSharePhotoContent.h; sourceTree = "<group>"; };
 		5AE75A43A1AC1B2B45A71CFCC47C80E3 /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIWebView+AFNetworking.h"; path = "UIKit+AFNetworking/UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
+		5B4A23674B838A5F396597987709B81D /* JTCalendarManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarManager.h; path = JTCalendar/JTCalendarManager.h; sourceTree = "<group>"; };
 		5B9F3FA59C9E3F542F86E9E720A54D59 /* MQTTInMemoryPersistence.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MQTTInMemoryPersistence.m; path = Applozic/MQTT/MQTTInMemoryPersistence.m; sourceTree = "<group>"; };
 		5C4F8B46AB7709EE9CAF86525A26D737 /* MQTTCFSocketEncoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTCFSocketEncoder.h; path = Applozic/MQTT/MQTTCFSocketEncoder.h; sourceTree = "<group>"; };
-		5C9304CC766C318F033B4F2FDEAF6DD0 /* JTCalendarMenuView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarMenuView.m; path = jtcalendar/views/JTCalendarMenuView.m; sourceTree = "<group>"; };
 		5CEE7E342B91CECCE7226BDC9FE4C037 /* ALMediaPlayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALMediaPlayer.h; path = Applozic/ALMediaPlayer.h; sourceTree = "<group>"; };
 		5D4DE43EA989BFEAFA094C72375F7147 /* FBSDKAppEventsUtility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKAppEventsUtility.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/AppEvents/FBSDKAppEventsUtility.m; sourceTree = "<group>"; };
 		5D642D2BEACD4B23B56FEA78CB5BF41B /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
@@ -1611,15 +1616,15 @@
 		5E2E82ACAFD8A5FA8675CE1598E2D022 /* FBSDKSettings+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBSDKSettings+Internal.h"; path = "FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKSettings+Internal.h"; sourceTree = "<group>"; };
 		5E6BB8CA56771075249847BDE674727E /* ALMessageInfoResponse.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALMessageInfoResponse.h; path = Applozic/ALMessageInfoResponse.h; sourceTree = "<group>"; };
 		5E6D279C4FA2DEE80FCC726389B834EE /* Bolts.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Bolts.modulemap; sourceTree = "<group>"; };
-		5F020CC24969F6084B57E673C5415F33 /* JTCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JTCalendar.modulemap; sourceTree = "<group>"; };
+		5E742D6A2B47F5D026B267DDF4AB8080 /* JTCalendarScrollManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarScrollManager.h; path = JTCalendar/Managers/JTCalendarScrollManager.h; sourceTree = "<group>"; };
 		60346020592EF9E240E05F9F2AA242D3 /* SDWebImage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SDWebImage-umbrella.h"; sourceTree = "<group>"; };
 		603FAAEF8F6701EB4B3DAB4780638E0C /* SVProgressHUD.bundle */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = SVProgressHUD/SVProgressHUD.bundle; sourceTree = "<group>"; };
 		60A6A27A0FC95C5BF4D5A42CCCB77E81 /* FBSDKShareOpenGraphValueContainer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKShareOpenGraphValueContainer.h; path = FBSDKShareKit/FBSDKShareKit/FBSDKShareOpenGraphValueContainer.h; sourceTree = "<group>"; };
 		615405854AF42EB6AF91C24557120755 /* HexColors.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HexColors.m; path = Applozic/HexColors.m; sourceTree = "<group>"; };
-		616ACA72D18D3AE8660A7AD656EBE1D7 /* JTCalendarManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarManager.m; path = jtcalendar/JTCalendarManager.m; sourceTree = "<group>"; };
 		61AAFD8FAC3DA950DFC1BFC857FC41F3 /* JSONHTTPClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONHTTPClient.m; path = JSONModel/JSONModelNetworking/JSONHTTPClient.m; sourceTree = "<group>"; };
 		61DDBF12717B38732A9C53429D7B178C /* JSONModelError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModelError.h; path = JSONModel/JSONModel/JSONModelError.h; sourceTree = "<group>"; };
 		622540C61723CAA4DBB8AB613D204F12 /* ALImagePickerHandler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALImagePickerHandler.h; path = Applozic/Handlers/ALImagePickerHandler.h; sourceTree = "<group>"; };
+		624BCA823ECF9D46DD98E237AC306C77 /* JTCalendarWeekDayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarWeekDayView.h; path = JTCalendar/Views/JTCalendarWeekDayView.h; sourceTree = "<group>"; };
 		62709F6A78628DB3E24B38171DE806F6 /* ALChannelMsgCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALChannelMsgCell.h; path = Applozic/ALChannelMsgCell.h; sourceTree = "<group>"; };
 		62B769B74E209DDEDB402218DC09B57C /* FBSDKInternalUtility.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKInternalUtility.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKInternalUtility.h; sourceTree = "<group>"; };
 		62C27D4559F8BC5EAE166F4007FA3129 /* ALRequestHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALRequestHandler.m; path = Applozic/Handlers/ALRequestHandler.m; sourceTree = "<group>"; };
@@ -1643,7 +1648,6 @@
 		688F18B2B369A5B5868F907C310EF2EC /* BFCancellationToken.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = BFCancellationToken.h; path = Bolts/Common/BFCancellationToken.h; sourceTree = "<group>"; };
 		68E08F11B8030BDA1141A3A0F499384F /* FBSDKBridgeAPIProtocolWebV2.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKBridgeAPIProtocolWebV2.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/BridgeAPI/ProtocolVersions/FBSDKBridgeAPIProtocolWebV2.m; sourceTree = "<group>"; };
 		68E99E05FEF3F957204A62419831853A /* ALApplozicSettings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALApplozicSettings.h; path = Applozic/Handlers/ALApplozicSettings.h; sourceTree = "<group>"; };
-		68F58B0FB8A3EF6C47DA084ED84942DE /* JTCalendar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendar.h; path = jtcalendar/JTCalendar.h; sourceTree = "<group>"; };
 		69236492C0878737E6506BE07F17B50A /* SDImageCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageCache.m; path = SDWebImage/SDImageCache.m; sourceTree = "<group>"; };
 		6960E4EAABE5B91BD78AF6CDE6853390 /* Bolts.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Bolts.m; path = Bolts/Common/Bolts.m; sourceTree = "<group>"; };
 		6986B149D4B83763EFB8819E536C3ECF /* SDWebImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDownloader.h; path = SDWebImage/SDWebImageDownloader.h; sourceTree = "<group>"; };
@@ -1671,7 +1675,6 @@
 		6E188AF8F06680CBBEAC88C2D829B919 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6E2369DB55BAC5C670797A422A64C0E3 /* MQTTSessionManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTSessionManager.h; path = Applozic/MQTT/MQTTSessionManager.h; sourceTree = "<group>"; };
 		6E4C1081A71621C1C6B9E4962F451D14 /* FBSDKShareKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FBSDKShareKit.xcconfig; sourceTree = "<group>"; };
-		6ED1CF27095D20750078B276B3D1C6C0 /* JTVerticalCalendarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTVerticalCalendarView.m; path = jtcalendar/views/JTVerticalCalendarView.m; sourceTree = "<group>"; };
 		6EED0F7969BBEF30938C69FB91267AC1 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Twitter.framework; sourceTree = DEVELOPER_DIR; };
 		6F41E33A56DEB9C7EF757EA20D57D740 /* AppLozic 4.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = "AppLozic 4.xcdatamodel"; sourceTree = "<group>"; };
 		6F80DAAB194A51ACE664E3466F93FBA1 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FBSDKCoreKit.framework; path = FBSDKCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1694,6 +1697,7 @@
 		73D608B70830A5A0D72D8912D72DCCAB /* ALContact.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALContact.h; path = Applozic/DomainClasses/ALContact.h; sourceTree = "<group>"; };
 		73EFCEBC11DBD23D7BE2FD03D9363F78 /* STTwitter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STTwitter.h; path = STTwitter/STTwitter.h; sourceTree = "<group>"; };
 		741A380B997F61EE2201C1DA9C6E5149 /* FBSDKLikeActionController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKLikeActionController.m; path = FBSDKShareKit/FBSDKShareKit/Internal/FBSDKLikeActionController.m; sourceTree = "<group>"; };
+		74DA5EE4DB50C2923EB59DC9C4E0CCC5 /* JTCalendarPageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarPageView.m; path = JTCalendar/Views/JTCalendarPageView.m; sourceTree = "<group>"; };
 		74F7670D65557BE569B4C28F2B4D80AB /* FBSDKGraphRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKGraphRequest.h; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequest.h; sourceTree = "<group>"; };
 		756829EEE4B6DF3B6590FC18F7537531 /* FBSDKCoreKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FBSDKCoreKit.xcconfig; sourceTree = "<group>"; };
 		7594E8F4E36A5028BA338AA081BEDFC9 /* FBSDKBridgeAPIRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKBridgeAPIRequest.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/BridgeAPI/FBSDKBridgeAPIRequest.h; sourceTree = "<group>"; };
@@ -1709,11 +1713,10 @@
 		77FA1112E5273C29BD3D5777CB2EC674 /* Pods-IPundit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-IPundit-umbrella.h"; sourceTree = "<group>"; };
 		7899F0F779742B16FBD38A2240D4B9F8 /* ALNotificationView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALNotificationView.h; path = Applozic/Views/ALNotificationView.h; sourceTree = "<group>"; };
 		78B67A55A85097FA84E9E7F93E38D297 /* ALFileMetaInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALFileMetaInfo.h; path = Applozic/DomainClasses/ALFileMetaInfo.h; sourceTree = "<group>"; };
-		78CD21250D0E084FBDDF5BB20D9535BF /* JTCalendarDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarDelegate.h; path = jtcalendar/JTCalendarDelegate.h; sourceTree = "<group>"; };
 		7945FF635EE8077743855D9F8BB40939 /* SVRadialGradientLayer.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVRadialGradientLayer.h; path = SVProgressHUD/SVRadialGradientLayer.h; sourceTree = "<group>"; };
 		7980E2507326B095587AD61042219FE3 /* FBSDKMonotonicTime.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKMonotonicTime.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKMonotonicTime.h; sourceTree = "<group>"; };
+		79942270ADF77E3AD10859E0418B3E9B /* JTCalendarManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarManager.m; path = JTCalendar/JTCalendarManager.m; sourceTree = "<group>"; };
 		79AD60927E8CCEDFFC7BE96B7AB094C6 /* FBSDKLikeButtonPopWAV.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKLikeButtonPopWAV.h; path = FBSDKShareKit/FBSDKShareKit/Internal/FBSDKLikeButtonPopWAV.h; sourceTree = "<group>"; };
-		79B65F9A64BB6D623ADEE807E3EFE848 /* JTHorizontalCalendarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTHorizontalCalendarView.m; path = jtcalendar/views/JTHorizontalCalendarView.m; sourceTree = "<group>"; };
 		79B74B5114AEB0B706CAC35063BBA66A /* TPPropertyAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TPPropertyAnimation.m; path = Applozic/Resources/ProgressView/TPPropertyAnimation.m; sourceTree = "<group>"; };
 		7AC831FD352957443FC3D7523554438A /* FBSDKErrorConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKErrorConfiguration.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/ServerConfiguration/FBSDKErrorConfiguration.h; sourceTree = "<group>"; };
 		7AC8F482B27DCE1F3ED0B562B6DACCC4 /* UIImage+ImageEffects.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIImage+ImageEffects.h"; path = "SCLAlertView/UIImage+ImageEffects.h"; sourceTree = "<group>"; };
@@ -1757,6 +1760,7 @@
 		8366FFC60630F6D8CC00CA40FD51A07A /* STTwitterAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STTwitterAPI.m; path = STTwitter/STTwitterAPI.m; sourceTree = "<group>"; };
 		8392D593609D0122423EE829D9D4DDA1 /* SCLTextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLTextView.m; path = SCLAlertView/SCLTextView.m; sourceTree = "<group>"; };
 		83A7780FB6CA98B6BC975559116D67D2 /* ALResponseHandler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALResponseHandler.m; path = Applozic/Handlers/ALResponseHandler.m; sourceTree = "<group>"; };
+		83B9A46AA1DA014B435A32113DF72FC9 /* JTCalendarWeekDayView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarWeekDayView.m; path = JTCalendar/Views/JTCalendarWeekDayView.m; sourceTree = "<group>"; };
 		843016929730B900CC7985239C0FC3F0 /* FBSDKAccessTokenCacheV3.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKAccessTokenCacheV3.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/TokenCaching/FBSDKAccessTokenCacheV3.h; sourceTree = "<group>"; };
 		845A2C4A12BE346CD1BE018D7C8E26F6 /* ALAudioCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALAudioCell.m; path = Applozic/ALAudioCell.m; sourceTree = "<group>"; };
 		847BA86D1690D8017AE65DC6E99B2657 /* isSuccessIcon@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "isSuccessIcon@3x.png"; path = "ISMessages/Assets/isSuccessIcon@3x.png"; sourceTree = "<group>"; };
@@ -1772,7 +1776,6 @@
 		875FA93A3FA3D05A4FC4C812B692DC38 /* TSBlurView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TSBlurView.m; path = Applozic/TSBlurView.m; sourceTree = "<group>"; };
 		87F70279E482C9E86B3AC33B454C4A79 /* ALDocumentsCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALDocumentsCell.m; path = Applozic/ALDocumentsCell.m; sourceTree = "<group>"; };
 		88072C6A4EAC4597BE7A8BF9D7A0B735 /* FBSDKLikeDialog.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKLikeDialog.m; path = FBSDKShareKit/FBSDKShareKit/Internal/FBSDKLikeDialog.m; sourceTree = "<group>"; };
-		884ABB429A99BDCB8BF397B45453BD61 /* JTContent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTContent.h; path = jtcalendar/Protocols/JTContent.h; sourceTree = "<group>"; };
 		887D97D27E0939222D40111980164659 /* FBSDKProfile.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKProfile.h; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKProfile.h; sourceTree = "<group>"; };
 		888197F9229A64E62527E9DE35C0BEC8 /* FBSDKSharingButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKSharingButton.h; path = FBSDKShareKit/FBSDKShareKit/FBSDKSharingButton.h; sourceTree = "<group>"; };
 		8886FE24FFCB9135CAC03C90DECEDD62 /* SDWebImagePrefetcher.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImagePrefetcher.m; path = SDWebImage/SDWebImagePrefetcher.m; sourceTree = "<group>"; };
@@ -1799,16 +1802,13 @@
 		8EE72AB9CE6C3A159D90C0AD520BC205 /* CCBottomRefreshControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = CCBottomRefreshControl.framework; path = CCBottomRefreshControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EEA0E4208DA9EB8025FA9AA163A6408 /* NJKScrollFullScreen.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = NJKScrollFullScreen.framework; path = NJKScrollFullScreen.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F2F42C573C4F9E83C05498D336474B2 /* FBSDKURLConnection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKURLConnection.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/Network/FBSDKURLConnection.m; sourceTree = "<group>"; };
-		8F5AB1788CDEAAD47B49B82AF47CB31E /* JTCalendarSettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarSettings.m; path = jtcalendar/JTCalendarSettings.m; sourceTree = "<group>"; };
 		8F951018ED31352AC21ADFD0F6961B4E /* ALChannelInfo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALChannelInfo.m; path = Applozic/ALChannelInfo.m; sourceTree = "<group>"; };
 		90F11F780BA74CBF1CDE4D573BF89FE2 /* FBSDKShareLinkContent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKShareLinkContent.m; path = FBSDKShareKit/FBSDKShareKit/FBSDKShareLinkContent.m; sourceTree = "<group>"; };
 		90FF30E5ACF761041FA5C0CD67AA20DA /* dzn_icn_toolbar_action@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_action@2x.png"; path = "Source/Resources/dzn_icn_toolbar_action@2x.png"; sourceTree = "<group>"; };
-		9150A3C980ED35DB3CD872C138F97A27 /* JTDateHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTDateHelper.h; path = jtcalendar/JTDateHelper.h; sourceTree = "<group>"; };
 		91845C07269049769C9FBD13E3A62B9A /* ALUserBlocked.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALUserBlocked.h; path = Applozic/ALUserBlocked.h; sourceTree = "<group>"; };
 		91DD294A4F1CD3EFB27FB6427097AE76 /* NSString+Encode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+Encode.m"; path = "Applozic/Utilities/NSString+Encode.m"; sourceTree = "<group>"; };
 		9206286073682647CBA0FD89F4ED2734 /* STHTTPRequest+STTwitter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "STHTTPRequest+STTwitter.h"; path = "STTwitter/STHTTPRequest+STTwitter.h"; sourceTree = "<group>"; };
 		9263727DF3A56E89BC871905A8C0423D /* FBSDKLikeBoxView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKLikeBoxView.m; path = FBSDKShareKit/FBSDKShareKit/Internal/FBSDKLikeBoxView.m; sourceTree = "<group>"; };
-		92720542D7B257CBEF3982990DF6E7BE /* JTCalendarPageView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarPageView.m; path = jtcalendar/views/JTCalendarPageView.m; sourceTree = "<group>"; };
 		927CF501552DED877E7A615339C834AA /* UIActivityIndicatorView+AFNetworking.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIActivityIndicatorView+AFNetworking.m"; path = "UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m"; sourceTree = "<group>"; };
 		92BE2109EDFE32DF7D8401662EF59D63 /* BFMeasurementEvent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFMeasurementEvent.m; path = Bolts/iOS/BFMeasurementEvent.m; sourceTree = "<group>"; };
 		92CAA89F1213F3A665A66AE4EC9B662C /* IQKeyboardManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = IQKeyboardManager.modulemap; sourceTree = "<group>"; };
@@ -1845,9 +1845,11 @@
 		995B873165060208727EFE508CC77FFF /* DB_CHANNEL_USER_X.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DB_CHANNEL_USER_X.m; path = Applozic/DB_CHANNEL_USER_X.m; sourceTree = "<group>"; };
 		99A26C31B5CB0A9EDFEC9836AEAAFAA1 /* FBSDKImageDownloader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKImageDownloader.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKImageDownloader.h; sourceTree = "<group>"; };
 		9A1021950E56DE13DDCB9166560AC417 /* NSDateFormatter+STTwitter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDateFormatter+STTwitter.h"; path = "STTwitter/NSDateFormatter+STTwitter.h"; sourceTree = "<group>"; };
+		9A38255F9CE722A39116833A88C9E14B /* JTCalendar-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "JTCalendar-dummy.m"; sourceTree = "<group>"; };
 		9A4852F42C949AAE950126AE934FE19E /* DB_Message.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DB_Message.m; path = Applozic/DomainClasses/DB_Message.m; sourceTree = "<group>"; };
 		9A74CC6F9CD29AE89F148CBF2364D71C /* FBSDKDynamicFrameworkLoader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKDynamicFrameworkLoader.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal_NoARC/FBSDKDynamicFrameworkLoader.m; sourceTree = "<group>"; };
 		9A824DFEA3977EC34E8B0FED12A01978 /* DB_CONTACT.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DB_CONTACT.h; path = Applozic/DomainClasses/DB_CONTACT.h; sourceTree = "<group>"; };
+		9A8ED5E258FAE5C18889F414B5A4E3B7 /* JTCalendarDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarDelegate.h; path = JTCalendar/JTCalendarDelegate.h; sourceTree = "<group>"; };
 		9B59264E986D4475128DA1F0475AE672 /* ALVOIPCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALVOIPCell.m; path = Applozic/ALVOIPCell.m; sourceTree = "<group>"; };
 		9B7228700D64AB24ECA99F429C148B12 /* FBSDKGraphRequest+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBSDKGraphRequest+Internal.h"; path = "FBSDKCoreKit/FBSDKCoreKit/Internal/Network/FBSDKGraphRequest+Internal.h"; sourceTree = "<group>"; };
 		9B975DBB722B32739F6CAE58A62B5C57 /* TSMessage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TSMessage.h; path = Applozic/TSMessage.h; sourceTree = "<group>"; };
@@ -1867,6 +1869,7 @@
 		9F96CC08B926DF0067F48734CC0DC934 /* ALCollectionReusableView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALCollectionReusableView.h; path = Applozic/ViewControllers/ALCollectionReusableView.h; sourceTree = "<group>"; };
 		A01268EA2086864532D4BD0D94E2C77D /* AFNetworking.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AFNetworking.framework; path = AFNetworking.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A026A6229A5054BCA9524B3C155B87B4 /* isSuccessIcon.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = isSuccessIcon.png; path = ISMessages/Assets/isSuccessIcon.png; sourceTree = "<group>"; };
+		A0CBA2B524AE7E3380D3A37D23EFFF2C /* JTDateHelper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTDateHelper.h; path = JTCalendar/JTDateHelper.h; sourceTree = "<group>"; };
 		A0E9F059A8CFCDC9FBBB32676BD599B1 /* FBSDKGraphRequestDataAttachment.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKGraphRequestDataAttachment.m; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphRequestDataAttachment.m; sourceTree = "<group>"; };
 		A0F0D8F63AA9E6441C61E66759CD28E8 /* CCBottomRefreshControl-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "CCBottomRefreshControl-prefix.pch"; sourceTree = "<group>"; };
 		A0FC99C57AF4486C46A417A8DA902052 /* MZTimerLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MZTimerLabel-prefix.pch"; sourceTree = "<group>"; };
@@ -1891,6 +1894,7 @@
 		A4765C986CFC8E1C7C35121CB44EE7BE /* FBSDKShareKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FBSDKShareKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A49F3C3B23FDB0F249B1D487FA840A21 /* FBSDKKeychainStoreViaBundleID.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKKeychainStoreViaBundleID.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/TokenCaching/FBSDKKeychainStoreViaBundleID.m; sourceTree = "<group>"; };
 		A4DB9F37DD961649FE0EE4D3167D1991 /* FBSDKLoginKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FBSDKLoginKit-prefix.pch"; sourceTree = "<group>"; };
+		A4E090A123CC12EB2A2B6BE8F0708399 /* JTCalendarWeekView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarWeekView.h; path = JTCalendar/Views/JTCalendarWeekView.h; sourceTree = "<group>"; };
 		A4F1F0777A7E1451583D2134D347B969 /* MQTTSessionLegacy.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTSessionLegacy.h; path = Applozic/MQTT/MQTTSessionLegacy.h; sourceTree = "<group>"; };
 		A5044B043BD66DCDBD57FC8A636FB40F /* FBSDKAppGroupContent.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKAppGroupContent.m; path = FBSDKShareKit/FBSDKShareKit/FBSDKAppGroupContent.m; sourceTree = "<group>"; };
 		A51080FA4A328354E39BABC54FAFF768 /* _FBSDKLoginRecoveryAttempter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = _FBSDKLoginRecoveryAttempter.m; path = FBSDKLoginKit/FBSDKLoginKit/Internal/_FBSDKLoginRecoveryAttempter.m; sourceTree = "<group>"; };
@@ -1905,17 +1909,19 @@
 		A6C69EAA89328C46A02EBC897302949E /* DZNWebViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DZNWebViewController.m; path = Source/Classes/DZNWebViewController.m; sourceTree = "<group>"; };
 		A6EB26F1B083B0388FE2D4FC7C4C45CE /* NSDateFormatter+STTwitter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDateFormatter+STTwitter.m"; path = "STTwitter/NSDateFormatter+STTwitter.m"; sourceTree = "<group>"; };
 		A74EA3FD7939944A59E7551EDBD8B13E /* FBSDKSystemAccountStoreAdapter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKSystemAccountStoreAdapter.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKSystemAccountStoreAdapter.m; sourceTree = "<group>"; };
+		A7BA9C912D536DA8E90E633708F6F9BF /* JTCalendarDay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarDay.h; path = JTCalendar/Protocols/JTCalendarDay.h; sourceTree = "<group>"; };
 		A841D963DC5845375A91039F8C24DAFA /* Bolts.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Bolts.h; path = Bolts/Common/Bolts.h; sourceTree = "<group>"; };
 		A87A1B522EEBE49FD3D10C6911C3F6E9 /* STTwitterAppOnly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = STTwitterAppOnly.m; path = STTwitter/STTwitterAppOnly.m; sourceTree = "<group>"; };
 		A8E9B47FF4B405445754FA2A445CBE70 /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/SDWebImageCompat.m; sourceTree = "<group>"; };
 		A98C635F55A24F71C89394580029AF52 /* ALMediaBaseCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALMediaBaseCell.m; path = Applozic/ALMediaBaseCell.m; sourceTree = "<group>"; };
 		A9A457A068587E55FAFD25FC96EFF498 /* IQUIScrollView+Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "IQUIScrollView+Additions.m"; path = "IQKeyboardManager/Categories/IQUIScrollView+Additions.m"; sourceTree = "<group>"; };
 		AA0936939C9AD1A93302F72DE2EEB6D7 /* Pods-IPundit-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-IPundit-frameworks.sh"; sourceTree = "<group>"; };
-		AA3A386D736C2FAF620EAF1E4A73E865 /* JTCalendarPage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarPage.h; path = jtcalendar/Protocols/JTCalendarPage.h; sourceTree = "<group>"; };
 		AA65840ADFCA41F054ED76A439C418AF /* FBSDKShareAPI.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKShareAPI.m; path = FBSDKShareKit/FBSDKShareKit/FBSDKShareAPI.m; sourceTree = "<group>"; };
 		AACDE9EBF559691B8C2FAAFBEC41EAE9 /* ALPushNotificationService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALPushNotificationService.h; path = Applozic/ALPushNotificationService.h; sourceTree = "<group>"; };
 		AB53C10424338AAB9F79E5B7ABE763C1 /* SCLButton.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCLButton.h; path = SCLAlertView/SCLButton.h; sourceTree = "<group>"; };
-		AB794BE65EDBC4AF5F2FD025E5F985AB /* JTCalendarDelegateManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarDelegateManager.m; path = jtcalendar/Managers/JTCalendarDelegateManager.m; sourceTree = "<group>"; };
+		AB646F6224A0F35E3CCD74854B8FF716 /* JTCalendarWeekDay.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarWeekDay.h; path = JTCalendar/Protocols/JTCalendarWeekDay.h; sourceTree = "<group>"; };
+		AC18EF59AA5A7DF1AB8D1C2784AB3C8D /* JTCalendarWeekView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarWeekView.m; path = JTCalendar/Views/JTCalendarWeekView.m; sourceTree = "<group>"; };
+		AC2391804C67AD9963E803DFC22B3D4A /* JTHorizontalCalendarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTHorizontalCalendarView.h; path = JTCalendar/Views/JTHorizontalCalendarView.h; sourceTree = "<group>"; };
 		AC4A1FC5BAA36D7338AC0D0D7955F80A /* FBSDKAccessTokenCacheV3_17.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKAccessTokenCacheV3_17.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/TokenCaching/FBSDKAccessTokenCacheV3_17.h; sourceTree = "<group>"; };
 		AC963105DEDC7E2CC4BAF2B7427D2FA7 /* DZNWebViewController-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DZNWebViewController-dummy.m"; sourceTree = "<group>"; };
 		AC9D6185FED8256CB8C778C3AFDF0FE3 /* FBSDKCheckmarkIcon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKCheckmarkIcon.m; path = FBSDKShareKit/FBSDKShareKit/Internal/FBSDKCheckmarkIcon.m; sourceTree = "<group>"; };
@@ -1926,7 +1932,6 @@
 		ADA4ED28F8D84337E55058CAFC6EEEC3 /* FBSDKServerConfigurationManager+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBSDKServerConfigurationManager+Internal.h"; path = "FBSDKCoreKit/FBSDKCoreKit/Internal/ServerConfiguration/FBSDKServerConfigurationManager+Internal.h"; sourceTree = "<group>"; };
 		ADCAFC697C44D6D5BAC992AE4938C78B /* TPPropertyAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TPPropertyAnimation.h; path = Applozic/Resources/ProgressView/TPPropertyAnimation.h; sourceTree = "<group>"; };
 		AE7430020C44810F82934F98F9F55E3F /* MQTTSessionLegacy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MQTTSessionLegacy.m; path = Applozic/MQTT/MQTTSessionLegacy.m; sourceTree = "<group>"; };
-		AF0E3C9709F9E7B2B8FBD9C83805C33B /* JTHorizontalCalendarView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTHorizontalCalendarView.h; path = jtcalendar/views/JTHorizontalCalendarView.h; sourceTree = "<group>"; };
 		AF4ECDCD4A96FB106F7075232F20C27F /* FBSDKProfile.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKProfile.m; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKProfile.m; sourceTree = "<group>"; };
 		AFEBBC91E6F61A7C5C796E39A591C00A /* FBSDKShareOpenGraphValueContainer+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBSDKShareOpenGraphValueContainer+Internal.h"; path = "FBSDKShareKit/FBSDKShareKit/Internal/FBSDKShareOpenGraphValueContainer+Internal.h"; sourceTree = "<group>"; };
 		B032084D7C1E53BAAEC21CC33F7A8A83 /* FBSDKAccessTokenCacheV4.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKAccessTokenCacheV4.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/TokenCaching/FBSDKAccessTokenCacheV4.m; sourceTree = "<group>"; };
@@ -1938,7 +1943,6 @@
 		B1F53C806CABFE8C7FE1063F4A32BD60 /* ALMessage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALMessage.m; path = Applozic/DomainClasses/ALMessage.m; sourceTree = "<group>"; };
 		B2C5371DE87C1683790D4775312ED0F8 /* JSONModelClassProperty.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONModelClassProperty.m; path = JSONModel/JSONModel/JSONModelClassProperty.m; sourceTree = "<group>"; };
 		B2E14B2715A711E0A56647F6E865036D /* ALApplozicSettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALApplozicSettings.m; path = Applozic/Handlers/ALApplozicSettings.m; sourceTree = "<group>"; };
-		B3619AB4FC7F67A6869C177F4577F48C /* JTCalendarWeekView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarWeekView.m; path = jtcalendar/views/JTCalendarWeekView.m; sourceTree = "<group>"; };
 		B3B9434906503D29E672E5298291F7ED /* dzn_icn_activity_opera@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_opera@2x.png"; path = "Source/Resources/dzn_icn_activity_opera@2x.png"; sourceTree = "<group>"; };
 		B3FCA5575A5DDE3A68C77C6269DE48F0 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFURLRequestSerialization.m; path = AFNetworking/AFURLRequestSerialization.m; sourceTree = "<group>"; };
 		B40AB5582FC94E0C166A928325105967 /* ALLocationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALLocationManager.h; path = Applozic/ALLocationManager.h; sourceTree = "<group>"; };
@@ -1950,6 +1954,7 @@
 		B4B7C65B89E224E04DFFFA2AD8B0F96C /* Pods-IPundit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-IPundit.modulemap"; sourceTree = "<group>"; };
 		B51932A0F684B270B1E5F5726DCB5150 /* FBSDKLoginKit+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBSDKLoginKit+Internal.h"; path = "FBSDKLoginKit/FBSDKLoginKit/Internal/FBSDKLoginKit+Internal.h"; sourceTree = "<group>"; };
 		B53CB13D8295B7D856C57A4B8ACA6389 /* es.lproj */ = {isa = PBXFileReference; includeInIndex = 1; name = es.lproj; path = Source/Resources/es.lproj; sourceTree = "<group>"; };
+		B571A260EA6B3292E487D34092943F8D /* JTVerticalCalendarView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTVerticalCalendarView.m; path = JTCalendar/Views/JTVerticalCalendarView.m; sourceTree = "<group>"; };
 		B666A4867FAFF063C5D38F2FBACA4EA6 /* ALChannelFeed.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALChannelFeed.m; path = Applozic/ALChannelFeed.m; sourceTree = "<group>"; };
 		B675CBD1481E97D4C9D29DBB359BF2B3 /* ALNewContactsViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALNewContactsViewController.m; path = Applozic/ViewControllers/ALNewContactsViewController.m; sourceTree = "<group>"; };
 		B687F70F6149EB3D2B9D73B36A2ED32E /* ALChatViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALChatViewController.h; path = Applozic/ViewControllers/ALChatViewController.h; sourceTree = "<group>"; };
@@ -1977,7 +1982,6 @@
 		BB4AB6AB04A6A5DEFD5C46581E87DE7E /* FBSDKViewImpressionTracker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKViewImpressionTracker.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/UI/FBSDKViewImpressionTracker.m; sourceTree = "<group>"; };
 		BB84AC64E221C99AD8CBD0F7AED9DCF7 /* FBSDKShareUtility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKShareUtility.m; path = FBSDKShareKit/FBSDKShareKit/Internal/FBSDKShareUtility.m; sourceTree = "<group>"; };
 		BBD6050A1867E5919954EDFA8617DD10 /* ALBaseViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALBaseViewController.m; path = Applozic/ViewControllers/ALBaseViewController.m; sourceTree = "<group>"; };
-		BBFC850DAF94F610FD7477CC901732CF /* JTCalendarWeekDayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarWeekDayView.h; path = jtcalendar/views/JTCalendarWeekDayView.h; sourceTree = "<group>"; };
 		BC3AE47AB966767FAF5D9D7F548F9A11 /* DZNWebViewController.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = DZNWebViewController.xcconfig; sourceTree = "<group>"; };
 		BC6B4A1E42701ECE303E0013213E9343 /* SDWebImageCompat.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageCompat.h; path = SDWebImage/SDWebImageCompat.h; sourceTree = "<group>"; };
 		BC7138160A7F0BEF3D5142DCE199D0AB /* ALGroupDetailViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALGroupDetailViewController.m; path = Applozic/ViewControllers/ALGroupDetailViewController.m; sourceTree = "<group>"; };
@@ -2021,12 +2025,13 @@
 		C47185BA5E3F5C0CFA602BD1EFBE92A7 /* ALChannelInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALChannelInfo.h; path = Applozic/ALChannelInfo.h; sourceTree = "<group>"; };
 		C4EADBE6664E1EBE04BE7F04AE2F4FBD /* IQNSArray+Sort.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "IQNSArray+Sort.h"; path = "IQKeyboardManager/Categories/IQNSArray+Sort.h"; sourceTree = "<group>"; };
 		C562A712273A6FDE84B18B3158E861FD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C59E2D448D67EE19377B32938C168ACC /* JTCalendarWeekDayView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarWeekDayView.m; path = jtcalendar/views/JTCalendarWeekDayView.m; sourceTree = "<group>"; };
 		C5CD4AC0F4A99299EF1522D19D5AFEED /* IQToolbar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQToolbar.h; path = IQKeyboardManager/IQToolbar/IQToolbar.h; sourceTree = "<group>"; };
 		C5F451E51DD4A01292BF6B6DBC075BD7 /* SCLAlertViewStyleKit.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCLAlertViewStyleKit.m; path = SCLAlertView/SCLAlertViewStyleKit.m; sourceTree = "<group>"; };
+		C6043B2836BEA634594D39FBAD6E9A4B /* JTCalendar.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = JTCalendar.modulemap; sourceTree = "<group>"; };
 		C636F1C1F6084659C746C7407F6EF288 /* ALContactService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALContactService.m; path = Applozic/ALContactService.m; sourceTree = "<group>"; };
 		C6690D8331C0FA409517187889EF6B81 /* FBSDKSettings.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKSettings.m; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKSettings.m; sourceTree = "<group>"; };
 		C6855AAA179B3EBEBC32A1086C802737 /* FBSDKWebDialog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKWebDialog.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/WebDialog/FBSDKWebDialog.h; sourceTree = "<group>"; };
+		C6AFFB82CCDFAE0A448CAFEFAF3EAD16 /* JTCalendar.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendar.h; path = JTCalendar/JTCalendar.h; sourceTree = "<group>"; };
 		C70EE2378920D29F0380646CD07384CF /* AlMultipleAttachmentCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AlMultipleAttachmentCell.h; path = Applozic/ViewControllers/AlMultipleAttachmentCell.h; sourceTree = "<group>"; };
 		C7909DC7BFBA0B15B2B174E50B6977C2 /* SVProgressAnimatedView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SVProgressAnimatedView.m; path = SVProgressHUD/SVProgressAnimatedView.m; sourceTree = "<group>"; };
 		C7934C622C98715C695BA8BB1124BB29 /* BFCancellationToken.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = BFCancellationToken.m; path = Bolts/Common/BFCancellationToken.m; sourceTree = "<group>"; };
@@ -2070,7 +2075,6 @@
 		D0BCB7DB581EE4DA6B2CBB9D46FDE6C1 /* IQPreviousNextView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQPreviousNextView.m; path = IQKeyboardManager/IQToolbar/IQPreviousNextView.m; sourceTree = "<group>"; };
 		D0BF1BA4804EA7FB8241B39B22D6FF1C /* DZNWebViewController-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DZNWebViewController-umbrella.h"; sourceTree = "<group>"; };
 		D0E7B00DE155551EE69C47492064B34A /* Crashlytics.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Crashlytics.h; path = iOS/Crashlytics.framework/Headers/Crashlytics.h; sourceTree = "<group>"; };
-		D12FDA7562721FD153B30F3BFB219904 /* JTCalendarWeekView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarWeekView.h; path = jtcalendar/views/JTCalendarWeekView.h; sourceTree = "<group>"; };
 		D23DBA24D4A6DCFE7D1677B2215C47C0 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2C81F673BBE28310CA4F12A7CAFFFE7 /* FBSDKCameraEffectTextures.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKCameraEffectTextures.h; path = FBSDKShareKit/FBSDKShareKit/FBSDKCameraEffectTextures.h; sourceTree = "<group>"; };
 		D3025AA1C91E117E3195C5AD69535699 /* MQTTSessionSynchron.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MQTTSessionSynchron.m; path = Applozic/MQTT/MQTTSessionSynchron.m; sourceTree = "<group>"; };
@@ -2087,28 +2091,25 @@
 		D44E00D0E168D65600D76AED4580E402 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D49D8C27D2F70D7A7DA6659287868A42 /* ResourceBundle-ISMessages-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-ISMessages-Info.plist"; sourceTree = "<group>"; };
 		D4AABA7CA542BC1C4849AD70A2D15D2D /* AppLozic 3.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = "AppLozic 3.xcdatamodel"; sourceTree = "<group>"; };
-		D5B98AFB134384EAC89417C97D87EAE5 /* JTMenu.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTMenu.h; path = jtcalendar/Protocols/JTMenu.h; sourceTree = "<group>"; };
 		D5F35190C829ED1DAC0540B6FA22A1DC /* UIImage+MultiFormat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+MultiFormat.m"; path = "SDWebImage/UIImage+MultiFormat.m"; sourceTree = "<group>"; };
 		D60F641A8AD2D9915F49830FC124FE4A /* SVProgressAnimatedView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SVProgressAnimatedView.h; path = SVProgressHUD/SVProgressAnimatedView.h; sourceTree = "<group>"; };
 		D61070095EB2C11D8B3BDFC70E96D783 /* SDWebImageDecoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageDecoder.h; path = SDWebImage/SDWebImageDecoder.h; sourceTree = "<group>"; };
 		D6377EF5D88F79FD8F9331BD97D4E958 /* UIImageView+HighlightedWebCache.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImageView+HighlightedWebCache.m"; path = "SDWebImage/UIImageView+HighlightedWebCache.m"; sourceTree = "<group>"; };
 		D66771118F96A6FCA79D435039358EA9 /* FBSDKContainerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKContainerViewController.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKContainerViewController.m; sourceTree = "<group>"; };
 		D6CD6C12B5D996C990C11207CD699300 /* FBSDKErrorConfiguration.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKErrorConfiguration.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/ServerConfiguration/FBSDKErrorConfiguration.m; sourceTree = "<group>"; };
-		D6D650B63F9CFB1D12F221680A51D3F8 /* JTCalendarDelegateManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarDelegateManager.h; path = jtcalendar/Managers/JTCalendarDelegateManager.h; sourceTree = "<group>"; };
+		D6DD785FFF92148F8A7387E81D89FBCF /* JTMenu.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTMenu.h; path = JTCalendar/Protocols/JTMenu.h; sourceTree = "<group>"; };
 		D6E2E9C46B7C348AD9061DF478B61B62 /* youtube-ios-player-helper.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "youtube-ios-player-helper.xcconfig"; sourceTree = "<group>"; };
 		D6FA452F7A4F872EFAEC12A90F7D6C8F /* SDWebImageDownloaderOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageDownloaderOperation.m; path = SDWebImage/SDWebImageDownloaderOperation.m; sourceTree = "<group>"; };
 		D719982ED005BE42E659D793B0D02A38 /* isWarningIcon.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = isWarningIcon.png; path = ISMessages/Assets/isWarningIcon.png; sourceTree = "<group>"; };
 		D7324AA27E31950E006384DA47179244 /* ALMapViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALMapViewController.h; path = Applozic/ViewControllers/ALMapViewController.h; sourceTree = "<group>"; };
 		D73A5D852E8010F10F6A0244E732720E /* dzn_icn_activity_dolphin@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_activity_dolphin@2x.png"; path = "Source/Resources/dzn_icn_activity_dolphin@2x.png"; sourceTree = "<group>"; };
 		D744165FDEA4E2752C3212F9A8DC6270 /* ALChannelDBService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALChannelDBService.m; path = Applozic/ALChannelDBService.m; sourceTree = "<group>"; };
-		D77E4FBFF4E6FCA0C00967B11EAB51CF /* JTCalendar.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JTCalendar.xcconfig; sourceTree = "<group>"; };
 		D7A3A79ECD33209CBE9B8DFC4CD36CA0 /* FBSDKShareCameraEffectContent.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKShareCameraEffectContent.h; path = FBSDKShareKit/FBSDKShareKit/FBSDKShareCameraEffectContent.h; sourceTree = "<group>"; };
 		D8240F8D82F7FCB1982691373734A748 /* FBSDKCameraEffectArguments+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBSDKCameraEffectArguments+Internal.h"; path = "FBSDKShareKit/FBSDKShareKit/Internal/FBSDKCameraEffectArguments+Internal.h"; sourceTree = "<group>"; };
 		D842398502B720F686DEAC961C8C28FD /* SDWebImageManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageManager.h; path = SDWebImage/SDWebImageManager.h; sourceTree = "<group>"; };
 		D8A2C42FF694811BAD113EEA76A8341E /* isSuccessIcon@2x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "isSuccessIcon@2x.png"; path = "ISMessages/Assets/isSuccessIcon@2x.png"; sourceTree = "<group>"; };
 		D8A9942BB839A5DAE92A42164F615436 /* FBSDKShareDialogMode.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKShareDialogMode.m; path = FBSDKShareKit/FBSDKShareKit/FBSDKShareDialogMode.m; sourceTree = "<group>"; };
 		D8DF78DBECD176B148BB6EBD1D817B11 /* FBSDKMonotonicTime.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKMonotonicTime.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/FBSDKMonotonicTime.m; sourceTree = "<group>"; };
-		D8E498F053A9CC29909E68BB7CDFCD6C /* JTCalendar-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTCalendar-prefix.pch"; sourceTree = "<group>"; };
 		D901345EECA201FF0E88BB7D1AE9974E /* FBSDKGameRequestDialog.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKGameRequestDialog.h; path = FBSDKShareKit/FBSDKShareKit/FBSDKGameRequestDialog.h; sourceTree = "<group>"; };
 		D90B743F133BA449AC2E4BBF395987C5 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFNetworkReachabilityManager.m; path = AFNetworking/AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
 		D9237C112BC3A6A3AC616A641CC7C6AF /* IQToolbar.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = IQToolbar.m; path = IQKeyboardManager/IQToolbar/IQToolbar.m; sourceTree = "<group>"; };
@@ -2148,6 +2149,7 @@
 		E1A1435625070120FC3CAFEAFC2A1160 /* isErrorIcon.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = isErrorIcon.png; path = ISMessages/Assets/isErrorIcon.png; sourceTree = "<group>"; };
 		E1B2060176B45C64BD7C3AB13D71B4F4 /* JSONModel.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = JSONModel.xcconfig; sourceTree = "<group>"; };
 		E1C77D9BB770D1DC20ECFCAE559C1DDB /* AppLozic 5.xcdatamodel */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = wrapper.xcdatamodel; path = "AppLozic 5.xcdatamodel"; sourceTree = "<group>"; };
+		E27FE38816BD0F69BA3E51E000573C15 /* JTDateHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTDateHelper.m; path = JTCalendar/JTDateHelper.m; sourceTree = "<group>"; };
 		E2FBDFBD7532A7D65C8DCD713400EFF2 /* FBSDKGraphErrorRecoveryProcessor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKGraphErrorRecoveryProcessor.m; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKGraphErrorRecoveryProcessor.m; sourceTree = "<group>"; };
 		E31035D1C60FF2B3CB194335B97ED9B7 /* ALMQTTConversationService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALMQTTConversationService.m; path = Applozic/ALMQTTConversationService.m; sourceTree = "<group>"; };
 		E3655302C23E326B0BCBD3873B74068B /* ALContactCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALContactCell.m; path = Applozic/Views/ALContactCell.m; sourceTree = "<group>"; };
@@ -2167,7 +2169,6 @@
 		E778B5AD385049BA77F103B2FB461D32 /* ALChatLauncher.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALChatLauncher.h; path = Applozic/ALChatLauncher.h; sourceTree = "<group>"; };
 		E7D8D697548C6E3A33AEB7D2490B5666 /* FBSDKCloseIcon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKCloseIcon.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/UI/FBSDKCloseIcon.m; sourceTree = "<group>"; };
 		E7DF16E02593609A225D8ADABF3401D5 /* FBSDKCloseIcon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKCloseIcon.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/UI/FBSDKCloseIcon.h; sourceTree = "<group>"; };
-		E8139D2A35FFD553944C2506180472A3 /* JTCalendarScrollManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarScrollManager.m; path = jtcalendar/Managers/JTCalendarScrollManager.m; sourceTree = "<group>"; };
 		E813FD4518476995C051FFB445768CD9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E84EEE1F785FD62B76E128C37D795564 /* ALNavigationController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALNavigationController.h; path = Applozic/ViewControllers/ALNavigationController.h; sourceTree = "<group>"; };
 		E875F1F9F7DD4D868818B5C114E34F75 /* IQBarButtonItem.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = IQBarButtonItem.h; path = IQKeyboardManager/IQToolbar/IQBarButtonItem.h; sourceTree = "<group>"; };
@@ -2189,6 +2190,7 @@
 		EAD75F1A41362C7173118D3605034618 /* SVProgressHUD-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SVProgressHUD-umbrella.h"; sourceTree = "<group>"; };
 		EB03F7CC7FA80DEFF4425046944C7177 /* NSString+STTwitter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+STTwitter.h"; path = "STTwitter/NSString+STTwitter.h"; sourceTree = "<group>"; };
 		EB51B975B79317176BB72BCE5E4870B7 /* UIView+Toast.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Toast.m"; path = "Applozic/Utilities/UIView+Toast.m"; sourceTree = "<group>"; };
+		EB75794787C3BFB8FF496502CBE26CB3 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBABDFF1991C01D271D4A18A147DA136 /* MQTTClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTClient.h; path = Applozic/MQTT/MQTTClient.h; sourceTree = "<group>"; };
 		EBBDDD1752E2EB4D74FBC7519FE07D6E /* FBSDKErrorRecoveryConfiguration.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKErrorRecoveryConfiguration.h; path = FBSDKCoreKit/FBSDKCoreKit/Internal/ServerConfiguration/FBSDKErrorRecoveryConfiguration.h; sourceTree = "<group>"; };
 		EBFC013A729ACEEDFF9BBAE2FED8147E /* MZTimerLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MZTimerLabel-dummy.m"; sourceTree = "<group>"; };
@@ -2196,6 +2198,7 @@
 		EC3261BD0A447FA205302A5FE6C21EB0 /* FBSDKSettings.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKSettings.h; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKSettings.h; sourceTree = "<group>"; };
 		EC383F572FDA61C742B143D7B036412C /* JSONModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JSONModel.m; path = JSONModel/JSONModel/JSONModel.m; sourceTree = "<group>"; };
 		EC9BF1A83B7306E56FF79C3E66421169 /* CCBottomRefreshControl.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = CCBottomRefreshControl.xcconfig; sourceTree = "<group>"; };
+		ED0547D5CC73EEDCBCDF09D434801E29 /* JTCalendarMenuView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTCalendarMenuView.m; path = JTCalendar/Views/JTCalendarMenuView.m; sourceTree = "<group>"; };
 		ED2D961FC0A76132964507FB9E2A6380 /* FBSDKLoginTooltipView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKLoginTooltipView.h; path = FBSDKLoginKit/FBSDKLoginKit/FBSDKLoginTooltipView.h; sourceTree = "<group>"; };
 		ED3BE2EF553F73F3FB942487110E508C /* MQTTSSLSecurityPolicyTransport.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MQTTSSLSecurityPolicyTransport.h; path = Applozic/MQTT/MQTTSSLSecurityPolicyTransport.h; sourceTree = "<group>"; };
 		ED50FA1CBF72B0A9935679FCF7056F2C /* SCFacebook-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCFacebook-prefix.pch"; sourceTree = "<group>"; };
@@ -2219,8 +2222,6 @@
 		F2033441A4D776BFB2DB7DD1E53D05CF /* ISMessages.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ISMessages.m; path = ISMessages/Classes/ISMessages.m; sourceTree = "<group>"; };
 		F2622E163E697FCB7FDA51AC49CA7FEA /* SDWebImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SDWebImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F29CC009117C67419B19E5846EF7B0B7 /* ALRegisterUserClientService.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = ALRegisterUserClientService.m; path = Applozic/Services/ALRegisterUserClientService.m; sourceTree = "<group>"; };
-		F2D7A2D1B1FEE1B33F6E303D336316C5 /* JTCalendarMenuView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarMenuView.h; path = jtcalendar/views/JTCalendarMenuView.h; sourceTree = "<group>"; };
-		F2FCDBC6E6E9F146C7C5C4B8421A6337 /* JTCalendar-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "JTCalendar-umbrella.h"; sourceTree = "<group>"; };
 		F31138DF66733702F7D8BA47CE7F67EA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		F31EE54B614EB5EE4E50C33432DEECE6 /* FBSDKURLSessionTask.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FBSDKURLSessionTask.m; path = FBSDKCoreKit/FBSDKCoreKit/Internal/Network/FBSDKURLSessionTask.m; sourceTree = "<group>"; };
 		F33B0848BD57F26193B9FC6EA07BEEA2 /* JSONModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JSONModel.h; path = JSONModel/JSONModel/JSONModel.h; sourceTree = "<group>"; };
@@ -2255,6 +2256,7 @@
 		F9B3354782F3594A51229ABFA212C8BA /* dzn_icn_toolbar_stop.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = dzn_icn_toolbar_stop.png; path = Source/Resources/dzn_icn_toolbar_stop.png; sourceTree = "<group>"; };
 		F9D3FE8480CC9EE0C6E38DFDFF835818 /* SDWebImage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SDWebImage-dummy.m"; sourceTree = "<group>"; };
 		F9E47B7229471B215A66B5AEB7805E62 /* FBSDKAppLinkResolver.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FBSDKAppLinkResolver.h; path = FBSDKCoreKit/FBSDKCoreKit/FBSDKAppLinkResolver.h; sourceTree = "<group>"; };
+		FA2C6650C7C4B316C0DF9643CB4102D2 /* JTCalendarDayView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarDayView.h; path = JTCalendar/Views/JTCalendarDayView.h; sourceTree = "<group>"; };
 		FA396EDE01EB4E9D6DC8310E6E79C2CE /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = AFNetworking/AFHTTPSessionManager.m; sourceTree = "<group>"; };
 		FA7AFD8502CE3A1C353345F2644311EB /* Applozic-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Applozic-prefix.pch"; sourceTree = "<group>"; };
 		FAB6E4A94BDAC7D683C29DA470DF7C83 /* ALMessageInfo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALMessageInfo.h; path = Applozic/ALMessageInfo.h; sourceTree = "<group>"; };
@@ -2268,10 +2270,8 @@
 		FC7B14C7E7F67AC0238989E2E3FCA495 /* ALMessageServiceWrapper.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ALMessageServiceWrapper.h; path = Applozic/ALMessageServiceWrapper.h; sourceTree = "<group>"; };
 		FC953AA23E5350555D77C1EC63A24024 /* dzn_icn_toolbar_reload@3x.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; name = "dzn_icn_toolbar_reload@3x.png"; path = "Source/Resources/dzn_icn_toolbar_reload@3x.png"; sourceTree = "<group>"; };
 		FC976B0ABB2E6FD9D954CBF5BFFC33A0 /* NJKScrollFullScreen-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "NJKScrollFullScreen-dummy.m"; sourceTree = "<group>"; };
-		FCBB1FD7F6AD8C91B078C1C7AFB5D794 /* JTDateHelper.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = JTDateHelper.m; path = jtcalendar/JTDateHelper.m; sourceTree = "<group>"; };
 		FCE9C57BA02841653EFD52C56453822D /* FBSDKLoginManager+Internal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "FBSDKLoginManager+Internal.h"; path = "FBSDKLoginKit/FBSDKLoginKit/Internal/FBSDKLoginManager+Internal.h"; sourceTree = "<group>"; };
 		FCFCBF8EB549D0CD2E71106B06A276DC /* SDWebImageManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageManager.m; path = SDWebImage/SDWebImageManager.m; sourceTree = "<group>"; };
-		FD04FA9785D3F9415DBF7DB21EDF388F /* JTCalendarPageView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = JTCalendarPageView.h; path = jtcalendar/views/JTCalendarPageView.h; sourceTree = "<group>"; };
 		FD0DB9AA0246DE6A57647A44DF15BDBD /* UIImage+Utility.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Utility.m"; path = "Applozic/Utilities/UIImage+Utility.m"; sourceTree = "<group>"; };
 		FD757104967F4A2151B3A6C766EA5D3D /* SCFacebook.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCFacebook.m; path = SCFacebook/SCFacebook.m; sourceTree = "<group>"; };
 		FDB20ECCB334D6FC7D2617AA84CFE665 /* STTwitterOSRequest.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = STTwitterOSRequest.h; path = STTwitter/STTwitterOSRequest.h; sourceTree = "<group>"; };
@@ -2824,20 +2824,6 @@
 			path = DZNWebViewController;
 			sourceTree = "<group>";
 		};
-		444751909D2964B182DA1A27D29E8B51 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				2A035E8091A2EFB869BE36E4DF92BA88 /* Info.plist */,
-				5F020CC24969F6084B57E673C5415F33 /* JTCalendar.modulemap */,
-				D77E4FBFF4E6FCA0C00967B11EAB51CF /* JTCalendar.xcconfig */,
-				54ADE4AAB3465859BB8B0954763B7408 /* JTCalendar-dummy.m */,
-				D8E498F053A9CC29909E68BB7CDFCD6C /* JTCalendar-prefix.pch */,
-				F2FCDBC6E6E9F146C7C5C4B8421A6337 /* JTCalendar-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/JTCalendar";
-			sourceTree = "<group>";
-		};
 		44DF539D1BACE2F634D58A36B14F955C /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -3036,7 +3022,7 @@
 				25D7164DE2F689AB210D496A8A0878CB /* IQKeyboardManager */,
 				8CF0DC19C663F4D53E9AD94D1EA9470B /* ISMessages */,
 				E141D1C0374D9C3B6CAB0CD84293B7DB /* JSONModel */,
-				9028C4BD34AAF656F689FBE90B59617A /* JTCalendar */,
+				9259F46C77C2A5615A045342DF20E2AC /* JTCalendar */,
 				537D56F010940E554AB8A1BEACE4C05F /* MZTimerLabel */,
 				8C5075818E50F24E7F25A17C6612EE3B /* NJKScrollFullScreen */,
 				86F14FE539D419E0F3BF8027AD51CD63 /* SCFacebook */,
@@ -3108,47 +3094,6 @@
 			);
 			name = ISMessages;
 			path = ISMessages;
-			sourceTree = "<group>";
-		};
-		9028C4BD34AAF656F689FBE90B59617A /* JTCalendar */ = {
-			isa = PBXGroup;
-			children = (
-				68F58B0FB8A3EF6C47DA084ED84942DE /* JTCalendar.h */,
-				4435B7E777F5A716E6A5A1C60DB55D4A /* JTCalendarDay.h */,
-				573A7C1BE1F674BA1182F06CA99FE947 /* JTCalendarDayView.h */,
-				0277F817F5394E1E6D2768B1A7EEB462 /* JTCalendarDayView.m */,
-				78CD21250D0E084FBDDF5BB20D9535BF /* JTCalendarDelegate.h */,
-				D6D650B63F9CFB1D12F221680A51D3F8 /* JTCalendarDelegateManager.h */,
-				AB794BE65EDBC4AF5F2FD025E5F985AB /* JTCalendarDelegateManager.m */,
-				35B9C93E0EF8E7E2F9292E106E253554 /* JTCalendarManager.h */,
-				616ACA72D18D3AE8660A7AD656EBE1D7 /* JTCalendarManager.m */,
-				F2D7A2D1B1FEE1B33F6E303D336316C5 /* JTCalendarMenuView.h */,
-				5C9304CC766C318F033B4F2FDEAF6DD0 /* JTCalendarMenuView.m */,
-				AA3A386D736C2FAF620EAF1E4A73E865 /* JTCalendarPage.h */,
-				FD04FA9785D3F9415DBF7DB21EDF388F /* JTCalendarPageView.h */,
-				92720542D7B257CBEF3982990DF6E7BE /* JTCalendarPageView.m */,
-				240F56DCE4E4EEC6DF63D70F61DB0AC6 /* JTCalendarScrollManager.h */,
-				E8139D2A35FFD553944C2506180472A3 /* JTCalendarScrollManager.m */,
-				2D999CC6C1B674FE05FF6A66CE85745A /* JTCalendarSettings.h */,
-				8F5AB1788CDEAAD47B49B82AF47CB31E /* JTCalendarSettings.m */,
-				45C6F69D54200FB1561AB46DF691E6B9 /* JTCalendarWeek.h */,
-				4E538619BAA3531A1F86948AE1D9C000 /* JTCalendarWeekDay.h */,
-				BBFC850DAF94F610FD7477CC901732CF /* JTCalendarWeekDayView.h */,
-				C59E2D448D67EE19377B32938C168ACC /* JTCalendarWeekDayView.m */,
-				D12FDA7562721FD153B30F3BFB219904 /* JTCalendarWeekView.h */,
-				B3619AB4FC7F67A6869C177F4577F48C /* JTCalendarWeekView.m */,
-				884ABB429A99BDCB8BF397B45453BD61 /* JTContent.h */,
-				9150A3C980ED35DB3CD872C138F97A27 /* JTDateHelper.h */,
-				FCBB1FD7F6AD8C91B078C1C7AFB5D794 /* JTDateHelper.m */,
-				AF0E3C9709F9E7B2B8FBD9C83805C33B /* JTHorizontalCalendarView.h */,
-				79B65F9A64BB6D623ADEE807E3EFE848 /* JTHorizontalCalendarView.m */,
-				D5B98AFB134384EAC89417C97D87EAE5 /* JTMenu.h */,
-				292BE7F2AA75C37EE54D0C57D4183CFD /* JTVerticalCalendarView.h */,
-				6ED1CF27095D20750078B276B3D1C6C0 /* JTVerticalCalendarView.m */,
-				444751909D2964B182DA1A27D29E8B51 /* Support Files */,
-			);
-			name = JTCalendar;
-			path = JTCalendar;
 			sourceTree = "<group>";
 		};
 		91223EA739AB9E01F96CC41D88F58E00 /* FBSDKCoreKit */ = {
@@ -3321,6 +3266,47 @@
 			);
 			name = FBSDKCoreKit;
 			path = FBSDKCoreKit;
+			sourceTree = "<group>";
+		};
+		9259F46C77C2A5615A045342DF20E2AC /* JTCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				C6AFFB82CCDFAE0A448CAFEFAF3EAD16 /* JTCalendar.h */,
+				A7BA9C912D536DA8E90E633708F6F9BF /* JTCalendarDay.h */,
+				FA2C6650C7C4B316C0DF9643CB4102D2 /* JTCalendarDayView.h */,
+				4A58BD328403DC1E777CC61754C1E3D4 /* JTCalendarDayView.m */,
+				9A8ED5E258FAE5C18889F414B5A4E3B7 /* JTCalendarDelegate.h */,
+				35C1CBF0ACF467A266053B8BED9DDFC5 /* JTCalendarDelegateManager.h */,
+				38E3E0FA63FF12CBB8E2FAB290F8001C /* JTCalendarDelegateManager.m */,
+				5B4A23674B838A5F396597987709B81D /* JTCalendarManager.h */,
+				79942270ADF77E3AD10859E0418B3E9B /* JTCalendarManager.m */,
+				11777BBFA9627646DAAB8BF82C86D7C7 /* JTCalendarMenuView.h */,
+				ED0547D5CC73EEDCBCDF09D434801E29 /* JTCalendarMenuView.m */,
+				086C4FAAB6A5471E523AC4E2CCE8337B /* JTCalendarPage.h */,
+				2467DD4B3A4CAE5D38FAFF03E17568FD /* JTCalendarPageView.h */,
+				74DA5EE4DB50C2923EB59DC9C4E0CCC5 /* JTCalendarPageView.m */,
+				5E742D6A2B47F5D026B267DDF4AB8080 /* JTCalendarScrollManager.h */,
+				3DA35BB4F1CD2384FB0CC80E99E5651C /* JTCalendarScrollManager.m */,
+				00E1595574D72494554E8FCEDF5E50EB /* JTCalendarSettings.h */,
+				0F425FA745528107542BEB00F6A3A3FA /* JTCalendarSettings.m */,
+				088A512CC79B89A51B9F66A1530559FC /* JTCalendarWeek.h */,
+				AB646F6224A0F35E3CCD74854B8FF716 /* JTCalendarWeekDay.h */,
+				624BCA823ECF9D46DD98E237AC306C77 /* JTCalendarWeekDayView.h */,
+				83B9A46AA1DA014B435A32113DF72FC9 /* JTCalendarWeekDayView.m */,
+				A4E090A123CC12EB2A2B6BE8F0708399 /* JTCalendarWeekView.h */,
+				AC18EF59AA5A7DF1AB8D1C2784AB3C8D /* JTCalendarWeekView.m */,
+				128D09A0FE642523DF4CCBA683D030D1 /* JTContent.h */,
+				A0CBA2B524AE7E3380D3A37D23EFFF2C /* JTDateHelper.h */,
+				E27FE38816BD0F69BA3E51E000573C15 /* JTDateHelper.m */,
+				AC2391804C67AD9963E803DFC22B3D4A /* JTHorizontalCalendarView.h */,
+				1B967A7248AC214AD07ADDF08A204FFC /* JTHorizontalCalendarView.m */,
+				D6DD785FFF92148F8A7387E81D89FBCF /* JTMenu.h */,
+				380A7F5AA4BFBDE366F5F11DDCA132B2 /* JTVerticalCalendarView.h */,
+				B571A260EA6B3292E487D34092943F8D /* JTVerticalCalendarView.m */,
+				F3EBD259BF3E75A21C75DB12974A5022 /* Support Files */,
+			);
+			name = JTCalendar;
+			path = JTCalendar;
 			sourceTree = "<group>";
 		};
 		96AE26A2F2F9020488390EEEAA2CCDF9 /* Resources */ = {
@@ -4103,6 +4089,20 @@
 			name = NSURLSession;
 			sourceTree = "<group>";
 		};
+		F3EBD259BF3E75A21C75DB12974A5022 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EB75794787C3BFB8FF496502CBE26CB3 /* Info.plist */,
+				C6043B2836BEA634594D39FBAD6E9A4B /* JTCalendar.modulemap */,
+				3C78B6177E1DCD19F55758C8B6CF219C /* JTCalendar.xcconfig */,
+				9A38255F9CE722A39116833A88C9E14B /* JTCalendar-dummy.m */,
+				0494FFC72DDEB982BC00967708685BD6 /* JTCalendar-prefix.pch */,
+				03DAC5D30C24584CC9D822333E7F1738 /* JTCalendar-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/JTCalendar";
+			sourceTree = "<group>";
+		};
 		F6CB2C5635E749F5312536434A651440 /* AFNetworking */ = {
 			isa = PBXGroup;
 			children = (
@@ -4198,26 +4198,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				243B9FA63C5E0497B5E37531A449C4BB /* JTCalendar-umbrella.h in Headers */,
-				739453D99F855BD1CCB56D8D4033E33B /* JTCalendar.h in Headers */,
-				F378B28718CFFC9D0DF5E489A5A6915D /* JTCalendarDay.h in Headers */,
-				D7EB61916DDC2CFFB93B1931132D0320 /* JTCalendarDayView.h in Headers */,
-				DE7122E15C59D25BA0899EBDCBB017C0 /* JTCalendarDelegate.h in Headers */,
-				2E3224FC0857AD57BC2719FFA5FBE226 /* JTCalendarDelegateManager.h in Headers */,
-				56782B3944A6975B911CB754C857EBC7 /* JTCalendarManager.h in Headers */,
-				A5859D598B17B2482CF8ACAA0A5FE543 /* JTCalendarMenuView.h in Headers */,
-				0F739572C0CF75BCCE9F48661DEC0CA9 /* JTCalendarPage.h in Headers */,
-				B85E7EBCC814FDF7A75E6E6B2528300C /* JTCalendarPageView.h in Headers */,
-				1DDB75B14E73C9AF6D6EF56BE4F3ED1C /* JTCalendarScrollManager.h in Headers */,
-				ECB4D70B1AD82ACD5ED6185C8491A588 /* JTCalendarSettings.h in Headers */,
-				386300772085625A73EBB53C488A735E /* JTCalendarWeek.h in Headers */,
-				A06BC4663F6719421239A279D01B39BF /* JTCalendarWeekDay.h in Headers */,
-				C5CCE940B14C4D622CBBDF06499CB96C /* JTCalendarWeekDayView.h in Headers */,
-				0E83C01F2754D79DB9DB4B81514B9DD7 /* JTCalendarWeekView.h in Headers */,
-				58C8CD48136CA6F5FFDCDDA54010D278 /* JTContent.h in Headers */,
-				4556AB657576B67ECAB9A118590C1CBF /* JTDateHelper.h in Headers */,
-				7A5EA800BAA54274CAE7E085762E7E24 /* JTHorizontalCalendarView.h in Headers */,
-				D6B5C260BBD35416E3A8EECCEFB6A184 /* JTMenu.h in Headers */,
-				5BC963C2BD7A76D0A7AA77DAD26259D8 /* JTVerticalCalendarView.h in Headers */,
+				3FF9B6657B9A9822C3AC3F42F7850D1C /* JTCalendar.h in Headers */,
+				96F082A9300515C630F999FB7827703A /* JTCalendarDay.h in Headers */,
+				FB7B7935E8D49CEECA76351C2E627A1A /* JTCalendarDayView.h in Headers */,
+				4B23649D5D47A1D543CAD57FE0C55485 /* JTCalendarDelegate.h in Headers */,
+				3D284A341F5C87509CF6534F8D5E123F /* JTCalendarDelegateManager.h in Headers */,
+				9C06176E7C7CEF175C6D414C2471BBAB /* JTCalendarManager.h in Headers */,
+				DD46ED3E8210670622678094C2CE52BC /* JTCalendarMenuView.h in Headers */,
+				76676DF0923C4E4869BEAA1C111BEF28 /* JTCalendarPage.h in Headers */,
+				3160FE445C0D90A20AE73A4C9B7576E8 /* JTCalendarPageView.h in Headers */,
+				3E56943C3F8A140BB52C923E3DDD5E5E /* JTCalendarScrollManager.h in Headers */,
+				6B825307B0FFE80EB445C90B9511CA36 /* JTCalendarSettings.h in Headers */,
+				47ADAA487B332C0BE92AADA45A945D88 /* JTCalendarWeek.h in Headers */,
+				644CF20680709923E73B3EABD64EFDD4 /* JTCalendarWeekDay.h in Headers */,
+				78F6D04BCFD8C2D43D11E09EC4302679 /* JTCalendarWeekDayView.h in Headers */,
+				609C01755F6E60329D1849FC34911CD5 /* JTCalendarWeekView.h in Headers */,
+				D1AE1C1C29836A4C9BE54E8CDFB948C0 /* JTContent.h in Headers */,
+				97EA76FA3D25BE981550B5FA457C83FF /* JTDateHelper.h in Headers */,
+				AB0A7E26E5DF1D0B6D0A89A603CD1ED7 /* JTHorizontalCalendarView.h in Headers */,
+				A0B31C86A693F0CE6C51244C5D635D58 /* JTMenu.h in Headers */,
+				BFD75AA9E3880BD461D3064EF4E19DB8 /* JTVerticalCalendarView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5377,18 +5377,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				E1838A533D456F91341DAC7A4AF2A536 /* JTCalendar-dummy.m in Sources */,
-				43359B6B8260A3E62F294EA302C05676 /* JTCalendarDayView.m in Sources */,
-				1B02137317A8CB0A10B84BB42794527F /* JTCalendarDelegateManager.m in Sources */,
-				1250244D90DA83552E050573D3E2F68A /* JTCalendarManager.m in Sources */,
-				1B660B191FBB791B355F63834CC45233 /* JTCalendarMenuView.m in Sources */,
-				E5C78AFE249A73E2D3ABF80C3C36BA25 /* JTCalendarPageView.m in Sources */,
-				ABB7F7F599AAD2C927A51455AA1F2D35 /* JTCalendarScrollManager.m in Sources */,
-				47A8A3F248C4C744CDC885A793E1C6C8 /* JTCalendarSettings.m in Sources */,
-				5880629CCE6A2D3F9590EBB6DEB69A6B /* JTCalendarWeekDayView.m in Sources */,
-				29B0E18B0C4EAE776B9810AC4CBED411 /* JTCalendarWeekView.m in Sources */,
-				D374106884A499EE1F5A3EA76D8C3C12 /* JTDateHelper.m in Sources */,
-				B1AE74BF07E7402C9C45F6DD9B337C60 /* JTHorizontalCalendarView.m in Sources */,
-				5192E632CBAD450BB95B07B1373DD065 /* JTVerticalCalendarView.m in Sources */,
+				1EBB5121C4545A0E009022F5C1EAA09D /* JTCalendarDayView.m in Sources */,
+				64AB5C8C4A9C63B94DCD3653E2BA1E6F /* JTCalendarDelegateManager.m in Sources */,
+				F359A17C6620C1648BB8B72A97146F42 /* JTCalendarManager.m in Sources */,
+				310361CE75893671536852D251EF2965 /* JTCalendarMenuView.m in Sources */,
+				B3916040717DB6828E733D3DF2E0A644 /* JTCalendarPageView.m in Sources */,
+				F49C48CE2C00DA8FAB63DB9D7FD9C6BC /* JTCalendarScrollManager.m in Sources */,
+				65D29E6337F3E00B4AA40E420C020E9F /* JTCalendarSettings.m in Sources */,
+				B314AF5162665C79E15AD40098948D96 /* JTCalendarWeekDayView.m in Sources */,
+				9A2B80AE50EC1185034E39EA0B3DDCAC /* JTCalendarWeekView.m in Sources */,
+				2F0BAB070948B762475A50B5B10818EC /* JTDateHelper.m in Sources */,
+				A34F68E88AD06D7C7BD7C3C73321E8C9 /* JTHorizontalCalendarView.m in Sources */,
+				CB49B851E1D22A9F04A5408C21ED4137 /* JTVerticalCalendarView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -7064,7 +7064,7 @@
 		};
 		B8D1EE090E630A0B9DCE0206D11B122F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D77E4FBFF4E6FCA0C00967B11EAB51CF /* JTCalendar.xcconfig */;
+			baseConfigurationReference = 3C78B6177E1DCD19F55758C8B6CF219C /* JTCalendar.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "";
@@ -7470,7 +7470,7 @@
 		};
 		F37E877F8C7DADAF6BD74B1A39222BA6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D77E4FBFF4E6FCA0C00967B11EAB51CF /* JTCalendar.xcconfig */;
+			baseConfigurationReference = 3C78B6177E1DCD19F55758C8B6CF219C /* JTCalendar.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD)";
 				CODE_SIGN_IDENTITY = "";

@@ -1645,39 +1645,79 @@
        [Helper hideLoaderSVProgressHUD];
 }
 
+
 -(void)StartListing{
-    NSString * path = [NSString stringWithFormat:@"http://54.76.147.237:5080/streammanager/api/2.0/admin/nodegroup/group-b8fc5323-240b-41eb-932b-70e3f1d027b0/node/edge?accessToken=pest8Mmyriad"];
     
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setURL:[NSURL URLWithString:path]];
-    [request setHTTPMethod:@"GET"];
+    
+    NSString * Newpath = [NSString stringWithFormat:@"http://54.76.147.237:5080/streammanager/api/2.0/admin/nodegroup?accessToken=pest8Mmyriad"];
+    
+    NSMutableURLRequest *Newrequest = [[NSMutableURLRequest alloc] init];
+    [Newrequest setURL:[NSURL URLWithString:Newpath]];
+    [Newrequest setHTTPMethod:@"GET"];
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-    [[session dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError *error) {
+    [[session dataTaskWithRequest:Newrequest completionHandler:^(NSData* data, NSURLResponse* response, NSError *error) {
         
         NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
         
         NSError *errorJson;
-
-        NSArray *responseDict =[NSJSONSerialization JSONObjectWithData:[requestReply dataUsingEncoding:NSUTF8StringEncoding]
-                                        options:NSJSONReadingMutableContainers
-                                          error:&errorJson];
-        
-        NSMutableDictionary *dict = responseDict[0];
-
-        NSString *ServerIP =  [dict objectForKey:@"address"];
-        NSLog(@": %@", ServerIP);
         
         
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self start:ServerIP];
+        NSArray *NewresponseDict =[NSJSONSerialization JSONObjectWithData:[requestReply dataUsingEncoding:NSUTF8StringEncoding]
+                                                                  options:NSJSONReadingMutableContainers
+                                                                    error:&errorJson];
+        
+        NSMutableDictionary *Newdict = NewresponseDict[0];
+        
+        NSString *GroupID =  [Newdict objectForKey:@"name"];
+        NSLog(@": %@", GroupID);
+        
+        
+        
+        NSString * path = [NSString stringWithFormat:@"http://54.76.147.237:5080/streammanager/api/2.0/admin/nodegroup/%@/node/edge?accessToken=pest8Mmyriad",GroupID];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setURL:[NSURL URLWithString:path]];
+        [request setHTTPMethod:@"GET"];
+        
+        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+        [[session dataTaskWithRequest:request completionHandler:^(NSData* data, NSURLResponse* response, NSError *error) {
             
-        }];
+            NSString *requestReply = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
+            
+            NSError *errorJson;
+            
+            NSArray *responseDict =[NSJSONSerialization JSONObjectWithData:[requestReply dataUsingEncoding:NSUTF8StringEncoding]
+                                                                   options:NSJSONReadingMutableContainers
+                                                                     error:&errorJson];
+            
+            NSMutableDictionary *dict = responseDict[0];
+            
+            NSString *ServerIP =  [dict objectForKey:@"address"];
+            NSLog(@": %@", ServerIP);
+            
+            
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self start:ServerIP];
+                
+            }];
+            
+            NSLog(@"Request reply: %@", requestReply);
+            
+            
+        }] resume];
         
-        NSLog(@"Request reply: %@", requestReply);
+        
+        
         
         
     }] resume];
+    
+    
+    
+    
+    
+    
     
 }
 

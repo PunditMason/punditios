@@ -1,2 +1,0 @@
-dependencies: \
-  /Users/jamesmason/Desktop/punditios-master/DerivedData/IPundit/Build/Intermediates.noindex/Pods.build/Debug-iphoneos/Applozic.build/DerivedSources/Applozic_vers.c
