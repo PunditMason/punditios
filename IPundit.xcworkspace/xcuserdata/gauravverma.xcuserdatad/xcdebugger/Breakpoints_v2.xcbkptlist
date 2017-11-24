@@ -84,12 +84,12 @@
                   moduleName = "IPundit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gauravverma/Dropbox/Pundit/IPundit/IPundit/PSignUpVC.m"
-                  timestampString = "531811229.50376"
+                  timestampString = "533216347.472203"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "168"
                   endingLineNumber = "168"
-                  offsetFromSymbolStart = "832">
+                  offsetFromSymbolStart = "728">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -99,12 +99,12 @@
                   moduleName = "IPundit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gauravverma/Dropbox/Pundit/IPundit/IPundit/PSignUpVC.m"
-                  timestampString = "531811229.506748"
+                  timestampString = "533216347.474667"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "168"
                   endingLineNumber = "168"
-                  offsetFromSymbolStart = "34">
+                  offsetFromSymbolStart = "64">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -114,12 +114,12 @@
                   moduleName = "IPundit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gauravverma/Dropbox/Pundit/IPundit/IPundit/PSignUpVC.m"
-                  timestampString = "531811229.511363"
+                  timestampString = "533216347.476955"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "168"
                   endingLineNumber = "168"
-                  offsetFromSymbolStart = "18">
+                  offsetFromSymbolStart = "36">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -129,12 +129,12 @@
                   moduleName = "IPundit"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/gauravverma/Dropbox/Pundit/IPundit/IPundit/PSignUpVC.m"
-                  timestampString = "531811229.514007"
+                  timestampString = "533216347.479234"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "169"
                   endingLineNumber = "169"
-                  offsetFromSymbolStart = "58">
+                  offsetFromSymbolStart = "64">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -146,12 +146,44 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "IPundit/Helper/VermaHelper/DataManager/DataManager.m"
-            timestampString = "531810890.695845"
+            timestampString = "533216127.111903"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "468"
             endingLineNumber = "468"
             landmarkName = "-marqueLabel:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IPundit/BroadcastMatchDetailVC.m"
+            timestampString = "533217102.223046"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "358"
+            endingLineNumber = "358"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "IPundit/BroadcastMatchDetailVC.m"
+            timestampString = "533217102.223129"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "401"
+            endingLineNumber = "401"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -23,11 +23,10 @@
 #define KV2serviceBaseIconURL @"http://54.154.252.47/pundit-ios/v2/"
 #define kStreemManagerHostIP @"54.229.3.56"
 
-#define kLiveFeed @"https://www.footballwebpages.co.uk/match.json"
-
+/*
 
  //Live Base Urls
-/*
+
  #define KserviceBaseIconURL @"http://punditsports.com:81/pundit-ios/assets/img/"
  #define kServiceBaseHomePageURL @"http://punditsports.com:81/pundit-ios/v1/Game/"
  #define KServiceBaseURL @"http://punditsports.com:81/pundit-ios/v1/"
@@ -37,10 +36,11 @@
  #define KServiceBasePushNotificationUrl @"http://punditsports.com:81/pundit-ios/v1/Cron/follow_notification/"
  #define KV2serviceBaseIconURL @"http://punditsports.com:81/pundit-ios/v2/"
  #define kStreemManagerHostIP @"54.229.3.56"
+
 */
 
 
-
+#define kLiveFeed @"https://www.footballwebpages.co.uk/match.json"
 
 
 #define IS_PHONE (UIUserInterfaceIdiomPhone == [[UIDevice currentDevice] userInterfaceIdiom])

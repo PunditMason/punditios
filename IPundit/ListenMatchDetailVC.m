@@ -492,67 +492,88 @@
         [cell setSelectedBackgroundView:bgColorView];
         
         NSMutableDictionary *Player_1_Dict = [[NSMutableDictionary alloc]init];
-        Player_1_Dict = [mPlayers1Array objectAtIndex:indexPath.row];
         
-        NSMutableDictionary *Player_2_Dict = [[NSMutableDictionary alloc]init];
-        Player_2_Dict = [mPlayers2Array objectAtIndex:indexPath.row];
-        
-        
+        if (mPlayers2Array.count <= indexPath.row){
+            Player_1_Dict = [mPlayers1Array objectAtIndex:indexPath.row];
+            
 #pragma Mark ================================================================
 #pragma Mark Player 1
 #pragma Mark ================================================================
-        
-        if ([Player_1_Dict objectForKey:@"shirtNo"]){
-            cell.mPlayer1shirtNo.text = [NSString stringWithFormat:@"%@",[Player_1_Dict objectForKey:@"shirtNo"]];
             
+            if ([Player_1_Dict objectForKey:@"shirtNo"]){
+                cell.mPlayer1shirtNo.text = [NSString stringWithFormat:@"%@",[Player_1_Dict objectForKey:@"shirtNo"]];
+                
+            }
+            else{
+                cell.mPlayer1shirtNo.text = @"";
+                
+            }
+            
+            cell.mPlayer1name.text = [NSString stringWithFormat:@"%@",[Player_1_Dict objectForKey:@"name"]];
+            
+            if ([Player_1_Dict objectForKey:@"Type"]) {
+                cell.mPlayer1substitutionImage.hidden = false;
+                
+                cell.mPlayer1replacedBy.text = [NSString stringWithFormat:@"%@ %@",[[Player_1_Dict objectForKey:@"substitution"]objectForKey:@"replacedBy"],[[Player_1_Dict objectForKey:@"substitution"]objectForKey:@"minute"]];
+            }
+            
+            else{
+                cell.mPlayer1substitutionImage.hidden = true;
+                cell.mPlayer1replacedBy.text = @"";
+                
+            }
+            cell.mPlayer1minute.text = @"";
         }
         else{
             cell.mPlayer1shirtNo.text = @"";
-            
-        }
-        
-        cell.mPlayer1name.text = [NSString stringWithFormat:@"%@",[Player_1_Dict objectForKey:@"name"]];
-        
-        if ([Player_1_Dict objectForKey:@"Type"]) {
-            cell.mPlayer1substitutionImage.hidden = false;
-            
-            cell.mPlayer1replacedBy.text = [NSString stringWithFormat:@"%@ %@",[[Player_1_Dict objectForKey:@"substitution"]objectForKey:@"replacedBy"],[[Player_1_Dict objectForKey:@"substitution"]objectForKey:@"minute"]];
-        }
-        
-        else{
+            cell.mPlayer1name.text = @"";
             cell.mPlayer1substitutionImage.hidden = true;
             cell.mPlayer1replacedBy.text = @"";
-            
+            cell.mPlayer1minute.text = @"";
         }
-        cell.mPlayer1minute.text = @"";
         
+        NSMutableDictionary *Player_2_Dict = [[NSMutableDictionary alloc]init];
+        
+        if (mPlayers2Array.count <= indexPath.row){
+        Player_2_Dict = [mPlayers2Array objectAtIndex:indexPath.row];
 #pragma Mark ================================================================
 #pragma Mark Player 2
 #pragma Mark ================================================================
-        if ([Player_2_Dict objectForKey:@"shirtNo"]){
-            cell.mPlayer2shirtNo.text = [NSString stringWithFormat:@"%@",[Player_2_Dict objectForKey:@"shirtNo"]];
+            if ([Player_2_Dict objectForKey:@"shirtNo"]){
+                cell.mPlayer2shirtNo.text = [NSString stringWithFormat:@"%@",[Player_2_Dict objectForKey:@"shirtNo"]];
+                
+            }
+            else{
+                cell.mPlayer2shirtNo.text = @"";
+                
+            }
             
+            cell.mPlayer2name.text = [NSString stringWithFormat:@"%@",[Player_2_Dict objectForKey:@"name"]];
+            
+            if ([Player_2_Dict objectForKey:@"Type"]) {
+                cell.mPlayer2substitutionImage.hidden = false;
+                
+                cell.mPlayer2replacedBy.text = [NSString stringWithFormat:@"%@ %@",[[Player_2_Dict objectForKey:@"substitution"]objectForKey:@"replacedBy"],[[Player_2_Dict objectForKey:@"substitution"]objectForKey:@"minute"]];
+            }
+            
+            else{
+                cell.mPlayer2substitutionImage.hidden = true;
+                cell.mPlayer2replacedBy.text = @"";
+                
+                
+            }
+            cell.mPlayer2minute.text = @"";
         }
         else{
             cell.mPlayer2shirtNo.text = @"";
-            
-        }
-        
-        cell.mPlayer2name.text = [NSString stringWithFormat:@"%@",[Player_2_Dict objectForKey:@"name"]];
-        
-        if ([Player_2_Dict objectForKey:@"Type"]) {
-            cell.mPlayer2substitutionImage.hidden = false;
-            
-            cell.mPlayer2replacedBy.text = [NSString stringWithFormat:@"%@ %@",[[Player_2_Dict objectForKey:@"substitution"]objectForKey:@"replacedBy"],[[Player_2_Dict objectForKey:@"substitution"]objectForKey:@"minute"]];
-        }
-        
-        else{
+            cell.mPlayer2name.text = @"";
             cell.mPlayer2substitutionImage.hidden = true;
             cell.mPlayer2replacedBy.text = @"";
-            
-            
+            cell.mPlayer2minute.text = @"";
         }
-        cell.mPlayer2minute.text = @"";
+
+        
+
         
         
         
