@@ -322,10 +322,13 @@
     
     if (tableView == mLineupTableView) {
         if (mPlayers1Array.count > mPlayers2Array.count) {
-            
+            NSLog(@"%@ ",mPlayers1Array.count);
+
             return mPlayers1Array.count;
         }
         else{
+            NSLog(@"%@ ",mPlayers2Array.count);
+
             return  mPlayers2Array.count;
         }
     }
@@ -355,12 +358,15 @@
         
         NSMutableDictionary *Player_1_Dict = [[NSMutableDictionary alloc]init];
         
-        if (mPlayers2Array.count <= indexPath.row){
+  
+        if (!([mPlayers1Array count] <= indexPath.row)){
             Player_1_Dict = [mPlayers1Array objectAtIndex:indexPath.row];
             
 #pragma Mark ================================================================
 #pragma Mark Player 1
 #pragma Mark ================================================================
+            
+            cell.mPlayer1shirtImage.hidden = false;
             
             if ([Player_1_Dict objectForKey:@"shirtNo"]){
                 cell.mPlayer1shirtNo.text = [NSString stringWithFormat:@"%@",[Player_1_Dict objectForKey:@"shirtNo"]];
@@ -389,7 +395,8 @@
         else{
             cell.mPlayer1shirtNo.text = @"";
             cell.mPlayer1name.text = @"";
-            cell.mPlayer1substitutionImage.hidden = false;
+            cell.mPlayer1substitutionImage.hidden = true;
+            cell.mPlayer1shirtImage.hidden = true;
             cell.mPlayer1replacedBy.text = @"";
             cell.mPlayer1minute.text = @"";
 
@@ -398,11 +405,16 @@
         
         NSMutableDictionary *Player_2_Dict = [[NSMutableDictionary alloc]init];
         
-        if (mPlayers2Array.count <= indexPath.row){
+        NSLog(@"%@",mPlayers2Array.count);
+        NSLog(@"%@",indexPath.row);
+        
+        if (!(mPlayers2Array.count <= indexPath.row) ){
             Player_2_Dict = [mPlayers2Array objectAtIndex:indexPath.row];
 #pragma Mark ================================================================
 #pragma Mark Player 2
 #pragma Mark ================================================================
+            cell.mPlayer2shirtImage.hidden = false;
+
             if ([Player_2_Dict objectForKey:@"shirtNo"]){
                 cell.mPlayer2shirtNo.text = [NSString stringWithFormat:@"%@",[Player_2_Dict objectForKey:@"shirtNo"]];
                 
@@ -431,7 +443,8 @@
         else{
             cell.mPlayer2shirtNo.text = @"";
             cell.mPlayer2name.text = @"";
-            cell.mPlayer2substitutionImage.hidden = false;
+            cell.mPlayer2substitutionImage.hidden = true;
+            cell.mPlayer2shirtImage.hidden = true;
             cell.mPlayer2replacedBy.text = @"";
             cell.mPlayer2minute.text = @"";
 

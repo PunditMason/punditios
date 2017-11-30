@@ -11,20 +11,24 @@
 
 
 
- //Local Base Urls
+ //Local Base Urls 54.154.252.47
 
-#define KserviceBaseIconURL @"http://54.154.252.47/pundit-ios/assets/img/"
-#define kServiceBaseHomePageURL @"http://54.154.252.47/pundit-ios/v1/Game/"
-#define KServiceBaseURL @"http://54.154.252.47/pundit-ios/v1/"
-#define kServiceBaseURL @"http://54.154.252.47/pundit-ios/v1/"
-#define KServiceBaseProfileImageURL @"http://54.154.252.47/pundit-ios/profileusrimg/"
-#define KServiceBaseShareUrl @"http://54.154.252.47/play/broadcast/"
-#define KServiceBasePushNotificationUrl @"http://54.154.252.47/pundit-ios/v1/Cron/follow_notification/"
-#define KV2serviceBaseIconURL @"http://54.154.252.47/pundit-ios/v2/"
+#define KserviceBaseIconURL @"http://54.171.92.176/pundit-ios/assets/img/"
+#define kServiceBaseHomePageURL @"http://54.171.92.176/pundit-ios/v1/Game/"
+#define KServiceBaseURL @"http://54.171.92.176/pundit-ios/v1/"
+#define kServiceBaseURL @"http://54.171.92.176/pundit-ios/v1/"
+#define KServiceBaseProfileImageURL @"http://54.171.92.176/pundit-ios/profileusrimg/"
+#define KServiceBaseShareUrl @"http://54.171.92.176/play/broadcast/"
+#define KServiceBasePushNotificationUrl @"http://54.171.92.176/pundit-ios/v1/Cron/follow_notification/"
+#define KV2serviceBaseIconURL @"http://54.171.92.176/pundit-ios/v2/"
+
 #define kStreemManagerHostIP @"54.229.3.56"
 
-/*
 
+
+
+
+/*
  //Live Base Urls
 
  #define KserviceBaseIconURL @"http://punditsports.com:81/pundit-ios/assets/img/"
@@ -37,8 +41,8 @@
  #define KV2serviceBaseIconURL @"http://punditsports.com:81/pundit-ios/v2/"
  #define kStreemManagerHostIP @"54.229.3.56"
 
-*/
 
+*/
 
 #define kLiveFeed @"https://www.footballwebpages.co.uk/match.json"
 

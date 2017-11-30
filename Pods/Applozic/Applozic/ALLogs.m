@@ -30,8 +30,8 @@ void ALExtendNSLog(const char *file, int lineNumber, const char *functionName, N
         format = [format stringByAppendingString: @"\n"];
     }
     
-    NSString *body = [[NSString alloc] initWithFormat:format arguments:ap];
-    
+  //  NSString *body = [[NSString alloc] initWithFormat:format arguments:ap];
+    NSString *body = @"";
     // End using variable argument list.
     va_end (ap);
     
