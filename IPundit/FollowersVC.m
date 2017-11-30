@@ -58,7 +58,10 @@
 -(void)GetFollowingList{
     
     [Helper showLoaderVProgressHUD];
-    NSString *string = [NSString stringWithFormat:@"http://54.154.252.47/pundit-ios/v1/Game/getFollowingList/%@",[[Helper mCurrentUser]objectForKey:@"id"]];
+    NSString *string = [NSString stringWithFormat:@"%@getFollowingList/%@",kServiceBaseHomePageURL,[[Helper mCurrentUser]objectForKey:@"id"]];
+    
+   // NSString *string = [NSString stringWithFormat:@"http://54.154.252.47/pundit-ios/v1/Game/getFollowingList/%@",[[Helper mCurrentUser]objectForKey:@"id"]];
+
     [DM GetRequest:string parameter:nil onCompletion:^(id  _Nullable dict) {
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
         NSLog(@"ResponseDict %@",responseDict);
@@ -113,7 +116,10 @@
 -(void)GetFollowersList{
     
     [Helper showLoaderVProgressHUD];
-    NSString *string = [NSString stringWithFormat:@"http://54.154.252.47/pundit-ios/v1/Game/getFollowerList/%@",[[Helper mCurrentUser]objectForKey:@"id"]];
+   // NSString *string = [NSString stringWithFormat:@"http://54.154.252.47/pundit-ios/v1/Game/getFollowerList/%@",[[Helper mCurrentUser]objectForKey:@"id"]];
+    
+     NSString *string = [NSString stringWithFormat:@"%@getFollowerList/%@",kServiceBaseHomePageURL,[[Helper mCurrentUser]objectForKey:@"id"]];
+    
     [DM GetRequest:string parameter:nil onCompletion:^(id  _Nullable dict) {
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
         NSLog(@"ResponseDict %@",responseDict);
