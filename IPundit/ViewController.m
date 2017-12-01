@@ -102,8 +102,22 @@
         self.listnerButtonImageViewNew.image= [UIImage animatedImageWithAnimatedGIFURL:url2];
          
     }
+    self.broadcastButtonImageViewNew.hidden = TRUE;
     
-    
+    UIWebView * websuvimge = [[UIWebView alloc]init];
+    websuvimge.frame = CGRectMake(115, 20, 60,60);
+    websuvimge.backgroundColor = [UIColor clearColor];
+    [websuvimge.scrollView setScrollEnabled:NO];
+    [self.broadcastButtonView addSubview:websuvimge];
+    NSString*path = [[NSBundle mainBundle] pathForResource:@"live" ofType:@"svg"];
+    if (path)
+    {
+        NSURL*fileurl = [NSURL fileURLWithPath:path];
+        NSURLRequest*req = [NSURLRequest requestWithURL:fileurl];
+        websuvimge.scalesPageToFit = true;
+          [websuvimge setOpaque:NO];
+        [websuvimge loadRequest:req];
+    }
     
 
     
