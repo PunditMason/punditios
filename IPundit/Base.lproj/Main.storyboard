@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="fXK-OX-PQn">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="fXK-OX-PQn">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -64,6 +64,11 @@
                                                         <rect key="frame" x="0.0" y="3" width="280" height="90"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
+                                                    <webView contentMode="scaleToFill" misplaced="YES" id="pfU-Mp-uGD">
+                                                        <rect key="frame" x="85" y="3" width="105" height="105"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </webView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="IOf-FR-jp1">
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="130"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -86,6 +91,11 @@
                                                         <rect key="frame" x="0.0" y="3" width="280" height="90"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     </imageView>
+                                                    <webView contentMode="scaleToFill" misplaced="YES" id="Ke7-fC-52I">
+                                                        <rect key="frame" x="85" y="3" width="105" height="105"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </webView>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="red_circle_icon.png" id="Xah-HR-nHV">
                                                         <rect key="frame" x="245" y="8" width="28" height="32"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -433,6 +443,8 @@
                         <outlet property="settingsIcon" destination="Ldl-Af-cwq" id="uVC-Wg-xQe"/>
                         <outlet property="splashScreenImageView" destination="fg2-Th-Mso" id="xgg-tS-fVf"/>
                         <outlet property="splashScreenView" destination="Qvc-F0-BzZ" id="dop-2X-Wtl"/>
+                        <outlet property="websuvimge" destination="pfU-Mp-uGD" id="nON-tV-6vY"/>
+                        <outlet property="websuvimge1" destination="Ke7-fC-52I" id="mIZ-2o-tA7"/>
                         <segue destination="cpW-Id-gLq" kind="push" identifier="Broadcast" id="uTM-mM-pcV"/>
                         <segue destination="nI4-O2-dJ5" kind="push" identifier="Listen" id="TzI-Pr-F7E"/>
                         <segue destination="uA0-wZ-rkP" kind="push" identifier="Settings" id="znP-t4-b9Q"/>
@@ -5300,6 +5312,7 @@
                         <outlet property="mTitalLable" destination="dnt-Og-ioq" id="B9z-xd-Eg4"/>
                         <outlet property="mVideoHighlightTableView" destination="dGL-ol-H1Z" id="Ttc-JT-j6l"/>
                         <segue destination="Ju3-lG-EQb" kind="push" identifier="userPoadcastVieww" id="s9T-GR-dsE"/>
+                        <segue destination="sVB-ee-5bW" kind="push" identifier="PunditDetailVieww" id="YKS-fM-57N"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ynL-Zf-Fr5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -5371,8 +5384,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xut-FD-fSH"/>
-        <segue reference="GMV-Qe-5CE"/>
+        <segue reference="JoJ-hn-chv"/>
         <segue reference="s9T-GR-dsE"/>
-        <segue reference="lGs-Av-jVz"/>
+        <segue reference="YKS-fM-57N"/>
     </inferredMetricsTieBreakers>
 </document>

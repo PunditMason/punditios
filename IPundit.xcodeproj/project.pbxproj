@@ -120,6 +120,8 @@
 		01B9EBB01F6255E200B6D8D0 /* KICamera.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B9EBAC1F6255E200B6D8D0 /* KICamera.png */; };
 		01B9EBB11F6255E200B6D8D0 /* KICamera@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 01B9EBAD1F6255E200B6D8D0 /* KICamera@2x.png */; };
 		01B9EBB21F6255E200B6D8D0 /* KIImagePager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B9EBAF1F6255E200B6D8D0 /* KIImagePager.m */; };
+		01C4CA4C1FD2661D00C82182 /* live_115.svg in Resources */ = {isa = PBXBuildFile; fileRef = 01C4CA4B1FD2661B00C82182 /* live_115.svg */; };
+		01C4CA4E1FD2662900C82182 /* go_115.svg in Resources */ = {isa = PBXBuildFile; fileRef = 01C4CA4D1FD2662900C82182 /* go_115.svg */; };
 		01CDD31E1FD136F7003C058F /* live.svg in Resources */ = {isa = PBXBuildFile; fileRef = 01CDD31D1FD136F7003C058F /* live.svg */; };
 		01E689781F5EAC4E002D9586 /* closechat.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E689771F5EAC4E002D9586 /* closechat.png */; };
 		3D4E62561F8049FB00A9F78E /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4E62551F8049FB00A9F78E /* ExternalAccessory.framework */; };
@@ -415,6 +417,8 @@
 		01B9EBAD1F6255E200B6D8D0 /* KICamera@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "KICamera@2x.png"; sourceTree = "<group>"; };
 		01B9EBAE1F6255E200B6D8D0 /* KIImagePager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KIImagePager.h; sourceTree = "<group>"; };
 		01B9EBAF1F6255E200B6D8D0 /* KIImagePager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KIImagePager.m; sourceTree = "<group>"; };
+		01C4CA4B1FD2661B00C82182 /* live_115.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = live_115.svg; sourceTree = "<group>"; };
+		01C4CA4D1FD2662900C82182 /* go_115.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = go_115.svg; sourceTree = "<group>"; };
 		01C4F6401FA9778B003D2426 /* LiveFeeds.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = LiveFeeds.json; sourceTree = "<group>"; };
 		01CDD31D1FD136F7003C058F /* live.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = live.svg; sourceTree = "<group>"; };
 		01E689771F5EAC4E002D9586 /* closechat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closechat.png; sourceTree = "<group>"; };
@@ -1169,6 +1173,8 @@
 				A6E8013A1E65488F00AF1B70 /* AppDelegate.h */,
 				A6E8013B1E65488F00AF1B70 /* AppDelegate.m */,
 				01CDD31D1FD136F7003C058F /* live.svg */,
+				01C4CA4B1FD2661B00C82182 /* live_115.svg */,
+				01C4CA4D1FD2662900C82182 /* go_115.svg */,
 				A60A09901E6E88B700F5B4CF /* Model */,
 			);
 			name = AppDelegate;
@@ -1556,6 +1562,7 @@
 				0087F2CA1ED059730001CAC9 /* red_circle_icon.png in Resources */,
 				A674BBAA1E7278C1001E6293 /* noimage1.png in Resources */,
 				015A138F1F483F6800703441 /* New_pundits.png in Resources */,
+				01C4CA4E1FD2662900C82182 /* go_115.svg in Resources */,
 				A64EE37B1E69860500BB93DC /* giphy.gif in Resources */,
 				A64EE36E1E6973B500BB93DC /* Mark Simonson - Proxima Nova Alt Light.otf in Resources */,
 				00E34BF61EF3A3A700261FCA /* Leagues-metro-3-294x208.png in Resources */,
@@ -1578,6 +1585,7 @@
 				0060083F1EB9C67A009DBCD5 /* ic_broadcast.png in Resources */,
 				612F817B1EFACD73003C75C5 /* BroadCastTableViewCell.xib in Resources */,
 				A6281A2D1E716D45005EEE32 /* Broadcast_hover.png in Resources */,
+				01C4CA4C1FD2661D00C82182 /* live_115.svg in Resources */,
 				A6FB7DF81E67DA2F0027FBBC /* motorsport.png in Resources */,
 				A64EE36B1E6973B500BB93DC /* Mark Simonson - Proxima Nova Alt Extra Condensed Bold.otf in Resources */,
 				A64EE36A1E6973B500BB93DC /* Mark Simonson - Proxima Nova Alt Condensed Thin.otf in Resources */,

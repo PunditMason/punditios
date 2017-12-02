@@ -14,6 +14,8 @@
 #import "PunditDetailVC.h"
 
 
+
+
 @interface SettingsVC (){
     NSMutableDictionary * mDataDict ;
     NSMutableArray * mDataArray ;

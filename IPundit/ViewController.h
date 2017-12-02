@@ -37,6 +37,11 @@
 @property (weak, nonatomic) IBOutlet UIView *listenButtonView;
 @property (weak, nonatomic) IBOutlet UIImageView *broadcastButtonImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *listnerButtonImageView;
+@property (weak, nonatomic) IBOutlet UIWebView *websuvimge;
+@property (weak, nonatomic) IBOutlet UIWebView *websuvimge1;
+
+
+
 
 @property (weak, nonatomic) IBOutlet UIImageView *broadcastButtonImageViewNew;
 @property (weak, nonatomic) IBOutlet UIImageView *listnerButtonImageViewNew;

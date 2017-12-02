@@ -36,6 +36,7 @@
 @end
 
 @implementation ViewController
+@synthesize websuvimge1,websuvimge;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -103,22 +104,37 @@
          
     }
     self.broadcastButtonImageViewNew.hidden = TRUE;
+    self.listnerButtonImageViewNew.hidden = TRUE;
+
     
-    UIWebView * websuvimge = [[UIWebView alloc]init];
-    websuvimge.frame = CGRectMake(115, 20, 60,60);
+    websuvimge.frame = CGRectMake(85, 3, 105,105);
     websuvimge.backgroundColor = [UIColor clearColor];
     [websuvimge.scrollView setScrollEnabled:NO];
-    [self.broadcastButtonView addSubview:websuvimge];
+ //   [self.broadcastButtonView addSubview:websuvimge];
     NSString*path = [[NSBundle mainBundle] pathForResource:@"live" ofType:@"svg"];
     if (path)
     {
         NSURL*fileurl = [NSURL fileURLWithPath:path];
         NSURLRequest*req = [NSURLRequest requestWithURL:fileurl];
-        websuvimge.scalesPageToFit = true;
+        websuvimge.scalesPageToFit = false;
           [websuvimge setOpaque:NO];
         [websuvimge loadRequest:req];
     }
     
+    
+    websuvimge1.frame = CGRectMake(95, 3, 105,105);
+    websuvimge1.backgroundColor = [UIColor clearColor];
+    [websuvimge1.scrollView setScrollEnabled:NO];
+  //  [self.broadcastButtonView addSubview:websuvimge];
+    NSString*path1 = [[NSBundle mainBundle] pathForResource:@"go_115" ofType:@"svg"];
+    if (path1)
+    {
+        NSURL*fileurl1 = [NSURL fileURLWithPath:path1];
+        NSURLRequest*req1 = [NSURLRequest requestWithURL:fileurl1];
+        websuvimge1.scalesPageToFit = false;
+        [websuvimge1 setOpaque:NO];
+        [websuvimge1 loadRequest:req1];
+    }
 
     
     

@@ -9,9 +9,12 @@
 #import "FollowersVC.h"
 #import "PoadcastVC.h"
 #import "UIImageView+WebCache.h"
-
+#import "PunditDetailVC.h"
 @interface FollowersVC (){
     NSMutableArray *FollowersArray;
+    NSDictionary * dictReff;
+    NSIndexPath *mmindexpath;
+
 
 }
 
@@ -287,7 +290,10 @@
     NSLog(@"Selected View index=%ld",(long)indexPath.row);
     [self.mVideoHighlightTableView deselectRowAtIndexPath:indexPath animated:NO];
     
+    dictReff = [Helper formatJSONDict:[FollowersArray objectAtIndex:indexPath.row]];
+    mmindexpath = indexPath;
     
+    [self performSegueWithIdentifier: @"PunditDetailVieww" sender: self];
     
 }
 
@@ -306,6 +312,13 @@
     if ([segue.identifier isEqualToString:@"userPoadcastVieww"]) {
         PoadcastVC *destinationVC = segue.destinationViewController;
         destinationVC.selectedUser = [[Helper mCurrentUser]objectForKey:@"id"];
+        
+    }
+    else if ([segue.identifier isEqualToString:@"PunditDetailVieww"]) {
+        PunditDetailVC *PunditDetailvc = segue.destinationViewController;
+        PunditDetailvc.dictRefff = dictReff;
+        PunditDetailvc.mDataArrayyy = FollowersArray;
+        PunditDetailvc.mindex = mmindexpath;
         
     }
 }
