@@ -26,6 +26,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
+    
 
 #pragma mark ====================================================================
 #pragma mark ======================PUSH NOTIFICATION=============================
@@ -73,9 +74,7 @@
     [self.location requestAlwaysAuthorization];
     
     
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
-    
+
     [DataManager sharedDataManager];
     DM.tags = [[NSArray alloc]init];
     

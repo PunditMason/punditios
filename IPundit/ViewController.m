@@ -107,7 +107,7 @@
     self.listnerButtonImageViewNew.hidden = TRUE;
 
     
-    websuvimge.frame = CGRectMake(85, 3, 105,105);
+    websuvimge.frame = CGRectMake(85, 3, 120,120);
     websuvimge.backgroundColor = [UIColor clearColor];
     [websuvimge.scrollView setScrollEnabled:NO];
  //   [self.broadcastButtonView addSubview:websuvimge];
@@ -122,7 +122,7 @@
     }
     
     
-    websuvimge1.frame = CGRectMake(95, 3, 105,105);
+    websuvimge1.frame = CGRectMake(80, 3, 120,120);
     websuvimge1.backgroundColor = [UIColor clearColor];
     [websuvimge1.scrollView setScrollEnabled:NO];
   //  [self.broadcastButtonView addSubview:websuvimge];

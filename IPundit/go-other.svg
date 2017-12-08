@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:d="https://loading.io/stock/"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   id="svg21"
+   version="1.1"
+   style="background-image: none; background-position: initial initial; background-repeat: initial initial;"
+   preserveAspectRatio="xMidYMid"
+   viewBox="0 0 100 100"
+   height="217px"
+   width="217px"
+   class="ldi-jyhqix">
+  <metadata
+     id="metadata27">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs25" />
+  <!--?xml version="1.0" encoding="utf-8"?-->
+  <!--Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)-->
+  <svg
+     xml:space="preserve"
+     style="transform-origin: 50px 50px 0px;"
+     viewBox="0 0 100 100"
+     y="0px"
+     x="0px"
+     id="圖層_1"
+     version="1.1"><g
+       id="g16"
+       style="transform-origin: 50px 50px 0px; transform: scale(0.6);"><g
+         id="g14"
+         style="transform-origin: 50px 50px 0px;"><style
+           id="style2"
+           style="transform-origin: 50px 50px 0px; animation-duration: 3.5s; animation-delay: -3.5s;"
+           class="ld ld-breath"
+           type="text/css">.st0{fill:#D1D1D1;} .st1{fill:#454545;} .st2{fill:#464646;} .st3{fill:#FFFFFF;}</style><g
+           id="g6"
+           style="transform-origin: 50px 50px 0px; animation-duration: 3.5s; animation-delay: -3.2083333333333335s;"
+           class="ld ld-breath"><path
+             id="path4"
+             style="fill: rgb(255, 255, 255);"
+             fill="#ffffff"
+             d="M50,90c-22.056,0-40-17.944-40-40s17.944-40,40-40c22.056,0,40,17.944,40,40S72.057,90,50,90z"
+             class="st0" /></g><g
+           id="g10"
+           style="transform-origin: 50px 50px 0px; animation-duration: 3.5s; animation-delay: -2.916666666666667s;"
+           class="ld ld-breath"><path
+             id="path8"
+             style="fill: rgb(67, 121, 255); stroke: rgb(255, 255, 255);"
+             stroke="#ffffff"
+             fill="#4379ff"
+             d="M50,13.394c-20.217,0-36.606,16.389-36.606,36.606c0,20.217,16.389,36.606,36.606,36.606 c20.216,0,36.605-16.388,36.605-36.606C86.605,29.783,70.217,13.394,50,13.394z M70.103,53.648L40.307,70.852 c-2.613,1.509-4.751,0.274-4.751-2.743V33.702c0-3.018,2.138-4.252,4.751-2.744l29.796,17.203 C72.716,49.67,72.716,52.14,70.103,53.648z"
+             class="st2" /></g><metadata
+           id="metadata12"
+           style="transform-origin: 50px 50px 0px; animation-duration: 3.5s; animation-delay: -2.625s;"
+           class="ld ld-breath"><d:name
+             style="transform-origin: 50px 50px 0px; animation-duration: 3.5s; animation-delay: -2.3333333333333335s;"
+             class="ld ld-breath">go</d:name><d:tags
+             style="transform-origin: 50px 50px 0px; animation-duration: 3.5s; animation-delay: -2.041666666666667s;"
+             class="ld ld-breath">play,execute,run,start,go,map</d:tags><d:license
+             style="transform-origin: 50px 50px 0px; animation-duration: 3.5s; animation-delay: -1.75s;"
+             class="ld ld-breath">cc0</d:license><d:slug
+             style="transform-origin: 50px 50px 0px; animation-duration: 3.5s; animation-delay: -1.4583333333333335s;"
+             class="ld ld-breath">jyhqix</d:slug></metadata></g></g><style
+       id="style18"
+       style="transform-origin: 50px 50px 0px; animation-duration: 3.5s; animation-delay: -1.1666666666666667s;"
+       class="ld ld-breath"
+       type="text/css">path,ellipse,circle,rect,polygon,polyline,line { stroke-width: 0; }@keyframes ld-breath {
+  0% {
+    -webkit-transform: scale(0.86);
+    transform: scale(0.86);
+  }
+  50% {
+    -webkit-transform: scale(1.06);
+    transform: scale(1.06);
+  }
+  100% {
+    -webkit-transform: scale(0.86);
+    transform: scale(0.86);
+  }
+}
+@-webkit-keyframes ld-breath {
+  0% {
+    -webkit-transform: scale(0.86);
+    transform: scale(0.86);
+  }
+  50% {
+    -webkit-transform: scale(1.06);
+    transform: scale(1.06);
+  }
+  100% {
+    -webkit-transform: scale(0.86);
+    transform: scale(0.86);
+  }
+}
+.ld.ld-breath {
+  -webkit-animation: ld-breath 1s infinite;
+  animation: ld-breath 1s infinite;
+}
+</style></svg></svg>

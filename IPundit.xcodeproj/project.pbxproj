@@ -138,6 +138,12 @@
 		6153670A1EF648FC000D1C0B /* MainListenDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 615367091EF648FC000D1C0B /* MainListenDetailCell.m */; };
 		617D45811FA9D2DD00826924 /* FollowersViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 617D45801FA9D2DD00826924 /* FollowersViewCell.m */; };
 		617D45841FA9D2F800826924 /* FollowersVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 617D45831FA9D2F800826924 /* FollowersVC.m */; };
+		638167741FD8633A00DD4BBE /* 1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 638167731FD8633700DD4BBE /* 1.jpg */; };
+		63C459CB1FD8234C007259A5 /* logo-alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C459CA1FD82346007259A5 /* logo-alpha.png */; };
+		63C459CF1FD825D8007259A5 /* pundit_new_black.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C459CE1FD825D4007259A5 /* pundit_new_black.png */; };
+		63C459D11FD8269B007259A5 /* pundit_live.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C459D01FD82697007259A5 /* pundit_live.png */; };
+		63C459D71FD83DF0007259A5 /* pundit_live_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 63C459D61FD83DEA007259A5 /* pundit_live_white.png */; };
+		63C459DF1FD84306007259A5 /* pod_back.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 63C459DE1FD842FD007259A5 /* pod_back.jpg */; };
 		94776654450DC8E54B55F69F /* Pods_IPundit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC0144997D0CFAB8D4D7AA54 /* Pods_IPundit.framework */; };
 		A60A09731E6D72C100F5B4CF /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A60A09721E6D72C100F5B4CF /* CoreMedia.framework */; };
 		A60A09931E6E88F400F5B4CF /* CurrentUser.m in Sources */ = {isa = PBXBuildFile; fileRef = A60A09921E6E88F400F5B4CF /* CurrentUser.m */; };
@@ -262,9 +268,12 @@
 		A6FEF46E1E9F4ECE0009749A /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FEF4661E9F4ECE0009749A /* about.png */; };
 		A6FEF46F1E9F4ECE0009749A /* breaking-news.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FEF4671E9F4ECE0009749A /* breaking-news.png */; };
 		A6FEF4721E9F4ECE0009749A /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FEF46A1E9F4ECE0009749A /* login.png */; };
-		A6FEF4731E9F4ECE0009749A /* logo-alpha.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FEF46B1E9F4ECE0009749A /* logo-alpha.png */; };
 		A6FEF4741E9F4ECE0009749A /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FEF46C1E9F4ECE0009749A /* profile.png */; };
 		A6FEF4751E9F4ECE0009749A /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FEF46D1E9F4ECE0009749A /* setting.png */; };
+		EBB5B7601FD6AEB500DBBA5A /* redwhite.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EBB5B75F1FD6AEB100DBBA5A /* redwhite.jpg */; };
+		EBB5B7621FD6D13000DBBA5A /* broadcasttext.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB5B7611FD6D12A00DBBA5A /* broadcasttext.png */; };
+		EBB5B7641FD6D13800DBBA5A /* listentext.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB5B7631FD6D13400DBBA5A /* listentext.png */; };
+		EBB5B7681FD6D59A00DBBA5A /* lrn.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB5B7671FD6D59500DBBA5A /* lrn.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -442,6 +451,12 @@
 		617D45801FA9D2DD00826924 /* FollowersViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowersViewCell.m; sourceTree = "<group>"; };
 		617D45821FA9D2F800826924 /* FollowersVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FollowersVC.h; sourceTree = "<group>"; };
 		617D45831FA9D2F800826924 /* FollowersVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowersVC.m; sourceTree = "<group>"; };
+		638167731FD8633700DD4BBE /* 1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = 1.jpg; path = ../../../Supporting/Assets_Images/1.jpg; sourceTree = "<group>"; };
+		63C459CA1FD82346007259A5 /* logo-alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "logo-alpha.png"; path = "../../../Supporting/Assets_Images/logo-alpha.png"; sourceTree = "<group>"; };
+		63C459CE1FD825D4007259A5 /* pundit_new_black.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = pundit_new_black.png; path = IPundit/Supporting/Assets_Images/pundit_new_black.png; sourceTree = SOURCE_ROOT; };
+		63C459D01FD82697007259A5 /* pundit_live.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pundit_live.png; sourceTree = "<group>"; };
+		63C459D61FD83DEA007259A5 /* pundit_live_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pundit_live_white.png; sourceTree = "<group>"; };
+		63C459DE1FD842FD007259A5 /* pod_back.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pod_back.jpg; sourceTree = "<group>"; };
 		9F52FE425C87D83F20E0CD0F /* Pods-IPundit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IPundit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-IPundit/Pods-IPundit.debug.xcconfig"; sourceTree = "<group>"; };
 		A60A09721E6D72C100F5B4CF /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		A60A09781E6D7E9200F5B4CF /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -603,10 +618,13 @@
 		A6FEF4661E9F4ECE0009749A /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about.png; sourceTree = "<group>"; };
 		A6FEF4671E9F4ECE0009749A /* breaking-news.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "breaking-news.png"; sourceTree = "<group>"; };
 		A6FEF46A1E9F4ECE0009749A /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
-		A6FEF46B1E9F4ECE0009749A /* logo-alpha.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo-alpha.png"; sourceTree = "<group>"; };
 		A6FEF46C1E9F4ECE0009749A /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		A6FEF46D1E9F4ECE0009749A /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
 		D1F39DE958AF809E3825BB93 /* Pods-IPundit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IPundit.release.xcconfig"; path = "Pods/Target Support Files/Pods-IPundit/Pods-IPundit.release.xcconfig"; sourceTree = "<group>"; };
+		EBB5B75F1FD6AEB100DBBA5A /* redwhite.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redwhite.jpg; sourceTree = SOURCE_ROOT; };
+		EBB5B7611FD6D12A00DBBA5A /* broadcasttext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = broadcasttext.png; sourceTree = SOURCE_ROOT; };
+		EBB5B7631FD6D13400DBBA5A /* listentext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listentext.png; sourceTree = SOURCE_ROOT; };
+		EBB5B7671FD6D59500DBBA5A /* lrn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lrn.png; sourceTree = SOURCE_ROOT; };
 		EC0144997D0CFAB8D4D7AA54 /* Pods_IPundit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IPundit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -885,15 +903,20 @@
 			isa = PBXGroup;
 			children = (
 				3D5378631F63E44E00170EE6 /* BROADCASTSML.png */,
+				638167731FD8633700DD4BBE /* 1.jpg */,
 				3D505F0E1F63CD31002E34C8 /* listen-test.png */,
 				3D505F0C1F63CD20002E34C8 /* broadcast-test.png */,
+				63C459DE1FD842FD007259A5 /* pod_back.jpg */,
 				0055B8DF1F14FF3600C6F75B /* greenCircle.png */,
+				63C459D61FD83DEA007259A5 /* pundit_live_white.png */,
 				3DC241131F63103100D26DE1 /* wide-GO.png */,
+				63C459D01FD82697007259A5 /* pundit_live.png */,
 				0042197C1EE1733A006618B3 /* LeaguesIconDummy.png */,
 				A6FEF4661E9F4ECE0009749A /* about.png */,
+				63C459CE1FD825D4007259A5 /* pundit_new_black.png */,
 				A6FEF4671E9F4ECE0009749A /* breaking-news.png */,
+				63C459CA1FD82346007259A5 /* logo-alpha.png */,
 				A6FEF46A1E9F4ECE0009749A /* login.png */,
-				A6FEF46B1E9F4ECE0009749A /* logo-alpha.png */,
 				A6FEF46C1E9F4ECE0009749A /* profile.png */,
 				A6FEF46D1E9F4ECE0009749A /* setting.png */,
 				A6541C2C1E7A5E7000F0BF9D /* No-following-min.png */,
@@ -1185,6 +1208,10 @@
 			isa = PBXGroup;
 			children = (
 				A6E801401E65488F00AF1B70 /* Main.storyboard */,
+				EBB5B7671FD6D59500DBBA5A /* lrn.png */,
+				EBB5B7631FD6D13400DBBA5A /* listentext.png */,
+				EBB5B7611FD6D12A00DBBA5A /* broadcasttext.png */,
+				EBB5B75F1FD6AEB100DBBA5A /* redwhite.jpg */,
 				A6E801451E65488F00AF1B70 /* LaunchScreen.storyboard */,
 			);
 			name = Storyboard;
@@ -1482,6 +1509,8 @@
 				0021A9B21F0A6E770006839D /* og.png in Resources */,
 				015A13891F483F6800703441 /* New_Listen Live RED.png in Resources */,
 				A6FB7DED1E67DA2F0027FBBC /* splas 640x1136.png in Resources */,
+				63C459CB1FD8234C007259A5 /* logo-alpha.png in Resources */,
+				EBB5B7621FD6D13000DBBA5A /* broadcasttext.png in Resources */,
 				00A5D2D91F1CA75B00689032 /* btn_login_leftarrow_pressed.png in Resources */,
 				A64EE3761E697F7200BB93DC /* trophy.png in Resources */,
 				00E34C021EF3AF4B00261FCA /* profile-screen-icons_07.png in Resources */,
@@ -1492,8 +1521,8 @@
 				A66C09B91EA4EC8A00332CA2 /* splash back 640x1136.png in Resources */,
 				006D573E1F4EB21B005AA2B3 /* SliderImg1.jpg in Resources */,
 				A6FB7DE41E67DA2F0027FBBC /* Broadcast.png in Resources */,
-				A6FEF4731E9F4ECE0009749A /* logo-alpha.png in Resources */,
 				015A13921F483F6800703441 /* New_switching-user.png in Resources */,
+				638167741FD8633A00DD4BBE /* 1.jpg in Resources */,
 				000BA84D1ED409F2002CBB53 /* yellowCard.png in Resources */,
 				A6E801441E65488F00AF1B70 /* Assets.xcassets in Resources */,
 				A6FB7DE81E67DA2F0027FBBC /* Log In.png in Resources */,
@@ -1507,6 +1536,7 @@
 				3D8E5A061F82364E002E5E44 /* podcast-Lisitng.png in Resources */,
 				A6D1BA1D1E6AADAD0041CA77 /* live_white.png in Resources */,
 				A644A95A1E790449002C82F2 /* add-button-hover.png in Resources */,
+				63C459D71FD83DF0007259A5 /* pundit_live_white.png in Resources */,
 				006008401EB9C67A009DBCD5 /* speaker_icon.png in Resources */,
 				A644A95C1E790449002C82F2 /* edit-arow.png in Resources */,
 				A6FB7DF31E67DA2F0027FBBC /* basketball.png in Resources */,
@@ -1517,6 +1547,8 @@
 				A66C09CC1EA4EEB800332CA2 /* ic_la_liga.png in Resources */,
 				00580EFC1F0E729C001A8AF0 /* screen1.png in Resources */,
 				A6D1BA1A1E6AA36A0041CA77 /* user.png in Resources */,
+				63C459DF1FD84306007259A5 /* pod_back.jpg in Resources */,
+				63C459CF1FD825D8007259A5 /* pundit_new_black.png in Resources */,
 				A644A9611E790449002C82F2 /* remove-button-hover.png in Resources */,
 				A6D1BA151E6AA36A0041CA77 /* dots.png in Resources */,
 				3D5378621F63DF7A00170EE6 /* App Preview.gif in Resources */,
@@ -1572,6 +1604,8 @@
 				A6281A2A1E716CB5005EEE32 /* mic_league.png in Resources */,
 				009CD0621F4D6A4500FB765E /* score-board.png in Resources */,
 				0196F1D71E69D8B3004DE59F /* overlay_opacity.png in Resources */,
+				63C459D11FD8269B007259A5 /* pundit_live.png in Resources */,
+				EBB5B7641FD6D13800DBBA5A /* listentext.png in Resources */,
 				A6FEF4741E9F4ECE0009749A /* profile.png in Resources */,
 				0021A9B41F0A6E770006839D /* g.png in Resources */,
 				A6FEF4721E9F4ECE0009749A /* login.png in Resources */,
@@ -1579,8 +1613,10 @@
 				A6D1BA191E6AA36A0041CA77 /* live.png in Resources */,
 				011D241B1E76A08600CD088C /* giphy01.gif in Resources */,
 				0042197A1EE16668006618B3 /* funky.png in Resources */,
+				EBB5B7681FD6D59A00DBBA5A /* lrn.png in Resources */,
 				A6D1BA211E6AAE210041CA77 /* ic_facebook_new.png in Resources */,
 				A66C09CD1EA4EEB800332CA2 /* ic_premier_league.png in Resources */,
+				EBB5B7601FD6AEB500DBBA5A /* redwhite.jpg in Resources */,
 				0042197D1EE1733A006618B3 /* LeaguesIconDummy.png in Resources */,
 				0060083F1EB9C67A009DBCD5 /* ic_broadcast.png in Resources */,
 				612F817B1EFACD73003C75C5 /* BroadCastTableViewCell.xib in Resources */,
