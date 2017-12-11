@@ -128,6 +128,10 @@
 @property (strong, nonatomic) IBOutlet UIButton *mShareButtonButton;
 @property (weak, nonatomic) IBOutlet UISwitch *mLowSignalModeSwitch;
 - (IBAction)LowSignalModeAction:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *mRefreshListener;
+- (IBAction)RefreshListenerButtonTap:(id)sender;
+
+
 
 @property (weak, nonatomic) IBOutlet UITableView *mLineupTableView;
 

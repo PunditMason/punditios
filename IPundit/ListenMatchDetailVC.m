@@ -41,7 +41,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
+
+    [self CallRefresh];
+}
+
+-(void)CallRefresh{
+    
     mFinalsubstitutionArray = [[NSMutableArray alloc]init];
     mFinalGoalsArray =[[NSMutableArray alloc]init];
     mPlayers1Array =[[NSMutableArray alloc]init];
@@ -50,7 +55,7 @@
     mGoals2Array =[[NSMutableArray alloc]init];
     msubstitution1Array =[[NSMutableArray alloc]init];
     msubstitution2Array =[[NSMutableArray alloc]init];
-
+    
     self.mMatchStatusLabel.text = @"-";
     
     if ([self.ViewName isEqualToString:@"PunditDetail"]) {
@@ -66,12 +71,13 @@
             self.mProfileShowHideButtonn.enabled = false;
             self.mSitchBroadcasterButton.enabled = false;
             self.mShareButtonButton.enabled = false;
+            self.mRefreshListener.enabled = false;
             
         }
     }
     
     self.CurrentALUser = [ALChatManager getLoggedinUserInformation];
-
+    
     matchStatusCheck = YES;
     self.backgroundImageView.image = DM.backgroundImage ;
     self.broadcasterViewImageView.image = DM.backgroundImage ;
@@ -85,7 +91,7 @@
         self.liveView.frame = CGRectMake(0, 360, 320, 120);
         self.mTeamTalkLabel.frame = CGRectMake(20, 205, 275, 44);
     }
-
+    
     referenceArray = [[NSMutableArray alloc]init];
     
     
@@ -113,11 +119,11 @@
     }
     else
     {
-    if ([DM.channelType isEqualToString:@"team"]) {
-        [self teamListening];
-    }else{
-        [self matchListening];
-    }
+        if ([DM.channelType isEqualToString:@"team"]) {
+            [self teamListening];
+        }else{
+            [self matchListening];
+        }
     }
     refreshControl = [[UIRefreshControl alloc] init];
     refreshControl.tintColor = [UIColor grayColor];
@@ -136,10 +142,10 @@
                                      cancelButtonTitle:@"Yes"
                                      otherButtonTitles:@"No", nil];
     switchBroadcasting = [[UIAlertView alloc] initWithTitle:@"Switch Broadcaster !"
-                                               message:@"Are you sure to Switch Broadcaster ?"
-                                              delegate:self
-                                     cancelButtonTitle:@"Yes"
-                                     otherButtonTitles:@"No", nil];
+                                                    message:@"Are you sure to Switch Broadcaster ?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Yes"
+                                          otherButtonTitles:@"No", nil];
     
     broadcasterAlert = [[UIAlertView alloc] initWithTitle:@"Sorry"
                                                   message:@"No Matches Available"
@@ -157,24 +163,24 @@
                                   cancelButtonTitle:@"Ok"
                                   otherButtonTitles:nil];
     
-
-    /*
-    UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Applozic" bundle:[NSBundle bundleForClass:ALChatViewController.class]];
     
-    ChatViewObj = (ALChatViewController *)[storyboard instantiateViewControllerWithIdentifier: @"ALChatViewController"];
-    ChatController = [[UINavigationController alloc] initWithRootViewController:ChatViewObj];
-    ChatController.navigationBarHidden = YES;
-    ChatController.view.frame = CGRectMake(0,80,self.view.frame.size.width,self.view.frame.size.height-140);
-    [self.view addSubview:ChatController.view];
-    ChatController.view.hidden = YES;
-
-    */
+    /*
+     UIStoryboard* storyboard = [UIStoryboard storyboardWithName:@"Applozic" bundle:[NSBundle bundleForClass:ALChatViewController.class]];
+     
+     ChatViewObj = (ALChatViewController *)[storyboard instantiateViewControllerWithIdentifier: @"ALChatViewController"];
+     ChatController = [[UINavigationController alloc] initWithRootViewController:ChatViewObj];
+     ChatController.navigationBarHidden = YES;
+     ChatController.view.frame = CGRectMake(0,80,self.view.frame.size.width,self.view.frame.size.height-140);
+     [self.view addSubview:ChatController.view];
+     ChatController.view.hidden = YES;
+     
+     */
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(CloseChatNotification:)
                                                  name:@"CloseListenChat" object:nil];
     
     
-   // bufferTime  = 1.0;
+    // bufferTime  = 1.0;
     
     self.breakingNewsLabel.text = DM.LequebreakingNewsString ;
     [DM marqueLabel:self.breakingNewsLabel];
@@ -190,8 +196,6 @@
     self.mLineupTableView.dataSource = self;
     
 }
-
-
 
 
 
@@ -1666,7 +1670,7 @@
 
     if (_broadcastersView.hidden == YES) {
         [Helper showLoaderVProgressHUD];
-        [NSTimer scheduledTimerWithTimeInterval:15 target:self selector:@selector(ButtonPressed) userInfo:nil repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(ButtonPressed) userInfo:nil repeats:NO];
         [self stop];
     }
 }
@@ -1675,6 +1679,24 @@
        [self StartListing];
        [Helper hideLoaderSVProgressHUD];
 }
+
+- (IBAction)RefreshListenerButtonTap:(id)sender{
+    [Helper showLoaderVProgressHUD];
+
+    [self stop];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self post];
+    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(Stoploader) userInfo:nil repeats:NO];
+
+
+
+}
+-(void)Stoploader{
+    
+    [Helper hideLoaderSVProgressHUD];
+
+}
+
 
 
 -(void)StartListing{
