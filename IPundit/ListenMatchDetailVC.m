@@ -41,7 +41,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     [self CallRefresh];
 }
 
@@ -828,6 +827,7 @@
         
         broadcasterInfo = [[NSMutableDictionary alloc]init];
         broadcasterInfo =  [responseDict objectForKey:@"info"];
+        
         [self BroadCasterDataPost];
         
     } onError:^(NSError * _Nullable Error) {
@@ -1681,22 +1681,33 @@
 }
 
 - (IBAction)RefreshListenerButtonTap:(id)sender{
-    [Helper showLoaderVProgressHUD];
-
-    [self stop];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    [self post];
-    [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(Stoploader) userInfo:nil repeats:NO];
-
-
-
+   // [Helper showLoaderVProgressHUD];
+    [self RefreshListening];
 }
--(void)Stoploader{
+
+
+#pragma Mark ================================================================
+#pragma Mark RefreshListening
+#pragma Mark ================================================================
+
+-(void)RefreshListening{
+    NSString * path = [NSString stringWithFormat:@"%@Game/refreshListening/%@/%@",KServiceBaseURL,[postingData objectForKey:@"broadcaster_id"],[postingData objectForKey:@"id"]];
+    NSLog(@"path %@",path);
+
+    [DM GetRequest:path parameter:nil onCompletion:^(id  _Nullable dict) {
+        
+        NSError *errorJson=nil;
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
+        NSLog(@"responseDict %@",responseDict);
+        postingData = [[NSMutableDictionary alloc]init];
+        postingData = [responseDict objectForKey:@"channel"];
+        [self post];
+        [Helper hideLoaderSVProgressHUD];
+    } onError:^(NSError * _Nullable Error) {
+        NSLog(@"Error %@",Error);
+    }];
     
-    [Helper hideLoaderSVProgressHUD];
-
 }
-
 
 
 -(void)StartListing{
