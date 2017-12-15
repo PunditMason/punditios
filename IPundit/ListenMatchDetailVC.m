@@ -46,6 +46,8 @@
 
 -(void)CallRefresh{
     
+    self.mRefreshListener.hidden = true;
+    
     mFinalsubstitutionArray = [[NSMutableArray alloc]init];
     mFinalGoalsArray =[[NSMutableArray alloc]init];
     mPlayers1Array =[[NSMutableArray alloc]init];
@@ -1410,6 +1412,7 @@
        // [checkAlert show];
         [self.mKickOFTimeLabel pause];
         [DM.stream stop];
+        [self RefreshListenerButtonTap:self];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pundit"
                                                         message:@"Broadcaster Left"
                                                        delegate:self
