@@ -4453,6 +4453,24 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" id="RSo-gW-mWf" userLabel="New Overlay View" customClass="UIControl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overlay_opacity.png" id="vaa-3C-dDn">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Connecting..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XZO-s6-n2m">
+                                        <rect key="frame" x="8" y="265" width="304" height="43"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="30"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -4475,6 +4493,8 @@
                         <outlet property="mLineupTableView" destination="DCk-bB-M5B" id="gsT-so-aJC"/>
                         <outlet property="mListenersCountLabel" destination="hq0-ut-uZf" id="A61-8P-kaJ"/>
                         <outlet property="mLowSignalModeSwitch" destination="Ni2-By-zi2" id="Qgd-Em-Bbu"/>
+                        <outlet property="mNewOverlayLabel" destination="XZO-s6-n2m" id="4fA-0O-KMY"/>
+                        <outlet property="mNewOverlayView" destination="RSo-gW-mWf" id="62j-cM-lsS"/>
                         <outlet property="mOverlayView" destination="Sb5-I9-w4s" id="DWu-fN-reL"/>
                         <outlet property="mOverviewButton" destination="Gux-kC-Pkr" id="RAe-gb-ksO"/>
                         <outlet property="mProfileImageView" destination="Vz3-Zk-rrE" id="JwD-Uc-NjG"/>

@@ -1022,6 +1022,10 @@
 - (void)start:(NSString *)ServerIP {
     [Helper showLoaderVProgressHUD];
     
+    self.mNewOverlayLabel.text = @"Failed";
+    self.mNewOverlayView.hidden = true;
+
+    
     R5Connection *connection;
     if ([_mLowSignalModeSwitch isOn]) {
      connection  = [[R5Connection new] initWithConfig:[DM getConfig:ServerIP bufferTime:@"Yes"]];
@@ -1682,6 +1686,8 @@
 
 - (IBAction)RefreshListenerButtonTap:(id)sender{
    // [Helper showLoaderVProgressHUD];
+    self.mNewOverlayLabel.text = @"Connecting...";
+    self.mNewOverlayView.hidden = false;
     [self RefreshListening];
 }
 
@@ -1699,12 +1705,30 @@
         NSError *errorJson=nil;
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
         NSLog(@"responseDict %@",responseDict);
-        postingData = [[NSMutableDictionary alloc]init];
-        postingData = [responseDict objectForKey:@"channel"];
-        [self post];
-        [Helper hideLoaderSVProgressHUD];
+        
+        NSMutableArray *mtempArray = [[NSMutableArray alloc]init];
+        mtempArray = [responseDict objectForKey:@"channel"];
+
+        
+        
+        if (mtempArray.count > 0){
+            postingData = [[NSMutableDictionary alloc]init];
+            postingData = [responseDict objectForKey:@"channel"];
+            [self post];
+            [Helper hideLoaderSVProgressHUD];
+        }
+        else{
+            self.mNewOverlayLabel.text = @"Failed";
+            self.mNewOverlayView.hidden = true;
+        }
+            
+        
+      
     } onError:^(NSError * _Nullable Error) {
         NSLog(@"Error %@",Error);
+        self.mNewOverlayLabel.text = @"Failed";
+        self.mNewOverlayView.hidden = true;
+
     }];
     
 }

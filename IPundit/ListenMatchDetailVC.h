@@ -90,6 +90,8 @@
 - (IBAction)ChatButtonPressed:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIImageView *animatedImageView;
+@property (nonatomic,weak) IBOutlet UIView *mNewOverlayView;
+@property (nonatomic,weak) IBOutlet UILabel *mNewOverlayLabel;
 
 @property (nonatomic,weak) IBOutlet UIView *mOverlayView;
 @property (nonatomic,weak) IBOutlet UIView *mProfileView;
