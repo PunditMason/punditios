@@ -11,7 +11,7 @@
 #import "UIImage+Additions.h"
 #import "Helper.h"
 #import "PoadcastVC.h"
-
+#import "FollowersVC.h"
 #define kfbPrefixStr @"https://www.facebook.com/"
 #define ktwitterPrefixStr @"https://twitter.com/"
 
@@ -33,7 +33,7 @@
 
     
     NSMutableDictionary * dictRef = [[NSMutableDictionary alloc]init];
-    NSLog(@"%@",self.mDataArrayyy);
+    NSLog(@"%@", _mDataArrayyy);
     if (self.mDataArrayyy) {
         dictRef = [self.mDataArrayyy objectAtIndex:self.mindex.row];
     }
@@ -52,8 +52,22 @@
     NSLog(@"dictRefff     %@",self.dictRefff);
     
     
+    /*
+    if ([[self.dictRefff objectForKey:@"follow"]isEqualToString:[NSString stringWithFormat:@"0"]]) {
+        [self.mFollowmwButton setTitle:@"FOLLOW ME" forState:UIControlStateNormal];
+        
+        
+        
+    }else{
+        [self.mFollowmwButton setTitle:@"UNFOLLOW" forState:UIControlStateNormal];
+        
+    }
+    */
+   
     if ([[self.dictRefff objectForKey:@"followCheck"]isEqualToString:@"FALSE"]) {
         [self.mFollowmwButton setTitle:@"FOLLOW ME" forState:UIControlStateNormal];
+
+
 
     }else{
         [self.mFollowmwButton setTitle:@"UNFOLLOW" forState:UIControlStateNormal];
@@ -296,6 +310,29 @@
         destinationVC.selectedUser = [self.dictRefff objectForKey:@"id"];
         
     }
+}
+
+- (IBAction)FollowersPressedButtonAction:(id)sender{
+    
+    FollowersVC *FollowersVCPressedUp = [self.storyboard instantiateViewControllerWithIdentifier:@"FollowersView"];
+    
+    FollowersVCPressedUp.Followstringg =@"Followers";
+    FollowersVCPressedUp.mView = @"PunditDetailVC";
+    FollowersVCPressedUp.mSelectedUser_id = [self.dictRefff objectForKey:@"id"];
+    
+    
+    [self.navigationController pushViewController:FollowersVCPressedUp animated:YES];
+}
+
+- (IBAction)FollowingPressedButtonAction:(id)sender{
+    
+    FollowersVC *FollowersVCPressedUp = [self.storyboard instantiateViewControllerWithIdentifier:@"FollowersView"];
+    
+    FollowersVCPressedUp.Followstringg =@"Following";
+    FollowersVCPressedUp.mView = @"PunditDetailVC";
+    FollowersVCPressedUp.mSelectedUser_id = [self.dictRefff objectForKey:@"id"];
+
+    [self.navigationController pushViewController:FollowersVCPressedUp animated:YES];
 }
 
 @end

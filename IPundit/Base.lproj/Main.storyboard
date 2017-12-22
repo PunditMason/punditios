@@ -1048,6 +1048,20 @@
                                                             <action selector="ListenLiveButtonAction:" destination="sVB-ee-5bW" eventType="touchUpInside" id="QNC-W3-p7S"/>
                                                         </connections>
                                                     </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="111-z1-uuf">
+                                                        <rect key="frame" x="0.0" y="67" width="160" height="45"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="FollowingPressedButtonAction:" destination="sVB-ee-5bW" eventType="touchUpInside" id="AkV-Ku-qdn"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="tdj-l9-SQg">
+                                                        <rect key="frame" x="160" y="67" width="160" height="45"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <connections>
+                                                            <action selector="FollowersPressedButtonAction:" destination="sVB-ee-5bW" eventType="touchUpInside" id="xIp-Ir-1Lj"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </view>
@@ -1453,7 +1467,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lUD-Wu-tog" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076" y="832"/>
+            <point key="canvasLocation" x="1084" y="853"/>
         </scene>
         <!--Privacy PolicyVC-->
         <scene sceneID="3bk-q7-vtw">
@@ -5345,7 +5359,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ynL-Zf-Fr5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1485" y="832"/>
+            <point key="canvasLocation" x="1485" y="918"/>
         </scene>
     </scenes>
     <resources>
@@ -5419,7 +5433,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="t4T-dV-h48"/>
         <segue reference="JoJ-hn-chv"/>
-        <segue reference="kc4-rt-KvL"/>
-        <segue reference="lGs-Av-jVz"/>
+        <segue reference="U6Q-k2-XLS"/>
+        <segue reference="YKS-fM-57N"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -126,8 +126,6 @@
 
 
 -(void)DeleteChannel:(NSDictionary *)dct {
-    
-
     NSMutableDictionary *Parameters = [NSMutableDictionary new];
     [Parameters setObject:[dct objectForKey:@"broadcaster_id"] forKey:@"broadcaster_id"];
     [Parameters setObject:[dct objectForKey:@"id"] forKey:@"channel_id"];
@@ -137,24 +135,15 @@
     [DM PostRequest:string parameter:Parameters onCompletion:^(id  _Nullable dict) {
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
         NSLog(@"ResponseDict %@",responseDict);
-        
         if ([[responseDict objectForKey:@"responsestatus"] integerValue] == 1) {
             NSLog(@"%@",[responseDict objectForKey:@"message"]);
             [self BackButtonAction:self];
-        }
-        else{
+        }else{
             NSLog(@"%@",[responseDict objectForKey:@"message"]);
-            
              [Helper ISAlertTypeError:@"Error!!" andMessage:[responseDict objectForKey:@"message"]];
-            
         }
-            
-        
-        
         [self.mPoadcastDetailTableView reloadData];
         [Helper hideLoaderSVProgressHUD];
-        
-        
     } onError:^(NSError * _Nullable Error) {
         [Helper hideLoaderSVProgressHUD];
         NSLog(@"%@",Error);

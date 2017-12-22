@@ -17,6 +17,8 @@
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (strong, nonatomic) IBOutlet UILabel *mNoFollowersLable;
 @property (strong, nonatomic) NSString *Followstringg;
+@property (strong, nonatomic) NSString *mView;
+@property (strong, nonatomic) NSString *mSelectedUser_id;
 @property (strong, nonatomic) IBOutlet UILabel *mTitalLable;
 
 

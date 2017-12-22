@@ -14,6 +14,7 @@
     NSMutableArray *FollowersArray;
     NSDictionary * dictReff;
     NSIndexPath *mmindexpath;
+    NSString *mSelectedPodcast;
 
 
 }
@@ -40,13 +41,30 @@
     
     if ([self.Followstringg isEqualToString:@"Following"]) {
         self.mTitalLable.text = [@"Following" uppercaseString];
-        [self GetFollowingList];
+        
+        if ([self.mView isEqualToString:@"PunditDetailVC"]) {
+            [self GetConnectFollowings ];
+        }
+        else if ([self.mView isEqualToString:@"ProfileVC"]) {
+            [self GetFollowingList];
+
+        }
+        
     }
     else if ([self.Followstringg isEqualToString:@"Followers"]) {
         
         self.mTitalLable.text = [@"Followers" uppercaseString];
 
-        [self GetFollowersList];
+        
+        if ([self.mView isEqualToString:@"PunditDetailVC"]) {
+            [self GetConnectFollowersList];
+        }
+        else if ([self.mView isEqualToString:@"ProfileVC"]) {
+            [self GetFollowersList];
+
+            
+        }
+        
         
     }
     
@@ -58,6 +76,62 @@
 }
 
 
+-(void)GetConnectFollowings{
+    
+    [Helper showLoaderVProgressHUD];
+    NSString *string = [NSString stringWithFormat:@"%@connectFollowings/%@/%@",kServiceBaseHomePageURL,[[Helper mCurrentUser]objectForKey:@"id"],self.mSelectedUser_id];
+    
+    // NSString *string = [NSString stringWithFormat:@"http://54.154.252.47/pundit-ios/v1/Game/getFollowingList/%@",[[Helper mCurrentUser]objectForKey:@"id"]];
+    
+    [DM GetRequest:string parameter:nil onCompletion:^(id  _Nullable dict) {
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
+        NSLog(@"ResponseDict %@",responseDict);
+        
+        if ([responseDict objectForKey:@"following"]) {
+            [FollowersArray removeAllObjects];
+            [FollowersArray addObjectsFromArray:[responseDict objectForKey:@"following"]];
+            if (FollowersArray.count > 0) {
+                
+                if ([self.Followstringg isEqualToString:@"Following"]) {
+                    self.mNoFollowersLable.text = [@"No Followings" uppercaseString];
+                }
+                else if ([self.Followstringg isEqualToString:@"Followers"]) {
+                    
+                    self.mNoFollowersLable.text = [@"NO Followers" uppercaseString];
+                }
+                self.mNoFollowersLable.hidden = true;
+                self.mVideoHighlightTableView.hidden = false;
+                
+                
+            }
+            else{
+                if ([self.Followstringg isEqualToString:@"Following"]) {
+                    self.mNoFollowersLable.text = [@"No Followings" uppercaseString];
+                }
+                else if ([self.Followstringg isEqualToString:@"Followers"]) {
+                    
+                    self.mNoFollowersLable.text = [@"NO Followers" uppercaseString];
+                }
+                
+                self.mNoFollowersLable.hidden = false;
+                self.mVideoHighlightTableView.hidden = true;
+                
+                
+            }
+            
+        }
+        
+        [self.mVideoHighlightTableView reloadData];
+        [Helper hideLoaderSVProgressHUD];
+        
+        
+    } onError:^(NSError * _Nullable Error) {
+        [Helper hideLoaderSVProgressHUD];
+        NSLog(@"%@",Error);
+        NSString *ErrorString = [NSString stringWithFormat:@"%@",Error];
+        [Helper ISAlertTypeError:ErrorString andMessage:kNOInternet];
+    }];
+}
 -(void)GetFollowingList{
     
     [Helper showLoaderVProgressHUD];
@@ -115,6 +189,63 @@
     }];
 }
 
+
+
+-(void)GetConnectFollowersList{
+    
+    [Helper showLoaderVProgressHUD];
+    // NSString *string = [NSString stringWithFormat:@"http://54.154.252.47/pundit-ios/v1/Game/getFollowerList/%@",[[Helper mCurrentUser]objectForKey:@"id"]];
+    
+    NSString *string = [NSString stringWithFormat:@"%@connectFollowers/%@/%@",kServiceBaseHomePageURL,[[Helper mCurrentUser]objectForKey:@"id"],self.mSelectedUser_id];
+    
+    [DM GetRequest:string parameter:nil onCompletion:^(id  _Nullable dict) {
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
+        NSLog(@"ResponseDict %@",responseDict);
+        
+        if ([responseDict objectForKey:@"follwers"]) {
+            [FollowersArray removeAllObjects];
+            [FollowersArray addObjectsFromArray:[responseDict objectForKey:@"follwers"]];
+            
+            if (FollowersArray.count > 0) {
+                if ([self.Followstringg isEqualToString:@"Following"]) {
+                    self.mNoFollowersLable.text = [@"No Followings" uppercaseString];
+                }
+                else if ([self.Followstringg isEqualToString:@"Followers"]) {
+                    
+                    self.mNoFollowersLable.text = [@"NO Followers" uppercaseString];
+                }
+                self.mNoFollowersLable.hidden = true;
+                self.mVideoHighlightTableView.hidden = false;
+                
+            }
+            else{
+                if ([self.Followstringg isEqualToString:@"Following"]) {
+                    self.mNoFollowersLable.text = [@"No Followings" uppercaseString];
+                }
+                else if ([self.Followstringg isEqualToString:@"Followers"]) {
+                    
+                    self.mNoFollowersLable.text = [@"NO Followers" uppercaseString];
+                }
+                
+                self.mNoFollowersLable.hidden = false;
+                self.mVideoHighlightTableView.hidden = true;
+                
+                
+            }
+            
+        }
+        
+        [self.mVideoHighlightTableView reloadData];
+        [Helper hideLoaderSVProgressHUD];
+        
+        
+    } onError:^(NSError * _Nullable Error) {
+        [Helper hideLoaderSVProgressHUD];
+        NSLog(@"%@",Error);
+        NSString *ErrorString = [NSString stringWithFormat:@"%@",Error];
+        [Helper ISAlertTypeError:ErrorString andMessage:kNOInternet];
+    }];
+}
 
 -(void)GetFollowersList{
     
@@ -237,6 +368,9 @@
     
     CGPoint buttonPosition = [sender convertPoint:CGPointZero toView:self.mVideoHighlightTableView];
     NSIndexPath *indexPath = [self.mVideoHighlightTableView indexPathForRowAtPoint:buttonPosition];
+    NSDictionary *dct = [Helper formatJSONDict:[FollowersArray objectAtIndex:indexPath.row]];
+    mSelectedPodcast = [NSString stringWithFormat:@"%@",[dct objectForKey:@"id"]];
+
     NSLog(@"PodcastButtonPressed");
 
     [self performSegueWithIdentifier:@"userPoadcastVieww" sender:self];
@@ -254,18 +388,34 @@
 
     
     NSString *string = [NSString stringWithFormat:@"%@game/followlist/%@/%@",KServiceBaseURL,[[Helper mCurrentUser]objectForKey:@"id"],[dct objectForKey:@"id"]];
-    [Helper showLoaderVProgressHUD];        [DM GetRequest:string parameter:nil onCompletion:^(id  _Nullable dict) {            NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];                        NSMutableDictionary *data = [[NSMutableDictionary alloc]init];            data = [responseDict objectForKey:@"data"];
+    [Helper showLoaderVProgressHUD];
+    [DM GetRequest:string parameter:nil onCompletion:^(id  _Nullable dict) {
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
+        NSMutableDictionary *data = [[NSMutableDictionary alloc]init];
+        data = [responseDict objectForKey:@"data"];
         
         
         if ([self.Followstringg isEqualToString:@"Following"]) {
             self.mTitalLable.text = [@"Following" uppercaseString];
-            [self GetFollowingList];
-        }
+            if ([self.mView isEqualToString:@"PunditDetailVC"]) {
+                [self GetConnectFollowings ];
+            }
+            else if ([self.mView isEqualToString:@"ProfileVC"]) {
+                [self GetFollowingList];
+                
+            }        }
         else if ([self.Followstringg isEqualToString:@"Followers"]) {
             
             self.mTitalLable.text = [@"Followers" uppercaseString];
             
-            [self GetFollowersList];
+            if ([self.mView isEqualToString:@"PunditDetailVC"]) {
+                [self GetConnectFollowersList];
+            }
+            else if ([self.mView isEqualToString:@"ProfileVC"]) {
+                [self GetFollowersList];
+                
+                
+            }
             
         }
         
@@ -286,6 +436,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath;{
+    
     
     NSLog(@"Selected View index=%ld",(long)indexPath.row);
     [self.mVideoHighlightTableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -311,8 +462,9 @@
 
     if ([segue.identifier isEqualToString:@"userPoadcastVieww"]) {
         PoadcastVC *destinationVC = segue.destinationViewController;
-        destinationVC.selectedUser = [[Helper mCurrentUser]objectForKey:@"id"];
-        
+       // destinationVC.selectedUser = [[Helper mCurrentUser]objectForKey:@"id"];
+        destinationVC.selectedUser = mSelectedPodcast;
+
     }
     else if ([segue.identifier isEqualToString:@"PunditDetailVieww"]) {
         PunditDetailVC *PunditDetailvc = segue.destinationViewController;

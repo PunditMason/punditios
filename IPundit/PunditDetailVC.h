@@ -30,6 +30,10 @@
 @property (strong, nonatomic) IBOutlet UIButton *mYoutubeButton;
 
 
+- (IBAction)FollowersPressedButtonAction:(id)sender;
+- (IBAction)FollowingPressedButtonAction:(id)sender;
+
+
 @property (nonatomic, strong) ALUser * CurrentALUser;
 
 @property (strong, nonatomic)NSDictionary * dictRefff;

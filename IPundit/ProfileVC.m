@@ -546,7 +546,8 @@
     FollowersVC *FollowersVCPressedUp = [self.storyboard instantiateViewControllerWithIdentifier:@"FollowersView"];
     
     FollowersVCPressedUp.Followstringg =@"Followers";
-    
+    FollowersVCPressedUp.mView = @"ProfileVC";
+
     [self.navigationController pushViewController:FollowersVCPressedUp animated:YES];
 }
 - (IBAction)FollowingPressedButtonAction:(id)sender{
@@ -555,6 +556,7 @@
     FollowersVC *FollowersVCPressedUp = [self.storyboard instantiateViewControllerWithIdentifier:@"FollowersView"];
     
     FollowersVCPressedUp.Followstringg =@"Following";
+    FollowersVCPressedUp.mView = @"ProfileVC";
 
     [self.navigationController pushViewController:FollowersVCPressedUp animated:YES];
 }

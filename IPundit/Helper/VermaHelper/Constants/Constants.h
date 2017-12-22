@@ -10,10 +10,10 @@
 #define Constants_h
 
 
-
+/*
  //Local Base Urls 54.154.252.47
 
-/*
+
 #define KserviceBaseIconURL @"http://52.19.91.90/pundit-ios/assets/img/"
 #define kServiceBaseHomePageURL @"http://52.19.91.90/pundit-ios/v1/Game/"
 #define KServiceBaseURL @"http://52.19.91.90/pundit-ios/v1/"
