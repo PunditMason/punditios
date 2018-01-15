@@ -645,6 +645,7 @@ static DataManager *sharedDataManager = nil;
         microphone.device = audioDevice;
         NSLog(@"Got device %@", audioDevice);
         [_publishStream attachAudio:microphone];
+    
 }
 
 /*

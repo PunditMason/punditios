@@ -20,6 +20,7 @@
 #import "ALChatManager.h"
 #import "MZTimerLabel.h"
 #import "LineupCell.h"
+#import <MediaPlayer/MediaPlayer.h>
 
 //@property (strong, nonatomic) id <ALChatViewControllerDelegate> chatViewDelegate;
 
@@ -58,19 +59,25 @@
     
     UIAlertView * stopBroadcastingAlert;
     
-    
     NSString * sharingString;
     NSString * notificationString;
     
     ALChatViewController *ChatViewObj;
     UINavigationController *ChatController;
     BOOL ChatViewCheckBool;
+    BOOL PlayPauseCheckBool;
+
     ALChatViewController *chatView;
 }
 
-@property (strong, nonatomic) IBOutlet UIImageView *leaqueIconImageView;
 
+@property (strong, nonatomic) MPMoviePlayerController *streamPlayer;
+@property (strong, nonatomic) IBOutlet UIImageView *leaqueIconImageView;
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (strong, nonatomic) IBOutlet UIButton *mPlayPause;
+
+
+- (IBAction)PlayPauseButtonAction:(id)sender;
 
 - (IBAction)BackButtonAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UIImageView *animatedImageView;

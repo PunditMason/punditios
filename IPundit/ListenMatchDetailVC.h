@@ -44,6 +44,8 @@
     NSTimer *timer;
     NSTimer *functionTimer;
     NSTimer *broadcastersTimer;
+    NSTimer *ReconnectbroadcastersTimer;
+
     NSTimer * listnersCount;
     
     
@@ -76,7 +78,7 @@
 @property (strong, nonatomic) IBOutlet UIView *liveView;
 @property (nonatomic,strong)NSMutableArray * mrliveBroadcastersArray;
 
-
+- (IBAction)MuteUnMuteButtonAction:(id)sender;
 - (IBAction)ShowHideProfileNameButtonAction:(id)sender;
 - (IBAction)BackButtonAction:(id)sender;
 

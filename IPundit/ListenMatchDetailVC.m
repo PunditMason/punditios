@@ -31,6 +31,11 @@
     NSMutableArray *mFinalGoalsArray;
     NSMutableArray *mFinalsubstitutionArray;
     NSArray *mFinalOverviewArray;
+    BOOL mBroadcasterLeftCheckbool;
+    BOOL mReconnectCheckbool;
+
+    BOOL mMuteUnMuteCheckBool;
+
 }
 
 @end
@@ -653,8 +658,12 @@
     [UIView animateWithDuration:1.0 animations:^{
         self.broadcastersView.hidden = YES ;
     }];
+    
+    if(mReconnectCheckbool == FALSE){
     broadcastersTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target: self
                                                        selector: @selector(broadcasterCheck) userInfo: nil repeats: YES];
+    }
+    
     if ([DM.channelType isEqualToString:@"team"]) {
         [self StartListing];
     }else{
@@ -824,13 +833,14 @@
         
         NSError *errorJson=nil;
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
-        
+        if([responseDict objectForKey:@"listener_id"]){
         listenersUnmountParameter = [NSString stringWithFormat:@"%@",[responseDict objectForKey:@"listener_id"]];
         
         broadcasterInfo = [[NSMutableDictionary alloc]init];
         broadcasterInfo =  [responseDict objectForKey:@"info"];
         
         [self BroadCasterDataPost];
+        }
         
     } onError:^(NSError * _Nullable Error) {
         NSLog(@"Error %@",Error);
@@ -1039,7 +1049,7 @@
     DM.stream = [[R5Stream new] initWithConnection:connection];
     [DM.currentView attachStream:DM.stream];
     [DM.stream play:[postingData objectForKey:@"streamName"]];
-    
+
     [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     timeSec = 0;
     timeMin = 0;
@@ -1258,10 +1268,41 @@
                                                                 }
                                                                 
                                                                 
-                                                                if ([[responseDict objectForKey:@"match"]objectForKey:@"teams"]) {                                                                                                                                                                                                            self.mTeamANameLabel.text = [NSString stringWithFormat:@"%@: %@",[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:0]objectForKey:@"name"],[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:0]objectForKey:@"score"]];
+                                                                if ([[responseDict objectForKey:@"match"]objectForKey:@"teams"]) {
+                                                                    
+                                                                    NSString *T_Ascore  = [NSString stringWithFormat:@"%@",[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:0]objectForKey:@"score"]];
+                                                                    
+                                                                    if ([T_Ascore isEqualToString:@"(null)"]){
+                                                                        T_Ascore = @"N/A";
+                                                                    }
+                                                                    
+                                                                  
+                                                                    
+                                                                  NSString *Tscore =  [NSString stringWithFormat:@"%@: %@",[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:0]objectForKey:@"name"],T_Ascore];
+                                                                    
+                                                                    self.mTeamANameLabel.text = Tscore;
+
+                                                                    
+                                                                    
+                                                                    
+                                                                    
                                                                     
                                                                 }
-                                                                if ([[responseDict objectForKey:@"match"]objectForKey:@"teams"]) {                                                                                                                                                                                                            self.mTeamBNameLabel.text = [NSString stringWithFormat:@"%@: %@",[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:1]objectForKey:@"name"],[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:1]objectForKey:@"score"]];
+                                                                 if ([[responseDict objectForKey:@"match"]objectForKey:@"teams"]) {
+                                                                     
+                                                                     
+                                                                     NSString *T_score  = [NSString stringWithFormat:@"%@",                                                                     [[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:1]objectForKey:@"score"]];
+                                                                     
+//                                                                    
+                                                                     if ([T_score isEqualToString:@"(null)"]){
+                                                                         T_score = @"N/A";
+                                                                     }
+                                                                     
+                                                                     
+                                                                     NSString *TBscore  = [NSString stringWithFormat:@"%@: %@",[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:1]objectForKey:@"name"],T_score];
+
+                                                                     self.mTeamBNameLabel.text = TBscore;
+                                                                     
                                                                 }
                                                                 
                                                                 
@@ -1412,13 +1453,23 @@
        // [checkAlert show];
         [self.mKickOFTimeLabel pause];
         [DM.stream stop];
-        [self RefreshListenerButtonTap:self];
+      
+        
+        
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pundit"
                                                         message:@"Broadcaster Left"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+        
+      
+        if(mBroadcasterLeftCheckbool == FALSE){
+            [self RefreshListenerButtonTap:self];
+            mBroadcasterLeftCheckbool = TRUE;
+            
+            
+        }
         
     }
 }
@@ -1689,8 +1740,7 @@
 
 - (IBAction)RefreshListenerButtonTap:(id)sender{
    // [Helper showLoaderVProgressHUD];
-    self.mNewOverlayLabel.text = @"Connecting...";
-    self.mNewOverlayView.hidden = false;
+    
     [self RefreshListening];
 }
 
@@ -1700,6 +1750,10 @@
 #pragma Mark ================================================================
 
 -(void)RefreshListening{
+    self.mNewOverlayLabel.text = @"Connecting...";
+    self.mNewOverlayView.hidden = false;
+    
+    
     NSString * path = [NSString stringWithFormat:@"%@Game/refreshListening/%@/%@",KServiceBaseURL,[postingData objectForKey:@"broadcaster_id"],[postingData objectForKey:@"id"]];
     NSLog(@"path %@",path);
 
@@ -1717,12 +1771,23 @@
         if (mtempArray.count > 0){
             postingData = [[NSMutableDictionary alloc]init];
             postingData = [responseDict objectForKey:@"channel"];
+            mReconnectCheckbool = TRUE;
             [self post];
             [Helper hideLoaderSVProgressHUD];
+            mReconnectCheckbool = FALSE;
+            mBroadcasterLeftCheckbool = FALSE;
+
         }
         else{
-            self.mNewOverlayLabel.text = @"Failed";
-            self.mNewOverlayView.hidden = true;
+            //self.mNewOverlayLabel.text = @"Failed";
+            //self.mNewOverlayView.hidden = true;
+            mBroadcasterLeftCheckbool = FALSE;
+            
+            [self performSelector:@selector(RefreshListening)  withObject:nil afterDelay:5.0];
+            
+           
+            
+
         }
             
         
@@ -1731,6 +1796,8 @@
         NSLog(@"Error %@",Error);
         self.mNewOverlayLabel.text = @"Failed";
         self.mNewOverlayView.hidden = true;
+        mBroadcasterLeftCheckbool = FALSE;
+
 
     }];
     
@@ -1833,7 +1900,10 @@
     [self.mLineupTableView reloadData];
     
     
-    
 }
+
+
+
+
 
 @end

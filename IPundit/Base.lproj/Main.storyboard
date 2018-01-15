@@ -3184,6 +3184,14 @@
                                         <rect key="frame" x="105" y="32" width="115" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tdv-We-NgS">
+                                        <rect key="frame" x="276" y="32" width="36" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="play_nw.png"/>
+                                        <connections>
+                                            <action selector="PlayPauseButtonAction:" destination="RR7-k5-0dd" eventType="touchUpInside" id="DkP-Wh-TPo"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -3501,6 +3509,7 @@
                         <outlet property="mOverlayView" destination="beg-Pw-xOY" id="u4a-oC-0ho"/>
                         <outlet property="mOverviewButton" destination="mUW-Yp-uB8" id="BGG-5R-dfD"/>
                         <outlet property="mOverviewTableView" destination="nK1-S9-0Sw" id="ff3-oz-at5"/>
+                        <outlet property="mPlayPause" destination="Tdv-We-NgS" id="bSl-Eh-HBa"/>
                         <outlet property="mScoreUpdateView" destination="FiZ-3V-Zsc" id="gdN-JL-2KQ"/>
                         <outlet property="mTeamANameLable" destination="ANu-kQ-pMN" id="32C-mN-gFX"/>
                         <outlet property="mTeamAScoreLable" destination="aGv-5n-479" id="RfR-GK-8ro"/>
@@ -4467,16 +4476,16 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view hidden="YES" contentMode="scaleToFill" id="RSo-gW-mWf" userLabel="New Overlay View" customClass="UIControl">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" id="RSo-gW-mWf" userLabel="New Overlay View" customClass="UIControl">
+                                <rect key="frame" x="0.0" y="79" width="320" height="489"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overlay_opacity.png" id="vaa-3C-dDn">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="overlay_opacity.png" id="vaa-3C-dDn">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="489"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Connecting..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XZO-s6-n2m">
-                                        <rect key="frame" x="8" y="265" width="304" height="43"/>
+                                        <rect key="frame" x="8" y="233" width="304" height="43"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -5412,6 +5421,7 @@
         <image name="mic_league.png" width="32" height="32"/>
         <image name="noimage.png" width="244" height="172"/>
         <image name="overlay_opacity.png" width="1222" height="2188"/>
+        <image name="play_nw.png" width="128" height="128"/>
         <image name="pod_back.jpg" width="294" height="46"/>
         <image name="profile-screen-icons_03.png" width="103" height="102"/>
         <image name="profile-screen-icons_07.png" width="104" height="104"/>
@@ -5431,9 +5441,9 @@
         <image name="wide-GO.png" width="506" height="173"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="t4T-dV-h48"/>
-        <segue reference="JoJ-hn-chv"/>
+        <segue reference="xut-FD-fSH"/>
+        <segue reference="KnX-Bc-g1d"/>
         <segue reference="U6Q-k2-XLS"/>
-        <segue reference="YKS-fM-57N"/>
+        <segue reference="lGs-Av-jVz"/>
     </inferredMetricsTieBreakers>
 </document>

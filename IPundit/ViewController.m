@@ -838,7 +838,12 @@ static void extracted(ViewController *object) {
        // [ImagesArray addObject:url];
        // [ImagesArray addObject:listnerUrl];
         
-        [ImagesArray addObjectsFromArray:[responseDict objectForKey:@"banner_images"]];
+        if([[responseDict objectForKey:@"banner_images"]  isEqual: @"null"]){
+        }
+        else{
+            [ImagesArray addObjectsFromArray:[responseDict objectForKey:@"banner_images"]];
+
+        }
         
         [_imagePager reloadData];
         

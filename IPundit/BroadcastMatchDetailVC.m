@@ -40,6 +40,12 @@
     // Do any additional setup after loading the view.
     
   //  mFinalOverviewArray = [[NSMutableArray alloc]init];
+    
+
+    self.mPlayPause.hidden = YES ;
+
+    
+    
     self.matchStatusLabel.text =@"-";
     
     mFinalsubstitutionArray = [[NSMutableArray alloc]init];
@@ -52,7 +58,6 @@
     msubstitution2Array =[[NSMutableArray alloc]init];
     
     self.CurrentALUser = [ALChatManager getLoggedinUserInformation];
-
     
     matchStatusCheck = YES ;
     self.mEditScoreButton.hidden = YES ;
@@ -831,14 +836,39 @@
                                                                 }else if([string containsString:@"Kick off"] != 0){
                                                                     self.matchStatusLabel.text = [NSString stringWithFormat:@"Fixture"];
                                                                 }else{
-                                                                    self.matchStatusLabel.text = @"-";
+                                                                    self.matchStatusLabel.text = @"N/A";
                                                                 }
                                                                 
                                                                 
-                                                                if ([[responseDict objectForKey:@"match"]objectForKey:@"teams"]) {                                                                                                                                                                                                            self.teamAScoreLabel.text = [NSString stringWithFormat:@": %@",[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:0]objectForKey:@"score"]];
+                                                                if ([[responseDict objectForKey:@"match"]objectForKey:@"teams"]) {                                                                                                                                                                                                            //self.teamAScoreLabel.text = [NSString stringWithFormat:@": %@",[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:0]objectForKey:@"score"]];
                                                                     
+                                                                    
+                                                                    NSString *T_Ascore  = [NSString stringWithFormat:@"%@",[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:0]objectForKey:@"score"]];
+                                                                    
+                                                                    if ([T_Ascore isEqualToString:@"(null)"]){
+                                                                        T_Ascore = @"N/A";
+                                                                    }
+                                                                    
+                                                                    
+                                                                    
+                                                                    //NSString *Tscore =  [NSString stringWithFormat:@"%@: %@",[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:0]objectForKey:@"name"],T_Ascore];
+                                                                    
+                                                                   self.teamAScoreLabel.text = T_Ascore;
+     
                                                                 }
-                                                                if ([[responseDict objectForKey:@"match"]objectForKey:@"teams"]) {                                                                                                                                                                                                            self.teamBscoreLabel.text = [NSString stringWithFormat:@": %@",[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:1]objectForKey:@"score"]];
+                                                                if ([[responseDict objectForKey:@"match"]objectForKey:@"teams"]) {                                                                                                                                                                                                            //self.teamBscoreLabel.text = [NSString stringWithFormat:@": %@",[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:1]objectForKey:@"score"]];
+                                                                    
+                                                                    
+                                                                    NSString *T_score  = [NSString stringWithFormat:@"%@",                                                                     [[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:1]objectForKey:@"score"]];
+                                                                    
+                                                                    if ([T_score isEqualToString:@"(null)"]){
+                                                                        T_score = @"N/A";
+                                                                    }
+                                                                    
+                                                                    
+                                                                    //NSString *TBscore  = [NSString stringWithFormat:@"%@: %@",[[[[responseDict objectForKey:@"match"]objectForKey:@"teams"] objectAtIndex:1]objectForKey:@"name"],T_score];
+                                                                    
+                                                                    self.teamBscoreLabel.text = T_score;
                                                                 }
 
                                                                 
@@ -1059,9 +1089,6 @@
                                               otherButtonTitles:nil];
         [alert show];
     }
-    
-    
-    
 }
 
 -(void) closeTest{
@@ -1571,5 +1598,72 @@
     
     
 }
+
+- (IBAction)PlayPauseButtonAction:(id)sender{
+    if(PlayPauseCheckBool == FALSE){
+        
+        [self.mPlayPause setImage:[UIImage imageNamed:@"Stop_nw.png"] forState:UIControlStateNormal];
+        [self MusicAudio];
+
+        PlayPauseCheckBool = TRUE;
+    }
+    else{
+        [self.mPlayPause setImage:[UIImage imageNamed:@"play_nw.png"] forState:UIControlStateNormal];
+
+        [self.streamPlayer stop];
+        [self.streamPlayer.view removeFromSuperview];
+
+        PlayPauseCheckBool = FALSE;
+
+    }
+        
+}
+
+
+-(void)MusicAudio{
+    NSURL *streamURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://52.19.91.90/play/Songs/Shadaladance.mp3"]];
+    
+    [ self PlayAudio:streamURL];
+}
+
+
+-(void)PlayAudio:(NSURL *)streamURL{
+    
+    self.streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:streamURL];
+    self.streamPlayer.view.frame = CGRectMake(0, -100/*528*/, 320, 40);
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleMPMoviePlayerPlaybackDidFinish:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:nil];
+    
+    self.streamPlayer.controlStyle = MPMovieControlStyleEmbedded;
+    self.streamPlayer.view.tag = 114;
+    self.streamPlayer.scalingMode = MPMovieScalingModeAspectFill;
+    self.streamPlayer.movieSourceType = MPMovieSourceTypeStreaming;
+    [self.view addSubview:self.streamPlayer.view];
+    
+    [self.streamPlayer prepareToPlay];
+    [self.streamPlayer play];
+    
+}
+
+- (void)handleMPMoviePlayerPlaybackDidFinish:(NSNotification *)notification {
+    [self.streamPlayer.view removeFromSuperview];
+    [self MusicAudio];
+    NSDictionary *notificationUserInfo = [notification userInfo];
+    NSNumber *resultValue = [notificationUserInfo objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
+    MPMovieFinishReason reason = [resultValue intValue];
+    if (reason == MPMovieFinishReasonPlaybackError) {
+        NSError *mediaPlayerError = [notificationUserInfo objectForKey:@"error"];
+        if (mediaPlayerError) {
+            NSLog(@"playback failed with error description: %@", [mediaPlayerError localizedDescription]);
+        }
+        else {
+            NSLog(@"playback failed without any given reason");
+        }
+    }
+}
+
+
 
 @end

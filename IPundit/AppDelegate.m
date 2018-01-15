@@ -91,8 +91,7 @@
     
 
     
-    [NSTimer scheduledTimerWithTimeInterval:30.0 target: self
-                                                      selector: @selector(getBreakingNews) userInfo: nil repeats: YES];
+    [NSTimer scheduledTimerWithTimeInterval:30.0 target: self selector: @selector(getBreakingNews) userInfo: nil repeats: YES];
     //[self registerForRemoteNotifications];
 
     return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
