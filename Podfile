@@ -29,7 +29,9 @@ target "IPundit" do
     pod 'youtube-ios-player-helper', '~> 0.1.4'
     pod 'MZTimerLabel'
     pod 'DZNWebViewController'
-    
+    pod 'GoogleAnalytics'
+    #pod 'Firebase/Core'
+
     #pod update 'Crashlytics'
     #pod 'GoogleMaps'
     #pod 'GooglePlaces'

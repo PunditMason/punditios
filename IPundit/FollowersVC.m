@@ -413,12 +413,8 @@
             }
             else if ([self.mView isEqualToString:@"ProfileVC"]) {
                 [self GetFollowersList];
-                
-                
             }
-            
         }
-        
         
         [Helper hideLoaderSVProgressHUD];
         [DM getProfile];

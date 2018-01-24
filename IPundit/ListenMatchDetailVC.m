@@ -1461,7 +1461,7 @@
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
-        [alert show];
+       // [alert show];
         
       
         if(mBroadcasterLeftCheckbool == FALSE){
@@ -1710,7 +1710,15 @@
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
         NSLog(@"%@",responseDict);
         
-        self.mListenersCountLabel.text = [NSString stringWithFormat:@"%@",[responseDict objectForKey:@"count"]];
+        
+        if ([responseDict objectForKey:@"count"] == (NSString *)[NSNull null])
+        {
+            self.mListenersCountLabel.text = @"0";
+        }else{
+            self.mListenersCountLabel.text = [NSString stringWithFormat:@"%@",[responseDict objectForKey:@"count"]];
+        }
+        
+        
         
     } onError:^(NSError * _Nullable Error) {
         
@@ -1769,13 +1777,20 @@
         
         
         if (mtempArray.count > 0){
-            postingData = [[NSMutableDictionary alloc]init];
-            postingData = [responseDict objectForKey:@"channel"];
-            mReconnectCheckbool = TRUE;
-            [self post];
-            [Helper hideLoaderSVProgressHUD];
-            mReconnectCheckbool = FALSE;
-            mBroadcasterLeftCheckbool = FALSE;
+            
+                postingData = [[NSMutableDictionary alloc]init];
+                postingData = [responseDict objectForKey:@"channel"];
+                mReconnectCheckbool = TRUE;
+            
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                [self post];
+                [Helper hideLoaderSVProgressHUD];
+                mReconnectCheckbool = FALSE;
+                mBroadcasterLeftCheckbool = FALSE;
+                
+            });
+            
 
         }
         else{
@@ -1903,7 +1918,18 @@
 }
 
 
+- (IBAction)PlayPauseAudioButtonAction:(id)sender{
+    if (self.mPlayPauseAudioButton.selected) {
+        NSLog(@"Pause Stream = YES    Button is Not Selected");
+        self.mPlayPauseAudioButton.selected = NO;
+        DM.stream.pauseAudio = YES;
+    }else{
+        NSLog(@"Pause Stream = NO    Button is Selected");
+        self.mPlayPauseAudioButton.selected = YES;
+        DM.stream.pauseAudio = NO;
+
+    }
 
 
-
+}
 @end

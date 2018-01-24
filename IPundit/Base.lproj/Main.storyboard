@@ -826,26 +826,131 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="LgO-qD-pmO">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="1.jpg" id="LgO-qD-pmO">
+                                <rect key="frame" x="0.0" y="70" width="320" height="498"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="40" sectionHeaderHeight="1" sectionFooterHeight="28" id="kDa-RH-aJr">
-                                <rect key="frame" x="0.0" y="97" width="320" height="471"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="65" sectionHeaderHeight="1" sectionFooterHeight="28" id="kDa-RH-aJr">
+                                <rect key="frame" x="0.0" y="70" width="320" height="498"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.1407143771648407" green="0.29715979099273682" blue="0.5145537257194519" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" red="0.27844999663683834" green="0.30686000458926793" blue="0.34542410714285715" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="liverightnowcell" rowHeight="65" id="Av5-eP-EC2" customClass="LiveRightNowCell">
+                                        <rect key="frame" x="0.0" y="1" width="320" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Av5-eP-EC2" id="hEg-1N-txA">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="liverightnow.png" id="5S9-BG-xZr">
+                                                    <rect key="frame" x="5" y="0.0" width="310" height="65"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="trophy.png" id="PL3-id-qNq">
+                                                    <rect key="frame" x="115" y="10" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="soccer-jersey (1).png" id="SDe-NS-9U4">
+                                                    <rect key="frame" x="175" y="10" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Halesowen town" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsFontForContentSizeCategory="YES" id="Hdw-Sf-WW2">
+                                                    <rect key="frame" x="213" y="10" width="102" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                                    <color key="textColor" red="0.1843137255" green="0.1833727956" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="V" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsFontForContentSizeCategory="YES" id="4PH-EV-Aa8">
+                                                    <rect key="frame" x="146" y="11" width="28" height="28"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.1843137255" green="0.1833727956" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Gaurav Verma" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsFontForContentSizeCategory="YES" id="78u-yh-UUn">
+                                                    <rect key="frame" x="15" y="43" width="290" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" red="0.1843137255" green="0.1833727956" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Lancaster City FC" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsFontForContentSizeCategory="YES" id="MZF-di-kBw">
+                                                    <rect key="frame" x="5" y="10" width="107" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                                    <color key="textColor" red="0.1843137255" green="0.1833727956" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="mPunditNameLabel" destination="78u-yh-UUn" id="GwI-Gk-U0c"/>
+                                            <outlet property="mTeam1Image" destination="PL3-id-qNq" id="t4N-vc-P7K"/>
+                                            <outlet property="mTeam1Label" destination="MZF-di-kBw" id="SVs-ZB-ExX"/>
+                                            <outlet property="mTeam2Image" destination="SDe-NS-9U4" id="T50-KM-K1K"/>
+                                            <outlet property="mTeam2Label" destination="Hdw-Sf-WW2" id="THN-3x-wLS"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="liverightnowcell1" rowHeight="65" id="7AP-jc-Vel" customClass="UserTBCell">
+                                        <rect key="frame" x="0.0" y="66" width="320" height="65"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7AP-jc-Vel" id="VKK-u7-iy9">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="liverightnow.png" id="aD0-2B-bsa">
+                                                    <rect key="frame" x="5" y="0.0" width="310" height="65"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="soccer-jersey (1).png" id="1vT-eD-nrv">
+                                                    <rect key="frame" x="145" y="17" width="30" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Halesowen town" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsFontForContentSizeCategory="YES" id="0sT-5u-3OG">
+                                                    <rect key="frame" x="183" y="17" width="132" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                                    <color key="textColor" red="0.1843137255" green="0.1833727956" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Gaurav Verma" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsFontForContentSizeCategory="YES" id="2DS-xx-7xL">
+                                                    <rect key="frame" x="15" y="17" width="122" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                                    <color key="textColor" red="0.1843137255" green="0.1833727956" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="mPunditNameLabel" destination="2DS-xx-7xL" id="01W-qO-lzC"/>
+                                            <outlet property="mTeam1Image" destination="1vT-eD-nrv" id="XPj-yi-i56"/>
+                                            <outlet property="mTeam1Label" destination="0sT-5u-3OG" id="zAx-8P-JL1"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="uA0-wZ-rkP" id="j4b-9Q-hY2"/>
                                     <outlet property="delegate" destination="uA0-wZ-rkP" id="sdk-xT-31X"/>
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" misplaced="YES" id="pXT-Ja-eLk">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="LIVE RIGHT NOW" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsFontForContentSizeCategory="YES" id="KgJ-XU-C94">
+                                        <rect key="frame" x="86" y="32" width="149" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <color key="textColor" red="0.1843137255" green="0.1833727956" blue="0.20784313730000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="gid-Di-0FJ">
-                                        <rect key="frame" x="12" y="32" width="36" height="36"/>
+                                        <rect key="frame" x="12" y="30" width="35" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="btn_login_leftarrow_normal.png"/>
                                         <state key="highlighted" image="btn_login_leftarrow_pressed.png"/>
@@ -853,18 +958,10 @@
                                             <action selector="BackButtonAction:" destination="uA0-wZ-rkP" eventType="touchUpInside" id="nmz-8G-D5U"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Welcome to PUNDIT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="11" adjustsFontForContentSizeCategory="YES" id="KgJ-XU-C94">
-                                        <rect key="frame" x="62" y="26" width="230" height="47"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0070045852605322579" green="0.0147922417984553" blue="0.025613839285714285" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="iSq-zH-8qE"/>
                     <connections>
@@ -1900,36 +1997,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" id="1ho-2f-REn" userLabel="Overlay View" customClass="UIControl">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overlay_opacity.png" id="Tge-ZB-Q1R">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <view contentMode="scaleToFill" id="URC-RS-w7U" userLabel="Profile View">
-                                        <rect key="frame" x="0.0" y="460" width="320" height="108"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="838-Jz-aQq">
-                                                <rect key="frame" x="1" y="0.0" width="319" height="108"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="wide-GO.png"/>
-                                                <connections>
-                                                    <action selector="StreemingButtonAction:" destination="9Sd-cE-7Pu" eventType="touchUpInside" id="L36-hq-5rf"/>
-                                                    <action selector="StreemingButtonAction:" destination="T2s-UK-Shj" eventType="touchUpInside" id="mxD-OU-cjG"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <action selector="OverlaybackgroundTap:" destination="9Sd-cE-7Pu" eventType="touchDown" id="0fS-4s-YpY"/>
-                                </connections>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="kWc-Mc-s2Z">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2050,6 +2117,36 @@
                                 <color key="separatorColor" red="0.1598292291" green="0.33361107109999999" blue="0.59526199099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <inset key="separatorInset" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableView>
+                            <view contentMode="scaleToFill" id="1ho-2f-REn" userLabel="Overlay View" customClass="UIControl">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overlay_opacity.png" id="Tge-ZB-Q1R">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" id="URC-RS-w7U" userLabel="Profile View">
+                                        <rect key="frame" x="0.0" y="460" width="320" height="108"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="838-Jz-aQq">
+                                                <rect key="frame" x="1" y="0.0" width="319" height="108"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="wide-GO.png"/>
+                                                <connections>
+                                                    <action selector="StreemingButtonAction:" destination="9Sd-cE-7Pu" eventType="touchUpInside" id="L36-hq-5rf"/>
+                                                    <action selector="StreemingButtonAction:" destination="T2s-UK-Shj" eventType="touchUpInside" id="mxD-OU-cjG"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="OverlaybackgroundTap:" destination="9Sd-cE-7Pu" eventType="touchDown" id="0fS-4s-YpY"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -3184,12 +3281,13 @@
                                         <rect key="frame" x="105" y="32" width="115" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Tdv-We-NgS">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="YK6-LG-DFa">
                                         <rect key="frame" x="276" y="32" width="36" height="36"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="play_nw.png"/>
+                                        <state key="normal" image="Stop_nw.png"/>
+                                        <state key="selected" image="Ply_new"/>
                                         <connections>
-                                            <action selector="PlayPauseButtonAction:" destination="RR7-k5-0dd" eventType="touchUpInside" id="DkP-Wh-TPo"/>
+                                            <action selector="PlayPauseButtonAction:" destination="RR7-k5-0dd" eventType="touchUpInside" id="0aE-h1-pe9"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -3509,7 +3607,7 @@
                         <outlet property="mOverlayView" destination="beg-Pw-xOY" id="u4a-oC-0ho"/>
                         <outlet property="mOverviewButton" destination="mUW-Yp-uB8" id="BGG-5R-dfD"/>
                         <outlet property="mOverviewTableView" destination="nK1-S9-0Sw" id="ff3-oz-at5"/>
-                        <outlet property="mPlayPause" destination="Tdv-We-NgS" id="bSl-Eh-HBa"/>
+                        <outlet property="mPlayPause" destination="YK6-LG-DFa" id="wHj-LN-NGr"/>
                         <outlet property="mScoreUpdateView" destination="FiZ-3V-Zsc" id="gdN-JL-2KQ"/>
                         <outlet property="mTeamANameLable" destination="ANu-kQ-pMN" id="32C-mN-gFX"/>
                         <outlet property="mTeamAScoreLable" destination="aGv-5n-479" id="RfR-GK-8ro"/>
@@ -4473,6 +4571,15 @@
                                         <color key="textColor" red="0.99991279840000002" green="1" blue="0.99988144639999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="4is-Vh-sGl">
+                                        <rect key="frame" x="56" y="34" width="36" height="36"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Stop_nw.png"/>
+                                        <state key="selected" image="Ply_new"/>
+                                        <connections>
+                                            <action selector="PlayPauseAudioButtonAction:" destination="bZT-iN-QqE" eventType="touchUpInside" id="2db-dw-AmM"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -4520,6 +4627,7 @@
                         <outlet property="mNewOverlayView" destination="RSo-gW-mWf" id="62j-cM-lsS"/>
                         <outlet property="mOverlayView" destination="Sb5-I9-w4s" id="DWu-fN-reL"/>
                         <outlet property="mOverviewButton" destination="Gux-kC-Pkr" id="RAe-gb-ksO"/>
+                        <outlet property="mPlayPauseAudioButton" destination="4is-Vh-sGl" id="KyQ-wl-T2o"/>
                         <outlet property="mProfileImageView" destination="Vz3-Zk-rrE" id="JwD-Uc-NjG"/>
                         <outlet property="mProfileShowHideButtonn" destination="c1N-3n-fh6" id="MkQ-ax-MLZ"/>
                         <outlet property="mProfileView" destination="3sP-PJ-tOt" id="OX7-Z3-8Ak"/>
@@ -5396,6 +5504,8 @@
         <image name="New_twitter (7).png" width="256" height="256"/>
         <image name="New_youtube (1).png" width="256" height="256"/>
         <image name="OverviewButton" width="160" height="45"/>
+        <image name="Ply_new" width="64" height="64"/>
+        <image name="Stop_nw.png" width="128" height="128"/>
         <image name="VideoHGT" width="140" height="40"/>
         <image name="background3.jpg" width="640" height="1136"/>
         <image name="black-t-shirt" width="32" height="32"/>
@@ -5417,11 +5527,11 @@
         <image name="line.png" width="472" height="1"/>
         <image name="listen-test.png" width="506" height="239"/>
         <image name="listentext.png" width="326" height="116"/>
+        <image name="liverightnow.png" width="640" height="120"/>
         <image name="logo-alpha.png" width="300" height="97"/>
         <image name="mic_league.png" width="32" height="32"/>
         <image name="noimage.png" width="244" height="172"/>
         <image name="overlay_opacity.png" width="1222" height="2188"/>
-        <image name="play_nw.png" width="128" height="128"/>
         <image name="pod_back.jpg" width="294" height="46"/>
         <image name="profile-screen-icons_03.png" width="103" height="102"/>
         <image name="profile-screen-icons_07.png" width="104" height="104"/>
@@ -5433,8 +5543,10 @@
         <image name="score-board_new.png" width="640" height="240"/>
         <image name="search-baar.png" width="505" height="55"/>
         <image name="searchButtonBG.png" width="360" height="108"/>
+        <image name="soccer-jersey (1).png" width="128" height="128"/>
         <image name="splash back 640x1136.png" width="640" height="1136"/>
         <image name="sub.png" width="250" height="250"/>
+        <image name="trophy.png" width="128" height="128"/>
         <image name="user_new" width="128" height="128"/>
         <image name="user_pass" width="128" height="128"/>
         <image name="white-t-shirt" width="32" height="32"/>
@@ -5442,8 +5554,8 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="xut-FD-fSH"/>
-        <segue reference="KnX-Bc-g1d"/>
+        <segue reference="JoJ-hn-chv"/>
         <segue reference="U6Q-k2-XLS"/>
-        <segue reference="lGs-Av-jVz"/>
+        <segue reference="8Pe-Hh-cHC"/>
     </inferredMetricsTieBreakers>
 </document>

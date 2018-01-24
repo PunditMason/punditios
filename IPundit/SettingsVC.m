@@ -33,7 +33,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.backgroundImageView.image = DM.backgroundImage ;
+   // self.backgroundImageView.image = DM.LivebackgroundImage ;
+    self.backgroundImageView.image = [UIImage imageNamed:@"1.jpg"] ;
+
 
     [self getUsers];
     refreshControl = [[UIRefreshControl alloc] init];
@@ -66,10 +68,99 @@
     return mDataArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *CellIdentifier = @"liverightnowcell";
+    static NSString *CellIdentifier1 = @"liverightnowcell1";
+
     NSMutableDictionary * dictRef = [[NSMutableDictionary alloc]init];
     dictRef = [mDataArray objectAtIndex:indexPath.row];
     
-    NSString * stringRef = [NSString stringWithFormat:@"%@",[dictRef objectForKey:@"live"]];
+    
+    
+    if ([[[dictRef objectForKey:@"channel_info"]objectAtIndex:0]objectForKey:@"match_info"]) {
+        NSString * Team1_name = @"";
+        NSString * Team2_name = @"";
+        LiveRightNowCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil) {
+            cell = [[LiveRightNowCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+            
+        }
+        UIView *bgColorView = [[UIView alloc] init];
+        [bgColorView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]];
+        [cell setSelectedBackgroundView:bgColorView];
+        
+        Team1_name = [NSString stringWithFormat:@"%@",[[[[dictRef objectForKey:@"channel_info"]objectAtIndex:0]objectForKey:@"match_info"]objectForKey:@"team1_name"]];
+        Team2_name = [NSString stringWithFormat:@"%@",[[[[dictRef objectForKey:@"channel_info"]objectAtIndex:0]objectForKey:@"match_info"]objectForKey:@"team2_name"]];
+        
+       NSString *Team1_Image = [NSString stringWithFormat:@"%@team_mark/%@",KserviceBaseIconURL,[[[[dictRef objectForKey:@"channel_info"]objectAtIndex:0]objectForKey:@"match_info"]objectForKey:@"team1_icon"]];
+        
+        NSString *Team2_Image = [NSString stringWithFormat:@"%@team_mark/%@",KserviceBaseIconURL,[[[[dictRef objectForKey:@"channel_info"]objectAtIndex:0]objectForKey:@"match_info"]objectForKey:@"team2_icon"]];
+
+        NSURL *Team1_Image_URL = [NSURL URLWithString:Team1_Image];
+        NSURL *Team2_Image_URL = [NSURL URLWithString:Team2_Image];
+
+        
+        cell.mPunditNameLabel.text = [NSString stringWithFormat:@"%@",[[dictRef objectForKey:@"first_name"]capitalizedString]];
+        cell.mTeam1Label.text = Team1_name;
+        cell.mTeam2Label.text = Team2_name;
+        
+        [cell.mTeam1Image sd_setImageWithURL:Team1_Image_URL placeholderImage:[UIImage imageNamed:@"trophy.png"]];
+        [cell.mTeam2Image sd_setImageWithURL:Team2_Image_URL placeholderImage:[UIImage imageNamed:@"soccer-jersey (1).png"]];
+        
+        
+        return cell;
+        
+        
+    }
+    else {
+        NSString * Team1_name = @"";
+        NSString * Team1_Image_name = @"";
+        UserTBCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier1];
+        if (cell == nil) {
+            cell = [[UserTBCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier1];
+            
+        }
+        UIView *bgColorView = [[UIView alloc] init];
+        [bgColorView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]];
+        [cell setSelectedBackgroundView:bgColorView];
+        
+        Team1_name = [NSString stringWithFormat:@"%@",[[[[[dictRef objectForKey:@"channel_info"]objectAtIndex:0]objectForKey:@"team_info"]objectForKey:@"contestantName"]capitalizedString]];
+        Team1_Image_name = [NSString stringWithFormat:@"%@team_mark/%@",KserviceBaseIconURL,[[[[dictRef objectForKey:@"channel_info"]objectAtIndex:0]objectForKey:@"team_info"]objectForKey:@"mark_image"]];
+
+        cell.mPunditNameLabel.text = [NSString stringWithFormat:@"%@",[[dictRef objectForKey:@"first_name"]capitalizedString]];
+        cell.mTeam1Label.text = Team1_name;
+        NSURL *Team1_Image_URL = [NSURL URLWithString:Team1_Image_name];
+        [cell.mTeam1Image sd_setImageWithURL:Team1_Image_URL placeholderImage:[UIImage imageNamed:@"soccer-jersey (1).png"]];
+        
+        
+        return cell;
+        
+        
+    }
+        
+
+    
+    /*
+    else{
+        NSURL *Team1_Image_URL = [NSURL URLWithString:@""];
+        NSURL *Team2_Image_URL = [NSURL URLWithString:@""];
+
+        cell.mPunditNameLabel.text = [NSString stringWithFormat:@"%@",[dictRef objectForKey:@"first_name"]];
+        cell.mTeam1Label.text = @"-";
+        cell.mTeam2Label.text = @"-";
+      
+        [cell.mTeam1Image sd_setImageWithURL:Team1_Image_URL placeholderImage:[UIImage imageNamed:@"trophy.png"]];
+        [cell.mTeam2Image sd_setImageWithURL:Team2_Image_URL placeholderImage:[UIImage imageNamed:@"soccer-jersey (1).png"]];
+
+        
+    }
+    */
+    
+    
+    
+    
+
+    /*
     if (dictRef [@"channel_info"] ) {
             static NSString *CellIdentifier = @"ListenersTrophyTableViewCell";
             ListenersTrophyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -129,6 +220,7 @@
     
     return cell;
 }
+     */
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

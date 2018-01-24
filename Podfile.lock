@@ -33,6 +33,7 @@ PODS:
     - FBSDKCoreKit
   - FBSDKShareKit (4.28.0):
     - FBSDKCoreKit
+  - GoogleAnalytics (3.17.0)
   - IQKeyboardManager (5.0.6)
   - ISMessages (1.2)
   - JSONModel (1.7.0)
@@ -62,6 +63,7 @@ DEPENDENCIES:
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
+  - GoogleAnalytics
   - IQKeyboardManager
   - ISMessages
   - JSONModel
@@ -86,6 +88,7 @@ SPEC CHECKSUMS:
   FBSDKCoreKit: ca961e279113f691fd83dc634c0bbad9d4e3f370
   FBSDKLoginKit: b077381c27d800f21661757e8140cf2c80a91e4a
   FBSDKShareKit: 4f525556e0df4cf0f574cb3f01c675434f29d477
+  GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
   IQKeyboardManager: 077b7f691dfa9d69db9cff66f2bed68ebfc02d9b
   ISMessages: d39098b48672813d69d30f44da06260b9920fed4
   JSONModel: 840bc0fcffb24b8454d2c026bf26fea454b8e98d
@@ -99,6 +102,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
   youtube-ios-player-helper: 21ab92db027c7ff86cb17a3843a3f6eafc8158d2
 
-PODFILE CHECKSUM: 39e03e4c5ce0b59f987db2044d5daf3cace3b165
+PODFILE CHECKSUM: 8e1ec6951db92e0bbe0754b7c6035f12ad5f5d93
 
 COCOAPODS: 1.3.1

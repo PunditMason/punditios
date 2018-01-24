@@ -12,6 +12,7 @@
 #import "BroadcastMatchDetailVC.h"
 #import "ListenMatchDetailVC.h"
 #import "CurrentUser.h"
+#import <GoogleAnalytics/GAI.h>
 
 
 #define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
@@ -28,6 +29,16 @@
     
     
 
+    GAI *gai = [GAI sharedInstance];
+    [gai trackerWithTrackingId:@"UA-104213453-1"];
+    
+    // Optional: automatically report uncaught exceptions.
+    gai.trackUncaughtExceptions = YES;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    // Remove before app release.
+   // gai.logger.logLevel = kGAILogLevelVerbose;
+    
 #pragma mark ====================================================================
 #pragma mark ======================PUSH NOTIFICATION=============================
 #pragma mark ====================================================================

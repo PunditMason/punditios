@@ -158,6 +158,9 @@
 @property (strong, nonatomic) IBOutlet MarqueeLabel *breakingNewsLabel;
 @property (strong, nonatomic) IBOutlet UIView *breakingNewsView;
 
+@property (strong, nonatomic) IBOutlet UIButton *mPlayPauseAudioButton;
 
+
+- (IBAction)PlayPauseAudioButtonAction:(id)sender;
 
 @end

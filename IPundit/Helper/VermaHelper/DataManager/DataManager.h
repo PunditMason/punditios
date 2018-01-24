@@ -62,6 +62,8 @@ typedef void (^SKCompletionQueryBlock)(NSArray *__nullable result, NSError *__nu
 @property (nonatomic,strong)NSMutableDictionary *__nullable listenerPresentData ;
 @property (nonatomic,strong)NSString *__nullable listenerPresentIcon ;
 @property (nonatomic,strong)UIImage *__nullable backgroundImage;
+@property (nonatomic,strong)UIImage *__nullable LivebackgroundImage;
+
 @property (nonatomic,strong)NSString *__nullable appFlowRef ;
 @property (nonatomic,strong)UIView * _Nonnull refView ;
 @property (nonatomic,strong)NSString *__nullable deviceTokenForPushNotification ;

@@ -42,9 +42,9 @@
   //  mFinalOverviewArray = [[NSMutableArray alloc]init];
     
 
-    self.mPlayPause.hidden = YES ;
 
-    
+    self.mPlayPause.hidden = YES;
+
     
     self.matchStatusLabel.text =@"-";
     
@@ -653,8 +653,16 @@
         
     NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
    // NSLog(@"%@",responseDict);
-    
-    self.mListenersCount.text = [NSString stringWithFormat:@"%@",[responseDict objectForKey:@"count"]];
+ 
+        
+        if ([responseDict objectForKey:@"count"] == (NSString *)[NSNull null])
+        {
+             self.mListenersCount.text = @"0";
+        }else{
+             self.mListenersCount.text = [NSString stringWithFormat:@"%@",[responseDict objectForKey:@"count"]];
+        }
+        
+   
         
     } onError:^(NSError * _Nullable Error) {
         
@@ -1193,7 +1201,8 @@
             }
         }
         
-        
+        self.mPlayPause.hidden = NO;
+
         channelId = [NSString stringWithFormat:@"%@",[responseDict objectForKey:@"channelid"]];
         streamName = [NSString stringWithFormat:@"%@",[[responseDict objectForKey:@"data"]objectForKey:@"streamName"]];
         
@@ -1598,8 +1607,56 @@
     
     
 }
-
 - (IBAction)PlayPauseButtonAction:(id)sender{
+    
+    
+    if (self.mPlayPause.selected) {
+        [self pauseStream:@"0" andChannelId:channelId];
+
+        NSLog(@"Button is Not Selected");
+        self.mPlayPause.selected = NO;
+
+    
+    }else{
+        [self pauseStream:@"1" andChannelId:channelId];
+        NSLog(@"Button is Selected");
+        self.mPlayPause.selected = YES;
+    }
+    
+}
+-(void)pauseStream:(NSString *)PauseFlag andChannelId:(NSString *)ChannelId{
+    NSMutableDictionary *Parameters = [NSMutableDictionary new];
+    [Parameters setObject:ChannelId forKey:@"channel_id"];
+    [Parameters setObject:PauseFlag forKey:@"pause_flag"];
+    
+   // [Helper showLoaderVProgressHUD];
+    NSString *string = [NSString stringWithFormat:@"%@Game/pauseStream/%@/%@",KServiceBaseURL,ChannelId,PauseFlag];
+    NSLog(@"Url %@",string);
+    NSLog(@"Parameters %@",Parameters);
+
+    [DM GetRequest:string parameter:Parameters onCompletion:^(id  _Nullable dict) {
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
+        NSLog(@"ResponseDict %@",responseDict);
+        if ([responseDict objectForKey:@"result"]) {
+            if ([[[responseDict objectForKey:@"result"]objectForKey:@"pause_flag"]integerValue] == 0) {
+                NSLog(@"Button is Not Selected");
+            }else{
+                NSLog(@"Button is Selected");
+
+            }
+
+        }
+      //  [Helper hideLoaderSVProgressHUD];
+    } onError:^(NSError * _Nullable Error) {
+       // [Helper hideLoaderSVProgressHUD];
+        NSLog(@"%@",Error);
+        NSString *ErrorString = [NSString stringWithFormat:@"%@",Error];
+    }];
+}
+    
+    /*
+- (IBAction)PlayPauseButtonAction:(id)sender{
+
     if(PlayPauseCheckBool == FALSE){
         
         [self.mPlayPause setImage:[UIImage imageNamed:@"Stop_nw.png"] forState:UIControlStateNormal];
@@ -1618,7 +1675,7 @@
     }
         
 }
-
+*/
 
 -(void)MusicAudio{
     NSURL *streamURL = [NSURL URLWithString:[NSString stringWithFormat:@"http://52.19.91.90/play/Songs/Shadaladance.mp3"]];

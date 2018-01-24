@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface UserTBCell : UITableViewCell
-@property (strong, nonatomic) IBOutlet UIImageView *mBackgroundIV;
-@property (strong, nonatomic) IBOutlet UILabel *mUserNameLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *mTeam1Image;
+@property (strong, nonatomic) IBOutlet UILabel *mTeam1Label;
+@property (strong, nonatomic) IBOutlet UILabel *mPunditNameLabel;
 
 @end

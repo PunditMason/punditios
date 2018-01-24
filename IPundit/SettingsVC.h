@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "DataManager.h"
+#import "LiveRightNowCell.h"
+#import "UIImageView+WebCache.h"
 
 @interface SettingsVC : UIViewController
 - (IBAction)BackButtonAction:(id)sender;

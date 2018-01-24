@@ -815,6 +815,8 @@ static void extracted(ViewController *object) {
         
         [self.backgroundImageView.layer addAnimation:transition forKey:nil];
         
+        
+        
         NSString * backgroundImageString = [NSString stringWithFormat:@"%@ios_icons/%@",KserviceBaseIconURL,[mHomePageDict objectForKey:@"background"]];
         NSURL *backgroundImageUrl = [NSURL URLWithString:backgroundImageString];
         [self.backgroundImageView sd_setImageWithURL:backgroundImageUrl completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
@@ -828,6 +830,21 @@ static void extracted(ViewController *object) {
             });
             
         }];
+        
+        
+        
+        
+        NSString * LivebackgroundImageString = [NSString stringWithFormat:@"%@ios_icons/%@",KserviceBaseIconURL,[mHomePageDict objectForKey:@"livematch_background"]];
+        NSURL *LivebackgroundImageUrl = [NSURL URLWithString:LivebackgroundImageString];
+        UIImageView *imgobj = [[UIImageView alloc] init];
+        [imgobj sd_setImageWithURL:LivebackgroundImageUrl completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
+            DM.LivebackgroundImage = image ;
+            
+        }];
+        
+        
+        
+        
         NSString * string = [NSString stringWithFormat:@"%@ios_icons/%@",KserviceBaseIconURL,[mHomePageDict objectForKey:@"broadcaster"]];
         
         NSURL *url = [NSURL URLWithString:string];

@@ -91,6 +91,8 @@
 		0147C8281F68E8B000B5B53A /* PoadcastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0147C8271F68E8B000B5B53A /* PoadcastCell.m */; };
 		0147C82B1F68E8C400B5B53A /* PoadcastDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0147C82A1F68E8C400B5B53A /* PoadcastDetailCell.m */; };
 		014C87FD1F752E6F00278462 /* PSignUpVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 014C87FC1F752E6F00278462 /* PSignUpVC.m */; };
+		014E202A200F1D04005F1283 /* liverightnow.png in Resources */ = {isa = PBXBuildFile; fileRef = 014E2029200F1D03005F1283 /* liverightnow.png */; };
+		014E202D200F2265005F1283 /* LiveRightNowCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 014E202C200F2265005F1283 /* LiveRightNowCell.m */; };
 		015A13811F483F6800703441 /* New_about.png in Resources */ = {isa = PBXBuildFile; fileRef = 015A136D1F483F6800703441 /* New_about.png */; };
 		015A13821F483F6800703441 /* New_chat.png in Resources */ = {isa = PBXBuildFile; fileRef = 015A136E1F483F6800703441 /* New_chat.png */; };
 		015A13831F483F6800703441 /* New_desktop.ini in Resources */ = {isa = PBXBuildFile; fileRef = 015A136F1F483F6800703441 /* New_desktop.ini */; };
@@ -392,6 +394,9 @@
 		014C87FC1F752E6F00278462 /* PSignUpVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSignUpVC.m; sourceTree = "<group>"; };
 		014C87FE1F78C93D00278462 /* user_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user_new.png; path = IPundit/Helper/Assets_Images/user_new.png; sourceTree = SOURCE_ROOT; };
 		014C87FF1F78C93F00278462 /* user_pass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = user_pass.png; path = IPundit/Helper/Assets_Images/user_pass.png; sourceTree = SOURCE_ROOT; };
+		014E2029200F1D03005F1283 /* liverightnow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = liverightnow.png; sourceTree = "<group>"; };
+		014E202B200F2264005F1283 /* LiveRightNowCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveRightNowCell.h; sourceTree = "<group>"; };
+		014E202C200F2265005F1283 /* LiveRightNowCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveRightNowCell.m; sourceTree = "<group>"; };
 		015A136D1F483F6800703441 /* New_about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = New_about.png; sourceTree = "<group>"; };
 		015A136E1F483F6800703441 /* New_chat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = New_chat.png; sourceTree = "<group>"; };
 		015A136F1F483F6800703441 /* New_desktop.ini */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = New_desktop.ini; sourceTree = "<group>"; };
@@ -667,8 +672,11 @@
 		0009EF501F29CB470087E03B /* UserCell */ = {
 			isa = PBXGroup;
 			children = (
+				014E2029200F1D03005F1283 /* liverightnow.png */,
 				0009EF511F29CB810087E03B /* UserTBCell.h */,
 				0009EF521F29CB810087E03B /* UserTBCell.m */,
+				014E202B200F2264005F1283 /* LiveRightNowCell.h */,
+				014E202C200F2265005F1283 /* LiveRightNowCell.m */,
 			);
 			path = UserCell;
 			sourceTree = "<group>";
@@ -1245,9 +1253,9 @@
 				A644A96B1E791E43002C82F2 /* Profile */,
 				A6C5A8D11E65923000EF9E0D /* AboutVC.h */,
 				A6C5A8D21E65923000EF9E0D /* AboutVC.m */,
-				617D457F1FA9D2DD00826924 /* FollowersViewCell.h */,
 				617D45821FA9D2F800826924 /* FollowersVC.h */,
 				617D45831FA9D2F800826924 /* FollowersVC.m */,
+				617D457F1FA9D2DD00826924 /* FollowersViewCell.h */,
 				617D45801FA9D2DD00826924 /* FollowersViewCell.m */,
 				00E34C4D1EF507A600261FCA /* PrivacyPolicyVC.h */,
 				00E34C4E1EF507A600261FCA /* PrivacyPolicyVC.m */,
@@ -1577,6 +1585,7 @@
 				A644A95F1E790449002C82F2 /* edit_img.png in Resources */,
 				01E9ED721FF79EEA00778BE3 /* if_Stop1PressedBlue_22950.png in Resources */,
 				015A138A1F483F6800703441 /* New_Listen_background.png in Resources */,
+				014E202A200F1D04005F1283 /* liverightnow.png in Resources */,
 				00C47BC21EF7B69500D78FE1 /* ListenersTrophyTableViewCell.xib in Resources */,
 				00E34BF51EF3A3A700261FCA /* funky-circle.png in Resources */,
 				A668CCE41E77D7AE001AE0E1 /* dot.png in Resources */,
@@ -1810,6 +1819,7 @@
 				A6D1BA081E6A98C50041CA77 /* ListenMatchVC.m in Sources */,
 				0066225D1EBDD6E000944B72 /* getProfileCurrentUser.m in Sources */,
 				6153670A1EF648FC000D1C0B /* MainListenDetailCell.m in Sources */,
+				014E202D200F2265005F1283 /* LiveRightNowCell.m in Sources */,
 				019A0FC81F57F5E1009725AF /* ALChatManager.m in Sources */,
 				013008DA1FB0128A000CDCC5 /* YTPlayerVC.m in Sources */,
 				0196F1E21E69E165004DE59F /* UIImage+Additions.m in Sources */,
