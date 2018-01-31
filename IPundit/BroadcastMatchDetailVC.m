@@ -1615,12 +1615,14 @@
 
         NSLog(@"Button is Not Selected");
         self.mPlayPause.selected = NO;
+        self.mPlayPause.enabled = NO;
 
     
     }else{
         [self pauseStream:@"1" andChannelId:channelId];
         NSLog(@"Button is Selected");
         self.mPlayPause.selected = YES;
+        self.mPlayPause.enabled = NO;
     }
     
 }
@@ -1638,6 +1640,7 @@
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
         NSLog(@"ResponseDict %@",responseDict);
         if ([responseDict objectForKey:@"result"]) {
+             self.mPlayPause.enabled = YES;
             if ([[[responseDict objectForKey:@"result"]objectForKey:@"pause_flag"]integerValue] == 0) {
                 NSLog(@"Button is Not Selected");
             }else{
@@ -1706,7 +1709,6 @@
 
 - (void)handleMPMoviePlayerPlaybackDidFinish:(NSNotification *)notification {
     [self.streamPlayer.view removeFromSuperview];
-    [self MusicAudio];
     NSDictionary *notificationUserInfo = [notification userInfo];
     NSNumber *resultValue = [notificationUserInfo objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
     MPMovieFinishReason reason = [resultValue intValue];

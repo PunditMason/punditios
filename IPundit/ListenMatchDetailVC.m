@@ -31,28 +31,39 @@
     NSMutableArray *mFinalGoalsArray;
     NSMutableArray *mFinalsubstitutionArray;
     NSArray *mFinalOverviewArray;
+    NSMutableArray *playlistArray;
     BOOL mBroadcasterLeftCheckbool;
     BOOL mReconnectCheckbool;
+    NSString *NewMatchId;
+    
+    BOOL mPlayPauseCheckbool;
 
-    BOOL mMuteUnMuteCheckBool;
-
+    int mAddCount;
+    
 }
 
 @end
 
 @implementation ListenMatchDetailVC
-@synthesize mTableView,mLineupTableView,channellist,MatchLiveFeedArray,currentUser,refreshControl;
+@synthesize mTableView,mLineupTableView,channellist,MatchLiveFeedArray,currentUser,refreshControl,player;
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    mAddCount = 0;
+    
     [self CallRefresh];
+    self.mPlayPauseAudioButton.hidden = YES;
+    
+    NewMatchId = channellist.match_id;
+    
+    
 }
 
 -(void)CallRefresh{
     
     self.mRefreshListener.hidden = true;
-    
+    playlistArray = [[NSMutableArray alloc]init];
     mFinalsubstitutionArray = [[NSMutableArray alloc]init];
     mFinalGoalsArray =[[NSMutableArray alloc]init];
     mPlayers1Array =[[NSMutableArray alloc]init];
@@ -305,7 +316,7 @@
     [DM.liveBroadcastersArray addObject:self.channelDict];
     postingData = [[NSMutableDictionary alloc]init];
     postingData = self.channelDict ;
-    [self post];
+    [self post:@"NO"];
 
 }
 
@@ -637,7 +648,7 @@
             
         }];
         
-        [self post];
+        [self post:@"NO"];
         
     }else{
     
@@ -647,21 +658,37 @@
 }
 
 
--(void)post{
+-(void)post:(NSString *)ReconnectYes{
     [self stop];
     [functionTimer invalidate];
     [listnersCount invalidate];
-
     [broadcastersTimer invalidate];
+    [AdsTimer invalidate];
+
     self.loggedInAsLabel.text = [NSString stringWithFormat:@"BroadCasting this Game:%@",[postingData objectForKey:@"broadcaster_name"]];
     [self getBroadCastersDetails];
     [UIView animateWithDuration:1.0 animations:^{
         self.broadcastersView.hidden = YES ;
     }];
     
+    AdsTimer = [NSTimer scheduledTimerWithTimeInterval:3.0 target: self
+                                                       selector: @selector(ListenStreamAds) userInfo: nil repeats: YES];
+    
+    
+    
+    
     if(mReconnectCheckbool == FALSE){
     broadcastersTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target: self
                                                        selector: @selector(broadcasterCheck) userInfo: nil repeats: YES];
+    }
+    
+    
+    if ([ReconnectYes isEqualToString:@"YES"]) {
+        broadcastersTimer = [NSTimer scheduledTimerWithTimeInterval:5.0 target: self
+                                                           selector: @selector(broadcasterCheck) userInfo: nil repeats: YES];
+        
+        
+        
     }
     
     if ([DM.channelType isEqualToString:@"team"]) {
@@ -1078,7 +1105,6 @@
     playerCheckBool = false ;
     self.playNPauseImageView.image = [UIImage imageNamed:@"play"];
     self.playNPuseButton.enabled = NO ;
-
     [Helper hideLoaderSVProgressHUD];
 }
 
@@ -1110,7 +1136,7 @@
 
 
 - (void)GetMatchLiveFeed{
-    NSString *URlStr = [NSString stringWithFormat:@"https://www.footballwebpages.co.uk/match.json?match=%@",channellist.match_id];
+    NSString *URlStr = [NSString stringWithFormat:@"https://www.footballwebpages.co.uk/match.json?match=%@",NewMatchId];
     NSLog(@"My Service Request  = %@", URlStr);
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URlStr]cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:120.0];
@@ -1333,7 +1359,7 @@
 - (void)GetMatchLiveFeedOld{
     
     
-    NSString *path=[NSString stringWithFormat:@"%@Game/getMatchLiveFeedsdata/%@",KServiceBaseURL,channellist.match_id];
+    NSString *path=[NSString stringWithFormat:@"%@Game/getMatchLiveFeedsdata/%@",KServiceBaseURL,NewMatchId];
     [DM GetRequest:path parameter:nil onCompletion:^(id dict) {
         NSError *errorJson=nil;
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
@@ -1439,6 +1465,10 @@
 
 -(void)broadcasterCheck{
     [self broadcasterLive];
+   
+}
+
+-(void)CheckbroadcasterLive{
     NSMutableArray * refArray = [[NSMutableArray alloc]init];
     NSMutableArray * checkArray = [[NSMutableArray alloc]init];
     [refArray addObjectsFromArray:DM.liveBroadcastersArray];
@@ -1450,22 +1480,23 @@
         [broadcastersTimer invalidate];
         [listnersCount invalidate];
         [timer invalidate];
-       // [checkAlert show];
+        // [checkAlert show];
         [self.mKickOFTimeLabel pause];
         [DM.stream stop];
-      
         
+        [AdsTimer invalidate];
+        [self StopAdds];
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Pundit"
                                                         message:@"Broadcaster Left"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
-       // [alert show];
+        // [alert show];
         
-      
+        
         if(mBroadcasterLeftCheckbool == FALSE){
-            [self RefreshListenerButtonTap:self];
+            [self RefreshListening];
             mBroadcasterLeftCheckbool = TRUE;
             
             
@@ -1474,12 +1505,13 @@
     }
 }
 
+
 -(void)broadcasterLive{
     NSString * path ;
     if ([DM.channelType isEqualToString:@"team"]) {
       path = [NSString stringWithFormat:@"%@Game/broadcaster_detail/%@",KServiceBaseURL,[postingData objectForKey:@"match_id"]];
     }else{
-        path = [NSString stringWithFormat:@"%@Game/broadcaster_detail/%@",KServiceBaseURL,channellist.match_id];
+        path = [NSString stringWithFormat:@"%@Game/broadcaster_detail/%@",KServiceBaseURL,NewMatchId];
     }
     
     [DM GetRequest:path parameter:nil onCompletion:^(id  _Nullable dict) {
@@ -1489,7 +1521,7 @@
         DM.liveBroadcastersArray = [responseDict objectForKey:@"channel"];
         [self.broadCastersTableView reloadData];
         [refreshControl endRefreshing];
-        
+        [self CheckbroadcasterLive];
     } onError:^(NSError * _Nullable Error) {
     }];
 }
@@ -1564,6 +1596,7 @@
     [matchTimer invalidate];
     [timer invalidate];
     [broadcastersTimer invalidate];
+    [AdsTimer invalidate];
     [listnersCount invalidate];
 
 }
@@ -1748,8 +1781,7 @@
 
 - (IBAction)RefreshListenerButtonTap:(id)sender{
    // [Helper showLoaderVProgressHUD];
-    
-    [self RefreshListening];
+   // [self RefreshListening];
 }
 
 
@@ -1774,33 +1806,35 @@
         NSMutableArray *mtempArray = [[NSMutableArray alloc]init];
         mtempArray = [responseDict objectForKey:@"channel"];
 
-        
-        
         if (mtempArray.count > 0){
-            
                 postingData = [[NSMutableDictionary alloc]init];
                 postingData = [responseDict objectForKey:@"channel"];
                 mReconnectCheckbool = TRUE;
+                NewMatchId = [postingData objectForKey:@"match_id"];
+            
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+                    [self post:@"YES"];
+                    [Helper hideLoaderSVProgressHUD];
+                    mReconnectCheckbool = FALSE;
+                    mBroadcasterLeftCheckbool = FALSE;
+                    
+                });
             
             
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-                [self post];
-                [Helper hideLoaderSVProgressHUD];
-                mReconnectCheckbool = FALSE;
-                mBroadcasterLeftCheckbool = FALSE;
-                
-            });
+            
             
 
         }
         else{
             //self.mNewOverlayLabel.text = @"Failed";
             //self.mNewOverlayView.hidden = true;
-            mBroadcasterLeftCheckbool = FALSE;
+            mBroadcasterLeftCheckbool = TRUE;
             
-            [self performSelector:@selector(RefreshListening)  withObject:nil afterDelay:5.0];
+          //  [self performSelector:@selector(RefreshListening)  withObject:nil afterDelay:5.0];
             
-           
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [self RefreshListening];
+            });
             
 
         }
@@ -1922,14 +1956,164 @@
     if (self.mPlayPauseAudioButton.selected) {
         NSLog(@"Pause Stream = YES    Button is Not Selected");
         self.mPlayPauseAudioButton.selected = NO;
-        DM.stream.pauseAudio = YES;
+        [self ListenStreamAds];
     }else{
         NSLog(@"Pause Stream = NO    Button is Selected");
         self.mPlayPauseAudioButton.selected = YES;
-        DM.stream.pauseAudio = NO;
+        [self ListenStreamAds];
 
     }
 
 
 }
+
+
+
+#pragma Mark ================================================================
+#pragma Mark ListenStreamAds
+#pragma Mark ================================================================
+
+-(void)ListenStreamAds{
+    
+    NSString * path = [NSString stringWithFormat:@"%@Game/ListenStreamAds/%@/%@",KServiceBaseURL,[postingData objectForKey:@"broadcaster_id"],[postingData objectForKey:@"id"]];
+   //  NSString * path = [NSString stringWithFormat:@"http://52.19.91.90/pundit-ios/v1/Game/ListenStreamAds/1706/2283"];
+    
+    
+    NSLog(@"path %@",path);
+    [DM GetRequest:path parameter:nil onCompletion:^(id  _Nullable dict) {
+        
+        NSError *errorJson=nil;
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];
+        NSLog(@"responseDict %@",responseDict);
+        
+        if([[responseDict objectForKey:@"adsDetail"] objectForKey:@"pause_flag"] != nil){
+             NSString * pause_flag = [NSString stringWithFormat:@"%@",[[responseDict objectForKey:@"adsDetail"] objectForKey:@"pause_flag"]];
+            
+            if([pause_flag isEqualToString:@"1"]){
+                if(mPlayPauseCheckbool == FALSE){
+                    if([[responseDict objectForKey:@"adsDetail"] objectForKey:@"playlist"] != nil){
+                        NSLog(@"playlist %@",[[responseDict objectForKey:@"adsDetail"] objectForKey:@"playlist"]);
+                        [playlistArray removeAllObjects];
+                        [playlistArray addObjectsFromArray:[[responseDict objectForKey:@"adsDetail"] objectForKey:@"playlist"]];
+                        [self MusicAudio];
+                        [self stop];
+                       
+                    }
+                    mPlayPauseCheckbool = TRUE;
+                }
+            }
+            else{
+                if(mPlayPauseCheckbool == TRUE){
+                    [self StopAdds];
+                    [self post:@"NO"];
+                }
+            }
+        }
+
+    } onError:^(NSError * _Nullable Error) {
+        NSLog(@"Error %@",Error);
+    }];
+    
+}
+-(void)StopAdds{
+    //[self.streamPlayer stop];
+   // [self.streamPlayer.view removeFromSuperview];
+    [player pause];
+    mPlayPauseCheckbool = FALSE;
+
+}
+
+
+-(void)MusicAudio{
+    
+    if(playlistArray.count > 0){
+        NSURL *streamURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kAddsBaseURL,[[playlistArray objectAtIndex:mAddCount]valueForKey:@"ads_audio"]]];
+       // [ self PlayAudio:streamURL];
+        [self setupAVPlayerForURL:streamURL];
+    }
+   
+}
+
+
+
+
+
+-(void) setupAVPlayerForURL: (NSURL*) url {
+    AVAsset *asset = [AVURLAsset URLAssetWithURL:url options:nil];
+    AVPlayerItem *anItem = [AVPlayerItem playerItemWithAsset:asset];
+    
+    player = [AVPlayer playerWithPlayerItem:anItem];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemDidFinishPlaying:) name:AVPlayerItemDidPlayToEndTimeNotification object:player.currentItem];
+
+    
+    [player addObserver:self forKeyPath:@"status" options:0 context:nil];
+    [player play];
+    
+}
+-(void)itemDidFinishPlaying:(NSNotification *) notification {
+    if(playlistArray.count == mAddCount+1){
+        mAddCount = 0;
+    }else{
+         mAddCount++;
+    }
+   
+    [self StopAdds];
+    
+    
+    
+}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    
+    if (object == player && [keyPath isEqualToString:@"status"]) {
+        if (player.status == AVPlayerStatusFailed) {
+            NSLog(@"AVPlayer Failed");
+        } else if (player.status == AVPlayerStatusReadyToPlay) {
+            NSLog(@"AVPlayer Ready to Play");
+        } else if (player.status == AVPlayerItemStatusUnknown) {
+            NSLog(@"AVPlayer Unknown");
+        }
+    }
+}
+
+
+
+/*
+-(void)PlayAudio:(NSURL *)streamURL{
+    
+    self.streamPlayer = [[MPMoviePlayerController alloc] initWithContentURL:streamURL];
+    self.streamPlayer.view.frame = CGRectMake(0, 100, 320, 40);
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleMPMoviePlayerPlaybackDidFinish:)
+                                                 name:MPMoviePlayerPlaybackDidFinishNotification
+                                               object:nil];
+    
+    self.streamPlayer.controlStyle = MPMovieControlStyleEmbedded;
+    self.streamPlayer.view.tag = 114;
+    self.streamPlayer.scalingMode = MPMovieScalingModeAspectFill;
+    self.streamPlayer.movieSourceType = MPMovieSourceTypeStreaming;
+    [self.view addSubview:self.streamPlayer.view];
+    
+    [self.streamPlayer prepareToPlay];
+    [self.streamPlayer play];
+    
+}
+
+- (void)handleMPMoviePlayerPlaybackDidFinish:(NSNotification *)notification {
+    [self StopAdds];
+    NSDictionary *notificationUserInfo = [notification userInfo];
+    NSNumber *resultValue = [notificationUserInfo objectForKey:MPMoviePlayerPlaybackDidFinishReasonUserInfoKey];
+    MPMovieFinishReason reason = [resultValue intValue];
+    if (reason == MPMovieFinishReasonPlaybackError) {
+        NSError *mediaPlayerError = [notificationUserInfo objectForKey:@"error"];
+        if (mediaPlayerError) {
+            NSLog(@"playback failed with error description: %@", [mediaPlayerError localizedDescription]);
+        }
+        else {
+            NSLog(@"playback failed without any given reason");
+        }
+    }
+}
+
+*/
+
 @end

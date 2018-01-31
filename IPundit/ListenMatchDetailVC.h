@@ -19,7 +19,10 @@
 #import "ALChatManager.h"
 #import <IQKeyboardManager/IQKeyboardManager.h>
 #import "MZTimerLabel.h"
-
+#import <MediaPlayer/MediaPlayer.h>
+#import <AVFoundation/AVFoundation.h>
+#import <CoreMedia/CoreMedia.h>
+#import <AudioToolbox/AudioToolbox.h>
 
 #define kfbPrefixStr @"https://www.facebook.com/"
 
@@ -45,6 +48,7 @@
     NSTimer *functionTimer;
     NSTimer *broadcastersTimer;
     NSTimer *ReconnectbroadcastersTimer;
+    NSTimer *AdsTimer;
 
     NSTimer * listnersCount;
     
@@ -63,6 +67,11 @@
     BOOL ChatViewCheckBool;
 
 }
+@property (strong, nonatomic) MPMoviePlayerController *streamPlayer;
+@property (strong, nonatomic) AVPlayer *player;
+
+
+
 
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (nonatomic,strong) ChannelListModel *channellist;

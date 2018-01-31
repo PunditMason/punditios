@@ -19,3 +19,7 @@
 @property (nonatomic,strong)UIRefreshControl *refreshControl ;
 
 @end
+
+
+
+
