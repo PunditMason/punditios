@@ -303,7 +303,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     if (tableView == mLineupTableView) {
-        return 50;
+        return 34;
     }
     
     else {
