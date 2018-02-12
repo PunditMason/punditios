@@ -70,7 +70,7 @@
    // [DM marqueLabel:self.breakingNewsLabel];
    
     NSString * iconString = [NSString stringWithFormat:@"%@ios_league_mark/%@",KserviceBaseIconURL,[DM.broadCastPresentData objectForKey:@"icon"]];
-    NSURL *iconUrl = [NSURL URLWithString:iconString];
+    NSURL *iconUrl = [NSURL URLWithString:[DM.broadCastPresentData objectForKey:@"icon"]];
     [self.leaqueImageIcon sd_setImageWithURL:iconUrl placeholderImage:[UIImage imageNamed:@"LeaguesIconDummy.png"]];
 
     self.leaquenameLabel.text = [NSString stringWithFormat:@"%@",[DM.broadCastPresentData objectForKey:@"leaqueName"]];

@@ -35,10 +35,13 @@
     BOOL mBroadcasterLeftCheckbool;
     BOOL mReconnectCheckbool;
     NSString *NewMatchId;
+    NSString *twitterShareObj;
+
     
     BOOL mPlayPauseCheckbool;
 
     int mAddCount;
+
     
 }
 
@@ -114,7 +117,7 @@
     
     
     NSString * iconString = [NSString stringWithFormat:@"%@league_mark/%@",KserviceBaseIconURL,DM.listenerPresentIcon];
-    NSURL *iconUrl = [NSURL URLWithString:iconString];
+    NSURL *iconUrl = [NSURL URLWithString:DM.listenerPresentIcon];
     [self.leagueIconImageView sd_setImageWithURL:iconUrl placeholderImage:[UIImage imageNamed:@"LeaguesIconDummy"]];
     self.broadCastersTableView.tableFooterView = [UIView new];
     
@@ -298,6 +301,22 @@
         
         sharingString = [NSString stringWithFormat:@"I'm live on Pundit now, listening the game between %@ Vs %@, come join me",channellist.team1_name,channellist.team2_name];
         
+        
+        NSString *TwitterTems =[NSString stringWithFormat:@"@%@ Vs @%@",channellist.team1_twitter_id,channellist.team2__twitter_id];
+        
+        NSString *team1_twitter_id = channellist.team1_twitter_id;
+        NSString *team2__twitter_id = channellist.team2__twitter_id;
+        
+        if ((team1_twitter_id.length > 0) && (team2__twitter_id.length > 0) ) {
+            twitterShareObj = [NSString stringWithFormat:@"I'm live on Pundit now, listening the game between %@, come join me",TwitterTems];
+            
+        }
+        else{
+            twitterShareObj = sharingString;
+        }
+        
+        
+        
     }
     else
     {
@@ -310,7 +329,18 @@
     self.matchStatus.text = [NSString stringWithFormat:@"Rank - %@",[self.matchInfoDict objectForKey:@"rank"]];
     
     sharingString = [NSString stringWithFormat:@"I'm live on Pundit now listening %@, come join me",[self.matchInfoDict objectForKey:@"contestantName"]];
+        
+        NSString *sharingStringobj = [NSString stringWithFormat:@"%@",[self.matchInfoDict objectForKey:@"twitter_id"]];
+        
+        if (sharingStringobj.length > 0) {
+            twitterShareObj = [NSString stringWithFormat:@"I'm live on Pundit now listening %@, come join me",twitterShareObj];
+            
+        }
+        else{
+            twitterShareObj = sharingString;
+        }
     
+  
     }
     DM.liveBroadcastersArray = [[NSMutableArray alloc]init];
     [DM.liveBroadcastersArray addObject:self.channelDict];
@@ -352,6 +382,24 @@
     
     sharingString = [NSString stringWithFormat:@"I'm live on Pundit now, listening to %@ Vs %@, come join me",channellist.team1_name,channellist.team2_name];
     
+    
+    
+    NSString *TwitterTems =[NSString stringWithFormat:@"@%@ Vs @%@",channellist.team1_twitter_id,channellist.team2__twitter_id];
+    
+    NSString *team1_twitter_id = channellist.team1_twitter_id;
+    NSString *team2__twitter_id = channellist.team2__twitter_id;
+    
+    if ((team1_twitter_id.length > 0) && (team2__twitter_id.length > 0) ) {
+        twitterShareObj = [NSString stringWithFormat:@"I'm live on Pundit now, listening to %@, come join me",TwitterTems];
+        
+    }
+    else{
+        twitterShareObj = sharingString;
+    }
+    
+    
+    
+    
 }
 -(void)teamListening{
     self.mTeamTalkLabel.hidden = NO ;
@@ -364,6 +412,22 @@
 
     
     sharingString = [NSString stringWithFormat:@"I'm listening on PUNDIT now %@, come join me",[self.teamListenDetails objectForKey:@"contestantName"]];
+    
+    
+    NSString *sharingStringobj = [NSString stringWithFormat:@"%@",[self.teamListenDetails objectForKey:@"twitter_id"]];
+    
+    if (sharingStringobj.length > 0) {
+        twitterShareObj = [NSString stringWithFormat:@"I'm listening on PUNDIT now %@, come join me",twitterShareObj];
+        
+    }
+    else{
+        twitterShareObj = sharingString;
+    }
+    
+    
+    
+    
+    
 
 }
 
@@ -665,7 +729,7 @@
     [broadcastersTimer invalidate];
     [AdsTimer invalidate];
 
-    self.loggedInAsLabel.text = [NSString stringWithFormat:@"BroadCasting this Game:%@",[postingData objectForKey:@"broadcaster_name"]];
+    self.loggedInAsLabel.text = [NSString stringWithFormat:@" %@",[postingData objectForKey:@"broadcaster_name"]];
     [self getBroadCastersDetails];
     [UIView animateWithDuration:1.0 animations:^{
         self.broadcastersView.hidden = YES ;
@@ -1631,6 +1695,11 @@
     UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
     [self presentViewController:activityController animated:YES completion:nil];
 }
+
+
+
+
+
 
 - (IBAction)ChatButtonPressed:(id)sender{
     

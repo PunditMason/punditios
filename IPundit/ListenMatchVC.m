@@ -73,7 +73,7 @@
     [self createMinAndMaxDate];
     
     NSString * iconString = [NSString stringWithFormat:@"%@league_mark/%@",KserviceBaseIconURL,[DM.listenerPresentData objectForKey:@"icon"]];
-    NSURL *iconUrl = [NSURL URLWithString:iconString];
+    NSURL *iconUrl = [NSURL URLWithString:[DM.listenerPresentData objectForKey:@"icon"]];
     [self.mLeaqueIcon sd_setImageWithURL:iconUrl placeholderImage:[UIImage imageNamed:@"LeaguesIconDummy"]];
     NSString * string = [NSString stringWithFormat:@"%@",[DM.listenerPresentData objectForKey:@"leaqueName"]];
     self.mLeaqueName.text = string;

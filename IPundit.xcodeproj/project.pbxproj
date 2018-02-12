@@ -276,10 +276,13 @@
 		A6FEF4721E9F4ECE0009749A /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FEF46A1E9F4ECE0009749A /* login.png */; };
 		A6FEF4741E9F4ECE0009749A /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FEF46C1E9F4ECE0009749A /* profile.png */; };
 		A6FEF4751E9F4ECE0009749A /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FEF46D1E9F4ECE0009749A /* setting.png */; };
+		EB56DB05202A1E53006E13F6 /* Advert-Tabspk.png in Resources */ = {isa = PBXBuildFile; fileRef = EB56DB03202A1E4D006E13F6 /* Advert-Tabspk.png */; };
+		EB56DB06202A1E53006E13F6 /* Advert-Tabmic.png in Resources */ = {isa = PBXBuildFile; fileRef = EB56DB04202A1E50006E13F6 /* Advert-Tabmic.png */; };
 		EBB5B7601FD6AEB500DBBA5A /* redwhite.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EBB5B75F1FD6AEB100DBBA5A /* redwhite.jpg */; };
 		EBB5B7621FD6D13000DBBA5A /* broadcasttext.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB5B7611FD6D12A00DBBA5A /* broadcasttext.png */; };
 		EBB5B7641FD6D13800DBBA5A /* listentext.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB5B7631FD6D13400DBBA5A /* listentext.png */; };
 		EBB5B7681FD6D59A00DBBA5A /* lrn.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB5B7671FD6D59500DBBA5A /* lrn.png */; };
+		EBFFBEB22029FDC9003D0649 /* 359e08cae257bc28409e81d1c3ecf708-495x330.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EBFFBEB12029FDC9003D0649 /* 359e08cae257bc28409e81d1c3ecf708-495x330.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -634,10 +637,13 @@
 		A6FEF46C1E9F4ECE0009749A /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		A6FEF46D1E9F4ECE0009749A /* setting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = setting.png; sourceTree = "<group>"; };
 		D1F39DE958AF809E3825BB93 /* Pods-IPundit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IPundit.release.xcconfig"; path = "Pods/Target Support Files/Pods-IPundit/Pods-IPundit.release.xcconfig"; sourceTree = "<group>"; };
+		EB56DB03202A1E4D006E13F6 /* Advert-Tabspk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Advert-Tabspk.png"; sourceTree = SOURCE_ROOT; };
+		EB56DB04202A1E50006E13F6 /* Advert-Tabmic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Advert-Tabmic.png"; sourceTree = SOURCE_ROOT; };
 		EBB5B75F1FD6AEB100DBBA5A /* redwhite.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redwhite.jpg; sourceTree = SOURCE_ROOT; };
 		EBB5B7611FD6D12A00DBBA5A /* broadcasttext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = broadcasttext.png; sourceTree = SOURCE_ROOT; };
 		EBB5B7631FD6D13400DBBA5A /* listentext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listentext.png; sourceTree = SOURCE_ROOT; };
 		EBB5B7671FD6D59500DBBA5A /* lrn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lrn.png; sourceTree = SOURCE_ROOT; };
+		EBFFBEB12029FDC9003D0649 /* 359e08cae257bc28409e81d1c3ecf708-495x330.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "359e08cae257bc28409e81d1c3ecf708-495x330.jpg"; sourceTree = "<group>"; };
 		EC0144997D0CFAB8D4D7AA54 /* Pods_IPundit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_IPundit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1266,6 +1272,9 @@
 		A6D4544F1E65697900153335 /* Verma Helper */ = {
 			isa = PBXGroup;
 			children = (
+				EB56DB04202A1E50006E13F6 /* Advert-Tabmic.png */,
+				EB56DB03202A1E4D006E13F6 /* Advert-Tabspk.png */,
+				EBFFBEB12029FDC9003D0649 /* 359e08cae257bc28409e81d1c3ecf708-495x330.jpg */,
 				01C4F6401FA9778B003D2426 /* LiveFeeds.json */,
 				017064421FA712830025CA47 /* MJPopupBackgroundView */,
 				00ECE2101F4BF1B700FD33F5 /* FS PageViewer */,
@@ -1488,6 +1497,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A6D1BA221E6AAE210041CA77 /* ic_twitter_new.png in Resources */,
+				EB56DB06202A1E53006E13F6 /* Advert-Tabmic.png in Resources */,
 				005DC1711EEA8C1A009BB003 /* edit-textarea.png in Resources */,
 				A6281A281E716CB5005EEE32 /* football-warning-card-in-a-referee-hand.png in Resources */,
 				009CD0671F4D83C500FB765E /* volume-muted.png in Resources */,
@@ -1502,6 +1512,7 @@
 				00C47BC61EF7FBB400D78FE1 /* equalizer1.gif in Resources */,
 				015A13881F483F6800703441 /* New_Listen Live GREY.png in Resources */,
 				004219791EE16668006618B3 /* delete_profile.png in Resources */,
+				EB56DB05202A1E53006E13F6 /* Advert-Tabspk.png in Resources */,
 				00E34C011EF3AF4B00261FCA /* profile-screen-icons_03.png in Resources */,
 				A64EE3711E6973B500BB93DC /* Mark Simonson - Proxima Nova Bold.otf in Resources */,
 				A6FB7DEE1E67DA2F0027FBBC /* splash 640x960.png in Resources */,
@@ -1678,6 +1689,7 @@
 				00E9EA421EFA7F1000C830B4 /* redCard.png in Resources */,
 				A644A9621E790449002C82F2 /* remove-button.png in Resources */,
 				A6FB7DEB1E67DA2F0027FBBC /* pundit-logo.png in Resources */,
+				EBFFBEB22029FDC9003D0649 /* 359e08cae257bc28409e81d1c3ecf708-495x330.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -57,6 +57,8 @@
                                                                  @"season_name" : @"season_name",
                                                                  @"broadcaster_name" : @"broadcaster_name",
                                                                  @"chatChannelid" : @"chatChannelid",
+                                                                 @"team1_twitter_id" : @"team1_twitter_id",
+                                                                 @"team2__twitter_id" : @"team2__twitter_id",
                                                                  } ];
 
 

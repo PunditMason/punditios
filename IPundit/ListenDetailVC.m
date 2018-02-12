@@ -151,8 +151,8 @@
         
         NSString * string = [NSString stringWithFormat:@"%@ios_league_mark/%@",KserviceBaseIconURL,leaque.cover_image];
         NSString * iconString = [NSString stringWithFormat:@"%@ios_league_mark/%@",KserviceBaseIconURL,leaque.mark_image];
-        NSURL *url = [NSURL URLWithString:string];
-        NSURL *iconUrl = [NSURL URLWithString:iconString];
+        NSURL *url = [NSURL URLWithString:leaque.cover_image];
+        NSURL *iconUrl = [NSURL URLWithString:leaque.mark_image];
         [cell.mImageView sd_setImageWithURL:url ];
         [cell.mImageIconView sd_setImageWithURL:iconUrl];
         cell.mLeaqueLable.text = leaque.name;
@@ -181,8 +181,8 @@
         
         NSString * string = [NSString stringWithFormat:@"%@ios_league_mark/%@",KserviceBaseIconURL,leaque.cover_image];
         NSString * iconString = [NSString stringWithFormat:@"%@ios_league_mark/%@",KserviceBaseIconURL,leaque.mark_image];
-        NSURL *url = [NSURL URLWithString:string];
-        NSURL *iconUrl = [NSURL URLWithString:iconString];
+        NSURL *url = [NSURL URLWithString:leaque.cover_image];
+        NSURL *iconUrl = [NSURL URLWithString:leaque.mark_image];
         [cell.mImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"noimage"]];
         cell.mLeaqueLable.text = leaque.name;
         [cell.mImageIconView sd_setImageWithURL:iconUrl];

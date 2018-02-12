@@ -27,6 +27,7 @@
     NSMutableArray *mFinalGoalsArray;
     NSMutableArray *mFinalsubstitutionArray;
     NSArray *mFinalOverviewArray;
+    NSString *twitterShareObj;
     
 }
 
@@ -85,7 +86,7 @@
     self.loggedInAsLabel.text =[NSString stringWithFormat:@"Logged in as %@",[[Helper mGetProfileCurrentUser]objectForKey:@"first_name"]];
     
     NSString * iconString = [NSString stringWithFormat:@"%@ios_league_mark/%@",KserviceBaseIconURL,[DM.broadCastPresentData objectForKey:@"icon"]];
-    NSURL *iconUrl = [NSURL URLWithString:iconString];
+    NSURL *iconUrl = [NSURL URLWithString:[DM.broadCastPresentData objectForKey:@"icon"]];
     [self.leaqueIconImageView sd_setImageWithURL:iconUrl placeholderImage:[UIImage imageNamed:@"LeaguesIconDummy.png"]];
    
     
@@ -234,13 +235,25 @@
     
     sharingString = [NSString stringWithFormat:@"I'm live on Pundit now discussing %@, come join me",[self.teamBroadCastDict objectForKey:@"contestantName"]];
 
+    NSString *sharingStringobj = [NSString stringWithFormat:@"%@",[self.teamBroadCastDict objectForKey:@"twitter_id"]];
+    
+    if (sharingStringobj.length > 0) {
+       twitterShareObj = [NSString stringWithFormat:@"I'm live on Pundit now discussing @%@, come join me",twitterShareObj];
+        
+    }
+    else{
+        twitterShareObj = sharingString;
+    }
+    
+
+
     
 }
 -(void)matchBroadcasting {
     
     self.mTeamTalkLabel.hidden = YES ;
     NSString * iconString = [NSString stringWithFormat:@"%@ios_league_mark/%@",KserviceBaseIconURL,[DM.broadCastPresentData objectForKey:@"icon"]];
-    NSURL *iconUrl = [NSURL URLWithString:iconString];
+    NSURL *iconUrl = [NSURL URLWithString:[DM.broadCastPresentData objectForKey:@"icon"]];
     [self.leaqueIconImageView sd_setImageWithURL:iconUrl placeholderImage:[UIImage imageNamed:@"LeaguesIconDummy.png"]];
     teams = [NSString stringWithFormat:@"%@ Vs %@",matchlist.team1_name,matchlist.team2_name];
     self.teamVsTeamLabel.text = teams ;
@@ -297,6 +310,29 @@
     }
     
     sharingString = [NSString stringWithFormat:@"I'm live on Pundit now, discussing the game between %@, come join me",teams];
+    
+    
+    
+    
+    NSString *TwitterTems =[NSString stringWithFormat:@"@%@ Vs @%@",matchlist.team1_twitter_id,matchlist.team2__twitter_id];
+    
+    NSString *team1_twitter_id = matchlist.team1_twitter_id;
+    NSString *team2__twitter_id = matchlist.team2__twitter_id;
+
+    if ((team1_twitter_id.length > 0) && (team2__twitter_id.length > 0) ) {
+        twitterShareObj = [NSString stringWithFormat:@"I'm live on Pundit now, discussing the game between %@, come join me",TwitterTems];
+
+    }
+    else{
+        twitterShareObj = sharingString;
+    }
+    
+    
+    
+
+    
+    
+    
 }
 
 
@@ -1668,7 +1704,7 @@
         PlayPauseCheckBool = TRUE;
     }
     else{
-        [self.mPlayPause setImage:[UIImage imageNamed:@"play_nw.png"] forState:UIControlStateNormal];
+        [self.mPlayPause setImage:[UIImage imageNamed:@"Advert-Tabmic.png"] forState:UIControlStateNormal];
 
         [self.streamPlayer stop];
         [self.streamPlayer.view removeFromSuperview];

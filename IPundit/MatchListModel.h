@@ -40,6 +40,10 @@
 @property (nonatomic) NSString <Optional> *team2_name;
 @property (nonatomic) NSString <Optional> *season_name;
 @property (nonatomic) NSString <Optional> *chatChannelid;
+@property (nonatomic) NSString <Optional> *team1_twitter_id;
+@property (nonatomic) NSString <Optional> *team2__twitter_id;
+
+
 
 
 

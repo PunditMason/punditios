@@ -100,15 +100,35 @@
     //[DM GetSportsList];
     
     
-
     
     [NSTimer scheduledTimerWithTimeInterval:30.0 target: self selector: @selector(getBreakingNews) userInfo: nil repeats: YES];
     //[self registerForRemoteNotifications];
 
+    
+    
+    
+    //Display error is there is no URL
+    if (![launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]) {
+        UIAlertView *alertView;
+        alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"This app was launched without Any SCHEMA." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+      //  [alertView show];
+    }
+    
+    
     return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    // Display text
+    UIAlertView *alertView;
+    NSString *text = [[url host] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    alertView = [[UIAlertView alloc] initWithTitle:@"Alert.." message:text delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    [alertView show];
+    
+    
+    return YES;
 
+}
 
 #pragma mark ====================================================================
 #pragma mark ====================================================================
