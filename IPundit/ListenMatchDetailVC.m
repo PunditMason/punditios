@@ -2096,8 +2096,9 @@
 -(void)MusicAudio{
     
     if(playlistArray.count > 0){
-        NSURL *streamURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kAddsBaseURL,[[playlistArray objectAtIndex:mAddCount]valueForKey:@"ads_audio"]]];
-       // [ self PlayAudio:streamURL];
+        NSURL *streamURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[[playlistArray objectAtIndex:mAddCount]valueForKey:@"ads_audio"]]];
+        //[NSString stringWithFormat:@"%@%@",kAddsBaseURL,[[playlistArray objectAtIndex:mAddCount]valueForKey:@"ads_audio"]]
+        
         [self setupAVPlayerForURL:streamURL];
     }
    

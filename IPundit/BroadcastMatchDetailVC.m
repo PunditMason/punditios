@@ -1164,7 +1164,6 @@
     timeSec = 0;
     timeMin = 0;
     
-    
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         self.kickOffTimeLabel.timerType = MZTimerLabelTypeStopWatch;
         [self.kickOffTimeLabel start];
@@ -1652,13 +1651,17 @@
         NSLog(@"Button is Not Selected");
         self.mPlayPause.selected = NO;
         self.mPlayPause.enabled = NO;
+        DM.publishStream.pauseAudio = FALSE ;
 
+        
     
     }else{
         [self pauseStream:@"1" andChannelId:channelId];
         NSLog(@"Button is Selected");
         self.mPlayPause.selected = YES;
         self.mPlayPause.enabled = NO;
+        DM.publishStream.pauseAudio = TRUE;
+
     }
     
 }
