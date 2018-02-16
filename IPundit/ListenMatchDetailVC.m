@@ -302,19 +302,20 @@
         sharingString = [NSString stringWithFormat:@"I'm live on Pundit now, listening the game between %@ Vs %@, come join me",channellist.team1_name,channellist.team2_name];
         
         
-        NSString *TwitterTems =[NSString stringWithFormat:@"@%@ Vs @%@",channellist.team1_twitter_id,channellist.team2__twitter_id];
+        NSString *TwitterTems =[NSString stringWithFormat:@"Twitter: @%@ @%@",channellist.team1_twitter_id,channellist.team2__twitter_id];
         
         NSString *team1_twitter_id = channellist.team1_twitter_id;
         NSString *team2__twitter_id = channellist.team2__twitter_id;
         
         if ((team1_twitter_id.length > 0) && (team2__twitter_id.length > 0) ) {
-            twitterShareObj = [NSString stringWithFormat:@"I'm live on Pundit now, listening the game between %@, come join me",TwitterTems];
+            twitterShareObj = [NSString stringWithFormat:@"%@ \n I'm live on Pundit now, listening the game between %@ Vs %@, come join me",TwitterTems,channellist.team1_name,channellist.team2_name];
             
         }
         else{
             twitterShareObj = sharingString;
         }
         
+       
         
         
     }
@@ -330,10 +331,10 @@
     
     sharingString = [NSString stringWithFormat:@"I'm live on Pundit now listening %@, come join me",[self.matchInfoDict objectForKey:@"contestantName"]];
         
-        NSString *sharingStringobj = [NSString stringWithFormat:@"%@",[self.matchInfoDict objectForKey:@"twitter_id"]];
+        NSString *sharingStringobj = [NSString stringWithFormat:@"Twitter: @%@",[self.matchInfoDict objectForKey:@"twitter_id"]];
         
         if (sharingStringobj.length > 0) {
-            twitterShareObj = [NSString stringWithFormat:@"I'm live on Pundit now listening %@, come join me",twitterShareObj];
+            twitterShareObj = [NSString stringWithFormat:@"%@ \n I'm live on Pundit now listening %@, come join me",sharingStringobj,[self.matchInfoDict objectForKey:@"contestantName"]];
             
         }
         else{
@@ -384,13 +385,13 @@
     
     
     
-    NSString *TwitterTems =[NSString stringWithFormat:@"@%@ Vs @%@",channellist.team1_twitter_id,channellist.team2__twitter_id];
+    NSString *TwitterTems =[NSString stringWithFormat:@"Twitter: @%@ @%@",channellist.team1_twitter_id,channellist.team2__twitter_id];
     
     NSString *team1_twitter_id = channellist.team1_twitter_id;
     NSString *team2__twitter_id = channellist.team2__twitter_id;
     
     if ((team1_twitter_id.length > 0) && (team2__twitter_id.length > 0) ) {
-        twitterShareObj = [NSString stringWithFormat:@"I'm live on Pundit now, listening to %@, come join me",TwitterTems];
+        twitterShareObj = [NSString stringWithFormat:@"%@ \n I'm live on Pundit now, listening the game between %@ Vs %@, come join me",TwitterTems,channellist.team1_name,channellist.team2_name];
         
     }
     else{
@@ -414,16 +415,15 @@
     sharingString = [NSString stringWithFormat:@"I'm listening on PUNDIT now %@, come join me",[self.teamListenDetails objectForKey:@"contestantName"]];
     
     
-    NSString *sharingStringobj = [NSString stringWithFormat:@"%@",[self.teamListenDetails objectForKey:@"twitter_id"]];
+    NSString *sharingStringobj = [NSString stringWithFormat:@"Twitter: @%@",[self.matchInfoDict objectForKey:@"twitter_id"]];
     
     if (sharingStringobj.length > 0) {
-        twitterShareObj = [NSString stringWithFormat:@"I'm listening on PUNDIT now %@, come join me",twitterShareObj];
+        twitterShareObj = [NSString stringWithFormat:@"%@ \n I'm live on Pundit now listening %@, come join me",sharingStringobj,[self.matchInfoDict objectForKey:@"contestantName"]];
         
     }
     else{
         twitterShareObj = sharingString;
     }
-    
     
     
     
@@ -1677,7 +1677,7 @@
     NSString *string = [NewStreamName stringByReplacingOccurrencesOfString:@" " withString:@""];
 
     
-    [self shareText:sharingString andImage:nil andUrl:[NSURL URLWithString:string]];
+    [self shareText:twitterShareObj andImage:nil andUrl:[NSURL URLWithString:string]];
 }
 
 - (void)shareText:(NSString *)text andImage:(UIImage *)image andUrl:(NSURL *)url
@@ -1692,6 +1692,7 @@
     if (url) {
         [sharingItems addObject:url];
     }
+    
     UIActivityViewController *activityController = [[UIActivityViewController alloc] initWithActivityItems:sharingItems applicationActivities:nil];
     [self presentViewController:activityController animated:YES completion:nil];
 }

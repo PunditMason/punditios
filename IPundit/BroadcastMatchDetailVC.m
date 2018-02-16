@@ -235,10 +235,10 @@
     
     sharingString = [NSString stringWithFormat:@"I'm live on Pundit now discussing %@, come join me",[self.teamBroadCastDict objectForKey:@"contestantName"]];
 
-    NSString *sharingStringobj = [NSString stringWithFormat:@"%@",[self.teamBroadCastDict objectForKey:@"twitter_id"]];
+    NSString *sharingStringobj = [NSString stringWithFormat:@"Twitter: @%@",[self.teamBroadCastDict objectForKey:@"twitter_id"]];
     
     if (sharingStringobj.length > 0) {
-       twitterShareObj = [NSString stringWithFormat:@"I'm live on Pundit now discussing @%@, come join me",twitterShareObj];
+       twitterShareObj = [NSString stringWithFormat:@"%@ \n I'm live on Pundit now discussing %@, come join me",sharingStringobj,[self.teamBroadCastDict objectForKey:@"contestantName"]];
         
     }
     else{
@@ -246,6 +246,8 @@
     }
     
 
+
+    
 
     
 }
@@ -314,13 +316,15 @@
     
     
     
-    NSString *TwitterTems =[NSString stringWithFormat:@"@%@ Vs @%@",matchlist.team1_twitter_id,matchlist.team2__twitter_id];
-    
+    NSString *TwitterTems =[NSString stringWithFormat:@"Twitter: @%@ @%@",matchlist.team1_twitter_id,matchlist.team2__twitter_id];
+
     NSString *team1_twitter_id = matchlist.team1_twitter_id;
     NSString *team2__twitter_id = matchlist.team2__twitter_id;
 
     if ((team1_twitter_id.length > 0) && (team2__twitter_id.length > 0) ) {
         twitterShareObj = [NSString stringWithFormat:@"I'm live on Pundit now, discussing the game between %@, come join me",TwitterTems];
+        twitterShareObj = [NSString stringWithFormat:@"%@ \n I'm live on Pundit now, discussing the game between %@, come join me",TwitterTems,teams];
+
 
     }
     else{
@@ -328,8 +332,9 @@
     }
     
     
-    
 
+    
+    
     
     
     
@@ -1325,7 +1330,7 @@
     [self HiddenChatView];
 
      NSString *string = [NSString stringWithFormat:@"%@%@",KServiceBaseShareUrl,NewStreamName];
-    [self shareText:sharingString andImage:nil andUrl:[NSURL URLWithString:string]];
+    [self shareText:twitterShareObj andImage:nil andUrl:[NSURL URLWithString:string]];
 }
 
 - (void)shareText:(NSString *)text andImage:(UIImage *)image andUrl:(NSURL *)url
