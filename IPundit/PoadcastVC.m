@@ -38,8 +38,8 @@
 
 
 -(void)GetChannelt{
-    
-   [Helper showLoaderVProgressHUD];
+
+    [Helper showLoaderVProgressHUD];
     self.mNoPoadcastAvilable.hidden = YES;
 
     NSString *string = [NSString stringWithFormat:@"%@game/getChannelCount/%@/",KServiceBaseURL,self.selectedUser];
@@ -54,13 +54,11 @@
         }else{
             [MatchArray removeAllObjects];
             [MatchArray addObjectsFromArray:[responseDict objectForKey:@"Match"]];
-
         }
-    
+
         [self.mPoadcastTableView reloadData];
         [Helper hideLoaderSVProgressHUD];
 
-        
     } onError:^(NSError * _Nullable Error) {
         [Helper hideLoaderSVProgressHUD];
         NSLog(@"%@",Error);

@@ -13,7 +13,7 @@
 #import "ListenMatchDetailVC.h"
 #import "CurrentUser.h"
 #import <GoogleAnalytics/GAI.h>
-
+#import "PunditDetailVC.h"
 
 #define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
@@ -26,7 +26,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    
     
 
     GAI *gai = [GAI sharedInstance];
@@ -108,27 +107,47 @@
     
     
     //Display error is there is no URL
+    
+    
     if (![launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]) {
+        
         UIAlertView *alertView;
         alertView = [[UIAlertView alloc] initWithTitle:@"Error" message:@"This app was launched without Any SCHEMA." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
       //  [alertView show];
+    }
+    else{
+        NSString *teuutxt = [NSString stringWithFormat:@"%@",launchOptions];
+
+        UIAlertView *alertView;
+        alertView = [[UIAlertView alloc] initWithTitle:@"Alert!!" message:teuutxt delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+      //  [alertView show];
+        
+        
+         CurrentUser * currentUser = [[CurrentUser alloc] init];
+         [currentUser setupUser:[Helper mCurrentUser]];
+         
+         // NSString *text = [[url host] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+         NSString *text = [NSString stringWithFormat:@"%@",[launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]];
+         
+         NSArray *items = [text componentsSeparatedByString:@"-"];
+         
+         NSData *data = [[NSData alloc]initWithBase64EncodedString:[items objectAtIndex:1] options:NSDataBase64DecodingIgnoreUnknownCharacters];
+         
+         NSString *BroadcasterId = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+            [self GetShareUrlChannel:BroadcasterId CurrentUser:currentUser.mUsers_Id];
+        });
+        
+        
+        
     }
     
     
     return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
 }
 
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    // Display text
-    UIAlertView *alertView;
-    NSString *text = [[url host] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    alertView = [[UIAlertView alloc] initWithTitle:@"Alert.." message:text delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-    [alertView show];
-    
-    
-    return YES;
 
-}
 
 #pragma mark ====================================================================
 #pragma mark ====================================================================
@@ -253,7 +272,7 @@
 {
     if(SYSTEM_VERSION_LESS_THAN(@"10.0"))
     {
-        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound |    UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound |    UIUserNotificationTypeAlert | UIUserNotificationTypeBadge | UIUserNotificationTypeNone) categories:nil]];
         
         [[UIApplication sharedApplication] registerForRemoteNotifications];
     }
@@ -261,7 +280,7 @@
     {
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         center.delegate = self;
-        [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error)
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UIUserNotificationTypeNone) completionHandler:^(BOOL granted, NSError * _Nullable error)
          {
              if(!error)
              {
@@ -289,7 +308,7 @@
     if(SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(@"10.0")){
         UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];
         center.delegate = self;
-        [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge) completionHandler:^(BOOL granted, NSError * _Nullable error){
+        [center requestAuthorizationWithOptions:(UNAuthorizationOptionSound | UNAuthorizationOptionAlert | UNAuthorizationOptionBadge | UIUserNotificationTypeNone) completionHandler:^(BOOL granted, NSError * _Nullable error){
             if(!error){
                 [[UIApplication sharedApplication] registerForRemoteNotifications];
             }
@@ -368,11 +387,83 @@
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
-    return [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                          openURL:url
-                                                sourceApplication:sourceApplication
-                                                       annotation:annotation];
+   
+    
+    if ([[FBSDKApplicationDelegate sharedInstance] application:application
+                                                       openURL:url
+                                             sourceApplication:sourceApplication
+                                                    annotation:annotation]){
+        
+        return [[FBSDKApplicationDelegate sharedInstance] application:application
+                                                              openURL:url
+                                                    sourceApplication:sourceApplication
+                                                           annotation:annotation];
+    }else{
+        
+       
+        
+        
+        CurrentUser * currentUser = [[CurrentUser alloc] init];
+        [currentUser setupUser:[Helper mCurrentUser]];
+        
+       // NSString *text = [[url host] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSString *text = [NSString stringWithFormat:@"%@",url];
+
+        NSArray *items = [text componentsSeparatedByString:@"-"];
+        
+        NSData *data = [[NSData alloc]initWithBase64EncodedString:[items objectAtIndex:1] options:NSDataBase64DecodingIgnoreUnknownCharacters];
+        
+        NSString *BroadcasterId = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        [self GetShareUrlChannel:BroadcasterId CurrentUser:currentUser.mUsers_Id];
+
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+
+        });
+        
+        return YES;
+    }
+
+} 
+
+-(void)GetShareUrlChannel:(NSString *)BroadcasterId CurrentUser:(NSString *)CurrentUser{
+    
+    NSString *string = [NSString stringWithFormat:@"%@Game/deepLinking/%@/%@/",KServiceBaseURL,BroadcasterId,CurrentUser];
+    [DM GetRequest:string parameter:nil onCompletion:^(id  _Nullable dict) {
+        NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
+        NSLog(@"ResponseDict %@",responseDict);
+        
+        NSMutableArray *mDataArray = [[NSMutableArray alloc]init];
+        if ([responseDict objectForKey:@"users_list"]) {
+            UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+            PunditDetailVC *PunditDetailvc;
+            UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+            PunditDetailvc = (PunditDetailVC *)[mainStoryboard instantiateViewControllerWithIdentifier: @"PunditDetailView"];
+            
+            mDataArray = [responseDict objectForKey:@"users_list"];
+            
+            if (mDataArray.count > 0) {
+
+                NSDictionary * dictReff = [Helper formatJSONDict:[mDataArray objectAtIndex:0]];
+    
+                PunditDetailvc.dictRefff = dictReff;
+                PunditDetailvc.mDataArrayyy = mDataArray;
+                NSIndexPath *path = [NSIndexPath indexPathForRow:0 inSection:0];
+                PunditDetailvc.mindex = path;
+                
+                [navigationController pushViewController:PunditDetailvc animated:YES];
+            }
+            
+            
+            
+        }
+       
+
+        
+    } onError:^(NSError * _Nullable Error) {
+        
+    }];
 }
+
 
 -(void)LoadDataFromBundle{
     
@@ -423,7 +514,21 @@
 
 //Called to let your app know which action was selected by the user for a given notification.
 -(void)userNotificationCenter:(UNUserNotificationCenter *)center didReceiveNotificationResponse:(UNNotificationResponse *)response withCompletionHandler:(void(^)())completionHandler{
-    NSLog(@"User Info : %@",response.notification.request.content.userInfo);
+    NSLog(@"User Info : %@",response.notification.request.content.body);
+    
+    CurrentUser * currentUser = [[CurrentUser alloc] init];
+    [currentUser setupUser:[Helper mCurrentUser]];
+    
+    NSString *text = [NSString stringWithFormat:@"%@",response.notification.request.content.body];
+    
+    NSArray *items = [text componentsSeparatedByString:@"-"];
+   
+    NSData *data = [[NSData alloc]initWithBase64EncodedString:[items objectAtIndex:1] options:NSDataBase64DecodingIgnoreUnknownCharacters];
+    
+    NSString *BroadcasterId = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    [self GetShareUrlChannel:BroadcasterId CurrentUser:currentUser.mUsers_Id];
+    
+    
     completionHandler();
 }
 

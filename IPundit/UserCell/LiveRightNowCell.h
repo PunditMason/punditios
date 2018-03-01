@@ -11,6 +11,7 @@
 @interface LiveRightNowCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIImageView *mTeam1Image;
 @property (strong, nonatomic) IBOutlet UIImageView *mTeam2Image;
+@property (strong, nonatomic) IBOutlet UIImageView *mBackgroundImage;
 @property (strong, nonatomic) IBOutlet UILabel *mTeam1Label;
 @property (strong, nonatomic) IBOutlet UILabel *mTeam2Label;
 @property (strong, nonatomic) IBOutlet UILabel *mPunditNameLabel;

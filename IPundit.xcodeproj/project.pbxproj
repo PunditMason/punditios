@@ -78,6 +78,7 @@
 		00E9EA421EFA7F1000C830B4 /* redCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E9EA411EFA7F1000C830B4 /* redCard.png */; };
 		00ECE2131F4BF57E00FD33F5 /* PunditDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00ECE2121F4BF57E00FD33F5 /* PunditDetailVC.m */; };
 		0116FC891FA6F922005576B2 /* VideoHighlightsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0116FC881FA6F922005576B2 /* VideoHighlightsVC.m */; };
+		0119DFB620442C320047293E /* liverightnowgreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0119DFB520442C320047293E /* liverightnowgreen.png */; };
 		011D241B1E76A08600CD088C /* giphy01.gif in Resources */ = {isa = PBXBuildFile; fileRef = 011D24191E76A08600CD088C /* giphy01.gif */; };
 		011D241C1E76A08600CD088C /* giphy02.gif in Resources */ = {isa = PBXBuildFile; fileRef = 011D241A1E76A08600CD088C /* giphy02.gif */; };
 		012A41221E76500000185D0D /* ChannelListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 012A41211E76500000185D0D /* ChannelListModel.m */; };
@@ -278,6 +279,13 @@
 		A6FEF4751E9F4ECE0009749A /* setting.png in Resources */ = {isa = PBXBuildFile; fileRef = A6FEF46D1E9F4ECE0009749A /* setting.png */; };
 		EB56DB05202A1E53006E13F6 /* Advert-Tabspk.png in Resources */ = {isa = PBXBuildFile; fileRef = EB56DB03202A1E4D006E13F6 /* Advert-Tabspk.png */; };
 		EB56DB06202A1E53006E13F6 /* Advert-Tabmic.png in Resources */ = {isa = PBXBuildFile; fileRef = EB56DB04202A1E50006E13F6 /* Advert-Tabmic.png */; };
+		EB83F97D203B02B100AA92D8 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = EB83F97C203B02AE00AA92D8 /* profile.png */; };
+		EB83F97F203B02F200AA92D8 /* profilex.png in Resources */ = {isa = PBXBuildFile; fileRef = EB83F97E203B02EF00AA92D8 /* profilex.png */; };
+		EB83F981203B200F00AA92D8 /* podpic.png in Resources */ = {isa = PBXBuildFile; fileRef = EB83F980203B200B00AA92D8 /* podpic.png */; };
+		EB83F983203B2F8200AA92D8 /* Youtube-PNG-Image-39330.png in Resources */ = {isa = PBXBuildFile; fileRef = EB83F982203B2F7C00AA92D8 /* Youtube-PNG-Image-39330.png */; };
+		EB83F985203B2F8C00AA92D8 /* twitter-squared.png in Resources */ = {isa = PBXBuildFile; fileRef = EB83F984203B2F8800AA92D8 /* twitter-squared.png */; };
+		EB83F987203B2F9300AA92D8 /* facebook-announces-clickable-hashtags--resolution-media-17.png in Resources */ = {isa = PBXBuildFile; fileRef = EB83F986203B2F9100AA92D8 /* facebook-announces-clickable-hashtags--resolution-media-17.png */; };
+		EB83F989203B332500AA92D8 /* Podcast Play Page Image.png in Resources */ = {isa = PBXBuildFile; fileRef = EB83F988203B332200AA92D8 /* Podcast Play Page Image.png */; };
 		EBB5B7601FD6AEB500DBBA5A /* redwhite.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EBB5B75F1FD6AEB100DBBA5A /* redwhite.jpg */; };
 		EBB5B7621FD6D13000DBBA5A /* broadcasttext.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB5B7611FD6D12A00DBBA5A /* broadcasttext.png */; };
 		EBB5B7641FD6D13800DBBA5A /* listentext.png in Resources */ = {isa = PBXBuildFile; fileRef = EBB5B7631FD6D13400DBBA5A /* listentext.png */; };
@@ -369,6 +377,7 @@
 		00ECE2121F4BF57E00FD33F5 /* PunditDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PunditDetailVC.m; sourceTree = "<group>"; };
 		0116FC871FA6F922005576B2 /* VideoHighlightsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoHighlightsVC.h; sourceTree = "<group>"; };
 		0116FC881FA6F922005576B2 /* VideoHighlightsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoHighlightsVC.m; sourceTree = "<group>"; };
+		0119DFB520442C320047293E /* liverightnowgreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = liverightnowgreen.png; sourceTree = "<group>"; };
 		011D24191E76A08600CD088C /* giphy01.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy01.gif; sourceTree = "<group>"; };
 		011D241A1E76A08600CD088C /* giphy02.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy02.gif; sourceTree = "<group>"; };
 		012A41201E76500000185D0D /* ChannelListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelListModel.h; sourceTree = "<group>"; };
@@ -639,6 +648,13 @@
 		D1F39DE958AF809E3825BB93 /* Pods-IPundit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-IPundit.release.xcconfig"; path = "Pods/Target Support Files/Pods-IPundit/Pods-IPundit.release.xcconfig"; sourceTree = "<group>"; };
 		EB56DB03202A1E4D006E13F6 /* Advert-Tabspk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Advert-Tabspk.png"; sourceTree = SOURCE_ROOT; };
 		EB56DB04202A1E50006E13F6 /* Advert-Tabmic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Advert-Tabmic.png"; sourceTree = SOURCE_ROOT; };
+		EB83F97C203B02AE00AA92D8 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
+		EB83F97E203B02EF00AA92D8 /* profilex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profilex.png; sourceTree = "<group>"; };
+		EB83F980203B200B00AA92D8 /* podpic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = podpic.png; sourceTree = "<group>"; };
+		EB83F982203B2F7C00AA92D8 /* Youtube-PNG-Image-39330.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Youtube-PNG-Image-39330.png"; sourceTree = "<group>"; };
+		EB83F984203B2F8800AA92D8 /* twitter-squared.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "twitter-squared.png"; sourceTree = "<group>"; };
+		EB83F986203B2F9100AA92D8 /* facebook-announces-clickable-hashtags--resolution-media-17.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "facebook-announces-clickable-hashtags--resolution-media-17.png"; sourceTree = "<group>"; };
+		EB83F988203B332200AA92D8 /* Podcast Play Page Image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Podcast Play Page Image.png"; sourceTree = "<group>"; };
 		EBB5B75F1FD6AEB100DBBA5A /* redwhite.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redwhite.jpg; sourceTree = SOURCE_ROOT; };
 		EBB5B7611FD6D12A00DBBA5A /* broadcasttext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = broadcasttext.png; sourceTree = SOURCE_ROOT; };
 		EBB5B7631FD6D13400DBBA5A /* listentext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = listentext.png; sourceTree = SOURCE_ROOT; };
@@ -678,6 +694,7 @@
 		0009EF501F29CB470087E03B /* UserCell */ = {
 			isa = PBXGroup;
 			children = (
+				0119DFB520442C320047293E /* liverightnowgreen.png */,
 				014E2029200F1D03005F1283 /* liverightnow.png */,
 				0009EF511F29CB810087E03B /* UserTBCell.h */,
 				0009EF521F29CB810087E03B /* UserTBCell.m */,
@@ -1232,6 +1249,13 @@
 			isa = PBXGroup;
 			children = (
 				A6E801401E65488F00AF1B70 /* Main.storyboard */,
+				EB83F988203B332200AA92D8 /* Podcast Play Page Image.png */,
+				EB83F986203B2F9100AA92D8 /* facebook-announces-clickable-hashtags--resolution-media-17.png */,
+				EB83F984203B2F8800AA92D8 /* twitter-squared.png */,
+				EB83F982203B2F7C00AA92D8 /* Youtube-PNG-Image-39330.png */,
+				EB83F980203B200B00AA92D8 /* podpic.png */,
+				EB83F97E203B02EF00AA92D8 /* profilex.png */,
+				EB83F97C203B02AE00AA92D8 /* profile.png */,
 				01E9ED741FF7B32E00778BE3 /* play_nw.png */,
 				01E9ED731FF7B32E00778BE3 /* Stop_nw.png */,
 				EBB5B7671FD6D59500DBBA5A /* lrn.png */,
@@ -1509,6 +1533,7 @@
 				A674BBB61E72C92B001E6293 /* giphy1-1.gif in Resources */,
 				A6FEF46F1E9F4ECE0009749A /* breaking-news.png in Resources */,
 				009CD0681F4D83C500FB765E /* volume-off.png in Resources */,
+				EB83F97D203B02B100AA92D8 /* profile.png in Resources */,
 				00C47BC61EF7FBB400D78FE1 /* equalizer1.gif in Resources */,
 				015A13881F483F6800703441 /* New_Listen Live GREY.png in Resources */,
 				004219791EE16668006618B3 /* delete_profile.png in Resources */,
@@ -1535,6 +1560,7 @@
 				A64EE3691E6973B500BB93DC /* Mark Simonson - Proxima Nova Alt Condensed Light.otf in Resources */,
 				012A41241E765C8500185D0D /* faceimg.png in Resources */,
 				015A13871F483F6800703441 /* New_line.png in Resources */,
+				EB83F97F203B02F200AA92D8 /* profilex.png in Resources */,
 				A66C09CA1EA4EEB800332CA2 /* ic_championship.png in Resources */,
 				0060083A1EB9C0AB009DBCD5 /* redtile.png in Resources */,
 				0021A9B21F0A6E770006839D /* og.png in Resources */,
@@ -1549,6 +1575,7 @@
 				0021A9B71F0A77C30006839D /* stop.png in Resources */,
 				009CD0641F4D7D6C00FB765E /* edit-new-icon-22.png in Resources */,
 				A66C09CF1EA4F40F00332CA2 /* search-baar.png in Resources */,
+				0119DFB620442C320047293E /* liverightnowgreen.png in Resources */,
 				A66C09B91EA4EC8A00332CA2 /* splash back 640x1136.png in Resources */,
 				006D573E1F4EB21B005AA2B3 /* SliderImg1.jpg in Resources */,
 				A6FB7DE41E67DA2F0027FBBC /* Broadcast.png in Resources */,
@@ -1566,6 +1593,7 @@
 				015A13931F483F6800703441 /* New_twitter (7).png in Resources */,
 				3D8E5A061F82364E002E5E44 /* podcast-Lisitng.png in Resources */,
 				A6D1BA1D1E6AADAD0041CA77 /* live_white.png in Resources */,
+				EB83F981203B200F00AA92D8 /* podpic.png in Resources */,
 				A644A95A1E790449002C82F2 /* add-button-hover.png in Resources */,
 				63C459D71FD83DF0007259A5 /* pundit_live_white.png in Resources */,
 				006008401EB9C67A009DBCD5 /* speaker_icon.png in Resources */,
@@ -1576,6 +1604,7 @@
 				A6FB7DEC1E67DA2F0027FBBC /* Settings.png in Resources */,
 				00580EFB1F0E729C001A8AF0 /* screen.png in Resources */,
 				A66C09CC1EA4EEB800332CA2 /* ic_la_liga.png in Resources */,
+				EB83F989203B332500AA92D8 /* Podcast Play Page Image.png in Resources */,
 				00580EFC1F0E729C001A8AF0 /* screen1.png in Resources */,
 				A6D1BA1A1E6AA36A0041CA77 /* user.png in Resources */,
 				63C459DF1FD84306007259A5 /* pod_back.jpg in Resources */,
@@ -1612,6 +1641,7 @@
 				0055B8E01F14FF3600C6F75B /* greenCircle.png in Resources */,
 				015A13861F483F6800703441 /* New_line-2.png in Resources */,
 				A6D1BA1E1E6AADAD0041CA77 /* play.png in Resources */,
+				EB83F985203B2F8C00AA92D8 /* twitter-squared.png in Resources */,
 				A66C09C91EA4EEB800332CA2 /* ic_bundesliga.png in Resources */,
 				A64EE36F1E6973B500BB93DC /* Mark Simonson - Proxima Nova Alt Regular.otf in Resources */,
 				A6BC558C1E681EAD00C500FE /* line.png in Resources */,
@@ -1631,11 +1661,13 @@
 				015A138F1F483F6800703441 /* New_pundits.png in Resources */,
 				01C4CA4E1FD2662900C82182 /* go_115.svg in Resources */,
 				A64EE37B1E69860500BB93DC /* giphy.gif in Resources */,
+				EB83F983203B2F8200AA92D8 /* Youtube-PNG-Image-39330.png in Resources */,
 				A64EE36E1E6973B500BB93DC /* Mark Simonson - Proxima Nova Alt Light.otf in Resources */,
 				00E34BF61EF3A3A700261FCA /* Leagues-metro-3-294x208.png in Resources */,
 				A6FB7DF01E67DA2F0027FBBC /* splash back 640x960.png in Resources */,
 				A6FB7DF91E67DA2F0027FBBC /* olympics.png in Resources */,
 				015A138D1F483F6800703441 /* New_profile.png in Resources */,
+				EB83F987203B2F9300AA92D8 /* facebook-announces-clickable-hashtags--resolution-media-17.png in Resources */,
 				A6281A2A1E716CB5005EEE32 /* mic_league.png in Resources */,
 				009CD0621F4D6A4500FB765E /* score-board.png in Resources */,
 				0196F1D71E69D8B3004DE59F /* overlay_opacity.png in Resources */,

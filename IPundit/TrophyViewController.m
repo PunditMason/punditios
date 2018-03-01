@@ -62,7 +62,7 @@
     self.tableView.allowsSelection = YES;
     
     if ( [DM.appFlowRef isEqualToString:@"Listen"]) {
-        self.notifyLabel.text = [NSString stringWithFormat:@"Tap a club name to Listen about this team"];
+        self.notifyLabel.text = [NSString stringWithFormat:@"Any broadcasts will be highlighted"];
     }else{
         self.notifyLabel.text = [NSString stringWithFormat:@"Tap a club name to Broadcast about this team"];
     }

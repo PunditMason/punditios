@@ -16,6 +16,8 @@
 #import "KIImagePager.h"
 #import <IQKeyboardManager/IQKeyboardManager.h>
 
+
+
 @interface ViewController ()<KIImagePagerDelegate, KIImagePagerDataSource>
 {
     IBOutlet KIImagePager *_imagePager;    
@@ -397,6 +399,22 @@ static void extracted(ViewController *object) {
         NSMutableDictionary *Parameters = [NSMutableDictionary new];
         [Parameters setObject:mEmail forKey:@"email"];
         [Parameters setObject:mPassword forKey:@"password"];
+        
+        
+        NSString * deviceToken ;
+        deviceToken = @"";
+        if (DM.deviceTokenForPushNotification == nil || [DM.deviceTokenForPushNotification isKindOfClass:[NSNull class]]) {
+            deviceToken = @"No deviceToken";
+        }
+        else{
+            deviceToken = DM.deviceTokenForPushNotification ;
+            
+        }
+
+         [Parameters setObject:deviceToken forKey:@"deviceToken"];
+         [Parameters setObject:@"IOS" forKey:@"deviceType"];
+        
+
         [Helper showLoaderVProgressHUD];
         
         NSString *string = [NSString stringWithFormat:@"%@app/login_User/",KServiceBaseURL];

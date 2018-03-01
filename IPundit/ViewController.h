@@ -39,8 +39,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *listnerButtonImageView;
 @property (weak, nonatomic) IBOutlet UIWebView *websuvimge;
 @property (weak, nonatomic) IBOutlet UIWebView *websuvimge1;
-
-
+@property (strong, nonatomic) IBOutlet UIImageView *mProfileImageView;
+@property (strong, nonatomic) IBOutlet UIImageView *mProfileImageViewOverlay;
+@property (weak, nonatomic) IBOutlet UIImageView *profilePicImageView;
 
 
 @property (weak, nonatomic) IBOutlet UIImageView *broadcastButtonImageViewNew;

@@ -85,6 +85,7 @@
             cell = [[LiveRightNowCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
             
         }
+        
         UIView *bgColorView = [[UIView alloc] init];
         [bgColorView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]];
         [cell setSelectedBackgroundView:bgColorView];
@@ -108,6 +109,30 @@
         [cell.mTeam2Image sd_setImageWithURL:Team2_Image_URL placeholderImage:[UIImage imageNamed:@"soccer-jersey (1).png"]];
         
         
+        
+        
+        NSString *string = [NSString stringWithFormat:@"%@",[[[[dictRef objectForKey:@"channel_info"]objectAtIndex:0]objectForKey:@"match_info"]objectForKey:@"matchStatus"]];
+        if (([string containsString:@"First Half"] != 0)||([string containsString:@"Second Half"] != 0)) {
+            cell.mBackgroundImage.image = [UIImage imageNamed:@"liverightnowgreen.png"];
+        }
+        else{
+            cell.mBackgroundImage.image = [UIImage imageNamed:@"liverightnow.png"];
+
+        }
+        
+        
+        
+        
+        
+        /*
+         
+         if(userItemList.get(position).getChannelInfo().get(0).getMatchInfo().getMatchStatus().contains("First Half")||userItemList.get(position).getChannelInfo().get(0).getMatchInfo().getMatchStatus().contains("Second Half")){
+         viewholder.cvContainerMatch.setCardBackgroundColor(context.getResources().getColor(R.color.colorBroadcastersListBackground));
+         }
+         else{
+         viewholder.cvContainerMatch.setCardBackgroundColor(context.getResources().getColor(R.color.colorWhite));
+         }
+         */
         return cell;
         
         

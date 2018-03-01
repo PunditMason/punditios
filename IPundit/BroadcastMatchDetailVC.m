@@ -28,6 +28,7 @@
     NSMutableArray *mFinalsubstitutionArray;
     NSArray *mFinalOverviewArray;
     NSString *twitterShareObj;
+    NSString *mRecordTime;
     
 }
 
@@ -1171,11 +1172,13 @@
     
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         self.kickOffTimeLabel.timerType = MZTimerLabelTypeStopWatch;
+        self.kickOffTimeLabel.timeFormat = @"HH:mm:ss";
         [self.kickOffTimeLabel start];
-        
+        mRecordTime = [NSString stringWithFormat:@"%@",self.kickOffTimeLabel.text];
         self.timeCount2.timerType = MZTimerLabelTypeStopWatch;
         [self.timeCount2 start];
         [self StartTimer];
+        
     }];
         [self postNoification];
    //[self StartRecording:streamName];
@@ -1200,13 +1203,36 @@
         stationName = [NSString stringWithFormat:@"broadcast-%@-%@-%@",[[Helper mCurrentUser]objectForKey:@"id"],matchlist.match_id,[Helper timeStamp]];
         name = [NSString stringWithFormat:@"%@-%@",teams,[[Helper mGetProfileCurrentUser]objectForKey:@"first_name"]];
         matchId = [NSString stringWithFormat:@"%@",matchlist.match_id];
-        notificationString = [NSString stringWithFormat:@"%@ is now the live pundit on %@ , Listen now",[[Helper mGetProfileCurrentUser]objectForKey:@"first_name"],teams];
+        
+        
+        CurrentUser * currentUrser = [[CurrentUser alloc] init];
+        [currentUrser setupUser:[Helper mCurrentUser]];
+        NSString *myidString = [NSString stringWithFormat:@"%@",[Helper base64EncodedString:currentUrser.mUsers_Id]];
+        myidString = [myidString stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
+        
+     //   notificationString = [NSString stringWithFormat:@"%@ is now the live pundit on %@ , Listen now -%@",[[Helper mGetProfileCurrentUser]objectForKey:@"first_name"],teams,myidString];
+        notificationString = [NSString stringWithFormat:@"%@ is now the live pundit on %@ , Listen now ",[[Helper mGetProfileCurrentUser]objectForKey:@"first_name"],teams];
+
+        
+        
         //Lets say “Guarav Verma is now the live pundit on Watford vs Brighton, Listen now”
     }else{
         stationName = [NSString stringWithFormat:@"broadcast-%@-%@-%@",[[Helper mCurrentUser]objectForKey:@"id"],[self.teamBroadCastDict objectForKey:@"contestantId"],[Helper timeStamp]];
         name = [NSString stringWithFormat:@"%@-%@",[self.teamBroadCastDict objectForKey:@"contestantName"],[[Helper mGetProfileCurrentUser]objectForKey:@"first_name"]];
         matchId = [NSString stringWithFormat:@"%@",[self.teamBroadCastDict objectForKey:@"contestantId"]];
-        notificationString = [NSString stringWithFormat:@"%@ is now the live pundit on %@ , Listen now",[[Helper mGetProfileCurrentUser]objectForKey:@"first_name"],[self.teamBroadCastDict objectForKey:@"contestantName"]];
+        
+        
+        CurrentUser * currentUrser = [[CurrentUser alloc] init];
+        [currentUrser setupUser:[Helper mCurrentUser]];
+        NSString *myidString = [NSString stringWithFormat:@"%@",[Helper base64EncodedString:currentUrser.mUsers_Id]];
+        myidString = [myidString stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
+        
+    //    notificationString = [NSString stringWithFormat:@"%@ is now the live pundit on %@ , Listen now -%@",[[Helper mGetProfileCurrentUser]objectForKey:@"first_name"],[self.teamBroadCastDict objectForKey:@"contestantName"],myidString];
+        
+        notificationString = [NSString stringWithFormat:@"%@ is now the live pundit on %@ , Listen now ",[[Helper mGetProfileCurrentUser]objectForKey:@"first_name"],[self.teamBroadCastDict objectForKey:@"contestantName"]];
+
     }
     
     NSMutableDictionary * parameters = [[NSMutableDictionary alloc]init];
@@ -1649,7 +1675,6 @@
 }
 - (IBAction)PlayPauseButtonAction:(id)sender{
     
-    
     if (self.mPlayPause.selected) {
         [self pauseStream:@"0" andChannelId:channelId];
 
@@ -1674,6 +1699,9 @@
     NSMutableDictionary *Parameters = [NSMutableDictionary new];
     [Parameters setObject:ChannelId forKey:@"channel_id"];
     [Parameters setObject:PauseFlag forKey:@"pause_flag"];
+    [Parameters setObject:self.kickOffTimeLabel.text forKey:@"record_time"];
+    
+    
     
    // [Helper showLoaderVProgressHUD];
     NSString *string = [NSString stringWithFormat:@"%@Game/pauseStream/%@/%@",KServiceBaseURL,ChannelId,PauseFlag];

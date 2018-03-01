@@ -86,13 +86,13 @@
     
     
     
-    [self openSocialUrl:[NSString stringWithFormat:@"https://s3.amazonaws.com/red5proautoplay/live/streams/%@.mp4",[dct objectForKey:@"streamName"]]];
+  //  [self openSocialUrl:[NSString stringWithFormat:@"https://s3.amazonaws.com/red5proautoplay/live/streams/%@.mp4",[dct objectForKey:@"streamName"]]];
     
     
     
     NSURL *streamURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://s3.amazonaws.com/red5proautoplay/live/streams/%@.mp4",[dct objectForKey:@"streamName"]]];
     
-    //[self PlayAudio:streamURL];
+    [self PlayAudio:streamURL];
 }
 
 

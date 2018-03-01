@@ -13,7 +13,7 @@
 #import <Applozic/ALRegisterUserClientService.h>
 
 #define APPLICATION_ID @"punditsports348ee5f2dc9df272707eb1a3f0b6ad07c"
-//#define APPLICATION_ID @"yopmail16bdf300d3e8d97588b435dfb25ddea2a"
+//#define APPLICATION_ID @"softuvo26632f185aa66535997473c"
 
 @interface ALChatManager : NSObject
 
