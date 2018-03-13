@@ -14,6 +14,7 @@
 #import "CurrentUser.h"
 #import <GoogleAnalytics/GAI.h>
 #import "PunditDetailVC.h"
+//#import "Branch.h"
 
 #define SYSTEM_VERSION_GRATERTHAN_OR_EQUALTO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
 
@@ -130,18 +131,44 @@
          NSString *text = [NSString stringWithFormat:@"%@",[launchOptions objectForKey:UIApplicationLaunchOptionsURLKey]];
          
          NSArray *items = [text componentsSeparatedByString:@"-"];
-         
-         NSData *data = [[NSData alloc]initWithBase64EncodedString:[items objectAtIndex:1] options:NSDataBase64DecodingIgnoreUnknownCharacters];
-         
-         NSString *BroadcasterId = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
-            [self GetShareUrlChannel:BroadcasterId CurrentUser:currentUser.mUsers_Id];
-        });
-        
+        if (items.count >= 1) {
+            NSData *data = [[NSData alloc]initWithBase64EncodedString:[items objectAtIndex:1] options:NSDataBase64DecodingIgnoreUnknownCharacters];
+            
+            NSString *BroadcasterId = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+
+                if ([currentUser.mUsers_Id length] != 0) {
+                    [self GetShareUrlChannel:BroadcasterId CurrentUser:currentUser.mUsers_Id];
+                    
+                }
+            });
+         }
         
         
     }
+    
+    
+    /*
+#pragma mark ========================================================================================
+#pragma mark =====================================BRANCH.IO==========================================
+#pragma mark ========================================================================================
+
+    
+    Branch *branch = [Branch getInstance];
+    [branch initSessionWithLaunchOptions:launchOptions andRegisterDeepLinkHandler:^(NSDictionary *params, NSError *error) {
+        if (!error && params) {
+            // params are the deep linked params associated with the link that the user clicked -> was re-directed to this app
+            // params will be empty if no data found
+            // ... insert custom logic here ...
+            NSLog(@"params: %@", params.description);
+        }
+    }];
+    
+#pragma mark ========================================================================================
+#pragma mark =====================================BRANCH.IO==========================================
+#pragma mark ========================================================================================
+   */
     
     
     return [[FBSDKApplicationDelegate sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
@@ -399,10 +426,18 @@
                                                     sourceApplication:sourceApplication
                                                            annotation:annotation];
     }else{
+  /*
+#pragma mark ========================================================================================
+#pragma mark =====================================BRANCH.IO==========================================
+#pragma mark ========================================================================================
         
-       
+        // pass the url to the handle deep link call
+        [[Branch getInstance] application:application openURL:url sourceApplication:sourceApplication annotation:annotation];
         
-        
+#pragma mark ========================================================================================
+#pragma mark =====================================BRANCH.IO==========================================
+#pragma mark ========================================================================================
+    */
         CurrentUser * currentUser = [[CurrentUser alloc] init];
         [currentUser setupUser:[Helper mCurrentUser]];
         
@@ -410,20 +445,33 @@
         NSString *text = [NSString stringWithFormat:@"%@",url];
 
         NSArray *items = [text componentsSeparatedByString:@"-"];
-        
+         if (items.count >= 1) {
         NSData *data = [[NSData alloc]initWithBase64EncodedString:[items objectAtIndex:1] options:NSDataBase64DecodingIgnoreUnknownCharacters];
         
         NSString *BroadcasterId = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        [self GetShareUrlChannel:BroadcasterId CurrentUser:currentUser.mUsers_Id];
+             if ([currentUser.mUsers_Id length] != 0) {
+                 [self GetShareUrlChannel:BroadcasterId CurrentUser:currentUser.mUsers_Id];
+
+             }
+             
 
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
 
         });
-        
+         }
         return YES;
     }
 
-} 
+}
+
+// Respond to Universal Links
+- (BOOL)application:(UIApplication *)application continueUserActivity:(NSUserActivity *)userActivity restorationHandler:(void (^)(NSArray *restorableObjects))restorationHandler {
+    
+    
+    return true;
+}
+
+
 
 -(void)GetShareUrlChannel:(NSString *)BroadcasterId CurrentUser:(NSString *)CurrentUser{
     
@@ -522,17 +570,30 @@
     NSString *text = [NSString stringWithFormat:@"%@",response.notification.request.content.body];
     
     NSArray *items = [text componentsSeparatedByString:@"-"];
-   
+    if (items.count >= 1) {
     NSData *data = [[NSData alloc]initWithBase64EncodedString:[items objectAtIndex:1] options:NSDataBase64DecodingIgnoreUnknownCharacters];
     
     NSString *BroadcasterId = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    [self GetShareUrlChannel:BroadcasterId CurrentUser:currentUser.mUsers_Id];
+        
+        if ([currentUser.mUsers_Id length] != 0) {
+            [self GetShareUrlChannel:BroadcasterId CurrentUser:currentUser.mUsers_Id];
+
+        }
     
     
     completionHandler();
+    }
 }
 
+- (void)safariViewController:(SFSafariViewController *)controller didCompleteInitialLoad:(BOOL)didLoadSuccessfully{
+    [controller dismissViewControllerAnimated:false completion:nil];
 
+}
+
+- (void)safariViewControllerDidFinish:(SFSafariViewController *)controller{
+    [controller dismissViewControllerAnimated:false completion:nil];
+
+}
 
 
 @end

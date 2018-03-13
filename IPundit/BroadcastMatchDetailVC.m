@@ -1704,7 +1704,7 @@
     
     
    // [Helper showLoaderVProgressHUD];
-    NSString *string = [NSString stringWithFormat:@"%@Game/pauseStream/%@/%@",KServiceBaseURL,ChannelId,PauseFlag];
+    NSString *string = [NSString stringWithFormat:@"%@Game/pauseStream/%@/%@/%@",KServiceBaseURL,ChannelId,PauseFlag,self.kickOffTimeLabel.text];
     NSLog(@"Url %@",string);
     NSLog(@"Parameters %@",Parameters);
 
@@ -1713,12 +1713,12 @@
         NSLog(@"ResponseDict %@",responseDict);
         if ([responseDict objectForKey:@"result"]) {
              self.mPlayPause.enabled = YES;
-            if ([[[responseDict objectForKey:@"result"]objectForKey:@"pause_flag"]integerValue] == 0) {
-                NSLog(@"Button is Not Selected");
-            }else{
-                NSLog(@"Button is Selected");
-
-            }
+//            if ([[[responseDict objectForKey:@"result"]objectForKey:@"pause_flag"]integerValue] == 0) {
+//                NSLog(@"Button is Not Selected");
+//            }else{
+//                NSLog(@"Button is Selected");
+//
+//            }
 
         }
       //  [Helper hideLoaderSVProgressHUD];

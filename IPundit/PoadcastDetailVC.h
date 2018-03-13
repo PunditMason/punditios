@@ -12,12 +12,23 @@
 #import "DataManager.h"
 #import <MediaPlayer/MediaPlayer.h>
 
+#import "UIImageView+WebCache.h"
+
 @interface PoadcastDetailVC : UIViewController<AVAudioPlayerDelegate>{
     
 }
-@property (strong, nonatomic) IBOutlet UITableView *mPoadcastDetailTableView;
-@property (strong, nonatomic) MPMoviePlayerController *streamPlayer;
 
+@property (strong, nonatomic) IBOutlet UITableView *mPoadcastDetailTableView;
+//@property (strong, nonatomic) MPMoviePlayerController *streamPlayer;
+
+
+@property (strong, nonatomic) MPMoviePlayerController *streamPlayer;
+@property (strong, nonatomic) AVPlayer *player;
+
+
+
+@property (nonatomic,strong) NSString *TMName;
+@property (nonatomic,strong) NSString *LIString;
 @property (nonatomic,strong) NSMutableArray *ChannelArray;
 
 - (IBAction)BackButtonAction:(id)sender;

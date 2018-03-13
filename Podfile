@@ -30,6 +30,7 @@ target "IPundit" do
     pod 'MZTimerLabel'
     pod 'DZNWebViewController'
     pod 'GoogleAnalytics'
+    pod 'Branch'
     #pod 'Firebase/Core'
 
     #pod update 'Crashlytics'

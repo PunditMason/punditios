@@ -88,6 +88,8 @@
         else{
             [self GetMatchLiveFeed];
             self.broadcastersView.hidden = YES ;
+            self.mFollowButton.hidden = YES ;
+
             self.mProfileShowHideButtonn.enabled = false;
             self.mSitchBroadcasterButton.enabled = false;
             self.mShareButtonButton.enabled = false;

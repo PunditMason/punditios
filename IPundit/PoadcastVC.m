@@ -12,6 +12,8 @@
 @interface PoadcastVC (){
     NSMutableArray *MatchArray;
     NSMutableArray *SelectedMatchArray;
+    NSString *TeamBNamestring;
+    NSString *LeagueIconString;
 }
 
 @end
@@ -105,7 +107,17 @@
     
     
     NSDictionary *dct = [Helper formatJSONDict:[MatchArray objectAtIndex:indexPath.row]];
-    cell.mMatchName.text = [NSString stringWithFormat:@"%@ V/S %@",[dct objectForKey:@"team1_name"],[dct objectForKey:@"team2_name"]];
+    
+    if ([[dct objectForKey:@"channel_type"]isEqualToString:@"team"]) {
+        cell.mMatchName.text = [NSString stringWithFormat:@"%@",[dct objectForKey:@"name"]];
+    }
+    else{
+        cell.mMatchName.text = [NSString stringWithFormat:@"%@ V/S %@",[dct objectForKey:@"team1_name"],[dct objectForKey:@"team2_name"]];
+        
+    }
+    
+    
+    
     
     //
     
@@ -117,10 +129,14 @@
     [self.mPoadcastTableView deselectRowAtIndexPath:indexPath animated:NO];
     [SelectedMatchArray removeAllObjects];
     [SelectedMatchArray addObjectsFromArray:[[MatchArray objectAtIndex:indexPath.row] objectForKey:@"channel"]];
+    NSDictionary *dct = [Helper formatJSONDict:[MatchArray objectAtIndex:indexPath.row]];
+
+    LeagueIconString = [NSString stringWithFormat:@"%@",[dct objectForKey:@"league_icon"]];
+
+   // TeamBNamestring = [NSString stringWithFormat:@"%@",[[MatchArray objectAtIndex:indexPath.row] objectForKey:@"name"]];
     
     [self performSegueWithIdentifier:@"PoadcastDView" sender:self];
-    
-    
+
 }
 
 
@@ -129,6 +145,11 @@
     if ([segue.identifier isEqualToString:@"PoadcastDView"]) {
         PoadcastDetailVC *destinationVC = segue.destinationViewController;
           destinationVC.ChannelArray = SelectedMatchArray;
+       //  destinationVC.TMName = TeamBNamestring;
+        destinationVC.LIString =LeagueIconString;
+        
+        
+        
         
     }
 }

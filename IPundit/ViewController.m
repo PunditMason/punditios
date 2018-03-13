@@ -586,8 +586,32 @@ static void extracted(ViewController *object) {
     [[NSUserDefaults standardUserDefaults] removeObjectForKey:kCurrentUser];
     [self logout];
     FacebookCheckBool = false;
-    
+    [self LogoutAPiCall];
 }
+
+
+-(void)LogoutAPiCall{
+    
+    CurrentUser *currentUser = [[CurrentUser alloc] init];
+    [currentUser setupUser:[Helper mCurrentUser]];
+    NSLog(@"user id %@",currentUser.mUsers_Id);
+    
+    
+    NSMutableDictionary *Parameters = [NSMutableDictionary new];
+    [Parameters setObject:currentUser.mUsers_Id forKey:@"user_id"];
+    NSString *string = [NSString stringWithFormat:@"%@app/logout/",KServiceBaseURL];
+    [DM PostRequest:string parameter:Parameters onCompletion:^(id  _Nullable dict) {
+        NSDictionary* responseDict = [NSJSONSerialization  JSONObjectWithData:dict options:kNilOptions error:nil];
+        NSLog(@"ResponseDict %@",responseDict);
+       
+    } onError:^(NSError * _Nullable Error) {
+        NSLog(@"%@",Error);
+        NSString *ErrorString = [NSString stringWithFormat:@"%@",Error];
+    }];
+}
+
+
+
 
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
     

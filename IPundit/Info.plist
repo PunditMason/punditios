@@ -19,7 +19,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>5.4</string>
+	<string>6.3</string>
 	<key>CFBundleSignature</key>
 	<string></string>
 	<key>CFBundleURLTypes</key>
@@ -42,19 +42,19 @@
 		</dict>
 		<dict>
 			<key>CFBundleTypeRole</key>
-			<string>Viewer</string>
+			<string>Editor</string>
 			<key>CFBundleURLIconFile</key>
 			<string></string>
 			<key>CFBundleURLName</key>
 			<string>com.IPundit</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>Pundit</string>
+				<string>pundit</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.5</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -195,6 +195,18 @@
 				<string>fb1775215779172553</string>
 			</array>
 		</dict>
+	</array>
+	<key>branch_key</key>
+	<dict>
+		<key>live</key>
+		<string>key_live_ofrPXU2UzNAGpKERqOXombnoCDee8tCD</string>
+		<key>test</key>
+		<string>key_test_iiBH9G8IzKrTpKBHBJWBaekisylh8AsL</string>
+	</dict>
+	<key>branch_universal_link_domains</key>
+	<array>
+		<string>punditplay-alternate.app.link</string>
+		<string>punditplay.app.link</string>
 	</array>
 </dict>
 </plist>

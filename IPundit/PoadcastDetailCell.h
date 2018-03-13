@@ -10,4 +10,15 @@
 
 @interface PoadcastDetailCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *mMatchDetail;
+@property (weak, nonatomic) IBOutlet UILabel *mPodcastNameLable;
+@property (weak, nonatomic) IBOutlet UILabel *mTimeLable;
+@property (weak, nonatomic) IBOutlet UIImageView *mImageview;
+@property (weak, nonatomic) IBOutlet UIImageView *mPlayImageview;
+
+
+@property (weak, nonatomic) IBOutlet UIButton *mPodcastNameButton;
+
+
+
+
 @end

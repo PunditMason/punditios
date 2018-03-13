@@ -12,7 +12,7 @@
 //#import <TwitterKit/TwitterKit.h>
 #import <Crashlytics/Crashlytics.h>
 #import <UserNotifications/UserNotifications.h>
-
+#import <SafariServices/SafariServices.h>
 
 #pragma mark ====================================================================
 #pragma mark ============================IMPORT==================================
@@ -41,7 +41,7 @@
 
 
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,UNUserNotificationCenterDelegate,CLLocationManagerDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,UNUserNotificationCenterDelegate,CLLocationManagerDelegate,SFSafariViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

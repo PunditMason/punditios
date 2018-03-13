@@ -274,13 +274,23 @@
     
     NSArray *arrayobj = [[mDataArray_Ref objectAtIndex:indexPath.row]objectForKey:@"channel"];
     if (arrayobj.count > 0) {
-        cell.mCellBackgroundImage.image = [UIImage imageNamed:@"Match-Lisitng-green.png"];
+        cell.mCellBackgroundImage.image = [UIImage imageNamed:@"NewMatch-Lisitng-green.png"];
     }
     else{
         
-        cell.mCellBackgroundImage.image = [UIImage imageNamed:@"Match-Lisitng.png"];
+        cell.mCellBackgroundImage.image = [UIImage imageNamed:@"NewMatch-Lisitng-white.png"];
 
     }
+    /*
+     if (arrayobj.count > 0) {
+     cell.mCellBackgroundImage.image = [UIImage imageNamed:@"Match-Lisitng-green.png"];
+     }
+     else{
+     
+     cell.mCellBackgroundImage.image = [UIImage imageNamed:@"Match-Lisitng.png"];
+     
+     }
+     */
     
     
     return cell;
