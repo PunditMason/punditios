@@ -21,6 +21,7 @@
 @property (nonatomic) NSString<Optional> *avatar;
 @property (nonatomic) NSString<Optional> *cover_image;
 @property (nonatomic) NSString<Optional> *broadcaster_count;
+//@property (nonatomic) NSString<Optional> *selected_league;
 
 
 

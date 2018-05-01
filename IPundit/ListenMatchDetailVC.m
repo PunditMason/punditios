@@ -54,11 +54,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     mAddCount = 0;
-    
+    NewMatchId = channellist.match_id;
+
     [self CallRefresh];
     self.mPlayPauseAudioButton.hidden = YES;
     
-    NewMatchId = channellist.match_id;
     
     
 }
@@ -79,6 +79,7 @@
     self.mMatchStatusLabel.text = @"-";
     
     if ([self.ViewName isEqualToString:@"PunditDetail"]) {
+        
     }
     else{
         if (self.mrliveBroadcastersArray.count > 0) {
@@ -317,9 +318,6 @@
             twitterShareObj = sharingString;
         }
         
-       
-        
-        
     }
     else
     {
@@ -342,13 +340,15 @@
         else{
             twitterShareObj = sharingString;
         }
-    
-  
     }
     DM.liveBroadcastersArray = [[NSMutableArray alloc]init];
     [DM.liveBroadcastersArray addObject:self.channelDict];
     postingData = [[NSMutableDictionary alloc]init];
     postingData = self.channelDict ;
+    
+    NewMatchId = [postingData objectForKey:@"match_id"];
+
+    
     [self post:@"NO"];
 
 }
@@ -376,16 +376,12 @@
     {
         self.matchStatus.text = @"Fixture";
         self.mMatchStatusLabel.hidden = YES;
-
     }
     else
     {
        // self.matchStatus.text = [NSString stringWithFormat:@"%@:%@",channellist.matchLengthMin,channellist.matchLengthSec];
     }
-    
     sharingString = [NSString stringWithFormat:@"I'm live on Pundit now, listening to %@ Vs %@, come join me",channellist.team1_name,channellist.team2_name];
-    
-    
     
     NSString *TwitterTems =[NSString stringWithFormat:@"Twitter: @%@ @%@",channellist.team1_twitter_id,channellist.team2__twitter_id];
     
@@ -394,15 +390,10 @@
     
     if ((team1_twitter_id.length > 0) && (team2__twitter_id.length > 0) ) {
         twitterShareObj = [NSString stringWithFormat:@"%@ \n I'm live on Pundit now, listening the game between %@ Vs %@, come join me",TwitterTems,channellist.team1_name,channellist.team2_name];
-        
     }
     else{
         twitterShareObj = sharingString;
     }
-    
-    
-    
-    
 }
 -(void)teamListening{
     self.mTeamTalkLabel.hidden = NO ;
@@ -413,24 +404,16 @@
     self.mTeamBNameLabel.text = [NSString stringWithFormat:@"Points - %@",[self.teamListenDetails objectForKey:@"points"]];
     self.matchStatus.text = [NSString stringWithFormat:@"Rank - %@",[self.teamListenDetails objectForKey:@"rank"]];
 
-    
     sharingString = [NSString stringWithFormat:@"I'm listening on PUNDIT now %@, come join me",[self.teamListenDetails objectForKey:@"contestantName"]];
-    
     
     NSString *sharingStringobj = [NSString stringWithFormat:@"Twitter: @%@",[self.matchInfoDict objectForKey:@"twitter_id"]];
     
     if (sharingStringobj.length > 0) {
         twitterShareObj = [NSString stringWithFormat:@"%@ \n I'm live on Pundit now listening %@, come join me",sharingStringobj,[self.matchInfoDict objectForKey:@"contestantName"]];
-        
     }
     else{
         twitterShareObj = sharingString;
     }
-    
-    
-    
-    
-
 }
 
 
@@ -1571,7 +1554,6 @@
     }
 }
 
-
 -(void)broadcasterLive{
     NSString * path ;
     if ([DM.channelType isEqualToString:@"team"]) {
@@ -1705,8 +1687,8 @@
 
 
 - (IBAction)ChatButtonPressed:(id)sender{
-    
-    if (!([self.ChatChannelid intValue] == 0)) {
+    NSLog(@"%@",_ChatChannelid);
+    if (!([_ChatChannelid intValue] == 0)) {
             ALChatManager *manager = [[ALChatManager alloc] initWithApplicationKey:APPLICATION_ID]; // SET APPLICATION ID
             [manager launchGroupWithClientId:self.ChatChannelid withMetaData:nil andWithUser:[ALUserDefaultsHandler getUserId] andFromViewController:self];
 

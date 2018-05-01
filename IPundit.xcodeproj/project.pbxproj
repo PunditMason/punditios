@@ -81,12 +81,17 @@
 		0119DFB620442C320047293E /* liverightnowgreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 0119DFB520442C320047293E /* liverightnowgreen.png */; };
 		011D241B1E76A08600CD088C /* giphy01.gif in Resources */ = {isa = PBXBuildFile; fileRef = 011D24191E76A08600CD088C /* giphy01.gif */; };
 		011D241C1E76A08600CD088C /* giphy02.gif in Resources */ = {isa = PBXBuildFile; fileRef = 011D241A1E76A08600CD088C /* giphy02.gif */; };
+		011FD32F2059049500CA098A /* ManageLeaqueDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 011FD3292059049300CA098A /* ManageLeaqueDetailCell.m */; };
 		012A41221E76500000185D0D /* ChannelListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 012A41211E76500000185D0D /* ChannelListModel.m */; };
 		012A41241E765C8500185D0D /* faceimg.png in Resources */ = {isa = PBXBuildFile; fileRef = 012A41231E765C8500185D0D /* faceimg.png */; };
 		012A41271E7669B800185D0D /* ListenMatchDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 012A41261E7669B800185D0D /* ListenMatchDetailCell.m */; };
 		012A41291E7672E100185D0D /* 1TestImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 012A41281E7672E100185D0D /* 1TestImage.png */; };
+		012B0F40208DBB7600345CCF /* LatestPodcastsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 012B0F3F208DBB7500345CCF /* LatestPodcastsCell.m */; };
 		013008DA1FB0128A000CDCC5 /* YTPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 013008D91FB0128A000CDCC5 /* YTPlayerVC.m */; };
+		0130610E208DDC7B002968B8 /* LatestPodcastsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0130610D208DDC7B002968B8 /* LatestPodcastsVC.m */; };
+		01306111208DF666002968B8 /* OtherStationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 01306110208DF665002968B8 /* OtherStationVC.m */; };
 		0136F37E1EF8E24A00F3CEEC /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0136F37D1EF8E24A00F3CEEC /* Twitter.framework */; };
+		0146705920945F39003AADF9 /* SCSiriWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0146705820945F38003AADF9 /* SCSiriWaveformView.m */; };
 		0147C8221F68E86A00B5B53A /* PoadcastVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0147C8211F68E86A00B5B53A /* PoadcastVC.m */; };
 		0147C8251F68E88200B5B53A /* PoadcastDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0147C8241F68E88200B5B53A /* PoadcastDetailVC.m */; };
 		0147C8281F68E8B000B5B53A /* PoadcastCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0147C8271F68E8B000B5B53A /* PoadcastCell.m */; };
@@ -115,6 +120,9 @@
 		015A13931F483F6800703441 /* New_twitter (7).png in Resources */ = {isa = PBXBuildFile; fileRef = 015A137F1F483F6800703441 /* New_twitter (7).png */; };
 		015A13941F483F6800703441 /* New_youtube (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 015A13801F483F6800703441 /* New_youtube (1).png */; };
 		015CBDF8204FF75D00AD02BB /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 015CBDF7204FF75D00AD02BB /* SafariServices.framework */; };
+		016C4BCE20591E8900D0CD61 /* ManageLeaqueCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 016C4BCD20591E8900D0CD61 /* ManageLeaqueCell.m */; };
+		016C4BD3205920B700D0CD61 /* ManageLeaqueDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 016C4BCF205920B600D0CD61 /* ManageLeaqueDetailVC.m */; };
+		016C4BD4205920B700D0CD61 /* ManageLeaqueVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 016C4BD1205920B600D0CD61 /* ManageLeaqueVC.m */; };
 		017064491FA715820025CA47 /* VideoHighlightsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 017064481FA715820025CA47 /* VideoHighlightsCell.m */; };
 		0196F1D71E69D8B3004DE59F /* overlay_opacity.png in Resources */ = {isa = PBXBuildFile; fileRef = 0196F1D61E69D8B3004DE59F /* overlay_opacity.png */; };
 		0196F1E11E69E165004DE59F /* NSBundle+LibraryExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0196F1DE1E69E165004DE59F /* NSBundle+LibraryExtension.m */; };
@@ -129,12 +137,14 @@
 		01B9EBB21F6255E200B6D8D0 /* KIImagePager.m in Sources */ = {isa = PBXBuildFile; fileRef = 01B9EBAF1F6255E200B6D8D0 /* KIImagePager.m */; };
 		01C4CA4C1FD2661D00C82182 /* live_115.svg in Resources */ = {isa = PBXBuildFile; fileRef = 01C4CA4B1FD2661B00C82182 /* live_115.svg */; };
 		01C4CA4E1FD2662900C82182 /* go_115.svg in Resources */ = {isa = PBXBuildFile; fileRef = 01C4CA4D1FD2662900C82182 /* go_115.svg */; };
+		01C7774620591B33002691A7 /* ManageLeaqueCell.h in Sources */ = {isa = PBXBuildFile; fileRef = 011FD3322059056600CA098A /* ManageLeaqueCell.h */; };
 		01CDD31E1FD136F7003C058F /* live.svg in Resources */ = {isa = PBXBuildFile; fileRef = 01CDD31D1FD136F7003C058F /* live.svg */; };
 		01E689781F5EAC4E002D9586 /* closechat.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E689771F5EAC4E002D9586 /* closechat.png */; };
 		01E9ED701FF79D3500778BE3 /* if_Play1Pressed_22932.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E9ED6F1FF79D3500778BE3 /* if_Play1Pressed_22932.png */; };
 		01E9ED721FF79EEA00778BE3 /* if_Stop1PressedBlue_22950.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E9ED711FF79EE900778BE3 /* if_Stop1PressedBlue_22950.png */; };
 		01E9ED751FF7B32F00778BE3 /* Stop_nw.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E9ED731FF7B32E00778BE3 /* Stop_nw.png */; };
 		01E9ED761FF7B32F00778BE3 /* play_nw.png in Resources */ = {isa = PBXBuildFile; fileRef = 01E9ED741FF7B32E00778BE3 /* play_nw.png */; };
+		01F86F9320946EB70020317F /* sample.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 01F86F9220946EB60020317F /* sample.m4a */; };
 		3D4E62561F8049FB00A9F78E /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D4E62551F8049FB00A9F78E /* ExternalAccessory.framework */; };
 		3D505F0D1F63CD20002E34C8 /* broadcast-test.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D505F0C1F63CD20002E34C8 /* broadcast-test.png */; };
 		3D505F0F1F63CD31002E34C8 /* listen-test.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D505F0E1F63CD31002E34C8 /* listen-test.png */; };
@@ -296,6 +306,19 @@
 		EBFFBEB22029FDC9003D0649 /* 359e08cae257bc28409e81d1c3ecf708-495x330.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EBFFBEB12029FDC9003D0649 /* 359e08cae257bc28409e81d1c3ecf708-495x330.jpg */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		014670562094585E003AADF9 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0009EF511F29CB810087E03B /* UserTBCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTBCell.h; sourceTree = "<group>"; };
 		0009EF521F29CB810087E03B /* UserTBCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTBCell.m; sourceTree = "<group>"; };
@@ -383,20 +406,32 @@
 		0119DFB520442C320047293E /* liverightnowgreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = liverightnowgreen.png; sourceTree = "<group>"; };
 		011D24191E76A08600CD088C /* giphy01.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy01.gif; sourceTree = "<group>"; };
 		011D241A1E76A08600CD088C /* giphy02.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = giphy02.gif; sourceTree = "<group>"; };
+		011FD3292059049300CA098A /* ManageLeaqueDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageLeaqueDetailCell.m; sourceTree = "<group>"; };
+		011FD32A2059049400CA098A /* ManageLeaqueDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageLeaqueDetailCell.h; sourceTree = "<group>"; };
+		011FD3322059056600CA098A /* ManageLeaqueCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageLeaqueCell.h; sourceTree = "<group>"; };
 		012A41201E76500000185D0D /* ChannelListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChannelListModel.h; sourceTree = "<group>"; };
 		012A41211E76500000185D0D /* ChannelListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChannelListModel.m; sourceTree = "<group>"; };
 		012A41231E765C8500185D0D /* faceimg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = faceimg.png; sourceTree = "<group>"; };
 		012A41251E7669B800185D0D /* ListenMatchDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListenMatchDetailCell.h; sourceTree = "<group>"; };
 		012A41261E7669B800185D0D /* ListenMatchDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListenMatchDetailCell.m; sourceTree = "<group>"; };
 		012A41281E7672E100185D0D /* 1TestImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1TestImage.png; sourceTree = "<group>"; };
+		012B0F3E208DBB6B00345CCF /* LatestPodcastsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LatestPodcastsCell.h; sourceTree = "<group>"; };
+		012B0F3F208DBB7500345CCF /* LatestPodcastsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LatestPodcastsCell.m; sourceTree = "<group>"; };
 		013008D81FB0128A000CDCC5 /* YTPlayerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YTPlayerVC.h; sourceTree = "<group>"; };
 		013008D91FB0128A000CDCC5 /* YTPlayerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YTPlayerVC.m; sourceTree = "<group>"; };
+		0130610C208DDC7B002968B8 /* LatestPodcastsVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LatestPodcastsVC.h; sourceTree = "<group>"; };
+		0130610D208DDC7B002968B8 /* LatestPodcastsVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LatestPodcastsVC.m; sourceTree = "<group>"; };
+		0130610F208DF664002968B8 /* OtherStationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OtherStationVC.h; sourceTree = "<group>"; };
+		01306110208DF665002968B8 /* OtherStationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OtherStationVC.m; sourceTree = "<group>"; };
 		0131CDAB1FA9F08D0016E782 /* broadcast_circle.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = broadcast_circle.gif; sourceTree = "<group>"; };
 		0131CDAC1FA9F0940016E782 /* loading_circle4.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = loading_circle4.gif; sourceTree = "<group>"; };
 		0134D0431F74DFB8007B70FE /* faceebookk.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = faceebookk.png; sourceTree = "<group>"; };
 		0134D0441F74E2EB007B70FE /* ipundit-red-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ipundit-red-icon.png"; sourceTree = "<group>"; };
 		0136F37D1EF8E24A00F3CEEC /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
 		014289461F7390DD000FE95A /* pundit.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = pundit.gif; path = IPundit/Helper/pundit.gif; sourceTree = "<group>"; };
+		0146705120945857003AADF9 /* EZAudio.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = EZAudio.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0146705720945F35003AADF9 /* SCSiriWaveformView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCSiriWaveformView.h; sourceTree = "<group>"; };
+		0146705820945F38003AADF9 /* SCSiriWaveformView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCSiriWaveformView.m; sourceTree = "<group>"; };
 		0147C8201F68E86A00B5B53A /* PoadcastVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoadcastVC.h; sourceTree = "<group>"; };
 		0147C8211F68E86A00B5B53A /* PoadcastVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PoadcastVC.m; sourceTree = "<group>"; };
 		0147C8231F68E88200B5B53A /* PoadcastDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PoadcastDetailVC.h; sourceTree = "<group>"; };
@@ -433,6 +468,11 @@
 		015A137F1F483F6800703441 /* New_twitter (7).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New_twitter (7).png"; sourceTree = "<group>"; };
 		015A13801F483F6800703441 /* New_youtube (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "New_youtube (1).png"; sourceTree = "<group>"; };
 		015CBDF7204FF75D00AD02BB /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
+		016C4BCD20591E8900D0CD61 /* ManageLeaqueCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageLeaqueCell.m; sourceTree = "<group>"; };
+		016C4BCF205920B600D0CD61 /* ManageLeaqueDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageLeaqueDetailVC.m; sourceTree = "<group>"; };
+		016C4BD0205920B600D0CD61 /* ManageLeaqueVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageLeaqueVC.h; sourceTree = "<group>"; };
+		016C4BD1205920B600D0CD61 /* ManageLeaqueVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManageLeaqueVC.m; sourceTree = "<group>"; };
+		016C4BD2205920B700D0CD61 /* ManageLeaqueDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManageLeaqueDetailVC.h; sourceTree = "<group>"; };
 		017064431FA712830025CA47 /* MJPopupBackgroundView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MJPopupBackgroundView.h; sourceTree = "<group>"; };
 		017064441FA712830025CA47 /* MJPopupBackgroundView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MJPopupBackgroundView.m; sourceTree = "<group>"; };
 		017064451FA712830025CA47 /* UIViewController+MJPopupViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+MJPopupViewController.h"; sourceTree = "<group>"; };
@@ -463,6 +503,7 @@
 		01E9ED711FF79EE900778BE3 /* if_Stop1PressedBlue_22950.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = if_Stop1PressedBlue_22950.png; sourceTree = "<group>"; };
 		01E9ED731FF7B32E00778BE3 /* Stop_nw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stop_nw.png; sourceTree = SOURCE_ROOT; };
 		01E9ED741FF7B32E00778BE3 /* play_nw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play_nw.png; sourceTree = SOURCE_ROOT; };
+		01F86F9220946EB60020317F /* sample.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = sample.m4a; sourceTree = "<group>"; };
 		3D4E62551F8049FB00A9F78E /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		3D505F0C1F63CD20002E34C8 /* broadcast-test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "broadcast-test.png"; sourceTree = "<group>"; };
 		3D505F0E1F63CD31002E34C8 /* listen-test.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "listen-test.png"; sourceTree = "<group>"; };
@@ -732,6 +773,10 @@
 				002E1A351F4850BF00033F0D /* Cell */,
 				A6E8013D1E65488F00AF1B70 /* ViewController.h */,
 				A6E8013E1E65488F00AF1B70 /* ViewController.m */,
+				0130610F208DF664002968B8 /* OtherStationVC.h */,
+				01306110208DF665002968B8 /* OtherStationVC.m */,
+				0130610C208DDC7B002968B8 /* LatestPodcastsVC.h */,
+				0130610D208DDC7B002968B8 /* LatestPodcastsVC.m */,
 				014C87FB1F752E6F00278462 /* PSignUpVC.h */,
 				014C87FC1F752E6F00278462 /* PSignUpVC.m */,
 			);
@@ -741,6 +786,8 @@
 		002E1A351F4850BF00033F0D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				012B0F3E208DBB6B00345CCF /* LatestPodcastsCell.h */,
+				012B0F3F208DBB7500345CCF /* LatestPodcastsCell.m */,
 				002E1A361F4851CD00033F0D /* ImageViewCell.h */,
 				002E1A371F4851CD00033F0D /* ImageViewCell.m */,
 			);
@@ -797,6 +844,29 @@
 			children = (
 			);
 			name = "FS PageViewer";
+			sourceTree = "<group>";
+		};
+		011FD3252059017E00CA098A /* Manage Leaque */ = {
+			isa = PBXGroup;
+			children = (
+				016C4BD2205920B700D0CD61 /* ManageLeaqueDetailVC.h */,
+				016C4BCF205920B600D0CD61 /* ManageLeaqueDetailVC.m */,
+				016C4BD0205920B600D0CD61 /* ManageLeaqueVC.h */,
+				016C4BD1205920B600D0CD61 /* ManageLeaqueVC.m */,
+				011FD334205905C800CA098A /* Cell */,
+			);
+			name = "Manage Leaque";
+			sourceTree = "<group>";
+		};
+		011FD334205905C800CA098A /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				011FD3322059056600CA098A /* ManageLeaqueCell.h */,
+				016C4BCD20591E8900D0CD61 /* ManageLeaqueCell.m */,
+				011FD32A2059049400CA098A /* ManageLeaqueDetailCell.h */,
+				011FD3292059049300CA098A /* ManageLeaqueDetailCell.m */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		0147C81F1F68E84100B5B53A /* Poadcast */ = {
@@ -903,6 +973,7 @@
 		4171BB1539550E84E4809547 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0146705120945857003AADF9 /* EZAudio.framework */,
 				015CBDF7204FF75D00AD02BB /* SafariServices.framework */,
 				3D4E62551F8049FB00A9F78E /* ExternalAccessory.framework */,
 				019A0FC91F57F64A009725AF /* CoreData.framework */,
@@ -1018,6 +1089,9 @@
 		A64EE3571E69728F00BB93DC /* Cell */ = {
 			isa = PBXGroup;
 			children = (
+				01F86F9220946EB60020317F /* sample.m4a */,
+				0146705720945F35003AADF9 /* SCSiriWaveformView.h */,
+				0146705820945F38003AADF9 /* SCSiriWaveformView.m */,
 				61028EE41FA985B10009F576 /* LineupCell.h */,
 				61028EE51FA985B10009F576 /* LineupCell.m */,
 				A6FB7DFC1E67E0490027FBBC /* DetailCell.h */,
@@ -1289,6 +1363,7 @@
 				A6C5A8CF1E65921300EF9E0D /* SettingsVC.m */,
 				00ECE2111F4BF57E00FD33F5 /* PunditDetailVC.h */,
 				00ECE2121F4BF57E00FD33F5 /* PunditDetailVC.m */,
+				011FD3252059017E00CA098A /* Manage Leaque */,
 				0147C81F1F68E84100B5B53A /* Poadcast */,
 				A644A96B1E791E43002C82F2 /* Profile */,
 				A6C5A8D11E65923000EF9E0D /* AboutVC.h */,
@@ -1469,6 +1544,7 @@
 				78180673B178762C9589A7FD /* [CP] Embed Pods Frameworks */,
 				8F72BF3B7FFB2797B9C3537B /* [CP] Copy Pods Resources */,
 				0136F37F1EF8ECE500F3CEEC /* Run Script */,
+				014670562094585E003AADF9 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1650,6 +1726,7 @@
 				00538BA01F20811900A714E6 /* PM.png in Resources */,
 				00ABAFAE1EAF517500706D39 /* next.png in Resources */,
 				00AB3EE71F03C6BE006027A3 /* Y2Card.png in Resources */,
+				01F86F9320946EB70020317F /* sample.m4a in Resources */,
 				A6FB7DE71E67DA2F0027FBBC /* Listen.png in Resources */,
 				01E9ED761FF7B32F00778BE3 /* play_nw.png in Resources */,
 				3D5378641F63E44E00170EE6 /* BROADCASTSML.png in Resources */,
@@ -1858,6 +1935,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01C7774620591B33002691A7 /* ManageLeaqueCell.h in Sources */,
 				A644A96A1E791E2A002C82F2 /* ProfileHashTagCell.m in Sources */,
 				004E26A81EEE5EB000797FBD /* ALToastView.m in Sources */,
 				002E1A381F4851CD00033F0D /* ImageViewCell.m in Sources */,
@@ -1877,6 +1955,7 @@
 				0147C8281F68E8B000B5B53A /* PoadcastCell.m in Sources */,
 				617D45841FA9D2F800826924 /* FollowersVC.m in Sources */,
 				0147C8251F68E88200B5B53A /* PoadcastDetailVC.m in Sources */,
+				0130610E208DDC7B002968B8 /* LatestPodcastsVC.m in Sources */,
 				A64EE3791E69835800BB93DC /* BroadcastMatchDetailVC.m in Sources */,
 				0116FC891FA6F922005576B2 /* VideoHighlightsVC.m in Sources */,
 				A62BAE101EA90349006B8CE4 /* TrophyViewController.m in Sources */,
@@ -1901,23 +1980,30 @@
 				A6E801391E65488F00AF1B70 /* main.m in Sources */,
 				A64EE3831E698E8E00BB93DC /* UIImage+animatedGIF.m in Sources */,
 				014C87FD1F752E6F00278462 /* PSignUpVC.m in Sources */,
+				016C4BCE20591E8900D0CD61 /* ManageLeaqueCell.m in Sources */,
 				A6BC55891E680AD100C500FE /* BaseVC.m in Sources */,
+				012B0F40208DBB7600345CCF /* LatestPodcastsCell.m in Sources */,
 				A60A099E1E6ED36600F5B4CF /* SportsModel.m in Sources */,
 				A6C5A8CA1E6591BF00EF9E0D /* BroadcastVC.m in Sources */,
 				A6B658531E656ABF000B9213 /* Reachability.m in Sources */,
 				617D45811FA9D2DD00826924 /* FollowersViewCell.m in Sources */,
 				A60A09931E6E88F400F5B4CF /* CurrentUser.m in Sources */,
 				00E34C0A1EF3FCE600261FCA /* BroadcasterTableCell.m in Sources */,
+				016C4BD4205920B700D0CD61 /* ManageLeaqueVC.m in Sources */,
 				A6FB7E351E67E6280027FBBC /* DetailVCCell.m in Sources */,
 				A6FB7DFE1E67E0490027FBBC /* DetailCell.m in Sources */,
+				01306111208DF666002968B8 /* OtherStationVC.m in Sources */,
 				A6BC55A01E68393D00C500FE /* ListenDetailCell.m in Sources */,
+				016C4BD3205920B700D0CD61 /* ManageLeaqueDetailVC.m in Sources */,
 				A6C5A8CD1E6591D700EF9E0D /* ListenVC.m in Sources */,
 				0082EF6E1EBC3C0100D4A047 /* MarqueeLabel.m in Sources */,
 				017064491FA715820025CA47 /* VideoHighlightsCell.m in Sources */,
+				011FD32F2059049500CA098A /* ManageLeaqueDetailCell.m in Sources */,
 				A6B6584F1E656AA5000B9213 /* Helper.m in Sources */,
 				A6281A301E71709D005EEE32 /* BroadcastMatchDetailCell.m in Sources */,
 				A6C5A8D31E65923000EF9E0D /* AboutVC.m in Sources */,
 				0196F1E11E69E165004DE59F /* NSBundle+LibraryExtension.m in Sources */,
+				0146705920945F39003AADF9 /* SCSiriWaveformView.m in Sources */,
 				0009EF531F29CB810087E03B /* UserTBCell.m in Sources */,
 				00C47BC11EF7B69500D78FE1 /* ListenersTrophyTableViewCell.m in Sources */,
 				0147C82B1F68E8C400B5B53A /* PoadcastDetailCell.m in Sources */,
@@ -2057,7 +2143,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = IPundit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IPundit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2087,7 +2173,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = IPundit/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.IPundit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

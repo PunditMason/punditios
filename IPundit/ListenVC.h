@@ -12,6 +12,8 @@
 #import "SportsModel.h"
 #import "LeaquesModel.h"
 #import "Constants.h"
+#import "CurrentUser.h"
+#import "PoadcastVC.h"
 
 @interface ListenVC : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate>{
     

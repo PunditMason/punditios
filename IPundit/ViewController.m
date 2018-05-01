@@ -15,7 +15,8 @@
 #import <QuartzCore/QuartzCore.h>
 #import "KIImagePager.h"
 #import <IQKeyboardManager/IQKeyboardManager.h>
-
+#import "PoadcastDetailVC.h"
+#import "LatestPodcastsCell.h"
 
 
 @interface ViewController ()<KIImagePagerDelegate, KIImagePagerDataSource>
@@ -30,6 +31,7 @@
     float mCurrentDataVersion;
     NSString *message;
     UIAlertView *ForfotPasswordAlert;
+    NSMutableArray *mLatestPodcastArray;
 
     
 
@@ -42,6 +44,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    mLatestPodcastArray = [[NSMutableArray alloc]init];
+
     
     [self.ScrollView layoutIfNeeded];
     self.ScrollView.contentSize = self.ContentView.bounds.size;
@@ -84,11 +89,11 @@
     
     
     if (IS_IPHONE4) {
-        self.ScrollView.frame = CGRectMake(0, 0, 320, 480);
+        self.ScrollView.frame = CGRectMake(0, 0, 320, 438);
         self.splashScreenView.frame = CGRectMake(0, 0, 320, 480);
         self.mScrollView.frame = CGRectMake(0, 0, 320, 480);
         self.mLoginView.frame = CGRectMake(0, 0, 320, 480);
-
+            self.mTaskBarView.frame = CGRectMake(0, 438, 320, 42);
         
         
     }else{
@@ -169,6 +174,8 @@
 -(void)viewWillAppear:(BOOL)animated{
     
     [super viewWillAppear:YES];
+    [self GetOtherLeagueStation];
+
      [[IQKeyboardManager sharedManager] setEnableAutoToolbar:NO];
     [[IQKeyboardManager sharedManager] setEnable:YES];
     [[IQKeyboardManager sharedManager]setKeyboardDistanceFromTextField:50];
@@ -840,7 +847,11 @@ static void extracted(ViewController *object) {
 
 - (void)HomePageContent
 {
-    NSString * string = [NSString stringWithFormat:@"%@get_image",kServiceBaseHomePageURL];
+   // get_image
+    // get_image_updated
+    
+    
+    NSString * string = [NSString stringWithFormat:@"%@get_image_updated",kServiceBaseHomePageURL];
     
     [DM GetRequest:string parameter:nil onCompletion:^(id  _Nullable dict) {
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
@@ -974,10 +985,8 @@ static void extracted(ViewController *object) {
     NSMutableDictionary *parametersGetProfile = [[NSMutableDictionary alloc]init];
     [parametersGetProfile setValue:[[Helper mCurrentUser]objectForKey:@"id"] forKey:@"userid"];
     NSString *path = [NSString stringWithFormat:@"%@App/get_profile",KServiceBaseURL];
-    
     [DM PostRequest:path parameter:parametersGetProfile onCompletion:^(id  _Nullable dict) {
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
-        
         if ([responseDict objectForKey:@"tags"] != [NSNull null]  ) {
         NSString *tags = [[responseDict objectForKey:@"tags"]objectForKey:@"tags"];
         DM.tags = [tags componentsSeparatedByString:@","];
@@ -988,21 +997,18 @@ static void extracted(ViewController *object) {
         if (ProfileCheckBool == true) {
             [self performSegueWithIdentifier:@"Profile" sender:self];
             [Helper hideLoaderSVProgressHUD];
-            
         }
-        
     } onError:^(NSError * _Nullable Error) {
         NSLog(@"%@",Error);
         [Helper hideLoaderSVProgressHUD];
     }];
-    
     
 }
 
 -(void)getTandC{
     termsAndConditions = [[NSMutableDictionary alloc]init];
     NSString *stringPath = [NSString stringWithFormat:@"%@Game/get_term_condition",KServiceBaseURL];
-    
+
     [DM GetRequest:stringPath parameter:nil onCompletion:^(id  _Nullable dict) {
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:nil];
         termsAndConditions = [responseDict objectForKey:@"data"];
@@ -1035,7 +1041,7 @@ static void extracted(ViewController *object) {
 {
    // NSLog(@"%@",ImagesArray);
     
-    return ImagesArray;
+    return [ImagesArray valueForKey:@"image"];
 }
 
 - (UIViewContentMode) contentModeForImage:(NSUInteger)image inPager:(KIImagePager *)pager
@@ -1057,13 +1063,16 @@ static void extracted(ViewController *object) {
 - (void) imagePager:(KIImagePager *)imagePager didSelectImageAtIndex:(NSUInteger)index
 {
     NSLog(@"%s %lu", __PRETTY_FUNCTION__, (unsigned long)index);
-}
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[[ImagesArray objectAtIndex:index]valueForKey:@"url"]]];
 
+}
 
 
 #pragma mark =====================================================
 #pragma mark ===============KLIMAGEPAGER END ===================
 #pragma mark =====================================================
+
 
 
 
@@ -1120,5 +1129,77 @@ static void extracted(ViewController *object) {
     }
     
 }
+
+
+
+
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+
+    if(mLatestPodcastArray.count > 6){
+        return 6;
+    }
+    else
+    {
+        return mLatestPodcastArray.count;
+    }
+    
+    return mLatestPodcastArray.count;
+    
+}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    LatestPodcastsCell *cell = [self.mCollectionView dequeueReusableCellWithReuseIdentifier:@"latestpodcastscell" forIndexPath:indexPath];
+    self.mCollectionView.allowsMultipleSelection = NO;
+    
+    NSDictionary *dct = [mLatestPodcastArray objectAtIndex:indexPath.row];
+    cell.mPodcastNameLable.text = [dct valueForKey:@"name"];
+    cell.mUserNameLable.text = [dct valueForKey:@"broadcaster_name"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[dct valueForKey:@"league_icon"]]];
+    [cell.mImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"noimage"]];
+    
+    NSURL *url1 = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[dct valueForKey:@"team1_icone"]]];
+    [cell.mTeam1ImageView sd_setImageWithURL:url1 placeholderImage:[UIImage imageNamed:@""]];
+    NSURL *url2 = [NSURL URLWithString:[NSString stringWithFormat:@"%@",[dct valueForKey:@"team2_icone"]]];
+    [cell.mTeam2ImageView sd_setImageWithURL:url2 placeholderImage:[UIImage imageNamed:@""]];
+    
+    
+    
+    return cell;
+}
+
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString *index_path = [NSString stringWithFormat:@"%ld",(long)indexPath.row];
+    NSDictionary *dct = [mLatestPodcastArray objectAtIndex:indexPath.row];
+    
+    PoadcastDetailVC *destinationVC = [self.storyboard instantiateViewControllerWithIdentifier:@"PoadcastDetailview"];
+    
+    destinationVC.ChannelArray = [dct valueForKey:@"stream"];
+    destinationVC.LIString =[dct valueForKey:@"league_icon"];
+    
+    [self.navigationController pushViewController:destinationVC animated:YES];
+    
+}
+
+-(void)GetOtherLeagueStation {
+    
+    NSString *string = [NSString stringWithFormat:@"%@game/getChannelList/",KServiceBaseURL];
+    [DM GetRequest:string parameter:nil onCompletion:^(id  _Nullable dict) {
+        NSDictionary* responseDict = [NSJSONSerialization  JSONObjectWithData:dict options:kNilOptions error:nil];
+        NSLog(@"ResponseDict %@",responseDict);
+        
+        [mLatestPodcastArray removeAllObjects];
+        [mLatestPodcastArray addObjectsFromArray:[responseDict valueForKey:@"channel"]];
+        [self.mCollectionView reloadData];
+        
+    } onError:^(NSError * _Nullable Error) {
+        NSLog(@"%@",Error);
+        NSString *ErrorString = [NSString stringWithFormat:@"%@",Error];
+        [Helper ISAlertTypeError:@"Error!!" andMessage:ErrorString];
+    }];
+}
+
+
 
 @end

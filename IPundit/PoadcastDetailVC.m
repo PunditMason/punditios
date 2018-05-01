@@ -173,6 +173,8 @@
     NSMutableDictionary *Parameters = [NSMutableDictionary new];
     [Parameters setObject:podcastname forKey:@"podcast_name"];
     [Parameters setObject:[dct objectForKey:@"id"] forKey:@"channel_id"];
+    [Parameters setObject:[dct objectForKey:@"name_index_update"] forKey:@"name_index_update"];
+
     [Helper showLoaderVProgressHUD];
     
     NSString *string = [NSString stringWithFormat:@"%@app/updatePodcastName/",KServiceBaseURL];

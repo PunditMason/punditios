@@ -307,8 +307,12 @@
 
 
 - (void)GetSportsList{
-   
-   NSString *path=[NSString stringWithFormat:@"%@Game/getSports",KServiceBaseURL];
+    CurrentUser *currentUser = [[CurrentUser alloc] init];
+    [currentUser setupUser:[Helper mCurrentUser]];
+    
+ //  NSString *path=[NSString stringWithFormat:@"%@Game/getSports",KServiceBaseURL];
+    NSString *path=[NSString stringWithFormat:@"%@Game/getSports/%@/",KServiceBaseURL,currentUser.mUsers_Id];
+
     [DM GetRequest:path parameter:nil onCompletion:^(id dict) {
         
         NSError *errorJson=nil;
@@ -385,15 +389,27 @@
     }
     else if (tableView == self.mTeamTableView)
     {
+        /*
+        
+        NSMutableDictionary * dictRef = [[NSMutableDictionary alloc]init];
+        dictRef = [teamSearchDataArray objectAtIndex:indexPath.row];
+        PoadcastVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"PoadcastView"];
+        vc.selectedTeam = [dictRef valueForKey:@"id"];
+        [self.navigationController pushViewController:vc animated:YES];
+
+        */
+        
         DM.channelType = @"team";
         self.mliveBroadcastersArray = [[teamSearchDataArray objectAtIndex:indexPath.row]objectForKey:@"channel_info"];
         ListenMatchDetailVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListenMatchDetailVC"];
         vc.mrliveBroadcastersArray = _mliveBroadcastersArray;
+        vc.ChatChannelid = [NSString stringWithFormat:@"%@",[[_mliveBroadcastersArray objectAtIndex:0 ]valueForKey: @"chatChannelid"]];
 
         vc.teamListenDetails = [teamSearchDataArray objectAtIndex:indexPath.row];
         DM.liveBroadcastersArray = [[teamSearchDataArray objectAtIndex:indexPath.row]objectForKey:@"channel_info"];
         NSLog(@"%@",DM.liveBroadcastersArray);
         [self.navigationController pushViewController:vc animated:YES];
+         
     }
 }
 
@@ -407,6 +423,7 @@
     if (tableView == self.mTableView) {
         dictRef = [searchDataArray objectAtIndex:indexPath.row];
     
+        
     if (dictRef [@"channel_info"] ) {
         static NSString *CellIdentifier = @"ListenersTrophyTableViewCell";
         ListenersTrophyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -467,7 +484,36 @@
     }
         else {
             dictRef = [teamSearchDataArray objectAtIndex:indexPath.row];
+            /*
+            static NSString *CellIdentifier = @"TrophyViewTableViewCell";
+            TrophyViewTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
             
+            NSArray * xibReff = [[NSBundle mainBundle]loadNibNamed:@"TrophyViewTableViewCell" owner:self options:nil];
+            if (cell == nil) {
+                cell = [xibReff objectAtIndex:0];
+            }
+            
+            cell.posLabel.hidden = YES;
+            cell.clubNameLabel.frame = CGRectMake(25, 9, 255, 26);
+            cell.clubNameLabel.textAlignment = NSTextAlignmentCenter ;
+            cell.clubNameLabel.text = [NSString stringWithFormat:@"%@",[dictRef objectForKey:@"name"]];
+            cell.clubNameLabel.font = [UIFont fontWithName:@"System Bold" size:14] ;
+            
+            cell.pLabel.hidden = YES;
+            cell.wLabel.hidden = YES;
+            cell.dLabel.hidden = YES;
+            cell.lLabel.hidden = YES;
+            cell.mGDLabel.hidden = YES;
+            cell.mPointsLabel.hidden = YES;
+            
+            UIView *bgColorView = [[UIView alloc] init];
+            [bgColorView setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:0.3]];
+            [cell setSelectedBackgroundView:bgColorView];
+            cell.backgroundColor = [UIColor clearColor];
+            [cell setUserInteractionEnabled:YES];
+            return cell;
+          */
+           
             if (dictRef [@"channel_info"] ) {
                 static NSString *CellIdentifier = @"ListenersTrophyTableViewCell";
                 ListenersTrophyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
@@ -525,7 +571,7 @@
                 [cell setUserInteractionEnabled:NO];
                 return cell;
             }
-
+            
 }
 }
 

@@ -641,7 +641,8 @@ static DataManager *sharedDataManager = nil;
 
         AVCaptureDevice* audioDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeAudio];
         R5Microphone* microphone = [[R5Microphone alloc] initWithDevice:audioDevice];
-        microphone.bitrate = 32;
+        microphone.bitrate = 32; //kbps
+        microphone.sampleRate = 44100; //hz
         microphone.device = audioDevice;
         NSLog(@"Got device %@", audioDevice);
         [_publishStream attachAudio:microphone];

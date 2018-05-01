@@ -40,8 +40,6 @@
     [refreshControl tintColorDidChange];
     [self.mCollectionView addSubview:refreshControl];
      self.mCollectionView.alwaysBounceVertical = YES;
-    
-    
 
 }
 
@@ -188,7 +186,6 @@
 
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
     if ([segue.identifier isEqualToString:@"DetailView"]) {
         DetailVC *destinationVC = segue.destinationViewController;
         destinationVC.mLeaqueArray = mleaqueArray;
@@ -217,9 +214,14 @@
 
 
 - (void)GetSportsList{
+    
+    CurrentUser *currentUser = [[CurrentUser alloc] init];
+    [currentUser setupUser:[Helper mCurrentUser]];
+    
    // NSString *path=[NSString stringWithFormat:@"%@Game/getSportsname",KServiceBaseURL];
-    NSString *path=[NSString stringWithFormat:@"%@Game/getSports",KServiceBaseURL];
-    [DM GetRequest:path parameter:nil onCompletion:^(id dict) {
+  //  NSString *path=[NSString stringWithFormat:@"%@Game/getSports",KServiceBaseURL];
+         NSString *path=[NSString stringWithFormat:@"%@Game/getSports/%@/",KServiceBaseURL,currentUser.mUsers_Id];
+         [DM GetRequest:path parameter:nil onCompletion:^(id dict) {
        
         NSError *errorJson=nil;
         NSDictionary* responseDict = [NSJSONSerialization JSONObjectWithData:dict options:kNilOptions error:&errorJson];

@@ -14,6 +14,7 @@
 #import "MarqueeLabel.h"
 #import "SportsModel.h"
 #import "Constants.h"
+#import "CurrentUser.h"
 
 @interface DetailVC : UIViewController
 @property (strong, nonatomic) IBOutlet UIButton *mXButton;

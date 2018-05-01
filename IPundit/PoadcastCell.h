@@ -10,5 +10,6 @@
 
 @interface PoadcastCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *mMatchName;
+@property (weak, nonatomic) IBOutlet UIView *mCellBeckgroundView;
 
 @end

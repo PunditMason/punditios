@@ -18,6 +18,8 @@
 #import <Applozic/Applozic.h>
 #import "ALChatManager.h"
 
+
+
 @interface BroadcastMatchVC : UIViewController<JTCalendarDelegate,UITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
@@ -48,5 +50,14 @@
 @property (strong, nonatomic) IBOutlet UIButton *teamTable;
 @property (nonatomic, strong) ALUser * CurrentALUser;
 - (IBAction)VideoHighlightsPressedButtonAction:(id)sender;
+
+
+
+//@property (nonatomic, weak) IBOutlet EZAudioPlotGL *audioPlot;
+//@property (nonatomic, strong) EZMicrophone *microphone;
+//@property (nonatomic, strong) NSArray *inputs;
+
+
+
 
 @end

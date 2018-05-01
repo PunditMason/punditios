@@ -11,7 +11,7 @@
 #import "DataManager.h"
 #import "SportsModel.h"
 #import "Constants.h"
-
+#import "CurrentUser.h"
 @interface BroadcastVC : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,UITextFieldDelegate>{
     
 }

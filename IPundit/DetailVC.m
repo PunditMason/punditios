@@ -200,8 +200,12 @@
 
 
 - (void)GetSportsList{
+    CurrentUser *currentUser = [[CurrentUser alloc] init];
+    [currentUser setupUser:[Helper mCurrentUser]];
   //  NSString *path=[NSString stringWithFormat:@"%@Game/getSportsname",KServiceBaseURL];
-   NSString *path=[NSString stringWithFormat:@"%@Game/getSports",KServiceBaseURL]; 
+  // NSString *path=[NSString stringWithFormat:@"%@Game/getSports",KServiceBaseURL];
+    NSString *path=[NSString stringWithFormat:@"%@Game/getSports/%@/",KServiceBaseURL,currentUser.mUsers_Id];
+
     
     [DM GetRequest:path parameter:nil onCompletion:^(id dict) {
         

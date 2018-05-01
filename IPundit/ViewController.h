@@ -35,6 +35,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *listenButton;
 @property (weak, nonatomic) IBOutlet UIView *broadcastButtonView;
 @property (weak, nonatomic) IBOutlet UIView *listenButtonView;
+@property (weak, nonatomic) IBOutlet UIView *mTaskBarView;
+
 @property (weak, nonatomic) IBOutlet UIImageView *broadcastButtonImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *listnerButtonImageView;
 @property (weak, nonatomic) IBOutlet UIWebView *websuvimge;
@@ -101,6 +103,9 @@
 - (IBAction)SettingsButtonPressed:(id)sender;
 - (IBAction)ProfileButtonPressed:(id)sender;
 
+
+
+@property (nonatomic,weak)IBOutlet UICollectionView *mCollectionView;
 
 
 @end

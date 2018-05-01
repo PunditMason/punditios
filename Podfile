@@ -31,6 +31,10 @@ target "IPundit" do
     pod 'DZNWebViewController'
     pod 'GoogleAnalytics'
     pod 'Branch'
+    
+    #pod 'EZAudio', '~> 1.1.4'
+    
+
     #pod 'Firebase/Core'
 
     #pod update 'Crashlytics'

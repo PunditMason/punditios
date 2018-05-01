@@ -22,6 +22,7 @@
                                                                  @"image_name": @"image_name",
                                                                  @"cover_image" : @"ios_cover_image",
                                                                  @"broadcaster_count" : @"broadcaster_count",
+                                                                 /*@"selected_league" : @"selected_league",*/
                                                                  } ];
 }
 

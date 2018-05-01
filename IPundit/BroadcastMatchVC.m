@@ -13,6 +13,14 @@
 #import "UIImageView+WebCache.h"
 #import "VideoHighlightsVC.h"
 
+#import "SCSiriWaveformView.h"
+#import <AVFoundation/AVFoundation.h>
+
+typedef NS_ENUM(NSUInteger, SCSiriWaveformViewInputType) {
+    SCSiriWaveformViewInputTypeRecorder,
+    SCSiriWaveformViewInputTypePlayer
+};
+
 @interface BroadcastMatchVC (){
     NSArray *TitalArray;
     NSMutableDictionary *mMatches_Dict;
@@ -29,12 +37,20 @@
 
 }
 
+@property (nonatomic, strong) AVAudioRecorder *recorder;
+@property (nonatomic, strong) AVAudioPlayer *player;
+@property (nonatomic, weak) IBOutlet SCSiriWaveformView *waveformView;
+@property (nonatomic, assign) SCSiriWaveformViewInputType selectedInputType;
+
 @end
 
 @implementation BroadcastMatchVC
 @synthesize mMatchArray,mMatchTableView,matchlistmodel,leaquesmodel,refreshControl;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self waveintial];
+
     self.backgroundImageView.image = DM.backgroundImage ;
     
     self.CurrentALUser = [ALChatManager getLoggedinUserInformation];
@@ -94,6 +110,105 @@
     [self GetLeaguenewsList:leaquesmodel.id datestring:[Helper Leaque_date_String]];
     //[Helper Leaque_date_String]
 }
+
+
+-(void)waveintial{
+    NSDictionary *settings = @{AVSampleRateKey:          [NSNumber numberWithFloat: 44100.0],
+                               AVFormatIDKey:            [NSNumber numberWithInt: kAudioFormatAppleLossless],
+                               AVNumberOfChannelsKey:    [NSNumber numberWithInt: 2],
+                               AVEncoderAudioQualityKey: [NSNumber numberWithInt: AVAudioQualityMin]};
+    
+    NSError *error;
+    NSURL *url = [NSURL fileURLWithPath:@"/dev/null"];
+    self.recorder = [[AVAudioRecorder alloc] initWithURL:url settings:settings error:&error];
+    
+    if(error) {
+        NSLog(@"Ups, could not create recorder %@", error);
+        return;
+    }
+   
+    self.player = [[AVAudioPlayer alloc] initWithContentsOfURL:[[NSBundle mainBundle] URLForResource:@"sample" withExtension:@"m4a"] error:&error];
+    if(error) {
+        NSLog(@"Ups, could not create player %@", error);
+        return;
+    }
+    
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
+    
+    if (error) {
+        NSLog(@"Error setting category: %@", [error description]);
+        return;
+    }
+    
+    CADisplayLink *displaylink = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateMeters)];
+    [displaylink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+    
+    [self.waveformView setWaveColor:[UIColor whiteColor]];
+    [self.waveformView setPrimaryWaveLineWidth:3.0f];
+    [self.waveformView setSecondaryWaveLineWidth:1.0];
+    
+    [self setSelectedInputType:SCSiriWaveformViewInputTypeRecorder];
+    
+    
+}
+
+
+- (void)setSelectedInputType:(SCSiriWaveformViewInputType)selectedInputType
+{
+    _selectedInputType = selectedInputType;
+    
+    switch (selectedInputType) {
+        case SCSiriWaveformViewInputTypeRecorder: {
+            [self.player stop];
+            
+            [self.recorder prepareToRecord];
+            [self.recorder setMeteringEnabled:YES];
+            [self.recorder record];
+            break;
+        }
+        case SCSiriWaveformViewInputTypePlayer: {
+            [self.recorder stop];
+            
+            [self.player prepareToPlay];
+            [self.player setMeteringEnabled:YES];
+            [self.player play];
+            break;
+        }
+    }
+}
+
+
+- (void)updateMeters
+{
+    CGFloat normalizedValue;
+    switch (self.selectedInputType) {
+        case SCSiriWaveformViewInputTypeRecorder: {
+            [self.recorder updateMeters];
+            normalizedValue = [self _normalizedPowerLevelFromDecibels:[self.recorder averagePowerForChannel:0]];
+            break;
+        }
+        case SCSiriWaveformViewInputTypePlayer: {
+            [self.player updateMeters];
+            normalizedValue = [self _normalizedPowerLevelFromDecibels:[self.player averagePowerForChannel:0]];
+            break;
+        }
+    }
+    
+    [self.waveformView updateWithLevel:normalizedValue];
+}
+
+#pragma mark - Private
+
+- (CGFloat)_normalizedPowerLevelFromDecibels:(CGFloat)decibels
+{
+    if (decibels < -60.0f || decibels == 0.0f) {
+        return 0.0f;
+    }
+    
+    return powf((powf(10.0f, 0.05f * decibels) - powf(10.0f, 0.05f * -60.0f)) * (1.0f / (1.0f - powf(10.0f, 0.05f * -60.0f))), 1.0f / 2.0f);
+}
+
+
 
 -(void)GetLeaguenewsList :(NSString *)leaqueID datestring:(NSString *)DateString{
     
@@ -637,6 +752,8 @@
     [self.navigationController pushViewController:VideoHighlightsPressedUp animated:YES];
 
 }
+
+
 
 
 

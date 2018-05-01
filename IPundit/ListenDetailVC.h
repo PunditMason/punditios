@@ -13,6 +13,8 @@
 #import "MarqueeLabel.h"
 #import "SportsModel.h"
 #import "Constants.h"
+#import "CurrentUser.h"
+#import "PoadcastVC.h"
 
 @interface ListenDetailVC : UIViewController
 @property (strong, nonatomic) IBOutlet UIButton *mXButton;

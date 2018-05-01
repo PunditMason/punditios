@@ -14,6 +14,9 @@
 #import "UIImageView+WebCache.h"
 #import "UIImage+Additions.h"
 #import "FollowersVC.h"
+#import "ManageLeaqueVC.h"
+
+
 @interface ProfileVC (){
     bool mIsPickerEnabled;
     UIImage *chosenImage;
@@ -531,6 +534,12 @@
         destinationVC.selectedUser = [[Helper mCurrentUser]objectForKey:@"id"];
         
     }
+    else if ([segue.identifier isEqualToString:@"myManageLeaqueView"]) {
+        ManageLeaqueVC *destinationVC = segue.destinationViewController;
+        destinationVC.selectedUser = [[Helper mCurrentUser]objectForKey:@"id"];
+        
+    }
+    
 }
 - (IBAction)BackButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

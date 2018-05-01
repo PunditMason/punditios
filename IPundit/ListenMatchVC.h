@@ -53,7 +53,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *teamTable;
 @property (nonatomic, strong) ALUser * CurrentALUser;
 - (IBAction)VideoHighlightsPressedButtonAction:(id)sender;
-
+- (IBAction)OtherLeagueStationPressedButtonAction:(id)sender;
 @end
 
 

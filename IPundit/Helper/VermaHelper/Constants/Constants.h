@@ -13,7 +13,8 @@
 // http://52.19.91.90/pundit-ios/
  //Local Base Urls 52.19.91.90
 
- /*
+
+/*
 
 #define KserviceBaseIconURL @"http://52.19.91.90/pundit-ios/assets/img/"
 #define kServiceBaseHomePageURL @"http://52.19.91.90/pundit-ios/v1/Game/"
@@ -27,9 +28,8 @@
 #define kStreemManagerHostIP @"54.76.147.237"
 
 
-
-
  */
+
  //Live Base Urls
 
  #define KserviceBaseIconURL @"http://punditsports.com:81/pundit-ios/assets/img/"

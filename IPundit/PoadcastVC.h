@@ -16,6 +16,8 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *mNoPoadcastAvilable;
 @property (strong, nonatomic)NSString * selectedUser;
+@property (strong, nonatomic)NSString * selectedTeam;
+@property (strong, nonatomic) IBOutlet UILabel * mTitalLable;
 
 - (IBAction)BackButtonAction:(id)sender;
 @end

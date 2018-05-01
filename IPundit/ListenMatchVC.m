@@ -17,6 +17,7 @@
 #import "ChannelListModel.h"
 #import "UIImageView+WebCache.h"
 #import "VideoHighlightsVC.h"
+#import "OtherStationVC.h"
 
 @interface ListenMatchVC ()<UIGestureRecognizerDelegate>{
     
@@ -177,7 +178,9 @@
 //}
 
 -(void)ShowSelectedDate
-{   NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
+{
+    
+    NSDateFormatter *formatter=[[NSDateFormatter alloc]init];
     [formatter setDateFormat:@"MMM YYYY"];
     self.dateSelectionTextField.text=[NSString stringWithFormat:@"%@",[formatter stringFromDate:datePicker.date]];
     
@@ -185,10 +188,9 @@
     [dateformate setDateFormat:@"yyyy-MM-dd"];
     NSString *date_String =[dateformate stringFromDate:datePicker.date];
     [self GetMatchList:date_String];
-    
     [self.calendarMa setDate:datePicker.date];
-    
     [self.dateSelectionTextField resignFirstResponder];
+
 }
 
 - (void)createMinAndMaxDate
@@ -406,13 +408,10 @@
 }
 
 
-
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"ListenMatchDetail"]) {
-        
-        
+
         ListenMatchDetailVC *destinationVC = segue.destinationViewController;
         destinationVC.ChatChannelid = ChatChannelId;
         destinationVC.channellist = channellistmodel;
@@ -536,7 +535,10 @@
 }
 
 
+
 #pragma mark - CalendarManager delegate
+
+
 
 // Exemple of implementation of prepareDayView method
 // Used to customize the appearance of dayView
@@ -658,6 +660,20 @@
     [self.navigationController pushViewController:VideoHighlightsPressedUp animated:YES];
     
 }
+
+
+- (IBAction)OtherLeagueStationPressedButtonAction:(id)sender{
+    
+    OtherStationVC *OtherStationView = [self.storyboard instantiateViewControllerWithIdentifier:@"otherstationview"];
+    
+    OtherStationView.leaqueID = leaquesmodel.id;
+    
+    
+    [self.navigationController pushViewController:OtherStationView animated:YES];
+    
+}
+
+
 
 
 @end

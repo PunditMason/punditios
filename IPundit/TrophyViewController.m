@@ -208,12 +208,16 @@
 
     DM.channelType = @"team";
     if ([DM.appFlowRef isEqualToString:@"Listen"]) {
-        self.mliveBroadcastersArray = [[self.serverResponse objectAtIndex:indexPath.row]objectForKey:@"channel"];
+        _mliveBroadcastersArray = [[_serverResponse objectAtIndex:indexPath.row]objectForKey:@"channel"];
 
         ListenMatchDetailVC *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"ListenMatchDetailVC"];
         vc.teamListenDetails = [self.serverResponse objectAtIndex:indexPath.row];
         vc.self.mrliveBroadcastersArray = _mliveBroadcastersArray;
 
+        vc.ChatChannelid = [NSString stringWithFormat:@"%@",[[_mliveBroadcastersArray objectAtIndex:0 ]valueForKey: @"chatChannelid"]];
+
+
+        
         DM.liveBroadcastersArray = [[self.serverResponse objectAtIndex:indexPath.row]objectForKey:@"channel"];
         NSLog(@"%@",DM.liveBroadcastersArray);
         [self.navigationController pushViewController:vc animated:YES];
@@ -228,10 +232,7 @@
         
         //ChannelNameObj = [NSString stringWithFormat:@"%@_%@",[[self.serverResponse objectAtIndex:indexPath.row]objectForKey:@"contestantClubName"],[[Helper mCurrentUser]objectForKey:@"id"]];
         ChannelNameObj = [NSString stringWithFormat:@"%@",[[self.serverResponse objectAtIndex:indexPath.row]objectForKey:@"contestantClubName"]];
-
-        
         ChatChannelId = [NSString stringWithFormat:@"%@",[[self.serverResponse objectAtIndex:indexPath.row]objectForKey:@"chatChannelid"]];
-        
           NSLog(@"%@",[self.serverResponse objectAtIndex:indexPath.row]);
         NSLog(@"%@",[[self.serverResponse objectAtIndex:indexPath.row]objectForKey:@"chatChannelid"]);
         NSLog(@"%@",ChatChannelId);
